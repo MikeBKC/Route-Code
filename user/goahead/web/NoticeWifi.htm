@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>Wifi Notice</title>
+<script language="JavaScript" type="text/javascript">
+//获取url参数值
+var getParam = function(name){
+	var search = document.location.search;
+	var pattern = new RegExp("[?&]"+name+"\=([^&]+)", "g");
+	var matcher = pattern.exec(search);
+	var items = null;
+
+	if(null != matcher){
+		try{
+			items = decodeURIComponent(decodeURIComponent(matcher[1]));
+		}catch(e){
+			try{
+				items = decodeURIComponent(matcher[1]);
+			}catch(e){
+				items = matcher[1];
+			}
+		}
+	}
+	return items;
+}
+function onInit()
+{
+	var url;
+	var prefix="http://";
+	url=getParam("url");
+	
+	if(url != null) {
+		if(url.indexOf("http://") < 0) {
+			url=prefix+''+url;
+		}
+		//alert(url);
+        window.location.href=url;
+	} else {
+	    window.location.href="";
+	}
+}
+</script>
+</head><body onload=onInit()></body></html>

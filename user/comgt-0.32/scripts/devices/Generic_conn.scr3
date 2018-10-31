@@ -1,0 +1,6 @@
+waitfor 10 "OK","ERR","ERROR"
+if % = -1 goto timeerror
+if % = 0 goto next3
+if % = 1 goto error
+if % = 2 goto error
+:next3

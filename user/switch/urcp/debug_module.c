@@ -1,0 +1,12 @@
+
+urcp_db_unit urcp_debug_module[] = {
+	{URCP_MODULE_ID_GLOBAL,  "global",  URCP_DB_MIN, URCP_LOG_MIN},
+	{URCP_MODULE_ID_MAIN,   "main",   URCP_DB_MIN, URCP_LOG_MIN},
+	{URCP_MODULE_ID_URCP,   "urcp",   URCP_DB_MIN, URCP_LOG_MIN},
+#ifdef FEATURE_AC
+	{URCP_MODULE_ID_HASH,   "hash",   URCP_DB_MIN, URCP_LOG_MIN},
+#endif
+	{URCP_MODULE_ID_TRAP_STA,   "trapSta",   URCP_DB_MIN, URCP_LOG_MIN},
+	{URCP_MODULE_ID_USER_LIST,   "userList",   URCP_DB_MIN, URCP_LOG_MIN},
+	{URCP_MODULE_ID_MAX,   "",   URCP_DB_MIN, URCP_LOG_MIN}
+};

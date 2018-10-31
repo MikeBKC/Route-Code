@@ -1,0 +1,7 @@
+hotel=即插即用
+hotelStart=启用即插即用
+hotelContent1=启用后，内网用户无需更改任何配置（如IP地址、网关地址、DNS服务器地址），就可以通过本设备上网；如果内网主机的IP地址与设备LAN口IP地址在同一网段，则主机的网关地址必须设置为设备LAN口的IP地址，否则无法上网。
+hotelContent2=启用后，内网IP地址相同的用户不能同时上网，且内网用户的IP地址不能与设备各接口的IP地址相同。
+hotelContent3=启用后，系统将默认开启ARP代理和DNS代理，关闭IP欺骗防御且允许未被IP/MAC绑定的主机通过。
+hotel_warn1=内网可能存在其他路由器，若使用该无线AP上网，请勿开启本设备易上网功能
+hotel_waitCheck=网络环境检测中，请稍候

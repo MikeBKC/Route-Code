@@ -1,0 +1,13 @@
+APL=AP Log
+LogManage=Log Management
+mailNotice=E-mail Alert
+senderEmail=Sender's E-mail Address
+senderEmailPasswd=Sender' E-mail Password
+receiverEmail=Receiver' E-mail Address
+smtpServer=SMTP Server
+email=E-mail
+format=Format
+emailTitle=Title
+sendSpaceTime=Sending Interval
+ApMailConfigNote=Note: It is suggested to use Gmail, hotmail mail server. For more information, refer to Help information.
+Tips=Please fill in the SMTP Server account.

@@ -1,0 +1,2 @@
+../backfire/staging_dir/host/bin/genext2fs -U -b 12000 -N 6000 -d ./x86root/ root.ext2 
+./gen_image_x86.sh /data3/wang.bingrong/brwang/x86/uttx86/ramfs.img 8 /data3/wang.bingrong/brwang/x86/uttx86/root.grub 20 root.ext2

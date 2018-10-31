@@ -1,0 +1,11 @@
+load_balance=Load Balance
+load_balance_list=Load Balance List
+load_balance_g_n=Load Balance Group Name
+number=Number
+use_incSame=This group has contained same contents.
+add_require=Please select the information you want to add.
+max_allow_num=2 to 10 APs are allowed to add in Load Balance List.
+start_load_balance=Enable load balance
+left_show=Selectable AP List
+enable=Enable
+disable=Disable

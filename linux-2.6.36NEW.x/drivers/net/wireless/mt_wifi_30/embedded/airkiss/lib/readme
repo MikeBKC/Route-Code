@@ -1,0 +1,7 @@
+内核make clean会删掉静态库文件
+但libairkiss.a没有源码
+故静态库文件在其他地方提交
+内核编译前
+make prepare会cp静态库到这里
+
+bhou

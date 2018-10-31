@@ -1,0 +1,15 @@
+nar_natRuleList=NAT規則資訊清單
+nar_natRuleInfo=NAT規則資訊
+nar_natRuleConf=NAT規則配置
+nar_ruleName=規則名
+nar_natType=NAT類型
+nar_exterIP=外部IP位址
+nar_exterFIP=外部起始IP位址
+nar_easyIPTip=內部IP位址映射到同一個外部IP位址。
+nar_one2oneTip=內部IP位址與外部IP位址進行一對一的映射。
+nar_ruleIDTip=不能使用系統保留的規則名！
+nar_cmpIPTip=開始位址不能大於結束位址。
+nar_bind=綁定
+nar_modiTip=系統預設的規則不能修改！
+nar_delTip=系統預設的規則不能刪除！
+

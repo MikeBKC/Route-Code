@@ -1,0 +1,39 @@
+#!/bin/sh
+sleep 3
+mount -a
+mkdir -p /var/run
+#makedevlinks.sh
+mkdir /tmp/ddns
+mkdir /etc/ppp
+mkdir -p /tmp/urcp/images
+mkdir -p /tmp/urcp/ap_configs
+initdev.sh
+cat /etc_ro/motd
+touch /etc/utt-speedmsg
+touch /etc/utt-nvramshm
+touch /tmp/uttMsgforRoute
+touch /tmp/uttshmfornvram
+touch /tmp/uttPppoeSrvMsg
+touch /tmp/uttSemForSpeedweb
+touch /tmp/uttMsgforCwmp
+speedweb&
+nvram_daemon&
+turbo&
+date -s 010100002011
+sleep 3
+#goahead&
+#init_system start
+
+#for telnet debugging
+telnetd
+
+#for crond
+cron-init.sh
+
+#for syslogd
+mkdir -p /var/log
+
+#for cpe_app
+#ln -s /etc_ro/init.d /etc/init.d
+#ln -s /etc_ro/cron /etc/cron
+

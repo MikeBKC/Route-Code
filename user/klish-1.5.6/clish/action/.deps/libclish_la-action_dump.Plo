@@ -1,0 +1,18 @@
+clish/action/libclish_la-action_dump.lo \
+  clish/action/libclish_la-action_dump.o: clish/action/action_dump.c \
+  ./lub/dump.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h \
+  clish/action/private.h ./clish/action.h ./lub/bintree.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h
+
+./lub/dump.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h:
+
+clish/action/private.h:
+
+./clish/action.h:
+
+./lub/bintree.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h:

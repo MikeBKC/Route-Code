@@ -1,0 +1,6 @@
+auth_input=Authentication is required. Please enter your user name and password.
+auth_tip=Note: Please allow pop-up from this website. Otherwise, you may be unable to access the Internet.
+auth_success=Authentication succeeded
+auth_fail=Authentication failed
+auth_enter=Login
+

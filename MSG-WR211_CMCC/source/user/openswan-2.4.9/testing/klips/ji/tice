@@ -1,0 +1,49 @@
+#!/bin/sh
+#
+# RCSID $Id: tice,v 1.1.1.1 2011/08/17 11:10:45 brwang Exp $
+#
+# This script is OBSOLETE -- rgb, May 6th, 1998
+
+tncfg attach ipsec0 eth0
+ifconfig ipsec0 10.2.0.139 netmask 255.255.0.0
+route add -net 10.1.0.0 netmask 255.255.0.0 dev ipsec0
+
+# forward path
+
+../utils/addrt 10.3.0.0 255.255.0.0 10.1.0.0 255.255.0.0 10.2.0.143 113
+echo sleeping after addrt
+sleep 1
+
+../utils/setsa 10.2.0.143 113 ip4 10.2.0.139 10.2.0.143
+../utils/setsa 10.2.0.143 115 esp des-cbc 66306630 6630663066303132
+../utils/setsa 10.2.0.143 116 ah md5 66306630663031326630663066303132
+
+../utils/spigrp 10.2.0.143 113 10.2.0.143 115 10.2.0.143 116
+
+# return path
+
+../utils/setsa 10.2.0.139 105 esp des-cbc 66306630 6630663066303132
+../utils/setsa 10.2.0.139 106 ah md5 66306630663031326630663066303132
+
+#
+# $Log: tice,v $
+# Revision 1.1.1.1  2011/08/17 11:10:45  brwang
+# 3520G start
+#
+# Revision 1.1.1.1  2011/03/15 05:24:29  lei.minghuan
+# import ralink
+#
+# Revision 1.1.1.1  2009/12/14 12:44:48  brwang
+# ralink wlan
+#
+# Revision 1.1.1.1  2007-10-08 08:01:05  steven
+#
+#
+# Revision 1.4  2002/04/24 07:36:18  mcr
+# Moved from ./klips/test/ji/tice,v
+#
+# Revision 1.3  1999/04/06 04:54:35  rgb
+# Fix/Add RCSID Id: and Log: bits to make PHMDs happy.  This includes
+# patch shell fixes.
+#
+#

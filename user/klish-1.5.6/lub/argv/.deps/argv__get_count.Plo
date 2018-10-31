@@ -1,0 +1,14 @@
+lub/argv/argv__get_count.lo lub/argv/argv__get_count.o:  \
+ lub/argv/argv__get_count.c lub/argv/private.h ./lub/argv.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h \
+  ./lub/c_decl.h ./lub/types.h
+
+lub/argv/private.h:
+
+./lub/argv.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h:
+
+./lub/c_decl.h:
+
+./lub/types.h:

@@ -1,0 +1,6 @@
+diag_testing=Diagnostic testing
+diag_warn1=Not legal address, please input again!
+diag_warn2=Detection of address can't be empty!
+diag_IPHost=IP address/   Host name
+diag_result=Diagnosis Result
+diag_ping=Ping

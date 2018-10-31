@@ -1,0 +1,158 @@
+.style1 {color: #000000}
+.style2 {font-size: 14px;color: #000000;font-weight: bold;}
+.style3 {color: #1899CE}
+.style4 {font-weight: bold;color: #FFFFFF;}
+.style5 {color: #008893;font-size:12px;}
+.style6 {color: #3F3B3A}
+.style7{ border-top:#408080 1px solid;border-bottom:#408080 1px solid; border-left:#408080 1px solid; border-right:#408080 1px solid; background-color:#ffffff;}
+.style8 {color: #FFFFFF}
+.style9 {color: #0000FF}
+.style18 {background-color:#EFEFF0}
+.style21 {background-color: #008893}
+table.style22 {background-color: #008893;}
+table.style22 tr{background-color:#ffffff; }
+table.style22 tr.style18{background-color:#EFEFF0; }
+.gapTd { padding:0px 10px}
+
+.styleDiv {border:1px solid #adafae;color:#666666;FONT-FAMILY: "Arial", "Helvetica", "sans-serif";FONT-SIZE: 12px;SCROLLBAR-FACE-COLOR: #ffffff; FONT-SIZE: 12px; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff;  #b8daa8 1px solid; SCROLLBAR-SHADOW-COLOR: #ffffff; LINE-HEIGHT: 20px; SCROLLBAR-ARROW-COLOR: #408080; SCROLLBAR-TRACK-COLOR: #ffffff; SCROLLBAR-DARKSHADOW-COLOR: #408080; SCROLLBAR-BASE-COLOR: #408080;border:1px solid #408080; overflow:auto;height:100px;width:548px}
+BODY {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #3F3B3A; FONT-FAMILY: Arial, Helvetica, sans-serif;SCROLLBAR-FACE-COLOR: #ffffff;  SCROLLBAR-HIGHLIGHT-COLOR: #c1c1bb; SCROLLBAR-SHADOW-COLOR: #c1c1bb; SCROLLBAR-3DLIGHT-COLOR: #ebebe4; SCROLLBAR-ARROW-COLOR: #cacab7; SCROLLBAR-TRACK-COLOR: #f4f4f0; SCROLLBAR-DARKSHADOW-COLOR: #ebebe4
+}
+
+
+body {
+/*	background-attachment:fixed;*/
+	background-repeat:repeat-x;
+	background-color:#ffffff;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+iframe{ background-color:#ffffff;}
+DIV {FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: Arial, Helvetica, sans-serif}
+P {FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: Arial, Helvetica, sans-serif}
+.linehight{line-height:18px}
+TH {FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: Arial, Helvetica, sans-serif}
+TD {FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #3F3B3A; FONT-FAMILY: Arial, Helvetica, sans-serif}
+IMG {BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px}
+.anav:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.anav:active {
+	FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.anav:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.anav:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: underline
+}
+.input{ border:1px solid #adafae; color:#666666;FONT-FAMILY: "Arial", "Helvetica", "sans-serif";FONT-SIZE: 12px;}
+.input-checkbox{}
+.input2{border-left:none;border-right:none;border-top:none;border-bottom:1px solid #adafae;color:#9b9b9b;FONT-FAMILY: "Arial", "Helvetica", "sans-serif";FONT-SIZE: 12px;FONT-COLOR:#9B9B9B}
+.input3{border-left:none;border-right:none;border-top:none;border-bottom:none;color:#333333;FONT-FAMILY: "Arial", "Helvetica", "sans-serif";FONT-SIZE: 12px;FONT-COLOR:#333333}
+.time{border-left:none;border-right:none;border-top:none;border-bottom:1px solid #666666;color:#666666;FONT-FAMILY: "Arial", "Helvetica", "sans-serif";FONT-SIZE: 12px;FONT-COLOR:#9B9B9B;width:15px}
+
+.ablack:link {
+	FONT-SIZE: 12px; COLOR: #008893; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.ablack:active {
+	FONT-SIZE: 12px; COLOR: #008893; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.ablack:visited {
+	FONT-SIZE: 12px; COLOR: #008893; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.ablack:hover {
+	FONT-SIZE: 12px; COLOR: #008893; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: underline
+}
+.ablacks:link {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.ablacks:active {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.ablacks:visited {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.ablacks:hover {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: underline
+}
+
+.ablackwithoutline:link {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.ablackwithoutline:active {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.ablackwithoutline:visited {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.ablackwithoutline:hover {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.agray:link {
+	FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.alink:link {
+	FONT-SIZE: 12px; COLOR: #2A1FFF; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.alink:active {
+	FONT-SIZE: 12px; COLOR: #2A1FFF; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.alink:visited {
+	FONT-SIZE: 12px; COLOR: #2A1FFF; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.alink:hover {
+	FONT-SIZE: 12px; COLOR: #2A1FFF; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: underline
+}
+.agray:link {
+	FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.agray:active {
+	FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.agray:visited {
+	FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.agray:hover {
+	FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: underline
+}
+.ablack:active {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.ablack:visited {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.ablack:hover {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: underline
+}
+.ahelp:link {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.ahelp:active {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.ahelp:visited {
+	FONT-SIZE: 12px; COLOR: #800080; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: none
+}
+.ahelp:hover {
+	FONT-SIZE: 12px; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "sans-serif"; TEXT-DECORATION: underline
+}
+SELECT.list {
+	BORDER-RIGHT: #183ead 1px solid; BORDER-TOP: #183ead 1px solid; FONT-WEIGHT: normal; FONT-SIZE: 12px; BORDER-LEFT: #183ead 1px solid; COLOR: #000000; LINE-HEIGHT: normal; BORDER-BOTTOM: #183ead 1px solid; FONT-STYLE: normal; HEIGHT: 18px; FONT-VARIANT: normal
+}
+.input-button {
+	/*BORDER-RIGHT: #008893 1px solid; BORDER-TOP: #008893 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #008893 1px solid; COLOR: #3F3B3A; BORDER-BOTTOM: #008893 1px solid; FONT-FAMILY: Verdana; HEIGHT: 17px; BACKGROUND-COLOR: #EFEFF0;border-width: thin thin  thin  thin; border-color: #008893 #008893 #008893 #008893;*/ COLOR: #3F3B3A;  FONT-FAMILY: Verdana; HEIGHT: 20px; FONT-SIZE: 11px;FONT-FAMILY: Verdana; padding-top:1 
+}
+.input-text{BORDER-RIGHT: #008893 1px solid; BORDER-TOP: #008893 1px solid;  BORDER-LEFT: #008893 1px solid;  BORDER-BOTTOM: #008893 1px solid; }
+.title2{ font-size:14px; color:#ffffff}
+.navi_title_span_click {
+	FONT: 14px;FONT-FAMILY:幼圆,Arial, Helvetica, sans-serif MARGIN-LEFT: 4px; CURSOR: pointer; COLOR: #ffffff
+}
+.three_top{border-top:#408080 1px solid; background-color:#FFFFFF}
+.three_bottom{border-bottom:#408080 1px solid;}
+.three_both{border-bottom:#408080 1px solid;border-top:#408080 1px solid; background-color:#FFFFFF}
+.three_td{ border-bottom:#408080 1px solid; border-left:#408080 1px solid; border-right:#408080 1px solid; background-color:#ffffff}
+.table_bg{ background:url(../images/table_main.png); background-repeat:repeat-x;}
+.helpfont{font-size:11px; color: #666666}

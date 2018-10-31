@@ -1,0 +1,7 @@
+CacheServerEn=启用云服务
+CacheServerIp=云服务器地址
+CacheServerPort=云服务器端口
+CacheServerDomainLen=IP地址不得超过超过67位
+CacheServerPortNum=端口应为1到65535之间的数字
+CacheServerIpNotNone=云服务器的地址不能为0.0.0.0
+

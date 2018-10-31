@@ -1,0 +1,9 @@
+name=User Name
+poolVid=VID
+ipaddr=IP Address
+macaddr=MAC Address
+staticDhcp=Static DHCP
+dhcppool=DHCP Address Pool
+staticDHCPTips=Static DHCP, i.e., DHCP manual binding, allows you to manually bind an IP address to a PC..s MAC address and thus that PC will always obtain the same IP address from the DHCP server.
+staticDhcpAtt=注意：DHCP地址池所绑定的MAC地址只允许在所绑定的DHCP地址池使用
+maxConfigTips=Maximum number of entries has been reached. Cannot add new entry.

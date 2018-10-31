@@ -1,0 +1,6 @@
+editIpTip=After you change the IP address, you need to re-login to the Device using the new address. 
+lan_advance=Advanced Options
+lan_advanceTip=(IP Address 2,IP Address 3,IP Address 4.)
+lan_openDNS=Enable DNS Proxy
+lan_deal=Conflict Detect and Repair
+lan_domain=Domain Access

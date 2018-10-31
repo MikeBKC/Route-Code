@@ -1,0 +1,20 @@
+dns_delTip=您的選擇有誤，請選擇正確的功能變數名稱！
+dns_domain=功能變數名稱名稱
+dns_dnsFilter=功能變數名稱過濾
+dns_dnsFilterConfig=域名过滤配置
+dns_dnsFilterNotice=域名过滤通告
+dns_start=啟用功能變數名稱過濾
+dns_startTip=打勾表示啟用功能變數名稱過濾功能，只有啟用功能變數名稱過濾，配置的功能變數名稱過濾才生效。
+dns_effectWay=策略生效方式
+dns_accept=只禁止功能變數名稱列表中的功能變數名稱，其餘允許
+dns_forbiden=只允許功能變數名稱列表中的功能變數名稱，其餘禁止
+dns_netAction=選擇管理物件
+dns_effectTime=生效時段
+dns_allTime=所有时段
+dns_dnsTip=功能變數名稱名稱中輸入萬用字元“*”來實現對多個功能變數名稱的過濾，例如在功能變數名稱名稱中輸入 www.163.*  ，<br/>內網用戶將不能訪問以  www.163.  開頭的所有網頁。
+dns_dnsList=功能變數名稱列表
+dns_addTip=沒有空閒實例可增加！！
+dns_existTip=功能變數名稱名稱已經存在，請重新輸入!
+dns_include=只能由數位、字母、-、.和*組成
+dns_delete=您真的要刪除所有功能變數名稱？
+

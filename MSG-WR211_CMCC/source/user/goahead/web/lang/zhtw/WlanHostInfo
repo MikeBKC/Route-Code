@@ -1,0 +1,17 @@
+WirelessHostStat=無線主機狀態
+WirelessHostSList=無線主機狀態資訊清單
+ID=ID
+MACAddr=MAC地址
+Filter=過濾
+ChannelBand=頻道頻寬
+CancelFilter=取消過濾
+ConfirmStr1=你真的要
+ConfirmStr2=該MAC地址嗎？
+ShowMsg0=過濾：
+ShowMsg=當核取方塊未被選中時，您可以選中它，將當前MAC位址添加到MAC地址過濾表中：反之，當核取方塊已被選中時，您可以將當前MAC位址從過濾表中刪除。
+ShowMsg1=全部過濾：
+ShowMsg2=將當前狀態表中所有無線主機的MAC位址添加到MAC地址過濾表中。
+FilterAll=全部過濾
+SecondTitle=無線主機狀態
+
+

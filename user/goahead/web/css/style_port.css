@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+/* LANs */
+#lans_list{ width: 90px; height: 30px; position: absolute; margin-top: 159px; margin-left: 450px;}
+#lans_list .offline{ width: 36px; height: 28px; display: block; float: left; margin-right: 16px;}
+#lans_list #wan{ background-image: url(../images_Sui/wanimg.png);width:23px; background-repeat: no-repeat; background-position: 0px 0px; margin-left:182px; margin-top:218px; }
+#lans_list #lan1{ margin-right: 0;margin-left:52px; margin-top:-26px;width:23px; background-image: url(../images_Sui/disconnectlan.png); background-repeat: no-repeat;}
+
+#lans_list #lan2{ margin-right: 0;margin-left:76px; margin-top:-28px; width:23px; background-image: url(../images_Sui/disconnectlan.png); background-repeat: no-repeat;}
+#lans_list #lan3{ margin-right: 0;margin-left:101px; margin-top:-28px; width:23px; background-image: url(../images_Sui/disconnectlan.png); background-repeat: no-repeat;}
+#lans_list #lan4{ margin-right: 0;margin-left:125px; margin-top:-28px; width:23px; background-image: url(../images_Sui/disconnectlan.png); background-repeat: no-repeat;}
+.lightning{ background-image: url(../images_Sui/lightning.png); background-repeat: no-repeat;}

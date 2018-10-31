@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+/* LANs */
+#lans_list{ width: 90px; height: 30px; position: absolute; margin-top: 159px; margin-left: 450px;}
+#lans_list .offline{ width: 36px; height: 28px; display: block; float: left; margin-right: 16px;background-repeat: no-repeat;}
+#lans_list #wan{ background-image: url(../images_Sui/wanimg.png);width:23px; background-repeat: no-repeat; background-position: 0px 0px; margin-left:216px; margin-top:247px; }
+
+#lans_list #lan3{ margin-right: 0;margin-left:175px; margin-top:-28px; width:16px; background-image: url(../images_Sui/disconnectlan.png); background-repeat: no-repeat;}
+#lans_list #lan4{ margin-right: 0;margin-left:194px; margin-top:-28px; width:16px; background-image: url(../images_Sui/disconnectlan.png); background-repeat: no-repeat;}
+.lightning{ background-image: url(../images_Sui/lightning.png); background-repeat: no-repeat;}
+#devices {
+	margin-left: 180px!important;
+}
+
+#devices{ height: 27px; line-height: 27px; position: absolute; margin-top:257px; margin-left: 220px; overflow: hidden; padding: 5px 10px;}
+#devices a{ color: #fff; font-size: 13px; width: 193px; height: 36px; line-height: 36px; display: block; padding-left: 78px; text-align: left;}
+#devices a em{ font-style: normal; color: yellow; padding: 0 5px;}
+#devices a span{ float: right; margin-right: 5px; font-size: 10px;}
+#devices a:hover{ color: #D4F1FF;}

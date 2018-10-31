@@ -1,0 +1,6 @@
+netMode=网络模式
+nat=NAT模式
+route=路由模式
+gateway=网关模式
+bridge=桥模式
+rebootTips=注意：切换过程中会进行重启。

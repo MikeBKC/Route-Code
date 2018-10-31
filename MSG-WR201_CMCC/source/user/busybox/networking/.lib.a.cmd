@@ -1,0 +1,1 @@
+cmd_networking/lib.a := rm -f networking/lib.a; /opt/buildroot-gcc342/bin/mipsel-linux-uclibc-ar  rcs networking/lib.a networking/arp.o networking/arping.o networking/brctl.o networking/ftpgetput.o networking/hostname.o networking/ifconfig.o networking/interface.o networking/ping.o networking/route.o networking/telnetd.o networking/tftp.o networking/vconfig.o networking/wget.o

@@ -1,0 +1,12 @@
+ppg_ipAlert=PPPoE start IP address and LAN IP address must be on different subnets.
+ppg_maxNum=Maximum Sessions
+ppg_start=Enable PPPoE Server
+ppg_startTip=To make PPPoE server settings take effect, select the check box to enable PPPoE server.
+ppg_pppoeSet=Mandatory PPPoE Authentication
+ppg_except=Exception Group
+ppg_none=None
+ppg_dnsTip=You can find DNS server addresses in Start > Interface Status page.
+ppg_pwdMod=Allow Users to Change Password
+ppg_session=Maximum Sessions
+ppg_ipTip=Start IP address cannot be 0.0.0.0
+

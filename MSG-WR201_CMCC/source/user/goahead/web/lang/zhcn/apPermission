@@ -1,0 +1,17 @@
+allow=允许
+forbid=禁止
+APpermissions=AP权限
+permissions=权限
+serialNum=序列号
+name=名称
+dfaultPermissions=默认权限
+power=权限
+beginSN=起始序列号
+endSN=结束序列号
+action=权限
+list=列表
+scan=扫描
+APAdmin=AP管理
+admin=管理
+designation=名称
+method=方式

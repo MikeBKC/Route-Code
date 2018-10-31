@@ -1,0 +1,97 @@
+sg_lib.o sg_lib.o: ../lib/sg_lib.c \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/stdio.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/features.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/uClibc_config.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/sys/cdefs.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/types.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/kernel_types.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/wordsize.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/pthreadtypes.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/sched.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/uClibc_stdio.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/wchar.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/wchar.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/stdio_lim.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/stdlib.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/sys/types.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/time.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/endian.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/endian.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/sys/select.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/select.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/sigset.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/time.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/sys/sysmacros.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/alloca.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/string.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/ctype.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/uClibc_touplow.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/inttypes.h \
+  /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/stdint.h \
+  ../include/sg_lib.h
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/stdio.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/features.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/uClibc_config.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/sys/cdefs.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/types.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/kernel_types.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/wordsize.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/pthreadtypes.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/sched.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/uClibc_stdio.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/wchar.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/wchar.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/stdio_lim.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/stdlib.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/sys/types.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/time.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/endian.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/endian.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/sys/select.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/select.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/sigset.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/time.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/sys/sysmacros.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/alloca.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/string.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/ctype.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/bits/uClibc_touplow.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/inttypes.h:
+
+/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/lib/include/stdint.h:
+
+../include/sg_lib.h:

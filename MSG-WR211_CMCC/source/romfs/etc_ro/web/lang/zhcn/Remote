@@ -1,0 +1,13 @@
+OutPort=外部端口
+Remote=远程管理
+SUHTTP=启用Http
+SUHTTPMessage=设备将允许外部通过WEB进行管理。通过管理时以“IP 地址：端口”的方式访问。
+Connector=接口
+Attention=注意
+AttMessage=为了您的网络安全，一般情况不要打开远程管理功能。
+RYear=年
+RMou=月
+RDay=日
+rou_open=开启远程管理 
+rou_dealPort=远程管理端口
+rou_warn=开启远程管理后设备将允许主机"http://外网地址:端口"的方式登录设备并进行管理

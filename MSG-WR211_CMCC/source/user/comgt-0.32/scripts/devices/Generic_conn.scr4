@@ -1,0 +1,14 @@
+waitfor 20 "CONNECT","ERR","ERROR"
+if % = -1 goto timeerror
+if % = 0 goto next4
+if % = 1 goto error
+if % = 2 goto error
+:next4
+print "CONNECTED\n"
+exit 0
+:error
+print "CONNECT ERROR\n"
+exit 1
+:timeerror
+print "CONNECT TIMEOUT\n"
+exit 1

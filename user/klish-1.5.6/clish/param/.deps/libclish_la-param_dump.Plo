@@ -1,0 +1,56 @@
+clish/param/libclish_la-param_dump.lo \
+  clish/param/libclish_la-param_dump.o: clish/param/param_dump.c \
+  clish/param/private.h ./clish/param.h ./clish/types.h ./lub/c_decl.h \
+  ./lub/argv.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h \
+  ./lub/c_decl.h ./lub/types.h ./clish/ptype.h ./lub/types.h \
+  ./lub/bintree.h ./clish/pargv.h ./clish/command.h ./clish/view.h \
+  ./clish/nspace.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/regex.h \
+  ./clish/var.h ./clish/action.h ./clish/param.h ./clish/config.h \
+  ./lub/dump.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h
+
+clish/param/private.h:
+
+./clish/param.h:
+
+./clish/types.h:
+
+./lub/c_decl.h:
+
+./lub/argv.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h:
+
+./lub/c_decl.h:
+
+./lub/types.h:
+
+./clish/ptype.h:
+
+./lub/types.h:
+
+./lub/bintree.h:
+
+./clish/pargv.h:
+
+./clish/command.h:
+
+./clish/view.h:
+
+./clish/nspace.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/regex.h:
+
+./clish/var.h:
+
+./clish/action.h:
+
+./clish/param.h:
+
+./clish/config.h:
+
+./lub/dump.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h:

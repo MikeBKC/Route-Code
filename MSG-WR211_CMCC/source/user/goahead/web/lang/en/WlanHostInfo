@@ -1,0 +1,15 @@
+WirelessHostStat=Wireless Client Status
+WirelessHostSList=Wireless Client Status List
+ID=ID
+MACAddr=MAC Address
+Filter=Filter
+ChannelBand=Channel Width
+CancelFilter=stop filtering
+ConfirmStr1=Are you sure you want to
+ConfirmStr2=the MAC address?
+ShowMsg0=Filter: 
+ShowMsg=If the check box is cleared, you can select it to add the MAC address to MAC Address Filtering List; else, you can clear it to remove the MAC address from the filtering list.
+ShowMsg1=Filter All:
+ShowMsg2=Click to add all MAC addresses to MAC Address Filtering List.
+FilterAll=Filter All
+SecondTitle=Wireless Client Status

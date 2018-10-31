@@ -1,0 +1,24 @@
+clish/var/libclish_la-var_dump.lo clish/var/libclish_la-var_dump.o:  \
+ clish/var/var_dump.c ./lub/dump.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h \
+  ./clish/action.h ./lub/bintree.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h \
+  clish/var/private.h ./clish/var.h ./lub/types.h ./clish/action.h
+
+./lub/dump.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h:
+
+./clish/action.h:
+
+./lub/bintree.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h:
+
+clish/var/private.h:
+
+./clish/var.h:
+
+./lub/types.h:
+
+./clish/action.h:

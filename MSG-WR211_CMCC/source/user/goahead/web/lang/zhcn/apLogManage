@@ -1,0 +1,7 @@
+APL=AP日志
+LogManage=日志管理
+mailNotice=日志发送
+SelectA=全选/全不选
+APLinkLog=启用AP上下线日志
+APUserLog=启用AP客户端上下线日志
+APUserNumLog=启用AP客户端数量告警日志

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLISH_MODULE xmlns="http://clish.sourceforge.net/XMLSchema" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xsi:schemaLocation="http://clish.sourceforge.net/XMLSchema
+                     http://clish.sourceforge.net/XMLSchema/clish.xsd">
+	<!--=======================================================-->
+
+<VIEW name="enable-view">
+
+<!-- Show nat information -->
+
+	<COMMAND name="show ip nat"
+		help="IP NAT information"/>
+
+	<COMMAND name="show ip nat translations"
+		help="Translation entries">
+		<ACTION>cat /proc/net/nf_conntrack</ACTION>
+	</COMMAND>
+
+</VIEW>
+
+
+<VIEW name="configure-view">
+
+<!-- ip nat commands -->
+
+	<COMMAND name="ip nat"
+		help="NAT configuration commands"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+
+	<COMMAND name="ip nat inside"
+		help="Inside address translation"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+
+	<COMMAND name="ip nat inside source"
+		help="Source address translation"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+
+	<COMMAND name="ip nat inside source static"
+		help="Specify static local->global mapping"
+		optional="true"
+		ptype="SUBCOMMAND"
+		mode="switch">
+		<PARAM name="proto"
+			help="Protocol to use"
+			optional="true"
+			mode="switch"
+			ptype="SUBCOMMAND">
+			<PARAM name="tcp"
+				help="Transmission Control Protocol"
+				ptype="SUBCOMMAND"
+				mode="subcommand"/>
+			<PARAM name="udp"
+				help="User Datagram Protocol"
+				ptype="SUBCOMMAND"
+				mode="subcommand"/>
+		</PARAM>
+		<PARAM name="sip"
+			help="Inside local IP address"
+			ptype="IP_ADDR">
+			<PARAM name="sport"
+				help="Global UDP/TCP port"
+				ptype="PORT">
+				<!--
+				<PARAM name="dip"
+					help="Inside global IP address"
+					ptype="IP_ADDR">
+					<PARAM name="dport"
+						help="Local UDP/TCP port"
+						ptype="PORT">
+						<PARAM name="extendable"
+							help="Extend this translation when used"
+							ptype="SUBCOMMAND"
+							mode="subcommand"/>
+					</PARAM>	
+				</PARAM>	
+				-->
+				<PARAM name="interface"
+					help="Specify interface for global address"
+					ptype="SUBCOMMAND"
+					mode="subcommand">
+					<PARAM name="FastEthernet"
+						help="FastEthernet IEEE 802.3"
+						ptype="SUBCOMMAND"
+						mode="subcommand">
+						<PARAM name="WanNum"
+							help="interface number"
+							ptype="IFACE_NUM">
+							<PARAM name="WanPort"
+								help="Local UDP/TCP port"
+								ptype="PORT"/>
+						</PARAM>	
+					</PARAM>	
+				</PARAM>
+			</PARAM>
+		</PARAM>	
+		<ACTION builtin="clish_nat_static"/>
+	</COMMAND>
+
+        <COMMAND name="no ip nat"
+		help="NAT configuration commands"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+
+	<COMMAND name="no ip nat inside"
+		help="Inside address translation"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+
+	<COMMAND name="no ip nat inside source"
+		help="Source address translation"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+
+	<COMMAND name="no ip nat inside source static"
+		help="Specify static local->global mapping">
+		<PARAM name="proto"
+			help="Protocol to use"
+			optional="true"
+			mode="switch"
+			ptype="SUBCOMMAND">
+			<PARAM name="tcp"
+				help="Transmission Control Protocol"
+				ptype="SUBCOMMAND"
+				mode="subcommand"/>
+			<PARAM name="udp"
+				help="User Datagram Protocol"
+				ptype="SUBCOMMAND"
+				mode="subcommand"/>
+		</PARAM>
+		<PARAM name="sip"
+			help="Inside local IP address"
+			ptype="IP_ADDR">
+			<PARAM name="sport"
+				help="Global UDP/TCP port"
+				ptype="PORT">
+				<!--
+				<PARAM name="dip"
+					help="Inside global IP address"
+					ptype="IP_ADDR">
+					<PARAM name="dport"
+						help="Local UDP/TCP port"
+						ptype="PORT">
+						<PARAM name="extendable"
+							help="Extend this translation when used"
+							ptype="SUBCOMMAND"
+							mode="subcommand"/>
+					</PARAM>	
+				</PARAM>	
+				-->
+				<PARAM name="interface"
+					help="Specify interface for global address"
+					ptype="SUBCOMMAND"
+					mode="subcommand">
+					<PARAM name="FastEthernet"
+						help="FastEthernet IEEE 802.3"
+						ptype="SUBCOMMAND"
+						mode="subcommand">
+						<PARAM name="WanNum"
+							help="interface number"
+							ptype="IFACE_NUM">
+							<PARAM name="WanPort"
+								help="Local UDP/TCP port"
+								ptype="PORT"/>
+						</PARAM>	
+					</PARAM>	
+				</PARAM>
+			</PARAM>
+		</PARAM>	
+		<ACTION builtin="clish_no_nat_static"/>
+	</COMMAND>
+
+
+	<!--
+	<COMMAND name="ip nat outside"
+		help="Outside address translation"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	-->
+
+</VIEW>
+
+</CLISH_MODULE>

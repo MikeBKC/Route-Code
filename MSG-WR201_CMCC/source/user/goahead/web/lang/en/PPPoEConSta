@@ -1,0 +1,7 @@
+ppc_list=PPPoE User Status List
+ppc_oltime=Online Time
+ppc_uprate=Tx Rate (KByte/s)
+ppc_downrate=Rx Rate (KByte/s)
+ppc_sessionid=Session ID
+ppc_hungupinfo=PPPoE User Status Information
+HangupErrMes=Please select PPPoE user information record, and then hang up the link! 

@@ -1,0 +1,13 @@
+mf_MacFilter=MAC Address Filtering
+mf_Allow=Only allow MAC address in the list to access the Internet
+mf_Forbid=Only block MAC address in the list to access the Internet
+mf_List=MAC Address Filtering List
+mf_Config=MAC Address Filtering
+mf_helpOne=One or more MAC addresses can be added into the text box on this page. The text box can be edited by paste, copy, delete and so on.
+mf_helpTwo=When you add the MAC addresses, the format is" MAC [space] user name". For example: 0022aaafcdb3  David;
+mf_helpThree=Please notice that there are one or more spaces between MAC and user name.
+mac_filtList=MAC Filter List
+mac_openFilt=Enable MAC Filter
+mac_whiteList=White List: Only allow MAC listed below
+mac_blackList=Black List: Only block MAC listed below
+mac_setFilt= MAC Filter

@@ -1,0 +1,22 @@
+lub/bintree/bintree_remove.lo lub/bintree/bintree_remove.o:  \
+ lub/bintree/bintree_remove.c \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/assert.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/features.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/uClibc_config.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/sys/cdefs.h \
+  lub/bintree/private.h ./lub/bintree.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/assert.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/features.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/uClibc_config.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/sys/cdefs.h:
+
+lub/bintree/private.h:
+
+./lub/bintree.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h:

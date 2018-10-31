@@ -1,0 +1,39 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+#mount -t sysfs sysfs /sys
+#mount -t proc none /proc
+#echo /sbin/mdev > /proc/sys/kernel/hotplug
+#mdev -s
+#mount -t devpts devpts /dev/pts
+#mkdir /ff
+#mount -t ext2 /dev/sda2 /ff
+#insmod /lib/r8168.ko
+
+#initdev.sh
+echo 0 >/var/run/Wan1link.status
+echo 0 >/var/run/Wan2link.status
+mkdir /tmp/ddns
+mkdir /var/run -p
+
+ifconfig
+internet.sh
+cat /etc_ro/motd
+touch /tmp/uttMsgforRoute
+touch /tmp/uttshmfornvram
+touch /tmp/uttPppoeSrvMsg
+touch /tmp/uttSemForSpeedweb
+touch /tmp/uttMsgforCwmp
+telnetd&
+#speedweb&
+#nvram_daemon&
+sleep 3
+#goahead&
+
+#cron-init.sh
+
+#mkdir -p /var/log
+
+#/ff/utt/userShell > null 2>&1
+
+#exit 0

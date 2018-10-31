@@ -1,0 +1,9 @@
+name=用户名
+poolVid=VID
+ipaddr=IP地址
+macaddr=MAC地址
+staticDhcp=静态DHCP
+dhcppool=DHCP地址池列表
+staticDHCPTips=静态DHCP：即DHCP手工绑定，通过计算机的MAC地址与某个IP地址绑定，从而为局域网中指定的MAC地址固定分配预设的IP地址。
+staticDhcpAtt=注意：DHCP地址池所绑定的MAC地址只允许在所绑定的DHCP地址池使用
+maxConfigTips=配置已经达到最大条数,不能添加新配置

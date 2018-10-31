@@ -1,0 +1,15 @@
+outSoft=Distribute Firmware List
+chooseSoft1=Selected
+softName=Firmware Name
+softVersion=Firmware
+suitType=AP Model
+hardVersion=Hardware
+softSize=Size
+APRemoteMG=Remote AP Management
+continueTips=After distribution is complete, you need to restart the AP for the new firmware to take effect. Do you want to continue?
+chooseFile=Please select an entry from the list.
+UnitOutSoft=Remote AP Management - Distribute Firmware
+lawfull=Operation succeeded.
+failTips=Operation failed.
+sureout=Distribute
+

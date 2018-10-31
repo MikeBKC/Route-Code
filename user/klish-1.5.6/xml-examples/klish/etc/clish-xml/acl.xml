@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLISH_MODULE xmlns="http://clish.sourceforge.net/XMLSchema" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xsi:schemaLocation="http://clish.sourceforge.net/XMLSchema
+                     http://clish.sourceforge.net/XMLSchema/clish.xsd">
+	<!--=======================================================-->
+
+<VIEW name="configure-view">
+
+<!-- access-list commands -->
+
+    <COMMAND name="access-list"
+	help="Add an access list entry"
+	mode="subcommand">
+	<PARAM name="policyname"
+	    help="Policy name"
+	    ptype="STRING"/>
+	<PARAM name="switch"
+	    help="Open or close"
+	    ptype="SUBCOMMAND"
+	    mode="switch">
+	    <PARAM name="close"
+		help="Policy is noneffective until be modify for open"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="open"
+		help="Policy will take effect soon"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	</PARAM>
+	<PARAM name="action"
+	    help="permit or deny"
+	    ptype="SUBCOMMAND"
+	    mode="switch">
+	    <PARAM name="deny"
+		help="Specify packets to reject"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="permit"
+		help="Specify packets to forward"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	</PARAM>
+	<PARAM name="proto"
+	    help="Protocol to use"
+	    ptype="SUBCOMMAND"
+	    mode="switch">
+	    <PARAM name="ahp"
+		help="Authentication Header Protocol"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="icmp"
+		help="Internet Control Message Protocol"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="ip"
+		help="Any Internet Protocol"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="tcp"
+		help="Transmission Control Protocol"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="udp"
+		help="User Datagram Protocol"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	</PARAM>
+	<PARAM name="source"
+	    help="source address"
+	    ptype="SUBCOMMAND"
+	    mode="switch">
+	    <PARAM name="sourceaddressstart"
+		help="Source address start"
+		ptype="IP_ADDR"/>
+	    <PARAM name="any"
+		help="Any source host"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="host"
+		help="A single source host"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	</PARAM>
+	<PARAM name="sourceaddressend"
+	    test='"${source}"="sourceaddressstart"'
+	    help="Source address end"
+	    ptype="IP_ADDR"/>
+	<PARAM name="sourceaddress"
+	    test='"${source}"="host"'
+	    help="Source address"
+	    ptype="IP_ADDR"/>
+	<PARAM name="srcportstart"
+	    test='"${proto}"="tcp" -o "${proto}"="udp"'
+	    help="Source port start"
+	    ptype="PORT"/>
+	<PARAM name="srcportend"
+	    test='"${proto}"="tcp" -o "${proto}"="udp"'
+	    help="Source port end"
+	    ptype="PORT"/>
+	<PARAM name="dest"
+	    help="dest address"
+	    ptype="SUBCOMMAND"
+	    mode="switch">
+	    <PARAM name="destaddressstart"
+			help="Destination address start"
+			ptype="IP_ADDR"/>
+		    <PARAM name="any"
+			help="Any destination host"
+			ptype="SUBCOMMAND"
+			mode="subcommand"/>
+		    <PARAM name="host"
+			help="A single destination host"
+			ptype="SUBCOMMAND"
+			mode="subcommand"/>
+	</PARAM>
+	<PARAM name="destaddressend"
+		test='"${dest}"="destaddressstart"'
+		help="Destination address end"
+		ptype="IP_ADDR"/>
+	<PARAM name="destaddress"
+		test='"${dest}"="host"'
+		help="Destination address"
+		ptype="IP_ADDR"/>
+	<PARAM name="destport"
+	    test='"${proto}"="tcp" -o "${proto}"="udp"'
+	    help="Destination port number"
+	    ptype="SUBCOMAND"
+	    mode="switch">
+	    <PARAM name="destportstart"
+		help="Dest Port Start"
+		ptype="PORT"/>
+	    <PARAM name="any"
+		help="All dest port(1-65535)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="epmap"
+		test='"${proto}"="tcp"'
+		help="DCE endpoint resolution (135)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="finger"
+		test='"${proto}"="tcp"'
+		help="Finger (79)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="ftp"
+		test='"${proto}"="tcp"'
+		help="File Transfer Protocol (21)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="h.323"
+		test='"${proto}"="tcp"'
+		help="H323hostcall (1720)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="https"
+		test='"${proto}"="tcp"'
+		help="http protocol over TLS/SSL (443)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="ms-ds"
+		test='"${proto}"="tcp"'
+		help="Microsoft-DS (445)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="ms-sql-m"
+		test='"${proto}"="tcp"'
+		help="Microsoft-SQL-Monitor (1434)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="ms-sql-s"
+		test='"${proto}"="tcp"'
+		help="Microsoft-SQL-Server (1433)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="ms-ts"
+		test='"${proto}"="tcp"'
+		help="Microsoft-TS (3389)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="msnp"
+		test='"${proto}"="tcp"'
+		help="msn login (1863)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="netbios-ssn"
+		test='"${proto}"="tcp"'
+		help="NetBios session service (139)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="pop3"
+		test='"${proto}"="tcp"'
+		help="Post Office Protocol v3 (110)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="pptp"
+		test='"${proto}"="tcp"'
+		help="Point to Point Tunneling Protocol (1723)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="smtp"
+		test='"${proto}"="tcp"'
+		help="Simple Mail Transport Protocol (25)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="sql*net"
+		test='"${proto}"="tcp"'
+		help="Oracle SQL*NET (66)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="ssh"
+		test='"${proto}"="tcp"'
+		help="Secure Shell (22)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="telnet"
+		test='"${proto}"="tcp"'
+		help="Telnet (23)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="web"
+		test='"${proto}"="tcp"'
+		help="World Wide Web (HTTP, 80)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="bootpc"
+		test='"${proto}"="udp"'
+		help="Bootstrap Protocol (BOOTP) client (68)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="bootps"
+		test='"${proto}"="udp"'
+		help="Bootstrap Protocol (BOOTP) server (67)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="dns"
+		test='"${proto}"="udp"'
+		help="Domain Name Server (53)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="isakmp"
+		test='"${proto}"="udp"'
+		help="Internet Security Association and Key Management Protocol (500)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="l2tp"
+		test='"${proto}"="udp"'
+		help="Layer 2 Tunneling Protocol (1701)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="netbios-ns"
+		test='"${proto}"="udp"'
+		help="NetBios name service (137)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="netbios-dgm"
+		test='"${proto}"="udp"'
+		help="NetBios datagram service (138)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="ntp"
+		test='"${proto}"="udp"'
+		help="Network Time Protocol (123)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="snmp"
+		test='"${proto}"="udp"'
+		help="Simple Network Management Protocol (161)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="snmptrap"
+		test='"${proto}"="udp"'
+		help="SNMP Traps (162)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="tftp"
+		test='"${proto}"="udp"'
+		help="Trivial File Transfer Protocol (69)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	</PARAM>
+	<PARAM name="destportend"
+		test='"${destport}"="destportstart"'
+		help="Dest Port End"
+		ptype="PORT"/>
+	<PARAM name="datemode"
+		help="Choose a date input mode"
+		ptype="SUBCOMMAND"
+		mode="switch">
+		<PARAM name="any"
+			help="Every day"
+			ptype="SUBCOMMAND"
+			mode="subcommand"/>
+		<PARAM name="week"
+			help="0 means no limit,1 means limit(order:from Monday to Sunday)"
+			ptype="<0000000-1111111>"/>
+	</PARAM>
+	<PARAM name="timemode"
+		help="Schedule settings"
+		ptype="SUBCOMMAND"
+		mode="switch">
+		<PARAM name="any"
+			help="All day"
+			ptype="SUBCOMMAND"
+			mode="subcommand"/>
+		<PARAM name="starttime"
+			help="Starting time in one day(example:09:03,12:00)"
+			ptype="TIME">
+			<PARAM name="stoptime"
+				help="Stoping time in one day(example:09:03,12:00)"
+				ptype="TIME"/>
+		</PARAM>
+	</PARAM>
+	<ACTION builtin="clish_access_list"/>
+    </COMMAND>
+    
+    <COMMAND name="no access-list"
+	help="Add an access list entry"
+	mode="subcommand">
+	<PARAM name="policyname"
+	    help="Policy name"
+	    ptype="STRING"/>
+	<PARAM name="switch"
+	    help="Open or close"
+	    ptype="SUBCOMMAND"
+	    mode="switch">
+	    <PARAM name="close"
+		help="Policy is noneffective until be modify for open"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="open"
+		help="Policy will take effect soon"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	</PARAM>
+	<PARAM name="action"
+	    help="permit or deny"
+	    ptype="SUBCOMMAND"
+	    mode="switch">
+	    <PARAM name="deny"
+		help="Specify packets to reject"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="permit"
+		help="Specify packets to forward"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	</PARAM>
+	<PARAM name="proto"
+	    help="Protocol to use"
+	    ptype="SUBCOMMAND"
+	    mode="switch">
+	    <PARAM name="ahp"
+		help="Authentication Header Protocol"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="icmp"
+		help="Internet Control Message Protocol"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="ip"
+		help="Any Internet Protocol"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="tcp"
+		help="Transmission Control Protocol"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="udp"
+		help="User Datagram Protocol"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	</PARAM>
+	<PARAM name="source"
+	    help="source address"
+	    ptype="SUBCOMMAND"
+	    mode="switch">
+	    <PARAM name="sourceaddressstart"
+		help="Source address start"
+		ptype="IP_ADDR"/>
+	    <PARAM name="any"
+		help="Any source host"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="host"
+		help="A single source host"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	</PARAM>
+	<PARAM name="sourceaddressend"
+	    test='"${source}"="sourceaddressstart"'
+	    help="Source address end"
+	    ptype="IP_ADDR"/>
+	<PARAM name="sourceaddress"
+	    test='"${source}"="host"'
+	    help="Source address"
+	    ptype="IP_ADDR"/>
+	<PARAM name="srcportstart"
+	    test='"${proto}"="tcp" -o "${proto}"="udp"'
+	    help="Source port start"
+	    ptype="PORT"/>
+	<PARAM name="srcportend"
+	    test='"${proto}"="tcp" -o "${proto}"="udp"'
+	    help="Source port end"
+	    ptype="PORT"/>
+	<PARAM name="dest"
+	    help="dest address"
+	    ptype="SUBCOMMAND"
+	    mode="switch">
+	    <PARAM name="destaddressstart"
+			help="Destination address start"
+			ptype="IP_ADDR"/>
+		    <PARAM name="any"
+			help="Any destination host"
+			ptype="SUBCOMMAND"
+			mode="subcommand"/>
+		    <PARAM name="host"
+			help="A single destination host"
+			ptype="SUBCOMMAND"
+			mode="subcommand"/>
+	</PARAM>
+	<PARAM name="destaddressend"
+		test='"${dest}"="destaddressstart"'
+		help="Destination address end"
+		ptype="IP_ADDR"/>
+	<PARAM name="destaddress"
+		test='"${dest}"="host"'
+		help="Destination address"
+		ptype="IP_ADDR"/>
+	<PARAM name="destport"
+	    test='"${proto}"="tcp" -o "${proto}"="udp"'
+	    help="Destination port number"
+	    ptype="SUBCOMAND"
+	    mode="switch">
+	    <PARAM name="destportstart"
+		help="Dest Port Start"
+		ptype="PORT"/>
+	    <PARAM name="any"
+		help="All dest port(1-65535)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="epmap"
+		test='"${proto}"="tcp"'
+		help="DCE endpoint resolution (135)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="finger"
+		test='"${proto}"="tcp"'
+		help="Finger (79)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="ftp"
+		test='"${proto}"="tcp"'
+		help="File Transfer Protocol (21)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="h.323"
+		test='"${proto}"="tcp"'
+		help="H323hostcall (1720)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="https"
+		test='"${proto}"="tcp"'
+		help="http protocol over TLS/SSL (443)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="ms-ds"
+		test='"${proto}"="tcp"'
+		help="Microsoft-DS (445)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="ms-sql-m"
+		test='"${proto}"="tcp"'
+		help="Microsoft-SQL-Monitor (1434)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="ms-sql-s"
+		test='"${proto}"="tcp"'
+		help="Microsoft-SQL-Server (1433)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="ms-ts"
+		test='"${proto}"="tcp"'
+		help="Microsoft-TS (3389)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="msnp"
+		test='"${proto}"="tcp"'
+		help="msn login (1863)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="netbios-ssn"
+		test='"${proto}"="tcp"'
+		help="NetBios session service (139)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="pop3"
+		test='"${proto}"="tcp"'
+		help="Post Office Protocol v3 (110)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="pptp"
+		test='"${proto}"="tcp"'
+		help="Point to Point Tunneling Protocol (1723)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="smtp"
+		test='"${proto}"="tcp"'
+		help="Simple Mail Transport Protocol (25)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="sql*net"
+		test='"${proto}"="tcp"'
+		help="Oracle SQL*NET (66)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="ssh"
+		test='"${proto}"="tcp"'
+		help="Secure Shell (22)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="telnet"
+		test='"${proto}"="tcp"'
+		help="Telnet (23)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="web"
+		test='"${proto}"="tcp"'
+		help="World Wide Web (HTTP, 80)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="bootpc"
+		test='"${proto}"="udp"'
+		help="Bootstrap Protocol (BOOTP) client (68)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="bootps"
+		test='"${proto}"="udp"'
+		help="Bootstrap Protocol (BOOTP) server (67)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="dns"
+		test='"${proto}"="udp"'
+		help="Domain Name Server (53)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="isakmp"
+		test='"${proto}"="udp"'
+		help="Internet Security Association and Key Management Protocol (500)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="l2tp"
+		test='"${proto}"="udp"'
+		help="Layer 2 Tunneling Protocol (1701)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="netbios-ns"
+		test='"${proto}"="udp"'
+		help="NetBios name service (137)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="netbios-dgm"
+		test='"${proto}"="udp"'
+		help="NetBios datagram service (138)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="ntp"
+		test='"${proto}"="udp"'
+		help="Network Time Protocol (123)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="snmp"
+		test='"${proto}"="udp"'
+		help="Simple Network Management Protocol (161)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="snmptrap"
+		test='"${proto}"="udp"'
+		help="SNMP Traps (162)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	    <PARAM name="tftp"
+		test='"${proto}"="udp"'
+		help="Trivial File Transfer Protocol (69)"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+	</PARAM>
+	<PARAM name="destportend"
+		test='"${destport}"="destportstart"'
+		help="Dest Port End"
+		ptype="PORT"/>
+	<PARAM name="datemode"
+		help="Choose a date input mode"
+		ptype="SUBCOMMAND"
+		mode="switch">
+		<PARAM name="any"
+			help="Every day"
+			ptype="SUBCOMMAND"
+			mode="subcommand"/>
+		<PARAM name="week"
+			help="0 means no limit,1 means limit(order:from Monday to Sunday)"
+			ptype="<0000000-1111111>"/>
+	</PARAM>
+	<PARAM name="timemode"
+		help="Schedule settings"
+		ptype="SUBCOMMAND"
+		mode="switch">
+		<PARAM name="any"
+			help="All day"
+			ptype="SUBCOMMAND"
+			mode="subcommand"/>
+		<PARAM name="starttime"
+			help="Starting time in one day(example:09:03,12:00)"
+			ptype="TIME">
+			<PARAM name="stoptime"
+				help="Stoping time in one day(example:09:03,12:00)"
+				ptype="TIME"/>
+		</PARAM>
+	</PARAM>
+	<ACTION builtin="clish_no_access_list"/>
+    </COMMAND>
+
+</VIEW>
+
+</CLISH_MODULE>

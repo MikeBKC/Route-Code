@@ -1,0 +1,15 @@
+VLANNo=VLAN ID
+VLANName=VLAN Name
+VLANMember=VLAN Members
+VLANList=Port VLAN List
+LeastMember=You must select at least one member port.
+VLANGroup=VLAN Group
+NoOneNotDel=You cannot delete VLAN 1.
+PortVlan=Port VLAN
+PortVlanSet=Port VLAN Settings
+PortMember=Members
+warning1=Cannot modify: The VLAN ID does not exist.
+warning2=Cannot add: The VLAN ID has existed.
+modify_error=Illeagal Modification: The VLAN ID do not exist.
+vlan_config=Configure VLAN
+add_error=Illeagal Added: The VLAN ID already exists.

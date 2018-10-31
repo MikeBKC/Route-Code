@@ -1,0 +1,16 @@
+FtpTitle=艾泰科技
+ftpShareList=FTP共享目录列表
+name=名称
+partition=分区
+folderPosition=文件夹位置
+sureDel=确定删除？
+sureDelAll=确定删除所有条目？
+ftpServer=FTP服务器
+enableFtp=启用FTP服务器
+allowWan=允许WAN口访问
+ftpPort=FTP Port
+ftpPrompt=(缺省值为21，如非必要，请勿修改)
+addFolder=添加新文件夹
+del=删除
+delAll=删除所有条目
+ftpListInfo=FTP目录对应信息

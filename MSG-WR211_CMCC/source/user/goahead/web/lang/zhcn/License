@@ -1,0 +1,17 @@
+lic_license=电子授权
+lic_valid=您的产品License有效期为
+lic_outdate=个月，已过期，请重新导入License文件，否则无法访问其他页面
+lic_notoutdate=个月，未过期，剩余时间约为
+lic_forever=永久
+lic_licInfo=当前产品授权登记信息
+lic_product=产品型号
+lic_serialnum=序列号
+lic_userinfo=授权登记客户信息
+lic_ipaddr=授权登记IP地址
+lic_macaddr=授权登记MAC地址
+lic_loadlicense=导入License
+lic_select=请选择License文件
+lic_tips=使用提示
+lic_tipcontent=初始的License许可文件，自设备首次运行之日起提供累计720小时（30天）的完整权限，超出有效期后您在登录设备时仅能访问电子授权页面，请及时从提供您设备的经销商处获取正式的License许可文件。
+lic_assignfile=请指定License文件。
+lic_load=导入

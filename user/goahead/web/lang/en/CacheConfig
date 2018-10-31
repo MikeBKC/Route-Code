@@ -1,0 +1,7 @@
+CacheServerEn=Enable Cloud Service
+CacheServerIp=Cloud Server Address
+CacheServerPort=Cloud Server Port
+CacheServerDomainLen=IP address can not exceed 67 bits.
+CacheServerPortNum=The port number should be between 1 and 65535.
+CacheServerIpNotNone=The cloud server address can not be 0.0.0.0.
+

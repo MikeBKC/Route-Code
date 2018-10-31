@@ -1,0 +1,96 @@
+<po>
+  <message msgid="save" msgstr="保存" />
+  <message msgid="reset" msgstr="重填" />
+
+  <message msgid="selecte" msgstr="全选 / 全不选" />
+  <message msgid="add" msgstr="添加新条目" />
+  <message msgid="delall" msgstr="删除所有条目" />
+  <message msgid="del" msgstr="删除" />
+
+  <message msgid="wireless base" msgstr="无线基本配置" />
+  <message msgid="start wireless" msgstr="启用无线功能" />
+  <message msgid="discription1" msgstr="只有启用无线功能后，无线站点才能通过该设备相互通信。" />
+  <message msgid="discription2" msgstr="用于唯一地标识一个无线网络，大小写敏感。" />
+  <message msgid="wireless mode" msgstr="无线模式" />
+  <message msgid="chose1" msgstr="仅11g" />
+  <message msgid="chose2" msgstr="仅11n" />
+  <message msgid="chose3" msgstr="11b/g/n混合" />
+  <message msgid="channel" msgstr="信道" />
+  <message msgid="auto" msgstr="自动" />
+  <message msgid="discription3" msgstr="无线网络工作的频率段，自动表示自动选择最优信道，也可根据实际情况手动选择。" />
+  <message msgid="channel bandwidth" msgstr="频道带宽" />
+  <message msgid="start SSID" msgstr="启用SSID广播" />
+  <message msgid="discription4" msgstr="启用后，设备将向无线网络广播自身的SSID。" />
+
+
+  <message msgid="wireless safe" msgstr="无线安全配置" />
+  <message msgid="safe mode" msgstr="安全机制" />
+  <message msgid="no safe mode" msgstr="无安全机制" />
+  <message msgid="certification mode" msgstr="认证类型" />
+  <message msgid="opensys" msgstr="开放系统" />
+  <message msgid="sharekey" msgstr="共享密钥" />
+  <message msgid="discription5" msgstr="自动表示设备会根据无线客户端的请求自动选择开放系统或共享密钥方式。" />
+  <message msgid="key format" msgstr="密钥格式" />
+  <message msgid="key choose" msgstr="密钥选择" />
+  <message msgid="16 hex" msgstr="16进制" />
+  <message msgid="ASCII code" msgstr="ASCII码" />
+  <message msgid="wep key" msgstr="WEP密钥" />
+  <message msgid="key mode" msgstr="密钥类型" />
+  <message msgid="key" msgstr="密钥" />
+  <message msgid="unable" msgstr="禁用" />
+  <message msgid="64 bit" msgstr="64位" />
+  <message msgid="128 bit" msgstr="128位" />
+  <message msgid="152 bit" msgstr="152位" />
+  <message msgid="WPA version" msgstr="WPA版本" />
+  <message msgid="encryption" msgstr="加密算法" />
+  <message msgid="Radius Service IP" msgstr="Radius服务器IP" />
+  <message msgid="Radius port" msgstr="Radius端口" />
+  <message msgid="radius password" msgstr="Radius密码" />
+  <message msgid="key update time" msgstr="密钥更新周期" />
+  <message msgid="range1" msgstr=" (取值范围：1-65535)" />
+  <message msgid="range2" msgstr="(取值范围：1-31个字符)" />
+  <message msgid="range3" msgstr="秒 (取值范围：60-86400；0表示不更新)" />
+  <message msgid="pre-shared key" msgstr="预共享密钥" />
+  <message msgid="range4" msgstr="(取值范围：8-63个字符)" />
+
+
+  <message msgid="wireless MAC" msgstr="无线MAC地址过滤 " />
+  <message msgid="start MAC filter" msgstr="启用MAC地址过滤" />
+  <message msgid="filter rule" msgstr="过滤规则" />
+  <message msgid="allow" msgstr="允许 &lt;font style='font-size:10px; color:#666666'&gt;只允许列表中的MAC地址访问本无线网络。&lt;/font&gt;" />
+  <message msgid="forbid" msgstr="禁止 &lt;font style='font-size:10px; color:#666666'&gt;只禁止列表中的MAC地址访问本无线网络。&lt;/font&gt;" />
+<message msgid="MAC addr" msgstr="MAC 地址" />
+<message msgid="macfilter-edit" msgstr="MAC地址过滤配置" />
+<message msgid="eg" msgstr="(例如：0022aa03a4b5)" />
+<message msgid="goback" msgstr="返回" />
+
+  <message msgid="wireless advance" msgstr="无线高级配置" />
+  <message msgid="advance parameters" msgstr="高级参数" />
+  <message msgid="RTS threshold" msgstr="RTS阈值" />
+  <message msgid="range5" msgstr="字节 (取值范围：1-2347)" />
+  <message msgid="sub-threshold" msgstr="分段阈值" />
+  <message msgid="range6" msgstr="字节 (取值范围：256-2346)" />
+  <message msgid="beacon interval" msgstr="Beacon间隔" />
+  <message msgid="range7" msgstr="毫秒 (取值范围：20-999)" />
+  <message msgid="dtim interval" msgstr="DTIM间隔" />
+  <message msgid="range8" msgstr="(取值范围：1-255)" />
+  <message msgid="start short preamble" msgstr="启用短前导" />
+  <message msgid="start WMM" msgstr="启用WMM" />
+  <message msgid="discription7" msgstr="启用WMM（无线客户端也需启用），多媒体数据（如音频、视频）将被优先发送。" />
+
+
+  <message msgid="wireless host status" msgstr="无线主机状态" />
+  <message msgid="discription6" msgstr="&lt;b &gt;过滤：&lt;/b &gt;当复选框未被选中时，您可以选中它，将当前MAC地址添加到MAC地址过滤表中；反之，当复选框已被选中时，您可以将当前MAC地址从过滤表中删除。&lt;br/ &gt; &lt;b &gt;全部过滤：&lt;/b &gt;将当前状态表中所有无线主机的MAC地址添加到MAC地址过滤表中。" />
+  <message msgid="filter all" msgstr="全部过滤" />
+  <message msgid="refresh" msgstr="刷新" />
+  
+  <message msgid="userfuiConfig" msgstr="生效配置：" />
+  <message msgid="localConfig" msgstr="本地配置" />
+  <message msgid="wireOutConfig" msgstr="无线集中控制器下发的配置" />
+  <message msgid="help" msgstr="帮助" />
+  <message msgid="chooseConfig" msgstr="选择配置" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+
+</po>

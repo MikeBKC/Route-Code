@@ -1,0 +1,14 @@
+RTSThreshold=RTS Threshold
+SectionHold=Fragmentation Threshold
+BeaconGap=Beacon Interval
+DTIMGap=DTIM Interval
+WirelessAdvance=Advanced Wireless Settings
+AdvancePar=Advanced Parameters
+DSSID=Multi-SSID
+range5=Byte (Range: 1-2347)
+range6=Byte (Range: 256-2346)
+range7=Msec (Range: 20-999)
+range8=(Range: 1-255)
+UsingBel=Enable Short Preamble
+UsingWMM=Enable WMM
+ShowHelp=To prioritize traffic for multimedia (video, audio, etc.) applications, enable WMM on the Device and wireless clients.

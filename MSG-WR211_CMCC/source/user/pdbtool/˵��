@@ -1,0 +1,9 @@
+本目录是用来将配置文件插入MD5，提供给wuspdb.c中的MD5校验使用
+调用程序 ./pdbtool  即可从pdbname.xml 获得MD5的插入插入配置 SE_pdbname.xml
+SE_pdbname.xml 是提供给服务器的
+gcc md5c.c -o pdbtool 可以获得程序
+
+将需要转换的pdbname.xml，放入pdbtool程序所在目录即可。
+
+注意：要删除的配置要明确置为空，否则保存原样不变
+

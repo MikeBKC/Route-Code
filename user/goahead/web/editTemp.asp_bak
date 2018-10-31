@@ -1,0 +1,582 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+<%langTran("editTemp");%>
+<%langTran("commonWords");%>
+<title><%write(utt);%></title>
+<link rel=stylesheet type="text/css" href="css/style.css" title="cool" id="lnk">
+<script src="js/common.js" type="text/javascript"></script>
+<script type="text/javascript" src="lang/b28n.js"></script>
+<script language="javascript">
+ //交互begin
+<% 
+	aspOutPutApConfTempList();
+	var edit_Name="";
+	edit_Name=Form("oldTmpName");
+	if (edit_Name != "") getOneApConfTempEntry(edit_Name);
+%>
+var edit_Names = "<% write(Form("oldTmpName"));%>";
+// 交互end
+function init()
+{
+	var f=confTemp;
+	if(edit_Names!=""&&edit_Names!=null)
+	{
+		f.tempName.value=tempName;
+		f.oldEntry.value=edit_Names;
+		if ((edit_Names == "WA1800N") || (edit_Names == "WA500N") || (edit_Names == "WA2000N") || (edit_Names == "WA1000N") || (edit_Names == "WA1500N") || (edit_Names == "WA2200N"))
+		{
+			document.getElementById('tempName').onkeydown = function (e) { if(e ? e.which : event.keyCode==8) return false; }
+			document.getElementById('tempName').readOnly = true;
+		}
+		f.apType.value=suitType;
+		f.firmware.value=firmware;
+		f.en_wireless.checked=wireless;
+		typeChange();
+		f.rate.value=rate;
+		f.SGI.checked=sgi;
+		f.BW.value=bw;
+		//f.isolate.checked=cltIsolate;
+		f.channel.value=channel;
+		f.preamble.checked=preamble;
+		f.power.value=power;
+		f.manual.value=manPower;
+		f.wmm.checked=wmm;
+		f.mode.value=mode;
+		document.getElementById('en_wireless').checked = wireless;
+		document.getElementById('SGI').checked = sgi;
+		document.getElementById('wmm').checked = wmm;
+		document.getElementById('preamble').checked = preamble;
+	}
+	else
+	{
+		typeChange();
+	}
+	manual_sw();
+}
+
+function manual_sw()
+{
+	if (document.getElementById('power').value == 0)
+	{
+		document.getElementById('manual').style.display = "none";
+	}
+	else
+	{
+		document.getElementById('manual').style.display = "block";
+	}
+	
+}
+function typeChange()
+{
+	var val = document.getElementById('apType').value;
+	switch (val)
+	{
+		case "WA1800N":
+			option=document.createElement("OPTION");
+			option.value = "300";
+			option.text = "300M";
+			confTemp.rate.remove(3);
+			confTemp.rate.options.add(option);
+			break;
+		case "WA2000N":
+			option=document.createElement("OPTION");
+			option.value = "300";
+			option.text = "300M";
+			confTemp.rate.remove(3);
+			confTemp.rate.options.add(option);
+			break;
+		case "WA1000N":
+			option=document.createElement("OPTION");
+			option.value = "150";
+			option.text = "150M";
+			confTemp.rate.remove(3);
+			confTemp.rate.options.add(option);
+			break;
+		case "WA500N":
+			option=document.createElement("OPTION");
+			option.value = "150";
+			option.text = "150M";
+			confTemp.rate.remove(3);
+			confTemp.rate.options.add(option);
+			break;
+		case "WA1500N":
+			option=document.createElement("OPTION");
+			option.value = "150";
+			option.text = "150M";
+			confTemp.rate.remove(3);
+			confTemp.rate.options.add(option);
+			break;
+		case "WA2200N":
+			option=document.createElement("OPTION");
+			option.value = "300";
+			option.text = "300M";
+			confTemp.rate.remove(3);
+			confTemp.rate.options.add(option);
+			break;
+
+/*			
+		case "":
+		
+			break;
+		case "":
+		
+			break;
+		case "":
+		
+			break;
+*/			
+		default:
+			break;
+	}
+}
+
+function checkData()
+{
+	var f=confTemp;
+	if(!checkName(f.tempName,11,"<%write(modeName);%>",0)) return false;	//检查用户名：不能为空、不能全为0、不能超11个字符、应为除:< > , % \' \\ \" & ; 和空格之外的字符。
+	if( edit_Names == "" || edit_Names != f.tempName.value)
+	{
+		if (!checkLimitation()) return false;
+	}else if (edit_Names == f.tempName.value){
+        var typeValue = document.getElementById('apType').value;
+    	var firmValue = document.getElementById('firmware').value;
+
+		for (var i=0; i < tmpname.length; i++){
+            if( tmpname[i] == edit_Names ){
+                break;
+            }
+        }
+        if( types[i] != typeValue ||  firmwareVersion[i] != firmValue ){
+            if (!checkLimitation()) return false;
+        }
+    }
+
+    var tempmode = document.getElementById('mode').value;
+    var temprate = document.getElementById('rate').value;
+
+    if ( tempmode == 1 ){
+        if( temprate != 0 && temprate != 54 ){
+            alert(_("<%write(mode_rate_not_match);%>"));
+            return false;
+        }
+    }else if ( tempmode == 2 ){
+        if( temprate != 0 && temprate != 150 && temprate != 300){
+            alert(_("<%write(mode_rate_not_match);%>"));
+            return false;
+        }
+    }
+
+
+    return true;
+}
+
+function save()
+{
+	var f = confTemp;
+	var i;
+	if (edit_Names == "")
+	{
+		for (i=0; i < tmpname.length; i++)
+		{
+			if (tmpname[i] == confTemp.tempName.value)
+			{
+				alert(_("<%write(warning14);%>"));
+				return;
+			}
+		}
+	}
+	if (checkData())
+	{
+		f.en_wireless.value = (f.en_wireless.checked == true ? 1 : 0);
+		f.SGI.value = (f.SGI.checked == true ? 1 : 0);
+		//f.isolate.value = (f.isolate.checked == true ? 1 : 0);
+		f.preamble.value = (f.preamble.checked == true ? 1 : 0);
+		f.wmm.value = (f.wmm.checked == true ? 1 : 0);
+		f.action="/goform/formConfigApConfTemp";
+		f.submit();	
+	}
+}
+
+function Reset()
+{
+	confTemp.reset();
+	init();
+}
+
+var WA1800N_V1 = 0;
+var WA1800N_V2 = 0;
+var W510_V1 = 0;
+var W510_V2 = 0;
+var W500_V1 = 0;
+var W500_V2 = 0;
+var W2000_V1 = 0;
+var W2000_V2 = 0;
+var W1500_V1 = 0;
+var W1500_V2 = 0;
+var W2200_V1 = 0;
+var W2200_V2 = 0;
+function tempCounter()
+{
+	var j;
+	for (j = 0; j < tmpname.length; j++)
+	{
+		if (types[j] == "WA1800N")
+		{
+			if (firmwareVersion[j] == "V1.0")
+			{
+				WA1800N_V1++;
+			}
+			else if (firmwareVersion[j] == "V2.0")
+			{
+				WA1800N_V2++;
+			}
+		}
+		else if (types[j] == "WA1000N")
+		{
+			if (firmwareVersion[j] == "V1.0")
+			{
+				W510_V1++;
+			}
+			else if (firmwareVersion[j] == "V2.0")
+			{
+				W510_V2++;
+			}
+		}
+		else if (types[j] == "WA2000N")
+		{
+			if (firmwareVersion[j] == "V1.0")
+			{
+				W2000_V1++;
+			}
+			else if (firmwareVersion[j] == "V2.0")
+			{
+				W2000_V2++;
+			}
+		}
+		else if (types[j] == "WA500N")
+		{
+			if (firmwareVersion[j] == "V1.0")
+			{
+				W500_V1++;
+			}
+			else if (firmwareVersion[j] == "V2.0")
+			{
+				W500_V2++;
+			}
+		}
+        else if (types[j] == "WA1500N")
+		{
+			if (firmwareVersion[j] == "V1.0")
+			{
+				W1500_V1++;
+			}
+			else if (firmwareVersion[j] == "V2.0")
+			{
+				W1500_V2++;
+			}
+		}
+        else if (types[j] == "WA2200N")
+		{
+			if (firmwareVersion[j] == "V1.0")
+			{
+				W2200_V1++;
+			}
+			else if (firmwareVersion[j] == "V2.0")
+			{
+				W2200_V2++;
+			}
+		}
+	}
+//	alert(WA1800N_V1);
+//	alert(WA1800N_V2);
+//	alert(W510_V1);
+//	alert(W510_V2);
+}
+
+tempCounter();
+
+function checkLimitation()
+{
+	var typeValue = document.getElementById('apType').value;
+	var firmValue = document.getElementById('firmware').value;
+//	alert(WA1800N_V1);
+//	alert(typeValue);
+//	alert(firmValue);
+	if (typeValue == "WA1800N")
+	{
+		if (firmValue == "V1.0")
+		{
+			if (WA1800N_V1 == 3)
+			{
+				alert(_("<%write(warning18);%>"));
+				return false;
+			}
+		}
+		else if (firmValue == "V2.0")
+		{
+			if (WA1800N_V2 == 3)
+			{
+				alert(_("<%write(warning18);%>"));
+				return false;
+			}
+		}
+	}
+	else if (typeValue == "WA2000N")
+	{
+		if (firmValue == "V1.0")
+		{
+			if (W2000_V1 == 3)
+			{
+				alert(_("<%write(warning18);%>"));
+				return false;
+			}
+		}
+		else if (firmValue == "V2.0")
+		{
+			if (W2000_V2 == 3)
+			{
+				alert(_("<%write(warning18);%>"));
+				return false;
+			}
+		}
+	}
+	else if (typeValue == "WA1000N")
+	{
+		if (firmValue == "V1.0")
+		{
+			if (W510_V1 == 3)
+			{
+				alert(_("<%write(warning18);%>"));
+				return false;
+			}
+		}
+		else if (firmValue == "V2.0")
+		{
+			if (W510_V2 == 3)
+			{
+				alert(_("<%write(warning18);%>"));
+				return false;
+			}
+		}
+	}
+	else if (typeValue == "WA500N")
+	{
+		if (firmValue == "V1.0")
+		{
+			if (W500_V1 == 3)
+			{
+				alert(_("<%write(warning18);%>"));
+				return false;
+			}
+		}
+		else if (firmValue == "V2.0")
+		{
+			if (W500_V2 == 3)
+			{
+				alert(_("<%write(warning18);%>"));
+				return false;
+			}
+		}
+	}
+    else if (typeValue == "WA1500N")
+	{
+		if (firmValue == "V1.0")
+		{
+			if (W1500_V1 == 3)
+			{
+				alert(_("<%write(warning18);%>"));
+				return false;
+			}
+		}
+		else if (firmValue == "V2.0")
+		{
+			if (W1500_V2 == 3)
+			{
+				alert(_("<%write(warning18);%>"));
+				return false;
+			}
+		}
+	}
+    else if (typeValue == "WA2200N")
+	{
+		if (firmValue == "V1.0")
+		{
+			if (W2200_V1 == 3)
+			{
+				alert(_("<%write(warning18);%>"));
+				return false;
+			}
+		}
+		else if (firmValue == "V2.0")
+		{
+			if (W2200_V2 == 3)
+			{
+				alert(_("<%write(warning18);%>"));
+				return false;
+			}
+		}
+	}
+
+	return true;
+}
+
+</script>
+</head>
+<body onLoad="init();"onbeforeunload="logOut()" background="images/body_main.png" style="background-repeat:repeat-x">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+   <!--*****顶上间隔****-->
+  <tr>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+ 
+  <!--****中间内容****-->
+  <tr>
+   <td width="15"></td>
+  <!--////内容-->
+  <td class="table_bg"><script language="javascript">showSecondTitle(_("<%write(APSettingMode);%>"));//显示页面名称</script>
+  <table width="80%" border="0" height="450" cellspacing="0" cellpadding="0" align="center">
+   <script language="javascript">//showerror(errorstr,100);//显示保存返回的错误信息</script>
+  <tr valign="top">
+    <td>
+	<!--//三级菜单-->
+	<p>&nbsp;</p>
+	<script language="javascript">
+		var arrayThreeMenu=new Array(
+						"100%",
+						2,
+						new Array(_("<%write(modeList);%>"),'apTmp.asp',1,0),
+						new Array(_("<%write(editMode);%>"),'editTemp.asp',1,1)
+		);
+		showThreeMenu();
+	</script>
+	 <!--//end-->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center"><tr>
+    <td align="center"  class="three_td"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr><td><table border="0" width="80%" align='center'><tr><td class="gapTd"></td><td>
+	<!--//直接将页面的form填在此处，例如：<form  name="OpModeConfig" method="post"><tr><td></tr></td>-->
+<br>
+<br>
+<form name="confTemp" method="post" action="">
+<input type="hidden" name="oldEntry">
+<table width="600" border="0" cellspacing="1" cellpadding="4" class="style22">
+  <tr>
+    <td width="16%" id="modeName_td"><%write(modeName);%></td>
+    <td width="16%"><input type="text" name="tempName" id="tempName" size="10" class="input"></td>
+    <td width="16%" id="suitType_td"><%write(appModel);%></td>
+    <td width="16%"><select name="apType" id="apType" class="input" style="width:90px" onChange="typeChange();">
+      <option value="WA1800N">WA1800N </option>
+      <option value="WA1000N">WA1000N</option>
+      <option value="WA2000N">WA2000N</option>
+      <option value="WA500N">WA500N</option>
+      <option value="WA1500N">WA1500N</option>
+      <option value="WA2200N">WA2200N</option>
+    </select></td>
+    <td width="16%" id="hardVer_td"><%write(hwVer);%></td>
+    <td width="16%"><select name="firmware" id="firmware" class="input" style="width:90px">
+      <option value="V1.0">V1.0</option>
+      <option value="V2.0" selected>V2.0</option>
+    </select></td>
+  </tr>
+</table>
+<br>
+<table width="600" border="0" cellspacing="1" cellpadding="4" class="style22">
+  <tr class="style18">
+    <td width="140" id="wireFC_td"><%write(startwire);%></td>
+    <td width="140"><input name="en_wireless" type="checkbox" id="en_wireless" checked></td>
+    <td width="141" id="wireRate_td"><%write(wirespeed);%></td>
+    <td width="142"><select name="rate" id="rate" class="input" style="width:90px">
+      <option value="0" selected id="auto"><%write(auto);%></option>
+      <option value="11">11M</option>
+      <option value="54">54M</option>
+    </select></td>
+  </tr>
+  <tr>
+    <td>Short Guard Interval</td>
+    <td><input name="SGI" type="checkbox" id="SGI" checked></td>
+    <td id="channelBW_td"><%write(channelBandWidth);%></td>
+    <td><select name="BW" id="BW" class="input" style="width:90px">
+      <option value="1" id="auto"><%write(auto);%></option>
+      <option value="0">20M</option>
+    </select></td>
+  </tr>
+  <tr class="style18">
+    <td id="openWMM_td"><%write(startWMM);%></td>
+    <td>
+      <input name="wmm" type="checkbox" id="wmm" checked></td>
+    <td id="channel_td"><%write(channel);%></td>
+    <td>
+      <select name="channel" id="channel" class="input" style="width:90px">
+        <option value="0" id="auto"><%write(auto);%></option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Short Preamble</td>
+    <td><input name="preamble" type="checkbox" id="preamble" checked></td>
+    <td id="wirePower_td"><%write(wireTranPower);%></td>
+    <td>
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="style22">
+        	<tr>
+            	<td nowrap>
+                    <select name="power" id="power" class="input" style="width:90px" onChange="manual_sw();">
+                      <option value="0" id="auto"><%write(auto);%></option>
+                      <option value="1" id="manu"><%write(manu);%></option>
+                    </select>
+                </td>
+                <td nowrap>
+                    <select name="manual" id="manual" class="input" style="width:40px">
+                        <option value="1" id="low"><%write(low);%></option>
+                        <option value="2" id="mid"><%write(middle);%></option>
+                        <option value="3" id="hight"><%write(hight);%></option>
+                    </select>
+          		</td>
+          	</tr>
+      </table>
+      </td>
+    </tr>
+  <tr class="style18">
+    <td id="wireMode_td">
+      <%write(wireMode);%></td>
+    <td>
+      <select name="mode" id="mode" class="input" style="width:90px">
+        <option value="1" id="onlyG"><%write(only11g);%></option>
+        <option value="2" id="onlyN"><%write(only11n);%></option>
+        <option value="3" id="mix" selected><%write(bgnMix);%></option>
+      </select></td>
+    <td id="wireCLT_td"><!--无线客户端隔离--></td>
+    <td><!--<input type="checkbox" name="isolate" id="isolate">--></td>
+  </tr>
+</table>
+<table align="center"  ><tr><td height="5"></td></tr><tr><td>
+<input type="button"  onClick="save()"class="input-button" value="<%write(save);%>" name="" id="savebutton">&nbsp;
+<input type="button" class="input-button" value="<%write(refill);%>" name="" onClick="Reset();" id="resetbutton">
+<input type="button" class="input-button" value="<%write(help);%>" name="" onClick="window.open('rhelpinfo.htm#apTmp')" id="helpbutton">
+</td></tr></table>
+</form>
+<!--//直接将页面的form填在此处，例如：<form  name="OpModeConfig" method="post"><tr><td></tr></td>-->
+</td><td class="gapTd"></td></tr>
+  </table>
+ </td>
+  </tr>
+</table> 
+  </td></tr>
+</table></td></tr></table></td>
+<!--////end-->
+  <td width="15">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

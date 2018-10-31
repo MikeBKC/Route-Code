@@ -1,0 +1,13 @@
+utt_defaultGW=默认网关
+utt_interface=接口
+utt_member=组成员
+utt_bridgeConf=桥配置
+utt_outInterface=外网口
+utt_inInterface=内网口
+utt_checkIPTips1=IP地址与网关地址不在同一网段上。
+utt_checkIPTips2=IP地址不能为0.0.0.0
+utt_delInterfaceTips1=不能删除默认信息。
+utt_delInterfaceTips2=请选择需要删除的信息。
+utt_addInterfaceTips1=请选择需要添加的信息。
+utt_addInterfaceTips2=本组内已经包含相同的内容。
+

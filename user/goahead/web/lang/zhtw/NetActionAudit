@@ -1,0 +1,14 @@
+UBAS=行為審計
+SureDelMsg=您確定要清楚資訊嗎？
+NetUBSA=上網行為審計
+LogManage=日誌管理
+Segment=網段:
+Scan=掃描
+DelLog=清除
+Msg1=1、在本頁文字方塊中可以實現一個多個IP/MAC的綁定，並能使用粘貼、複製、刪除等操作對文字方塊進行編輯；
+Msg2=2、配置IP/MAC綁定時，其輸入格式為“IP+MAC+用戶名”，例如：192.168.1.100 0022aaAFCdb3 張三；
+Msg3=3、注意在上述輸入格式中IP與MAC、MAC與描述之間必須有一個或多個空格。
+UseMsg=使用提示：
+UseMsg1=1、在本頁面文字方塊中可實現一個或多個IP/MAC的綁定，並能使用粘貼、複製、刪除等操作對文字方塊進行編輯。
+UseMsg2=2、配置IP/MAC綁定時，其輸入格式為“IP+MAC+描述”， 例如：192.168.16.100 0022aaAFCdb3 張三；
+UseMsg3=3、注意在上述輸入格式中IP與MAC、MAC與描述之間可有一個或多個空格

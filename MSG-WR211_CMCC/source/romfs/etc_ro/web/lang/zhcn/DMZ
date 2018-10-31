@@ -1,0 +1,6 @@
+dmz_ipTip=DMZ地址不能为0.0.0.0
+dmz_start=启用DMZ功能
+dmz_startTip=启用DMZ功能后，DMZ主机将完全暴露给 Internet ，实现双向通讯。
+dmz_hostIP=DMZ主机IP地址
+dmz_set=DMZ配置
+dmz_open=开启DMZ主机

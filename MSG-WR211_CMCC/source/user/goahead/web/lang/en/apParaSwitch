@@ -1,0 +1,5 @@
+chooseConfig=Select Active Configuration
+userfuiConfig=Active Configuration:
+localConfig=Local Configuration
+wireOutConfig=Distributed Configuration
+rebootTips=Note: The AP will restart automatically for the new configuration to take effect.

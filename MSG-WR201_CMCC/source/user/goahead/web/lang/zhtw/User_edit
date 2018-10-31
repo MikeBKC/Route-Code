@@ -1,0 +1,9 @@
+BadUserName=用戶名中含有非法字元
+Administrantor=管理員配置
+Passwd=密碼
+Confirmpasswd=確認密碼
+Attention=注意
+FAttentionMesLine1=強烈建議修改初始的管理員密碼，並謹慎保管用戶名和密碼；
+FAttentionMesLine2=用戶名只能由字母、數位和底線組成，最多11個字元。
+NPass=新密碼
+ConfirmNewpasswd=确认新密碼

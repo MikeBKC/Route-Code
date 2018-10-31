@@ -1,0 +1,9 @@
+SysLogInfo=The System Log Information
+SureDelMsg=Are you sure to clear up the information?
+LogEdit=Log Management Settings
+DelLog=Clear
+SelectA=Select All
+UseNoticeLog=Enable Notification Log (Record notification)
+UseArpLog=Enable ARP Log (Record ARP spoofing)
+UseDhcpLog=Enable DHCP Log (Record DHCP server conflict detection, binding errors)
+UsePppoeLog=Enable PPPoE Log (Record PPPoE dialing)

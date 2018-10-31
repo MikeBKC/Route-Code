@@ -1,0 +1,8 @@
+Syslog_en=Enable Syslog
+Syslog_ServerIp=Syslog Server IP Address (Domain Name)
+Syslog_ServerPort=Syslog Server Port
+Syslog_MesType=Syslog Message Facility
+Syslog_Domain_Len=IP Address (Domain Name) must be at most 67 characters long.
+Syslog_Port_Num=The port number should be between 1 and 65535.
+ServerIpNotNone=Syslog Server IP Address (Domain Name) cannot be 0.0.0.0.
+Syslog_InterVal=syslog Message Interval

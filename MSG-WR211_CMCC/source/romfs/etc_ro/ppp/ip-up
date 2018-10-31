@@ -1,0 +1,116 @@
+#!/bin/sh
+
+. /sbin/global.sh
+getLanIfName
+#$0 = script;
+#$1 = ifname;
+#$2 = devnam;
+#$3 = strspeed;
+#$4 = strlocal;
+#$5 = strremote;
+#$6 = ipparam;
+#$7 = ourname;
+#$8 = peer_authname l2tp srv认证用户名
+#$9 = NULL;
+if [ "$NV1800N" == "" ] && [ "$2" == "$lan_if" ]; then
+#PPPOE上传下载限速新建规则
+pppoeid=`uttcli getpppoerate pppoeSrvAcc $8` 
+accnurate=`uttcli get pppoeSrvAcc $pppoeid pppoeuploadRate`  
+accndrate=`uttcli get pppoeSrvAcc $pppoeid pppoedownloadRate`
+    pppoeacclimit.sh 'A' $8 $5 $accnurate $accndrate
+    exit 0
+fi
+devname=`basename $2`
+ttyUSB=`echo $devname |grep ^tty`
+if [ "${ttyUSB}" != "" ]; then
+    devname="ttyUSB0";
+fi
+#$ppp_info=`cat /var/run/$2.ppp`
+#if [ -n "$ppp_info" ]; then
+#sleep 3
+#fi
+#if [ -n "$ppp_info" ]; then
+sleep 4
+#fi
+
+echo $1 $devname $3 $4 $5 $6 > /var/run/$devname.ppp 
+
+#add by dhyu for xl2tp server
+if [ "$7" = "UttVPNserver" ]; then
+    l2tpConnUp.sh $1 $8
+# vpn free session minus 1
+#    vpnHandle minus l2tpserver $8
+    exit 0
+fi
+#end xl2tp server
+
+#add by dhyu for pptpd server
+if [ "$7" = "pptpd" ]; then
+    pptpConnUp.sh $1 $8
+    exit 0
+fi
+#end xl2tp server
+
+#修改后的getWanNo，返回值为空
+wanNo=`getWanNo $devname`
+#if [ $wanNo == "0" ];then
+if [ "$wanNo" == "" ];then
+    test=${devname:0:5}
+
+#SOHO开启VPN，获取服务端DNS并保存到文件
+    if [ $VPN_PROXY == $FYES ]; then
+	vpndns1=`echo $6 |sed "s/ .*$//g"`
+	vpndns2=`echo $6 |sed "s/^.* //g"`
+	echo $vpndns1 > /var/run/vpn.dns
+	echo $vpndns2 >>/var/run/vpn.dns
+    fi
+
+    if [ "$test" == "pptp_" ];then
+	echo 0xf0 > /proc/sys/net/ipv4/conf/$1/if_index
+	pptp-up.sh $1 $devname
+	exit 0
+    fi
+# l2tp client up
+    if [ "$test" == "l2tp_" ];then
+	echo 0xf0 > /proc/sys/net/ipv4/conf/$1/if_index
+	l2tp-up.sh $1 $devname                                                                                                        
+	exit 0
+    fi
+fi
+#wanchkip=`nvram_get 2860 Wan${wanNo}ChkIP`
+#线路组合检测IP地址
+wanchkip=`uttcli get interface ${wanNo} detectIp`
+#if [ "$wanchkip" != "" ]; then
+if [ "$wanchkip" != "0.0.0.0" ]; then
+    ip route replace table `expr 90 + $wanNo` ${wanchkip}/32 dev $1
+fi
+#PoeOpMode=`nvram_get 2860 Wan${wanNo}PoeOpMode`
+#pppoe拨号模式
+PoeOpMode=`uttcli get interface ${wanNo} ethernet pppoe pppConnMode`
+#if [ $PoeOpMode = "OnDemand" ]; then
+if [ $PoeOpMode = "DEMAND" ]; then
+    ip route add table default default dev $1
+fi
+dns1=`echo $6 |sed "s/ .*$//g"`
+dns2=`echo $6 |sed "s/^.* //g"`
+echo nameserver $dns1 > /var/run/wan$wanNo.dns
+echo nameserver $dns2 >>/var/run/wan$wanNo.dns
+#config-dns.sh $wanNo $dns1 $dns2
+#if [ $dns1 != "" ]; then
+#    ip route replace $dns1/32 via $5 dev $1 metric $wanNo
+#fi
+#if [ $dns2 != "" ]; then
+#    ip route replace $dns2/32 via $5 dev $1 metric $wanNo
+#fi
+
+cat /proc/uptime > /var/run/wan${wanNo}.uptime
+#wanStatus=`nvram_get 2860 Wan${wanNo}Status`
+#echo $wanStatus >/var/run/Wan${wanNo}link.status
+#snd2ram `expr 8 - $wanStatus` $wanNo
+#echo 1 >/var/run/Wan${wanNo}link.status
+snd2speed up $wanNo
+
+# do something 
+#route del default
+#route add default dev ppp0
+#killall -70 goahead

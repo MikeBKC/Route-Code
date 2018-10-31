@@ -1,0 +1,16 @@
+configList=Configuration File List
+sureConfig=Selected
+confName=Configuration File Name
+size=Size
+
+APRemoteMG=Remote AP Management
+continueTips=After distribution is complete, you need to restart the AP for the new configuration to take effect. Do you want to continue?
+chooseFile=Please select an entry from the list.
+lawfull=Operation succeeded.
+failTips=Operation failed.
+sureout=Distribute
+lawless=Illegal operation.
+
+UnitOutConf=Remote AP Management - Distribute Config File
+go=Go to 
+errorApTypes=The configuration does not match with the model.Please select the correct configuration.

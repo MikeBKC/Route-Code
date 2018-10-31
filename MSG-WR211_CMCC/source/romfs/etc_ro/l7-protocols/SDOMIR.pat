@@ -1,0 +1,2 @@
+SDOMIR
+^\x44\xff\x44\xff

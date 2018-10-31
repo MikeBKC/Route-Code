@@ -1,0 +1,11 @@
+startDhcp=Enalbe DHCP Server
+show=To make DHCP server settings take effect, select the check box to enable DHCP server.
+addrPool=Address Pool
+dhcpSvcSet=DHCP Server Settings
+staticDhcp=Static DHCP
+dhcpClient=DHCP Client List
+dnsSet=DNS Proxy
+dhcppool=DHCP Address Pool
+DHCP=DHCP Server
+server=Server
+_warning9=This operation will act on the DHCP server settings of the WLANs (AP Controller > WLANs) too. Do you want to continue?

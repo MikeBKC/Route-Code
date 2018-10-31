@@ -1,0 +1,1 @@
+cmd_loginutils/lib.a := rm -f loginutils/lib.a; /opt/buildroot-gcc342/bin/mipsel-linux-uclibc-ar  rcs loginutils/lib.a loginutils/addgroup.o loginutils/adduser.o loginutils/chpasswd.o loginutils/deluser.o loginutils/getty.o loginutils/login.o loginutils/passwd.o

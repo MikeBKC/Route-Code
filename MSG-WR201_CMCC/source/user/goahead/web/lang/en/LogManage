@@ -1,0 +1,8 @@
+UBAS=Application Audit
+LogManage=Log Management
+SelectA=Select ALL
+UseWebLog=Enable Web Log
+UseQQLog=Enable QQ Online/Offline Log
+UseMSNLog=Enable MSN Online/Offline Log
+UseMailLog=Enable Email Audit Log
+UseEimLog=Enable Application Prohibited Log

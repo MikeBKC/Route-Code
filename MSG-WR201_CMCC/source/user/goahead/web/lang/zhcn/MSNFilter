@@ -1,0 +1,17 @@
+MSNWhite=MSN白名单
+MSNWhiteList=MSN白名单表
+MSNID=MSN账号
+Describe=描述
+MaxConfErr=配置已经达到最大条数，不能添加新配置
+SureDel=确定删除？
+SureDelAll=确定删除所有条目？
+UseMSNWhiteList=启用MSN白名单
+MSNWhiteConf=MSN白名单配置信息
+PleaseInputMSNID=请填写MSN账号！
+PleaseInputRQQNu=请正确填写qq号码的数字类型！
+MoreThan30MSNID=MSN账号长度超过30位！
+EXISTMSNID=MSN账号已存在！
+Describe=描述
+DescribeLengthMax=描述长度不能超过30位!
+MSNWhiteConf=MSN白名单配置
+Selecte=全选/全不选

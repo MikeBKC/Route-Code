@@ -1,0 +1,15 @@
+/**
+ * 2012-02-15 bhou
+ */
+ipset功能源码来自于网络 并经过修改和编译
+
+如果你想获得未变动的源码请访问
+http://ipset.netfilter.org/install.html
+
+如果你想知道本次编译做了哪些添加和修改。也可能需要通过以上地址获取原始代码 和 编译文件
+
+如果要为其他版本内核添加ipset支持。只需下载原始代码。然后
+make KERNEL_DIR=<<where-you-built-your-kernel>> patch_kernel   
+
+linux kernel source code:(version >= 2.6.16 or >= 2.4.36) and version<2.6.34
+ipset version:ipset-4.5

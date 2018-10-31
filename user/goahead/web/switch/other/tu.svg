@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-flat-20030114.dtd">
+<svg onload="init(evt)" onzoom="ZoomControl()" id="mainSvg"    preserveAspectRatio="none"
+ version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<style type="text/css">
+	* {
+	 cursor: pointer;
+	}
+	line {
+	 stroke:#000000;
+	 stroke-width: 0.5;	
+	 }
+	line.aggr {
+	 stroke: blue;
+	 stroke-width: 2;
+	}
+	line.warning {
+	 stroke: red;
+	 stroke-width: 2;
+	}
+	#crossX, #crossY {
+	 stroke: #f77;
+	 stroke-width: 1;
+	}
+	text {
+	 font: 11px monospace;
+	 fill: #000;
+	}
+	.tickH {
+	 text-anchor: middle;
+	 fill: #222;
+	}
+	#pointText {
+	 text-anchor: end;
+	}
+	.back {
+	 fill: #fff;
+	 opacity: 0.8;
+	}
+	</style>
+	<defs>
+		<g id="deviceInfo">
+			<rect width="120" height="50" id="dRect" fill="#FFFFCC" stroke="black" x="0" y="0" rx="5" ry="5" stroke-width="0.5"></rect>
+			<g id="dText"></g>
+			
+		</g>
+	</defs>
+	<script type="text/ecmascript">
+		<![CDATA[
+		var topo=parent.topo;//获取父页面节点（注意在ff中嵌入的svg文件被认为是当前页面的一个子页面）
+		var prefix=topo.prefix;
+		for(var i=0;i<topo.maxDepth;i++)
+		{
+			eval("var "+prefix+i+"="+"parent."+prefix+i);//获取父页面节点变量
+		}
+		var svgns = "http://www.w3.org/2000/svg";
+		var divX=0,divY=0;//分别对应弹出层的x，y坐标(相对于本svg文档)
+		var deviceWidth=topo.deviceWidth;
+		var deviceHeight=topo.deviceHeight;
+		var topoWidth=topo.topoWidth;
+		var topoHeight=topo.topoHeight;
+		var SVGDoc;//获得svg文档
+		var SVGRoot;//获得SVG跟节点
+		//分别对应样式:一般交换机，本机，受到攻击的设备，无管理及其他交换机
+		var rectStyles=new Array(
+									'stroke:black;fill:white',
+									'stroke:red;fill:white',
+									'stroke:black;;fill:red',
+									'stroke:#FFCC00; ;fill:white;stroke-dasharray:5 2'
+								);	
+		var textStyle="font-family:SimSunl;font-size:11px;fill:#000000"	;//提示信息样式表
+		var textStyle1="font-family:SimSunl;font-size:11px;fill:red"	;//提示信息样式表						
+		/**************************************
+		函数名：init
+		作用：初始化赋值
+		参数：evt是文件默认
+		**************************************/
+		function init(evt){
+			if ( window.SVGDoc == null )
+		       	 SVGDoc = evt.target.ownerDocument;
+		       	 SVGRoot = SVGDoc.rootElement;
+		       	 showInit();//调用拓扑图描绘函数
+		}
+		/***************************************
+		函数名：showInit
+		作用：拓扑图描绘函数
+		参数：
+		******************************************/
+		function showInit() {
+				if(topo.maxDepth < 1) return;
+		   		 var x1, y1, x2, y2;
+		   		 var curLevel = eval(prefix+'0');
+		   		 var parentLevel = eval(prefix+'0');
+		    		var curNode = curLevel[0];
+		    		var parentNode = parentLevel[0];
+		   		 x1 = curNode.x;
+		    		y1 = curNode.y;
+		    		showImage(x1, y1, topo.devices[curNode.deviceIndex],0,0);//描绘第一层节点
+		    		showLineForNode(0,0);
+		    		for (var i = 1; i < topo.maxDepth; i++) {
+		        		curLevel = eval(prefix + i);
+		       		 parentLevel = eval(prefix + (i - 1));
+		        		for (var j = 0; j < curLevel.length; j++) {
+		           			curNode = curLevel[j];
+		            		parentNode = parentLevel[curNode.parent];
+		           			x1 = parentNode.x;
+		           			y1 = parentNode.y;
+		           			x2 = curNode.x;
+		            		y2 = curNode.y;
+		           		 	showImage(x2, y2, topo.devices[curNode.deviceIndex],i,j);
+		            		showLineForNode(i,j);
+		            		//描绘本层节点和和该节点的父节点之间连接线
+		        		}
+		    		}
+		    	creatTips();
+				if(1)// 暂时注释掉汇聚
+				{
+		    	showLine(2,40,50,40,"");
+				showText(54,41,"普通链路");
+				showLine(2,60,50,60,"aggr");
+				showText(54,61,"汇聚链路");
+				}
+				}
+		 /********
+		 为节点描绘连线
+		********/		 
+		function showLineForNode(level,index)
+		{
+			showLineBelow(level,index);
+			showLineAbove(level,index)
+		}
+		/**************
+		描绘该节点下方方的连线
+		**************/
+		function showLineBelow(level,index)
+		{
+			var curLevel=eval(prefix + level);
+			var curNode=curLevel[index];
+			if(curNode.lChild < 0)//孩子节点不存在
+			{
+				return;
+			}
+			var childLevel =eval(prefix + (level + 1) );
+			var childNode = childLevel[curNode.lChild];
+			var y1=curNode.y + deviceHeight;
+			var y2=y1+(childNode.y - curNode.y - deviceHeight) / 2;
+			var x1=curNode.x + deviceWidth /2;
+			var x2=x1;
+			var className='';
+			if(curNode.lChild == curNode.rChild)
+			{
+				if(childNode.aggrMem!='')
+				{
+					className='aggr';//用不同颜色的线表示汇聚
+				}	
+			}
+			showLine(x1,y1,x2,y2,className);
+			if(curNode.lChild != curNode.rChild)
+			{
+			  x1=childLevel[curNode.lChild].x + deviceWidth/2;
+			  x2=childLevel[curNode.rChild].x + deviceWidth/2;
+			  y1=y2;
+			  showLine(x1,y1,x2,y2,className);
+			}	
+		}
+		/**************
+		描绘该节点上方的连线
+		**************/
+		function showLineAbove(level,index)
+		{
+			var curLevel=eval(prefix + level);
+			var curNode=curLevel[index];
+			if(curNode.parent < 0) return;//父节点不存在
+			var parentLevel=eval(prefix + (level -1));
+			var parentNode=parentLevel[curNode.parent];
+			var x1=curNode.x + deviceWidth / 2;
+			var x2=x1;
+			var y1=curNode.y;
+			var y2=y1 - (curNode.y - parentNode.y -deviceHeight)/2;
+			var className1='',className2='';
+			if(curNode.aggrMem!='') className1='aggr';//用不同颜色的线表示汇聚
+			//if(curNode.warningLevel>0) className2='warning';//用不同颜色的线表示汇聚
+			//if(className1=='' || className2=='')className1=className2=(className1||className2);
+			//showLine(x1,y1,x2,y1+(y2-y1)/2,className1);
+			//showLine(x1,y1+(y2-y1)/2,x2,y2,className2);
+			showLine(x1,y1,x2,y2,className1);
+		}
+		/****
+		获取弹出层的XY坐标,e事件,divW层宽,divH层高
+		****/
+		function getDivXY(e,divW,divH)
+		{
+			var maxLX=topoWidth-divW-topo.lMargin;
+			var maxBY=topoHeight-divH-topo.bMargin;
+			var posx = e.clientX;
+			var posy = e.clientY;
+			var curtrans = SVGRoot.currentTranslate;//坐标变换时使用(如图形的放大，缩小)
+		    var ctx = curtrans.x;
+		    var cty = curtrans.y;
+			divX= (posx - (ctx) + 5);//注意这里ctx可能是负数(放大图片时)
+			divY= (posy - (cty) + 20);
+			if(divX > maxLX) divX= divX-divW-5;//提示框动态改变位置
+			if(divY > maxBY) divY= divY-divH-5;
+		}
+		function creatTips()
+		{
+			shape = SVGDoc.createElementNS(svgns,"use");
+			shape.setAttribute("x", 80);
+			shape.setAttribute("y", 50);
+			shape.setAttribute("id", "tips");
+			shape.setAttribute("style","visibility:hidden");
+			//shape.setAttribute("xlink:href","#deviceInfo");
+			shape.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href","#deviceInfo");
+			SVGRoot.appendChild(shape);
+		}
+		/********
+		显示提示信息
+		e为触发事件入口
+		i为层数,j为该节点在该层中的位置
+		**********/
+		function showTips(e,i,j)
+		{
+			var curNode=eval(prefix+i+'['+j+']');
+			var parentLevel =null;
+			var parentIsVirtual = 0;
+			if(curNode.parent >=0)
+			{
+				parentLevel =eval(prefix + (i-1));
+				parentIsVirtual = parentLevel[curNode.parent].isVirtual;
+			}
+			var textArr= new Array();//提示信息数组
+			var k=0;
+			var warningIndex=-1;
+			if(!curNode.isVirtual)//非虚拟设备
+			{
+				if(curNode.ip !='') textArr[k++] = "IP:" + curNode.ip;
+				if(curNode.mac !='') textArr[k++] = "MAC:" + curNode.mac;
+				if(curNode.version !='') textArr[k++] = "型号:" + curNode.version;
+				if(curNode.name !='') textArr[k++] = "设备名:" + curNode.name
+				if(curNode.parentPort >0 &&　!parentIsVirtual) textArr[k++] = "父节点端口:" + curNode.parentPort;
+				if(curNode.port>0) textArr[k++] = "本节点端口:" + curNode.port;
+				if(curNode.aggrMem!='')//设置了汇聚
+				{
+				   if(curNode.parentAggrMem.length<=25)
+				   {
+				   	textArr[k++] = "父节点汇聚:"+curNode.parentAggrMem;
+				   }
+				   else
+				   {
+				   	textArr[k++] = "父节点汇聚:"+curNode.parentAggrMem.substr(0,25);
+				   	textArr[k++] = curNode.parentAggrMem.substr(25,curNode.parentAggrMem.length-25);
+				   }
+				   if(curNode.aggrMem.length<=25)
+				   {
+				   	textArr[k++] ="本节点汇聚:"+ curNode.aggrMem;
+				   }
+				   else
+				   {
+				   	textArr[k++] ="本节点汇聚:"+ curNode.aggrMem.substr(0,25);
+				   	textArr[k++] = curNode.aggrMem.substr(25,curNode.aggrMem.length-25);  	
+				   }
+				}
+				if(curNode.alivePorts>0) textArr[k++] = "活动端口数:" + curNode.alivePorts;
+				if(curNode.warningLevel>0)
+				{
+					warningIndex=k;
+				 	//textArr[k++] = "警告级别:" + curNode.warningLevel;
+					textArr[k++] = "安全警报！！！";
+				}
+			}
+			else
+			{
+				textArr[k++] = "型号:不可管理设备";
+				if(curNode.parentPort >0 &&　!parentIsVirtual) textArr[k++] = "父节点端口:" + curNode.parentPort;
+				
+			}	
+			var dRect=E('dRect');
+			var dText=E('dText');
+			while(dText.hasChildNodes())//先移除
+			{
+     			dText.removeChild(dText.firstChild);
+    		}
+			var curY=13;
+			var maxX=10;
+			var textL=0;
+			for(k=0;k<textArr.length;k++)
+			{
+				shape = SVGDoc.createElementNS(svgns,"text");
+				myData = SVGDoc.createTextNode(textArr[k]); 
+				shape.appendChild(myData);
+				shape.setAttribute("x", 5);
+				shape.setAttribute("y", curY);
+				if(warningIndex !=k )shape.setAttribute("style",textStyle);
+				else shape.setAttribute("style",textStyle1);
+				curY+=12;
+				dText.appendChild(shape);
+				textL= (shape.getComputedTextLength() + 10 );//必须在此(ff必须当此控件可见时，才能计算其长度)
+				if( textL > maxX ) maxX =textL;
+			}
+			var rHeight=curY-5;
+			var rWidth=maxX;
+			dRect.setAttribute("height",rHeight);
+			dRect.setAttribute("width",rWidth);	
+			var tips=E('tips');
+			getDivXY(e,rWidth,rHeight);
+			tips.setAttribute('x',divX);
+			tips.setAttribute('y',divY);
+			tips.setAttribute('style','visibility:visible');
+			
+		}
+		function toManage(e,i,j)
+		{
+			var curNode=eval(prefix+i+'['+j+']');
+			var width=230,height=100;
+			if(topo.countData('mac',curNode.mac)>1)
+			{
+				parent.alert("存在MAC地址冲突（"+curNode.mac+"），故无法针对该地址进行远程管理！");
+				return;
+			}
+			parent.document.getElementById("ipStr").value=curNode.ip;
+			parent.document.getElementById("macStr").value=curNode.mac.replace(/-/g,"");
+			getDivXY(e,width,height);
+			parent.showPs(divX,divY,width,height);
+			//try 
+		  	//{
+		      //  window.open('remote_manage.htm?ipStr='+curNode.ip+'&parentPage=topo');
+		   //	}
+		   	//catch (er) 
+		   	//{
+		       //	browserEval("window.open('remote_manage.htm?ipStr="+curNode.ip+"&parentPage=topo')");
+		   // }
+		
+		}
+		function hideTips()
+		{
+			var tips=E('tips');
+			tips.setAttribute('style','visibility:hidden');
+		}
+		/**************************************
+		函数名：showImage
+		作用：描绘图形
+		参数：x——图形X坐标；y——图形的y坐标
+		***************************************/
+		function showImage(x,y,src,i,j){
+			var curNode=eval(prefix+i+'['+j+']');
+			shape = SVGDoc.createElementNS(svgns,"image");
+			shape.setAttribute("x", x);
+			shape.setAttribute("y", y);
+			shape.setAttribute("width", deviceWidth);
+			shape.setAttribute("height",deviceHeight);
+			shape.setAttribute("onmouseover","showTips(evt,"+i+","+j+")");
+			shape.setAttribute("onmouseout","hideTips()");
+			if(curNode.port > 0 || curNode.aggrMem)shape.setAttribute("onclick","toManage(evt,"+i+","+j+")");//能识别出来端口的才能管理
+			shape.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href",src);
+			SVGRoot.appendChild(shape);
+			
+		}
+		/**************************************
+		函数名：showRect
+		作用：描绘矩形
+		参数：x——矩形的X坐标；y——矩形的y坐标;text——矩形框中的内容
+		***************************************/
+		/*function showRect(x,y,text,style_index){
+			var textX=x;
+			var textY=y;
+			var textL=0;
+			shape = SVGDoc.createElementNS(svgns,"rect");
+			shape.setAttribute("x", x);
+			shape.setAttribute("y", y);
+			shape.setAttribute("width",  60);
+			shape.setAttribute("height", 20);
+			shape.setAttribute("style", rectStyles[parseInt(style_index)]);
+			SVGRoot.appendChild(shape);
+			if(text!=null && text!='')
+			{
+				textY=(textY+13);
+				textL=text.length;
+				textX=eval(x+(23-(textL*3)));//使文本居中显示
+				showText(textX,textY,text);
+			}
+		}*/
+		/**************************************
+		函数名：showLine
+		作用：描绘直线
+		参数：x1——直线起点的x坐标；
+			  y1——直线起点的y坐标；
+			  x2——直线终点的x坐标；
+			  y2——直线终点的y坐标
+		***************************************/
+		function showLine(x1,y1,x2,y2,className){
+			shape = SVGDoc.createElementNS(svgns,"line");
+			shape.setAttribute("x1", x1);
+			shape.setAttribute("y1", y1);
+			shape.setAttribute("x2", x2);
+			shape.setAttribute("y2", y2);
+			if(className) shape.setAttribute("class", className);
+			SVGRoot.appendChild(shape);
+		}
+		/**************************************
+		函数名：showText
+		作用：描绘文本框
+		参数：x——文本框的x坐标；
+			  y——文本框的y坐标；
+			  text——文本框中的内容;
+		***************************************/
+		function showText(x,y,text){
+			shape = SVGDoc.createElementNS(svgns,"text");
+			myData = SVGDoc.createTextNode(text); 
+			shape.appendChild(myData);
+			shape.setAttribute("x", x);
+			shape.setAttribute("y", y);
+			shape.setAttribute("style","font-family:SimSunl;font-size:11px");
+			SVGRoot.appendChild(shape);
+			
+		}
+		/**************************************
+		函数名：E
+		作用：获得控件的id
+		参数：e——控件id名
+		***************************************/
+		function E(e)
+		{
+			return (typeof(e) == 'string') ? document.getElementById(e) : e;
+		}
+		/********
+		svg图片变化如放大 或 缩小的时候 提示框不跟着变化
+		*********/
+		function ZoomControl()
+		{
+		    var curzoom;
+			curzoom =SVGRoot.currentScale;
+			SVGDoc.getElementById("tips").setAttribute("transform","scale("+1/curzoom+")");
+		}
+		]]>
+	</script>
+</svg>

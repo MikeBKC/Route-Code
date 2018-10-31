@@ -1,0 +1,4 @@
+workMode=Device Mode
+fatAP=Fat AP
+thinAP=Fit AP
+rebootTips=Note: The AP will restart when the mode is changed.

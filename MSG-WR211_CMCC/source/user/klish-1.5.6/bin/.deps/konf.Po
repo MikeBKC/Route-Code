@@ -1,0 +1,160 @@
+bin/konf.o bin/konf.o: bin/konf.c ./config.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/stdio.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/features.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/uClibc_config.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/sys/cdefs.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/types.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/kernel_types.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/wordsize.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/pthreadtypes.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/sched.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/uClibc_stdio.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/wchar.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/wchar.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/stdio_lim.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/stdlib.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/waitflags.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/waitstatus.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/endian.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/endian.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/sys/types.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/time.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/sys/select.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/select.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/sigset.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/time.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/sys/sysmacros.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/alloca.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/unistd.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/posix_opt.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/environments.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/confname.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/getopt.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/string.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/getopt.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/signal.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/signum.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/siginfo.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/sigaction.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/sigcontext.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/asm/sigcontext.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/asm/sgidefs.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/sigstack.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/ucontext.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/sys/ucontext.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/sgidefs.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/sigthread.h \
+  ./konf/net.h ./konf/buf.h ./lub/bintree.h ./konf/query.h ./lub/types.h \
+  ./lub/string.h ./lub/c_decl.h
+
+./config.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/stdio.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/features.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/uClibc_config.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/sys/cdefs.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/types.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/kernel_types.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/wordsize.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/pthreadtypes.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/sched.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/uClibc_stdio.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/wchar.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/wchar.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/stdio_lim.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/stdlib.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/waitflags.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/waitstatus.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/endian.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/endian.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/sys/types.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/time.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/sys/select.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/select.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/sigset.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/time.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/sys/sysmacros.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/alloca.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/unistd.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/posix_opt.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/environments.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/confname.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/getopt.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/string.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/getopt.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/signal.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/signum.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/siginfo.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/sigaction.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/sigcontext.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/asm/sigcontext.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/asm/sgidefs.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/sigstack.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/ucontext.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/sys/ucontext.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/sgidefs.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/sigthread.h:
+
+./konf/net.h:
+
+./konf/buf.h:
+
+./lub/bintree.h:
+
+./konf/query.h:
+
+./lub/types.h:
+
+./lub/string.h:
+
+./lub/c_decl.h:

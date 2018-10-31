@@ -1,0 +1,189 @@
+<po>
+
+
+<!-- Common -->
+  <message msgid="save" msgstr="保存" />
+  <message msgid="reset" msgstr="重填" />
+  <message msgid="update" msgstr="刷新" />
+  <message msgid="help" msgstr="帮助" />
+  <message msgid="sequenceNo" msgstr="序号" />
+  <message msgid="apName" msgstr="AP名称" />
+  <message msgid="apType" msgstr="AP型号" />
+  <message msgid="serialNo" msgstr="序列号" />
+  <message msgid="ipAddr" msgstr="IP地址" />
+  <message msgid="macAddr" msgstr="MAC地址" />
+  <message msgid="apStatus" msgstr="AP状态" />
+  <message msgid="allType" msgstr="所有类型" />
+  <message msgid="onLine" msgstr="在线" />
+  <message msgid="offLine" msgstr="离线" />
+  <message msgid="enable" msgstr="开启" />
+  <message msgid="disable" msgstr="关闭" />
+  <message msgid="wlanMode" msgstr="无线模式" />
+  <message msgid="search" msgstr="搜索" />
+  <message msgid="gateway" msgstr="网关" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+  
+    
+<!-- Service Zone -->
+  <message msgid="svcZoneStatus" msgstr="服务区状态" />
+  <message msgid="svcZoneName" msgstr="服务区名称" />
+  <message msgid="vlanTag" msgstr="VLAN Tag" />
+  <message msgid="netMask" msgstr="子网掩码" />
+  <message msgid="ssid" msgstr="SSID" />
+  <message msgid="broadcast" msgstr="SSID广播" />
+  <message msgid="dhcpServer" msgstr="DHCP服务器" />
+  <message msgid="svcZoneList" msgstr="服务区列表" />
+  <message msgid="svcZoneConf" msgstr="服务区配置" />
+  <message msgid="serviceZone" msgstr="服务区" />
+  <message msgid="startIp" msgstr="起始IP地址" />
+  <message msgid="endIp" msgstr="结束IP地址" />
+  <message msgid="primaryDns" msgstr="主DNS服务器" />
+  <message msgid="backupDns" msgstr="备DNS服务器" />
+  <message msgid="lease" msgstr="租用时间" />
+  <message msgid="" msgstr="" />
+  
+<!-- Fit Ap List -->
+  <message msgid="fitApList" msgstr="瘦AP管理列表" />
+  <message msgid="softVersion" msgstr="软件版本" />
+  <message msgid="apAllCount" msgstr="AP总数：" />
+  <message msgid="onlineApCount" msgstr="在线AP数：" />
+  <message msgid="offlineApCount" msgstr="离线AP数：" />
+  <message msgid="seconds" msgstr="秒" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+<!-- Wlan Client List -->
+  <message msgid="users" msgstr="用户" />
+  <message msgid="userStatus" msgstr="用户状态" />
+  <message msgid="linkedFitAp" msgstr="所连AP" />
+  <message msgid="wlanCltList" msgstr="无线客户端列表" />
+  <message msgid="onlineUserCount" msgstr="在线人数" />
+  <message msgid="typeOfAuth" msgstr="认证方式" />
+  <message msgid="flow" msgstr="流量（KB/s）" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+
+<!-- Discover Fit Ap -->
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+
+<!-- Configuration Template -->
+  <message msgid="confTemplate" msgstr="配置模版" />
+  <message msgid="channel_1" msgstr="信道" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+
+<!-- Wlan Firmware Update -->
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+
+<!-- Operation Management -->
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+
+
+</po>

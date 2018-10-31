@@ -1,0 +1,9 @@
+UserMesList=管理员配置信息列表
+UserMaxMes=系统管理员已经达到最大个数，不能添加新管理员
+MakeSureDel=确定删除？
+MakeSureDelAll=确定删除所有条目？
+AddNew=添加新条目
+DelAll=删除所有条目
+UserMes=管理员配置信息
+SecondTitle=管理员配置
+Select=全选/全不选

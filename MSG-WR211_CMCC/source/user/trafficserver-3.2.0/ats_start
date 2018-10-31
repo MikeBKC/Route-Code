@@ -1,0 +1,5 @@
+#!/bin/sh 
+
+start-stop-daemon -S -b -q -p /var/trafficserver/cop.lock -x traffic_cop	
+
+

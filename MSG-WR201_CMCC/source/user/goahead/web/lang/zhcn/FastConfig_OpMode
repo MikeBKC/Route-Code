@@ -1,0 +1,7 @@
+SelectOpMode=设备接入方式选择：
+WAN1Conf=WAN1口配置
+WAN2Conf=WAN2口配置
+G3ClientConf=3G客户端配置
+WireLessClientConf=无线客户端配置
+LeavePage=离开
+SecondTitle=配置向导-接入方式

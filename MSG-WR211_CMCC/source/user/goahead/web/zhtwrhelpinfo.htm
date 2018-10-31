@@ -1,0 +1,2403 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META NAME=Copyright CONTENT="Copyright (c) 2002-2008 Technologies Co.Ltd. All rights reserved .">
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<TITLE>幫助</TITLE>
+<style type='text/css'> 
+A:link          { color: #5050ff; text-decoration: underline; }
+A:visited       { color: #5050ff; text-decoration: underline; }
+A:active        { color: #5050ff; text-decoration: underline; }
+.normalCell			{
+color: #000000;
+font-family: verdana,arial,sans-serif;
+text-align: left;
+font-size: 12px;
+}
+.normalURL			{
+color: #000000;
+font-family: verdana,arial,sans-serif;
+width:100;
+text-align: left;
+font-size: 12px;
+}
+.italicCell			{
+color: #FF0000;
+font-family: verdana,arial,sans-serif;
+text-align: left;
+font-size: 12px;
+}
+li { font-family: verdana,arial,sans-serif;
+font-size: 12px;
+}
+ol { font-family: verdana,arial,sans-serif;
+font-size: 12px;
+}
+ul { font-family: verdana,arial,sans-serif;
+font-size: 12px;
+}
+p { font-family: verdana,arial,sans-serif;
+font-size: 12px;
+font-weight:bold;
+color:#000;
+}
+td { font-family: verdana,arial,sans-serif;
+font-size: 14px;
+}
+body { font-family: verdana,arial,sans-serif;
+font-size: 11px;
+}
+h2 { color: #CC0000;
+font-family: verdana,arial,sans-serif;
+font-size: 20px;
+font-family: verdana,arial,sans-serif;
+font-weight: bold;
+}
+</style>
+<script>
+</script>
+</head>
+<script src="js/common.js" type="text/javascript"></script>
+<script src="js/config.js" type="text/javascript"></script>
+<script language="javascript">
+showSecondTitle('線上說明');
+
+function init()
+{	
+	
+		moduleDisplay("NetPara",NetPara);   
+		moduleDisplay("AdvConf",AdvConf);   
+		moduleDisplay("UserMng",UserMng); 
+		moduleDisplay("UserGroup",UserGroup); 
+		moduleDisplay("TimeRange",TimeRange); 
+		moduleDisplay("QQFilter",QQFilter); 
+		moduleDisplay("MSNFilter",MSNFilter); 
+		moduleDisplay("LogManage",NetAction); 
+		moduleDisplay("WlsConf",WlsConf);
+		
+		
+        moduleDisplay("FastConfig",FastConfig);
+		moduleDisplay("RunStatusBM",RunStatus);
+		moduleDisplay("InterfaceFlow",InterfaceFlow);
+		moduleDisplay("ReBoot",ReBoot);
+		moduleDisplay("WANConfig",WANConfig);
+		moduleDisplay("LANConfig",LANConfig);
+		moduleDisplay("DhcpServer",DhcpServer);
+		moduleDisplay("DDNS",DDNS);
+		moduleDisplay("UPnP",UPnP);
+		moduleDisplay("NatStatic",NatStatic);
+		moduleDisplay("IPMac",IPMac);
+		moduleDisplay("Route",Route);
+		moduleDisplay("PPPoEGlobal",PPPoEGlobal);
+		moduleDisplay("AntiNetSnifer",AntiNetSnifer);
+		
+		//無線功能
+		moduleDisplay("WlanBase",WlanBase);
+		moduleDisplay("WlanSecurity",WlanSecurity);
+		moduleDisplay("WlanMacFilter",WlanMacFilter);
+		moduleDisplay("WlanAdvanced",WlanAdvanced);
+		moduleDisplay("WlanHostInfo",WlanHostInfo);
+		
+		//交換功能
+		moduleDisplay("ports",ports);
+		moduleDisplay("mirror",mirror);
+		moduleDisplay("portvlan",port_vlan);
+		moduleDisplay("aggr",aggregation || aggregation_100M);
+		moduleDisplay("SwFunGl",SwFun);
+		
+		moduleDisplay("globalBase",GlobalBase);
+		moduleDisplay("PdbUpdata",PdbUpdata);
+		moduleDisplay("Group",Group);
+		moduleDisplay("SmartQos",SmartQos);
+		moduleDisplay("ConnectionLimit",ConnectionLimit);
+		// moduleDisplay("Notice",Notice);
+		
+		moduleDisplay("FwBase",FwBase);
+		moduleDisplay("FireWall",FireWall);
+		moduleDisplay("DnsFilter",DnsFilter);
+		moduleDisplay("FwGl",Fw);
+		
+		// moduleDisplay("ConnectionLimit",ConnectionLimit);
+		 /* VPN配置 */
+		 moduleDisplay("VPN",VPN);
+		 moduleDisplay("PPTP",PPTPClientList);
+		// moduleDisplay("L2TPList",L2TPList);
+		
+		//聯動
+		 moduleDisplay("discover",discover);
+		 moduleDisplay("linkageGetConf",linkageConf);
+		 moduleDisplay("topoy",topoy);
+		 moduleDisplay("UrcpGl",Urcp);
+		 /* 系統管理 */
+		 moduleDisplay("SysMng",SysMng);
+		 moduleDisplay("User",User);
+		 moduleDisplay("langChange",langChange);
+		 moduleDisplay("SysClock",SysClock);
+		 moduleDisplay("DeviceConfig",DeviceConfig);
+		 moduleDisplay("SoftwareUpdate",SoftwareUpdate);
+		 moduleDisplay("Remote",Remote);
+		 moduleDisplay("TaskScheduler",TaskScheduler);
+	
+		 /* 系統狀態 */
+		 moduleDisplay("SysSts",SysSts);
+		 moduleDisplay("RunStatus", RunStatus);
+		// moduleDisplay("UserStats",UserStats);
+		// moduleDisplay("FluxStat",FluxStat);
+		 moduleDisplay("SysInfo",SysInfo);
+		// moduleDisplay("Remote",Remote);
+		// moduleDisplay("SaleService",SaleService); 
+		
+		if ((platform == "nv3520G") || (platform == "WX1000") || (platform == "WX100") || (platform == "WX20S")) {
+			moduleDisplay("ports100m", 0);
+			moduleDisplay("ports1000m", 1);
+			moduleDisplay("hwModelTr", 0);
+			moduleDisplay("PortDetails", 1);
+		}
+		if(platform == "1540")
+		{
+			moduleDisplay("ports100m", 1);
+			moduleDisplay("ports1000m", 0);
+		}
+		if ((platform == "nv510v2") || (platform == "nv540")|| (platform == "nv518")|| (platform == "nv518W-VPN")|| (platform == "nv518W-Lite")|| (platform == "nv518W-Plus") || (platform == "nv588") || (platform == "nv640E"){
+			moduleDisplay("ispTr", 0);
+		}
+			moduleDisplay("WanPortNum", WANPort);
+        if (platform == "nv510v4") {
+			moduleDisplay("ispTr", 0);
+		}
+        if ((platform == "nv510W") || (platform == "nv520W")||(platform =="U1000N") || (platform == "nv842W") || (platform == "nv518W") || (platform == "nv518W-VPN")|| (platform == "nv518W-Lite")|| (platform == "nv518W-Plus")|| (platform == "nv512W") || (platform == "nv520Wv3") || (platform == "nv842Wv3") || (platform == "nv515W")){
+			moduleDisplay("FastConfigWlan", 1);
+		} 
+		if (platform == "nv1800N") {
+			moduleDisplay("FastConfig1800", 1);
+			moduleDisplay("RunStatusBM1800", 1);
+			moduleDisplay("RunStatus1800", 1);
+			moduleDisplay("InterfaceFlow1800", 1);
+			moduleDisplay("WANConfig1800", 1);
+			moduleDisplay("DhcpConfig1800", 1);
+		} else {
+			moduleDisplay("FastConfigNormal", 1);
+			moduleDisplay("RunStatusBMNormal", 1);
+			moduleDisplay("RunStatusNormal", 1);
+			moduleDisplay("InterfaceFlowNormal", 1);
+			moduleDisplay("WANConfigNormal", 1);
+			moduleDisplay("DhcpConfigNormal", 1);
+		}
+	    moduleDisplay("PortMirror", PortMirror || PortMirror6530G);
+		moduleDisplay("PortMirror8367M", PortMirror8367M);
+		moduleDisplay("Notice", Notice);
+}
+</script>
+<body  onLoad="init()">
+<center>
+<h2>線上說明</h2>
+</center>
+
+<hr>
+<p><b><font size="+1" color="#666666">SvgViewer相關</font></a></b><p>
+<p><b>設備中的部分頁面（如流量圖與拓撲圖）正常顯示需<a href="http://www.adobe.com/svg/viewer/install/" target="_blank">安裝外掛程式svgviewer</a></b></p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<TD width=120 valign=top class=italicCell>安裝後頁面仍異常</TD>
+<Td class=normalCell>流覽器關於該外掛程式的任何詢問應設置為允許。若該頁面仍無法正常顯示，請將流覽器安全級別設置為低</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>該外掛程式可能與部分安全軟體衝突（如部分防火牆類軟體）。若安全軟體有任何關於此外掛程式的詢問，應設置為允許。若該頁面仍無法正常顯示，請暫時關閉相應的安全軟體</td>
+</TR>
+</table>
+
+<hr>
+<p><b><font size="+1" color="#666666">開始菜單</font></a></b><p>
+<div  id="FastConfig" style="display:">
+<p>配置嚮導
+<div  id="FastConfigNormal" style="display:none">
+<Td class=normalCell>通過配置嚮導，可配置WAN1口，完成設備最基本的配置，從而使內網使用者可以通過設備上網</td>
+<p>請使用者根據實際情況選擇相應的接入方式
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>動態IP </td>
+<Td class=normalCell>直接點擊<完成>，通過運營商DHCP伺服器分配的IP地址實現上網 </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>固定IP</td>
+<Td class=normalCell>填寫運營商提供的IP地址、子網路遮罩、閘道位址、DNS伺服器位址，再點擊<完成>實現上網</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>PPPoE接入</td>
+<Td class=normalCell>輸入運營商提供的用戶名和密碼，點擊<完成>實現上網</td>
+</TR>
+</table>
+</div>
+
+<div  id="FastConfig1800" style="display:none">
+<p>通過配置嚮導，可配置設備的管理IP位址（即LAN口IP位址），從而您可以通過該IP位址管理設備
+<p>請您根據實際情況選擇設備的接入方式
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>固定IP接入</td>
+<Td class=normalCell>填寫設備的管理IP位址、子網路遮罩、閘道位址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>動態IP接入</td>
+<Td class=normalCell>直接點擊<完成>，設備將從內網DHCP伺服器處獲取IP位址等資訊</td>
+</TR>
+</table>
+</div>
+
+<div  id="FastConfigWlan" style="display:none">
+<p>通過配置嚮導，可配置設備作為有線閘道、3G用戶端、無線用戶端為內網用戶提供接入
+<p>設備接入方式選擇
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>WAN1口配置</td>
+<Td class=normalCell>勾選表示設備通過WAN1口為內網用戶提供有線接入</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>3G用戶端配置</td>
+<Td class=normalCell>勾選表示設備通過3G用戶端為內網用戶提供接入</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>無線用戶端配置</td>
+<Td class=normalCell>勾選表示設備通過無線用戶端為內網用戶提供無線接入</td>
+</TR>
+</table>
+<p>WAN1口配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>動態IP接入</td>
+<Td class=normalCell>設備將通過獲取運營商DHCP伺服器分配的IP地址，為內網用戶提供實接入</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>固定IP接入</td>
+<Td class=normalCell>填寫運營商提供的IP地址、子網路遮罩、閘道地址、DNS伺服器地址，通過固定IP地址為內網用戶提供接入</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>PPPoE接入</td>
+<Td class=normalCell>填寫運營商提供的用戶名、密碼，通過撥號為內網用戶提供接入</td>
+</TR>
+</table>
+<p>3G用戶端配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>3G卡類型</td>
+<Td class=normalCell>選擇您插入的3G卡類型</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>運營商</td>
+<Td class=normalCell>提供網路遠端接入的服務商，包括中國移動、中國聯通、中國電信</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>認證方法</td>
+<Td class=normalCell>採用3G方式接入網路時和運營商端採用的認證，提供SIM認證和密碼認證</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>PIN碼</td>
+<Td class=normalCell>3G上網卡的個人身份識別碼</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>接入點名</td>
+<Td class=normalCell>運營商用來提供接入的接入點的名稱</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>撥號</td>
+<Td class=normalCell>用來連接運營商基站時發出的撥號指令的內容之一</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>用戶名、密碼</td>
+<Td class=normalCell>PPP認證的用戶名、密碼</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>建議使用者只配置3G卡類型、運營商兩個選項，其餘參數保持預設；若需改變，請在專業人士指導下完成</td>
+</TR>
+</table>
+<p>無線用戶端配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>AP的SSID、MAC地址</td>
+<Td class=normalCell>為本設備提供無線接入的AP的 SSID和MAC地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>安全模式</td>
+<Td class=normalCell>選項有無安全機制、WPA-PSK/WPA2-PSK、WEP</td>
+</TR>
+</table>
+<p>無線參數配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>SSID</td>
+<Td class=normalCell>用於唯一地標識一個無線網路的字串，區分大小寫</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>無線模式</td>
+<Td class=normalCell>提供僅11g，僅11n和11b/g/n混合三個無線模式選項</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>通道</td>
+<Td class=normalCell>選擇無線網路工作的頻率段</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>頻道頻寬</td>
+<Td class=normalCell>設置無線資料傳輸時所佔用的頻道頻寬</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>配置嚮導所做的操作，只有點擊&lt;完成&gt;後，配置才會生效</td>
+</TR>
+</table>
+</div>
+
+</div>
+
+
+<div  id="RunStatusBM" style="display:">
+<hr>
+<p>運行狀態
+<table id="RunStatusBMNormal"  style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>通過此頁面可以查看設備各介面的相關資訊，如：介面的接入方式、IP位址、MAC位址、子網路遮罩、連線時間等資訊</td>
+</TR>
+</table>
+<table id="RunStatusBM1800"   style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>通過此頁面可以查看設備LAN口的相關資訊：如：LAN口的接入方式、IP位址、MAC位址、子網路遮罩、連線時間等資訊</td>
+</TR>
+</table>
+</div>
+
+
+<div  id="InterfaceFlow" style="display:">
+<hr>
+<p>埠流量
+<p>
+<table id="InterfaceFlowNormal"  style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>埠流量</td>
+<Td class=normalCell>通過此頁面可以查看各埠即時的流量圖。可通過圖右下方的選項選擇不同的顯示效果</td>
+</TR>
+<tr id="PortDetails" style="display:none">
+<TD width=120 valign=top class=italicCell>埠詳情</td>
+<Td class=normalCell>通過此頁面可以查看相應埠詳細的統計資訊，如接收包數、發送包數</td>
+</TR>
+</table>
+<table id="InterfaceFlow1800"  style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>埠流量</td>
+<Td class=normalCell>通過此頁面可以查看設備即時的有線、無線流量圖。可通過圖右下方選項選擇不同的顯示效果</td>
+</TR>
+</table>
+</div>
+
+<div  id="NetPara" style="display:">
+<hr>
+<p><b><font size="+1" color="#666666">網路參數</font></a></b><p>
+<div  id="WANConfig" style="display:">
+<div  id="WANConfigNormal" style="display:none">
+<p>WAN口配置
+<p>設備支援動態IP、固定IP、PPPoE接入三種接入方式
+
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr id="ispTr" style="display:">
+<TD width=120 valign=top class=italicCell>運營商策略</td>
+<Td class=normalCell>選擇提供該IP位址的相應運營商，以實現電信流量走電信線路、聯通流量走聯通線路、移動流量走移動線路</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC地址</td>
+<Td class=normalCell>一般無需修改。但在某些情況下，運營商將設備的MAC做了綁定，這樣造成新的網路設備無法連接成功，此時需要將設備的 MAC 位址修改為原網路設備的 MAC 位址</td>
+</TR>
+</table>
+<p>固定IP
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>IP地址</td>
+<Td class=normalCell>申請固定IP接入業務時，由運營商提供</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>主、備DNS伺服器地址</td>
+<Td class=normalCell>運營商提供的DNS伺服器IP地址</td>
+</TR>
+</table>
+<p>PPPoE接入
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>用戶名、密碼</td>
+<Td class=normalCell>申請PPPoE接入業務時，由運營商提供</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>密碼驗證方式</td>
+<Td class=normalCell>運營商驗證用戶名、密碼的方式。選項有：NONE(不進行驗證)、PAP、CHAP、EITHER(自動和對端設備協商密碼驗證方式)</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>撥號類型</td>
+<Td class=normalCell>選項有自動撥號、按需撥號、手動撥號</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>自動撥號</td>
+<Td class=normalCell>當開啟設備或者上一次撥號斷線後設備自動撥號</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>按需撥號</td>
+<Td class=normalCell>內網有訪問 Internet 流量時設備自動進行撥號連線</td>
+</TR>
+<TD width=120 valign=top class=italicCell>手動撥號</td>
+<Td class=normalCell>手工進行撥號和掛斷，選擇相應線路後點擊列表右下方的<撥號>、<掛斷></td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>撥號模式</td>
+<Td class=normalCell>在使用正確的用戶名和密碼前提下，如果撥號不成功，可嘗試使用其它撥號模式</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>閒置時間</td>
+<Td class=normalCell>在沒有訪問 Internet 流量後自動斷線前等待的時長， 0 代表不自動斷線</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MTU</td>
+<Td class=normalCell>最大傳輸單元，缺省值為1480位元組，PPPoE撥號時設備將自動與對方設備協商，除非特別應用，請不要修改</td>
+</TR>
+</table>
+
+<hr>
+<p id="DoubleLine">線路組合</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>部分線路負載均衡，其餘備份</td>
+<Td class=normalCell>只有當所有主線路都不能正常工作時，所有的資料流程量切換到備份線路；當備份線路工作時，如果有一條主線路恢復正常，所有流量立即切換回主線路</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>所有線路負載均衡</td>
+<Td class=normalCell>所有線路都為主線路，實現資料流程量均衡負載和頻寬疊加。若某線路故障，則立即遮罩，原經過該線路的資料將分配到其他線路上。一旦故障線路恢復正常則又啟用該線路</td>
+</TR>
+</table>
+<p>線路檢測</p>
+<Td class=normalCell>線路檢測能即時地檢測線路的狀態，以保證通信資料在某線路故障時能及時切換到正常線路</td>
+</div>
+<div id="WanPortNum" style="display:none">
+<p>WAN口數量配置</p>
+<p>動態配置設備的WAN口數量，點擊保存後，應手動重啟設備配置才會生效</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>注</td>
+<Td class=normalCell>重啟後的設備會恢復到出廠時的配置</td>
+</TR>
+</table>
+</div>
+<div  id="WANConfig1800" style="display:none">
+<p>LAN口配置</p>
+<p>配置設備的管理IP位址</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>固定IP接入</td>
+<Td class=normalCell>填寫設備的管理IP位址、子網路遮罩、閘道位址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>動態IP接入</td>
+<Td class=normalCell>設備將從內網DHCP伺服器處獲取IP位址等資訊</td>
+</TR>
+</table>
+</div>
+</div>
+
+
+<div  id="LANConfig" style="display:">
+<hr>
+<p>LAN口配置
+<p>
+<Td class=normalCell>设备LAN口支持配置4个IP地址</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>IP地址</td>
+<Td class=normalCell>设置LAN口的IP地址，第一个IP地址默认为192.168.1.1，其他的三个IP地址默认为0.0.0.0</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>子網路遮罩</td>
+<Td class=normalCell>设置相应IP地址的子网掩码，默认都为255.255.255.0</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC地址</td>
+<Td class=normalCell>LAN口MAC位址，一般不需要修改</td>
+</TR>
+</table>
+</div>
+
+<div  id="DhcpServer" style="display:">
+<hr>
+<p>DHCP伺服器
+<p><a name="DhcpServers"></a></p>
+<p>DHCP服務設置
+<table cellspacing=0 cellpadding=4 border=0 width=100% id="DhcpConfigNormal" style="display:none">
+<tr>
+<TD width=120 valign=top class=italicCell>啟用DHCP伺服器</td>
+<Td class=normalCell>勾選表示啟用設備的DHCP伺服器功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>起始/結束IP位址</td>
+<Td class=normalCell>定義DHCP位址集區的範圍，跟設備LAN口IP位址在同一網段</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>子網路遮罩</td>
+<Td class=normalCell>DHCP位址集區中IP地址的子網路遮罩</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>閘道地址</td>
+<Td class=normalCell>下發給DHCP用戶端的閘道位址，一般為設備LAN口IP位址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>租用時間</td>
+<Td class=normalCell>內網電腦使用DHCP伺服器分配的IP位址的時長</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>主、備DNS伺服器</td>
+<Td class=normalCell>設置DNS伺服器位址；在未啟用DNS代理情況下，DHCP伺服器將這些DNS伺服器位址分配給DHCP用戶端</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用DNS代理</td>
+<Td class=normalCell>啟用DNS代理後，設備會將它的LAN口IP位址分配給用戶端作為DNS伺服器地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>運營商DNS伺服器</td>
+<Td class=normalCell>設置其他DNS伺服器位址</td>
+</TR>
+</table>
+
+<table cellspacing=0 cellpadding=4 border=0 width=100% id="DhcpConfig1800" style="display:none">
+<tr>
+<TD width=120 valign=top class=italicCell>啟用DHCP伺服器</td>
+<Td class=normalCell>勾選表示啟用設備的DHCP伺服器功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>起始/結束IP位址</td>
+<Td class=normalCell>定義DHCP位址集區的範圍</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>子網路遮罩</td>
+<Td class=normalCell>DHCP位址集區中IP地址的子網路遮罩</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>閘道地址</td>
+<Td class=normalCell>下發給DHCP用戶端的閘道位址，一般為設備上聯閘道的LAN 口IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>租用時間</td>
+<Td class=normalCell>內網電腦獲得DHCP伺服器分配的IP地址的租用時長</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>主、備DNS伺服器</td>
+<Td class=normalCell>設備做為DHCP伺服器下發給用戶端主機的DNS伺服器位址</td>
+</TR>
+</table>
+
+<p><a name="StaticDHCP"></a></p>
+<p>靜態DHCP</p>
+<Td class=normalCell>靜態DHCP功能是將動態下發的IP位址與用戶端的MAC進行綁定，即同一MAC位址的用戶端每次獲得的IP位址是同一個</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>用戶名</td>
+<Td class=normalCell>定義一個DHCP用戶端的用戶名</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>IP地址</td>
+<Td class=normalCell>下發給指定用戶端的IP地址，這個地址應在DHCP位址集區範圍內</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC地址</td>
+<Td class=normalCell>填寫下發指定IP地址的用戶端的MAC地址</td>
+</TR>
+</table>
+
+
+<p><a name="DhcpAutoBind"></a></p>
+<p>DHCP自动绑定</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用DHCP自动绑定</td>
+<Td class=normalCell>当启用DHCP自动绑定时，设备会对内网进行扫描，将动态获取IP地址的内网用户的IP/MAC进行绑定，并且设备后续每分配一个IP地址，就会将该IP地址与客户端的MAC地址进行绑定</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用DHCP自动删除</td>
+<Td class=normalCell>当启用DHCP自动删除时，表示在租期到期之后，设备会将之前自动绑定的IP/MAC删除，如不启用，则表示不进行删除操作</td>
+</TR>
+</table>
+
+
+<p><a name="DHCPTable"></a></p>
+<p>DHCP用戶端列表</p>
+<Td class=normalCell>在此清單中可以查看DHCP位址集區的使用情況及DHCP用戶端的相關資訊</td>
+</div>
+
+
+
+<div  id="DDNS" style="display:">
+<hr>
+<p>DDNS配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>服務商</td>
+<Td class=normalCell>設備提供的服務商有：iplink.com.cn和3322.org，選擇相應的服務商；當選擇iplink.com.cn時，需在<strong>系統管理—>時鐘管理</strong>中正確配置網路時鐘同步</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>註冊功能變數名稱</td>
+<Td class=normalCell>點擊功能變數名稱，在配置DDNS服務之前需到相關網站上申請尾碼為iplink.com.cn的二級功能變數名稱及密碼或尾碼為3322.org的二級功能變數名稱及用戶名和口令</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>主機名稱</td>
+<Td class=normalCell>填寫已申請的主機名稱</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>用戶名</td>
+<Td class=normalCell>註冊3322.org時使用的用戶名</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>金鑰</td>
+<Td class=normalCell>註冊3322.org時使用的密碼或者是註冊iplink.com.cn動態功能變數名稱時生成的金鑰</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>介面</td>
+<Td class=normalCell>選擇DDNS服務綁定的介面</td>
+</TR>
+</table>
+</div>
+
+
+<div  id="UPnP" style="display:">
+<hr>
+<p>UPnP
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>內部位址</td>
+<Td class=normalCell>內網主機的IP位址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>內部埠</td>
+<Td class=normalCell>內網主機提供的服務埠</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>協議</td>
+<Td class=normalCell>該UPnP NAT 靜態映射使用的協定</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>對端地址</td>
+<Td class=normalCell>對端主機的IP位址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>對端埠</td>
+<Td class=normalCell>內部埠經 NAT 轉換後的埠，即設備提供給 Internet 的服務埠</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>描述</td>
+<Td class=normalCell>用來描述相關 UPnP軟體的資訊</td>
+</TR>
+</table>
+</div>
+</div>
+
+<div  id="WlsConf" style="display:">
+<hr>
+<p><b><font size="+1" color="#666666">無線配置</font></a></b><p>
+<div  id="WlanBase" style="display:">
+<p>基本配置
+<p>通過無線基本配置您可以開啟設備的無線功能，並設置設備的無線模式等
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>AP Mode</td>
+<Td class=normalCell>純AP模式，此模式下，對端設備為AP Client 模式的無線設備、用戶端主機</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>AP Client Mode</td>
+<Td class=normalCell>AP用戶端模式，此模式下，安全模式和通道都要和對端保持一致，否則不能實現連通</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Repeater Mode</td>
+<Td class=normalCell>中繼模式，此模式下，設備可與處於Bridge Mode、Repeater Mode以及Lazy Mode工作模式的網路設備交換資料</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Bridge Mode</td>
+<Td class=normalCell>橋接模式，可通過設備連接兩個或者多個有線網路，此模式下設備不會再發送無線信號給其它用戶端接收，可與處於Bridge Mode 、Repeater Mode、Lazy Mode模式的網路設備交換資料</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Lazy Mode</td>
+<Td class=normalCell>此模式下，設備可與處於Repeater Mode、Bridge Mode模式的網路設備交換資料</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>SSID</td>
+<Td class=normalCell>（Service Set Identification，服務集標識）用於唯一地標識一個無線網路的字串，區分大小寫</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>無線模式</td>
+<Td class=normalCell>提供僅11g，僅11n和11b/g/n混合三個無線模式選項</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>僅11g</td>
+<Td class=normalCell>純802.11g模式，本模式下，最大速率54M bps；相容IEEE 802.11g標準的無線網站可以接入設備</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>僅11n</td>
+<Td class=normalCell>純802.11n模式，本模式下，最大速率為150M bps；只有符合IEEE 802.11n標準的無線網站可以接入設備</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>11b/g/n混合</td>
+<Td class=normalCell>符合IEEE 802.11b、802.11g或者802.11n標準的無線網站將各自按照自己的模式接入，最大速率分別為11M bps、54M bps和150M bps</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>通道</td>
+<Td class=normalCell>選擇無線網路工作的頻率段，如果存在多個無線設備時，要注意各個設備的頻段設置不能相互影響</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>頻帶頻寬</td>
+<Td class=normalCell>設置無線資料傳輸時所佔用的頻道頻寬；802.11b或者802.11g標準的無線網站只能使用20M的頻道頻寬；而使用802.11n接入的無線網站將根據接入對端設備協商的結果選擇使用20M或40M的頻道頻寬</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用SSID廣播</td>
+<Td class=normalCell>啟用後，設備將向無線網路廣播自己的SSID；開啟此功能存在安全風險（非法網站很容易獲得SSID資訊），一般建議禁用此功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>AP的SSID</td>
+<Td class=normalCell>為本設備提供無線接入的AP的SSID</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>AP的MAC地址</td>
+<Td class=normalCell>為本設備提供無線接入的AP的MAC地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>安全模式</td>
+<Td class=normalCell>選項有無安全機制、WPA-PSK/WPA2-PSK、WEP、TKIP、AES；選擇相應的加密演算法表示在資料交換過程中採用該加密演算法保護通信資料</td>
+</TR>
+</table>
+</div>
+
+<div  id="WlanSecurity" style="display:">
+<hr>
+<p>無線安全配置
+<p>WEP
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>認證類型</td>
+<Td class=normalCell>提供自動、開放系統、共用金鑰3個選項</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>自動</td>
+<Td class=normalCell>自動表示設備會根據無線用戶端的請求自動選擇開放系統或共用金鑰方式</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>開放系統</td>
+<Td class=normalCell>無線用戶端主機在不提供認證金鑰的前提下，通過認證並關聯到設備；但若要進行資料傳輸，必須提供正確的金鑰</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>共用金鑰</td>
+<Td class=normalCell>無線用戶端主機必須提供正確的金鑰才能通過認證，否則無法關聯到設備，從而無法進行資料傳輸</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>金鑰格式</td>
+<Td class=normalCell>提供16進制、ASCII碼兩種格式，採用16進制時，金鑰字元可以為0~9，A、B、C、D、E、F（不區分大小寫）；採用ASCII碼時，金鑰字元可以是所有的ASCII碼</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>WEP金鑰</td>
+<Td class=normalCell>用於設置金鑰值，金鑰的長度受金鑰類型的影響，選擇64位金鑰類型時，輸入16進制字元10個或者ASCII碼字元5個，選擇128位金鑰類型時，輸入16進制字元26個或者ASCII碼字元13個</td>
+</TR>
+</table>
+
+<p>WPA/WPA2
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>WPA版本</td>
+<Td class=normalCell>提供WPA、WPA2、自動3個選項，自動表示設備會根據無線用戶端的請求自動選擇WPA或者WPA2安全模式</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>加密演算法</td>
+<Td class=normalCell>選擇對無線資料進行加密的安全演算法，選項有自動、TKIP、AES</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Radius伺服器IP</td>
+<Td class=normalCell>用來對無線主機進行身份認證的Radius伺服器的IP位址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Radius埠</td>
+<Td class=normalCell>Radius伺服器對無線主機進行身份認證時使用的服務埠號</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Radius密碼</td>
+<Td class=normalCell>該項用來設置訪問Radius服務的密碼</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>金鑰更新週期</td>
+<Td class=normalCell>用於指定金鑰的定時更新週期。取值範圍為60~86400，單位為秒。缺省值為3600，值為0時表示不更新</td>
+</TR>
+</table>
+<p>WPA-PSK/WPA2-PSK
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>WPA版本</td>
+<Td class=normalCell>提供WPA-PSK、WPA2-PSK、自動3個選項，自動表示設備會根據無線用戶端的請求自動選擇WPA-PSK或者WPA2-PSK安全模式</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>預共用金鑰</td>
+<Td class=normalCell>預先設置的初始化金鑰，取值為8~63個字元</td>
+</TR>
+</table>
+</div>
+
+
+
+<div  id="WlanMacFilter" style="display:">
+<hr>
+<p>無線MAC地址過濾
+<p>通過配置設備的無線MAC位址過濾功能，設備能有效允許或禁止內網主機對無線網路的訪問
+</div>
+
+<div  id="WlanAdvanced" style="display:">
+<hr>
+<p>無線高級配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>RST閥值</td>
+<Td class=normalCell>當資料包超過這個閾值時，就會啟動RTS機制；取值範圍為1~2347位元組，預設值為2347</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>分段閥值</td>
+<Td class=normalCell>資料幀超過此值時，將自動被分段成多個資料幀，然後再進行傳送；取值範圍為256~2346位元組，預設值為2346位元組</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Beacon間隔</td>
+<Td class=normalCell>信標幀的發送間隔，設備通過定期廣播Beacon（信標）幀進行無線網路連接的同步；取值範圍為20~999毫秒，預設值為100毫秒</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>DTIM間隔</td>
+<Td class=normalCell>本參數用於指定交付指示資訊（DTIM，Delivery Traffic Indication Message）的發送間隔；取值範圍為1～255，預設值為1</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用短前導</td>
+<Td class=normalCell>啟用短前導，短前導能使開銷減少到最小，因而使網路資料輸送量最大化；禁用短前導則表示使用長前導類型，該類型將能夠提供更多可行連接和更大範圍的連接</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用WMM</td>
+<Td class=normalCell>啟用WMM（無線用戶端也需啟用），多媒體資料（如音訊、視頻）將被優先發送</td>
+</TR>
+</table>
+</div>
+
+<div  id="WlanHostInfo" style="display:">
+<hr>
+<p>無線主機狀態
+<p>通過查看無線主機狀態資訊清單，您可以清楚的知道內網上網主機的相關資訊
+</div>
+</div>
+
+<div  id="AdvConf" style="display:">
+<hr>
+<p><b><font size="+1" color="#666666">高級配置</font></a></b><p>
+<div  id="NatStatic" style="display:">
+<p>NAT和DMZ配置
+<p><a name="NatStaticEdit"></a></p>
+<p>NAT靜態映射</p>
+<Td class=normalCell>通過定義一個服務埠，所有對設備該埠的服務請求將被重新定位給指定的內網伺服器，從而外網的電腦就可實現對內網伺服器的訪問</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>靜態映射名</td>
+<Td class=normalCell>定義該條靜態映射的名稱</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用該配置</td>
+<Td class=normalCell>勾選表示啟用該條靜態映射</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>協議</td>
+<Td class=normalCell>選擇協議類型，可供選擇的有：TCP、UDP和TCP/UDP；當使用者無法確認該協議時可選擇TCP/UDP</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>外部起始埠</td>
+<Td class=normalCell>由設備提供的起始埠</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>IP地址</td>
+<Td class=normalCell>內網伺服器的IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>內部起始埠</td>
+<Td class=normalCell>內網伺服器所開服務的起始埠</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>埠數量</td>
+<Td class=normalCell>從內部起始埠開始的一段連續的埠，最大設置為20</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>NAT綁定</td>
+<Td class=normalCell>選擇該條NAT靜態映射綁定的WAN口</td>
+</TR>
+</table>
+
+<p><a name="NatRuleEdit"></a></p>
+<p>NAT規則
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>EasyIP</td>
+<Td class=normalCell>網路位址埠轉換，多個內部IP位址映射到同一個IP位址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>One2One</td>
+<Td class=normalCell>靜態位址轉換，內部IP位址與外部IP位址進行一對一的映射</td>
+</TR>
+</table>
+
+<p><a name="DMZ"></a></p>
+<p>DMZ</p>
+<Td class=normalCell>啟用DMZ功能並設置DMZ 主機後，DMZ主機將完全暴露給 Internet ，實現雙向通訊</td>
+</div>
+
+<div  id="Route" style="display:">
+<hr>
+<p>路由配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>路由名</td>
+<Td class=normalCell>自訂路由的名稱</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用該配置</td>
+<Td class=normalCell>勾選表示該條路由生效</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>目的網路、子網路遮罩</td>
+<Td class=normalCell>設置目的網路</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>閘道地址</td>
+<Td class=normalCell>下一跳路由器入口的IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>優先順序</td>
+<Td class=normalCell>定義該條路由的優先順序，值越小越優先</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>介面</td>
+<Td class=normalCell>指定資料包轉發的介面</td>
+</TR>
+</table>
+</div>
+
+
+<div  id="AntiNetSnifer" style="display:">
+<hr>
+<p>網路尖兵防禦</p>
+<Td class=normalCell>網路尖兵防禦功能是破解運營商設置的共用檢測；請確認內網遇到共用檢測問題，否則不要輕易啟用該功能</td>
+</div>
+<div  id="PortMirror" style="display:none">
+<hr>
+<p>埠鏡像</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>啟用埠鏡像</td>
+<Td class=normalCell>勾選表示啟用埠鏡像功能，默認LAN1口為監控埠，其他LAN口為被監控埠
+</td>
+</TR>
+</table>
+</div>
+<div  id="PortMirror8367M" style="display:none">
+<hr>
+<p>端口镜像
+<p>将设备其他端口的流量自动复制到监控端口，实时提供各端口的传输状况的详细资料，以便网络管理人员进行流量监控、性能分析和故障诊断 
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>监控端口</td>
+<Td class=normalCell>对被监控端口流量进行监控的端口，监控端口只能有一个
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>被监控端口</td>
+<Td class=normalCell> 只能选择一个被监控端口
+</td>
+</TR>
+
+<tr>
+<td width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>被监控端口不能与监控端口是同一个端口
+</td>
+</TR>
+</table>
+</div>
+</div>
+
+<div id="SwFunGl">
+<hr>
+<p><b><font size="+1" color="#666666">交換功能</font></a></b><p>
+<div  id="ports">
+<p>埠管理
+<!--7390 1000m交換-->
+<table id="ports1000m" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>全域設置</td>
+<Td class=normalCell>用於統一設置所有埠的設置模式、允許最大幀等；例如選擇設置模式為100M（全雙工），則所有埠的設置模式都為100M（全雙工）</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>埠名稱</td>
+<Td class=normalCell>為方便管理而給交換機各埠設置的具有知意性的一串字元</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>連接狀態</td>
+<Td class=normalCell>顯示埠的連接狀態，背景為綠色邊框的表示100M鏈路，背景為紅色邊框的表示1000M鏈路，背景為無的表示鏈路Down或禁用</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>模式</td>
+<Td class=normalCell>設置埠的工作模式，選項有自動協商、10M（半雙工）、10M（全雙工）、100M（半雙工）、100M（全雙工）、1000M（全雙工）以及禁止</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>允許最大幀</td>
+<Td class=normalCell>交換機埠允許通過的最大幀</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>流控</td>
+<Td class=normalCell>流控用於防止在埠阻塞的情況下丟幀，勾選表示開啟相關埠的流控</td>
+</TR>
+</table>
+<!--1725 100m交換-->
+<table id="ports100m" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>全域設置</td>
+<Td class=normalCell>用於統一設置所有埠的設置模式、允許最大幀等；例如選擇設置模式為100M（全雙工），則所有埠的設置模式都為100M（全雙工）</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>埠名稱</td>
+<Td class=normalCell>為方便管理而給交換機各埠設置的具有知意性的一串字元</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>連接狀態</td>
+<Td class=normalCell>顯示埠的連接狀態，背景為綠色邊框的表示100M鏈路，背景為無的表示鏈路Down或禁用</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>模式</td>
+<Td class=normalCell>設置埠的工作模式，選項有自動協商、10M（半雙工）、10M（全雙工）、100M（半雙工）、100M（全雙工）以及禁止</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>流控</td>
+<Td class=normalCell>流控用於防止在埠阻塞的情況下丟幀，勾選表示開啟相關埠的流控</td>
+</TR>
+</table>
+</div>
+
+<div  id="mirror">
+<hr>
+<p>埠鏡像
+<p>將交換機其他埠的流量自動複製到監控埠，即時提供各埠的傳輸狀況的詳細資料，以便網路管理人員進行流量監控、性能分析和故障診斷
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>監控埠</td>
+<Td class=normalCell>對被監控埠流量進行監控的埠，監控埠只能有一個
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>被監控埠</td>
+<Td class=normalCell> 可選擇一個或多個埠
+</td>
+</TR>
+
+<tr>
+<td width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell> 1、若開啟埠鏡像功能則被監控埠不能與監控埠是同一個埠
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell> 2、如果某埠已經屬於某個彙聚組，則此埠不能再設置為監控埠（監控埠下拉清單中的紅色字體的埠表示該埠屬於彙聚組中）
+</td>
+</TR>
+</table>
+</div>
+
+<div id="portvlan">
+<hr>
+<p>埠VLAN
+<p>VLAN（虛擬區域網路）可以將網路邏輯地分割成多個不同的廣播域，從而有助於控制流量、簡化網路管理、加強網路安全性
+<p>埠VLAN是將不同的埠劃分到一個VLAN組內，屬於同一個VLAN的埠之間可以相互通信，不同VLAN的埠之間不能通信
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>一個埠可以屬於多個VLAN，預設情況下所有埠都屬於一個VLAN，VLAN組號為1
+</td>
+</TR>
+</table>
+</div>
+
+<div id="aggr">
+<hr>
+<p>埠彙聚
+<p>把2個或多個交換埠聚合在一起形成一個高頻寬的資料傳輸通道。聚合在一起的所有埠看作一個邏輯埠，工作起來像一條通道一樣，該邏輯埠頻寬為彙聚組內所有埠頻寬的疊加
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>1、同一彙聚組內的埠的埠參數必須一致，埠速率、雙工模式必須相同，且必須屬於同一個VLAN
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2、彙聚組內不能含有監控埠
+</td>
+</TR>
+</table>
+</div>
+</div>
+
+
+<div  id="UserMng" style="display:">
+<hr>
+<p><b><font color="#666666" size="+1">用戶管理</font></a></b><p>
+
+<div  id="UserStatus" style="display:">
+<p>使用者狀態</p>
+<Td class=normalCell>管理員通過查看、分析<strong>使用者狀態</strong>頁面的圓形圖及清單資訊瞭解內網所有使用者的上網行為、各上網行為所佔用網路流量的情況及每個使用者的上網行為、上網時長等</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>當前網路流量佔用分析</td>
+<Td class=normalCell>分析當前內網各個應用所佔用的網路流量百分比</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>當前上網行為分析</td>
+<Td class=normalCell>分析當前內網所有上網使用者的上網行為情況</td>
+</TR>
+</table>
+<Td class=normalCell><br>使用者狀態資訊清單的第一列顯示每個使用者的上網行為是否影響到工作，其狀態有：嚴重（紅色）、輕微（黃色）、正常（綠色）。當內網用戶訪問購物網站、社交網站、使用股票軟體及玩網路/網頁遊戲的行為占個人所有的上網行為的範圍在[100%, 70%]時，表示嚴重影響到工作；當範圍在（70%, 50%] 時表示輕微；當範圍在（50%, 0%] 時表示正常</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>自動刷新間隔</td>
+<Td class=normalCell>設置使用者狀態資訊清單自動刷新的間隔</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>停止自動刷新</td>
+<Td class=normalCell>點擊該按鈕清單會停止自動刷新</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>開啟自動刷新</td>
+<Td class=normalCell>點擊該按鈕清單會根據自動刷新間隔來刷新列表</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>備註</td>
+<Td class=normalCell>點擊該圖示可修改該PPPoE撥號用戶或WEB認證使用者的描述資訊</td>
+</TR>
+</table>
+</div>
+
+<div  id="IPMac" style="display:">
+<hr>
+<p>IP/MAC綁定</p>
+<Td class=normalCell>通過IP/MAC綁定來設置對內網合法用戶、非法用戶及身份未知的用戶進行上網管理</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>掃描、綁定</td>
+<Td class=normalCell>通過點擊<掃描>、<綁定>可實現對某一網段線上主機的IP/MAC進行綁定</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>允許非IP/MAC綁定使用者連接到設備</td>
+<Td class=normalCell>勾選核取方塊表示允許非IP/MAC綁定使用者連接到設備</td>
+</TR>
+</table>
+</div>
+
+<div  id="PPPoEGlobal" style="display:">
+<hr>
+<p><a name="PPPoEGlobalEdit"></a></p>
+<p>PPPoE伺服器
+<p>PPPoE全域配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用PPPoE伺服器</td>
+<Td class=normalCell>勾選表示啟用設備的PPPoE伺服器功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>強制PPPoE認證</td>
+<Td class=normalCell>啟用強制PPPoE認證表示只允許PPPoE認證通過的用戶訪問網際網路</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>例外地址组</td>
+<Td class=normalCell>在设备开启强制PPPoE认证后，该地址组的用户可以不通过拨号认证与外网通信，地址组需要在<strong>用户管理->用户组配置</strong>页面进行配置</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>起始IP位址</td>
+<Td class=normalCell>設置PPPoE伺服器位址集區的起始IP位址，該位址不能與LAN口、WAN口及設備定義的其他位址集區在同一網段</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>主、備DNS伺服器</td>
+<Td class=normalCell>填寫DNS伺服器的IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>允許使用者修改撥號密碼</td>
+<Td class=normalCell>勾選表述允許使用者自助修改撥號密碼，管理員可以通過在<strong>行為管理->電子通告</strong>頁面配置<strong>日常事務通告</strong>通知使用者如何修改撥號密碼。</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>使用者修改撥號密碼步驟</td>
+<Td class=normalCell>1、使用者使用帳號、密碼撥號成功後，登陸自助服務頁面，位址：http://192.168.1.1/poeUsers.asp（該地址為用戶所在網段的閘道）；</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2、輸入用戶名、舊密碼、新密碼、確認密碼，點擊“提交”；</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>3、頁面顯示“操作成功”，表示密碼修改成。</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>提示：使用者每天只能自助修改5次密碼。</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>密碼驗證方式</td>
+<Td class=normalCell>伺服器驗證用戶名、密碼的方式。選項有：PAP、CHAP、AUTO(自動和對端設備協商密碼驗證方式)</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>系統最大會話數</td>
+<Td class=normalCell>系統支援建立PPPoE會話的最大數量</td>
+</TR>
+</table>
+
+
+<p><a name="PPPoEEdit"></a></p>
+<p>PPPoE帳號配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>用戶名、密碼</td>
+<Td class=normalCell>為撥入使用者設置PPPoE帳號、密碼</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC绑定</td>
+<Td class=normalCell>选择是否将该用户名与相应的MAC地址进行绑定</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>自动绑定</td>
+<Td class=normalCell>当该用户拨号成功后，设备会将该用户名与拨号用户的MAC地址进行自动绑定</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>手工绑定</td>
+<Td class=normalCell>在MAC地址栏输入MAC地址，设备将该用户名与此MAC地址进行手工绑定</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>账号最大会话数</td>
+<Td class=normalCell>设置同时使用该账号进行PPPoE接入的用户数</td>
+</TR>
+<tr>
+<TD width="120" valign="top" class="italicCell">固定IP地址</TD>
+<Td class="normalCell">為撥入用戶分配固定IP地址，該地址必須在位址集區範圍內</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>添加到账号组</td>
+<Td class=normalCell>将该用户名添加到相应的账号组中，账号组需在<strong>用户管理->用户组配置</strong>页面进行配置</td>
+</TR>
+<tr>
+<TD width="120" valign="top" class="italicCell">計費模式</TD>
+<Td class="normalCell">勾選表示啟用PPPoE Server計費功能</Td>
+</tr>
+<tr>
+<TD width="120" valign="top" class="italicCell">帳號開通、停用日期</TD>
+<Td class="normalCell">設置撥入用戶使用該帳號的時間段</Td>
+</tr>
+<tr>
+<TD width="120" valign="top" class="italicCell">匯出帳號</TD>
+<Td class="normalCell">點擊該按鈕可匯出清單中所有的PPPoE帳號的相關資訊，其內容包括帳號的用戶名、密碼，匯出格式為.txt</Td>
+</tr>
+<tr>
+<TD width="120" valign="top" class="italicCell">導入帳號</TD>
+<Td class="normalCell">點擊該按鈕可批量導入PPPoE帳號，格式為：用戶名 密碼；其中用戶名密碼之間有一個或多個空格</Td>
+</tr>
+</tr>
+</table>
+
+
+<p><a name="PPPoEConSta"></a></p>
+<p>PPPoE使用者連接狀態</p>
+<Td class=normalCell>通過PPPoE連接狀態資訊清單可以查看撥號使用者的相關資訊，包括分配的IP地址、用戶的MAC地址、線上時間、上傳下載速率等</td>
+</div>
+
+
+<p><a name="webAuth"></a></p>
+<hr>
+<p>WEB認證</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>WEB認證</td>
+<Td class=normalCell>用於驗證內網非PPPoE用戶，啟用該功能後，內網非PPPoE用戶需經過WEB認證才能訪問網際網路</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>允許使用者修改認證密碼</td>
+<Td class=normalCell>勾選表示允許使用者自助修改認證密碼，管理員可以通過在<strong>行為管理->電子通告</strong>頁面配置<strong>日常事務通告</strong>通知使用者如何修改認證密碼</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>使用者修改認證密碼步驟</td>
+<Td class=normalCell>1、使用者使用帳號、密碼認證成功後，登陸自助服務頁面：http://192.168.1.1/waUsers.asp（該地址為用戶所在網段的閘道）；</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2、輸入用戶名、舊密碼、新密碼、確認密碼，點擊“提交”；</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>3、頁面顯示操作成功，表示密碼修改成功。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>提示：使用者每天只能自助修改5次密碼。</td>
+</TR>
+</table>
+
+<div  id="UserGroup" style="display:">
+<hr>
+<p>使用者組配置</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>用戶組</td>
+<Td class=normalCell>將內網用戶進行分類，方便管理；組類型分為位址組和帳號組</td>
+</TR>
+</table>
+</div>
+
+<div id="BehaviorGl">
+<hr>
+<p><b><font size="+1" color="#666666">行為管理</font></a></b>
+
+<div  id="TimeRange" style="display:">
+<p>時間段配置</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>時間段</td>
+<Td class=normalCell>定義相關功能的生效時間，一個時間段能夠定義三個時間單元。</td>
+</TR>
+</table>
+</div>
+
+<div  id="globalBase" style="display:">
+<hr>
+<p>上網行為管理</p>
+
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr><Td class=normalCell>通過配置上網行為管理，管理內網用戶的上網行為，包括IM禁止、P2P禁止、遊戲禁止、網站過濾等</td> </TR>
+<tr><Td class=normalCell>通過行為管理清單，您可以查看所配置的上網行為管理策略；勾選“啟用”核取方塊表示該策略生效</td></TR>
+</table>
+
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>組配置</td>
+<Td class=normalCell>定義該上網行為管理實例的名稱及生效物件</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>生效時間設置</td>
+<Td class=normalCell>設置該行為管理的生效時間</td>
+</TR>
+</table>
+
+
+<p><a name="Game"></a></p>
+
+<p>遊戲網站
+ <table>
+ <tr>
+ <td width=120 valign=top class=italicCell></td>
+ <td class=normalURL   align=left valign=top>games.sina.com.cn www.sgamer.com  www.17173.com games.tom.com </td>
+ <td width=30></td>
+  <td class=normalURL   align=left valign=top>www.chinagames.net www.ourgame.com  game.qq.com </td>
+   <td width=30></td>
+   <td class=normalURL   align=left valign=top>www.game.com.cn  www.ali213.com games.sohu.com</td>
+    <td width=30></td>
+     <td class=normalURL   align=left valign=top>nie.163.com www.pcpop.com  www.yx99.com </td>
+    <td width=30></td>
+     <td class=normalURL   align=left valign=top>www.wanyouxi.com   www.yx007.cn game.21cn.com</td>
+    <td width=30></td>
+</tr> 
+</table>
+
+<p><a name="QQGame"></a></p>
+
+<p>QQGame
+ <table>
+ <tr>
+ <td width=120 valign=top class=italicCell></td>
+ <td class=normalURL   align=left valign=top>QQ大廳 </td>
+ <td width=20></td>
+  <td class=normalURL   align=left valign=top>地下城與勇士 </td>
+   <td width=20></td>
+   <td class=normalURL   align=left valign=top>英雄聯盟</td>
+    <td width=20></td>
+     <td class=normalURL   align=left valign=top>QQ飛車 </td>
+    <td width=20></td>
+     <td class=normalURL   align=left valign=top>QQ炫舞</td>
+    <td width=20></td>
+         <td class=normalURL   align=left valign=top>第九大陸</td>
+</tr>
+</table>
+
+<p><a name="Stock"></a></p>
+
+<p>證券網站
+ <table>
+ <tr>
+ <td width=120 valign=top class=italicCell></td>
+ <td class=normalURL   align=left valign=top>finance.sina.com.cn www.sse.com.cn  www.szse.cn www.cnstock.com  www.cs.com.cn www.f10.com.cn  www.gtja.com </td>
+ <td width=30></td>
+  <td class=normalURL   align=left valign=top>www.sw108.com  www.htsec.com www.guosen.com  www.gf.com.cn www.newone.com.cn www.htsc.com.cn  </td>
+   <td width=30></td>
+   <td class=normalURL  align=left valign=top>www.cs.ecitic.com www.dfzq.com.cn  www.cjis.cn www.lhzq.com  www.95579.com  www.bigsun.com.cn </td>
+    <td width=30></td>
+     <td class=normalURL  align=left valign=top>stock.eastmoney.com  www.stock2000.net www.qlzq.com.cn  stock.cnfol.com  www.stock01.com   www.gsstock.com  </td>
+    <td width=30></td>
+     <td class=normalURL   align=left valign=top>www.chinastock.com.cn  www.cc168.com.cn www.ebscn.com  www.bocionline.com   www.skyone.com.cn www.xyzq.com.cn </td>
+    <td width=30></td>
+</tr> 
+</table>
+
+<p><a name="Social"></a></p>
+
+<p>社交網站
+ <table>
+ <tr>
+ <td width=120 valign=top class=italicCell></td>
+ <td class=normalURL   align=left valign=top> www.renren.com www.kaixin001.com www.51.com</td>
+ <td width=30></td>
+  <td class=normalURL   align=left valign=top> www.xiaonei.com www.hainei.com xiaoyou.qq.com</td>
+   <td width=30></td>
+   <td class=normalURL  align=left valign=top> www.5gme.com www.luobohua.com www.weibo.com</td>
+    <td width=30></td>
+     <td class=normalURL  align=left valign=top>t.sina.com.cn t.qq.com t.sohu.com </td>
+    <td width=30></td>
+     <td class=normalURL   align=left valign=top>t.163.com fanfou.com </td>
+    <td width=30></td>
+</tr> 
+</table>
+
+
+<p><a name="Shop"></a></p>
+
+<p>購物網站
+
+ <table>
+ <tr>
+ <td width=120 valign=top class=italicCell></td>
+ <td class=normalURL   align=left valign=top>www.taobao.com www.tmall.com www.amazon.cn www.dangdang.com </td>
+ <td width=30></td>
+  <td class=normalURL   align=left valign=top>www.360buy.com www.vancl.com www.newegg.com.cn</td>
+   <td width=30></td>
+   <td class=normalURL  align=left valign=top>www.yihaodian.com www.paipai.com www.icson.com</td>
+    <td width=30></td>
+     <td class=normalURL  align=left valign=top>www.lashou.com www.meituan.com www.nuomi.com</td>
+    <td width=30></td>
+     <td class=normalURL   align=left valign=top>www.55tuan.com www.gaopeng.com www.jumei.com</td>
+    <td width=30></td>
+</tr> 
+</table>
+
+
+<p><a name="File"></a></p>
+<p>過濾檔案類型
+ <table>
+ <tr>
+ <td width=120 valign=top class=italicCell></td>
+ <td class=normalURL   align=left valign=top>.exe</td>
+  <td width=10></td>
+   <td class=normalURL   align=left valign=top>.dl</td>
+  <td width=10></td>
+   <td class=normalURL   align=left valign=top>.vbs</td>
+  <td width=10></td>
+   <td class=normalURL   align=left valign=top>.bat</td>
+  <td width=10></td>
+    <td class=normalURL   align=left valign=top>.sys</td>
+  <td width=10></td>
+ 
+</tr> 
+</table>
+</div>
+
+<div  id="QQFilter" style="display:">
+<hr>
+<p>QQ白名單</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>允許400/800企業QQ</td>
+<Td class=normalCell>如果在上網行為管理頁面禁止QQ後，可以通過勾選該項來放通企業QQ</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>QQ白名單</td>
+<Td class=normalCell>如果在上網行為管理頁面禁止QQ後，可以在QQ白名單中定義允許登錄的QQ用戶</td>
+</TR>
+</table>
+</div>
+
+<div  id="MSNFilter" style="display:">
+<hr>
+<p>MSN白名單</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>MSN白名單</td>
+<Td class=normalCell>如果在上網行為管理頁面禁止MSN後，可以在MSN白名單中定義允許登錄的MSN用戶</td>
+</TR>
+</table>
+</div>
+
+<div  id="Notice" style="display:none">
+<hr>
+<p><a name="NormalNotice"></a></p>
+<p>電子通告
+<p>日常事務通告
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用</td>
+<Td class=normalCell>勾選表示啟用日常事務通告功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>通告網段</td>
+<Td class=normalCell>設置該日常事務通告的位址範圍</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>通告標題、內容</td>
+<Td class=normalCell>設置日常事務通告的標題及內容</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>生效日期設置</td>
+<Td class=normalCell>設置該日常事務通告生效的日期</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>生效頻率</td>
+<Td class=normalCell>設置該日常事務通告的頻率</td>
+</tr>
+</table>
+
+<p><a name="PPPoENotice"></a></p>
+<p>帳號到期通告
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用</td>
+<Td class=normalCell>勾選表示啟用帳號到期通告功能</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>提前發送到期通告天數</td>
+<Td class=normalCell>設置設備發送到期通告的有效天數，當該參數設置為5時，表示從帳號到期前5天開始，當用戶撥號成功，第一次打開網頁時會收到設備發送的到期通告</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>通告標題、內容</td>
+<Td class=normalCell>設置帳號到期通告的標題及內容</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell></td>
+</tr>
+</table>
+</div>
+</div>
+
+<div  id="LogManage" style="display:">
+<hr>
+<p>上網行為審計
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用網頁日誌</td>
+<Td class=normalCell>啟用網頁日誌後，能夠在<strong>行為審計</strong>頁面查看內網使用者訪問網頁的記錄；如：“2012-07-09 09:36:41 srcip=200.200.202.127;url=www.paipai.com”表示2012年7月9日9時36分內網IP位址為200.200.202.127的用戶訪問了www.paipai.com。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用QQ上下線日誌</td>
+<Td class=normalCell>啟用QQ上下線日誌後，能夠在<strong>行為審計</strong>頁面查看內網使用者QQ的上下線記錄</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用MSN上下線日誌</td>
+<Td class=normalCell>啟用MSN上下線日誌後，能夠在<strong>行為審計</strong>頁面查看內網使用者MSN的上下線記錄</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用郵件審計日誌</td>
+<Td class=normalCell>啟用郵件審計日誌後，能夠在<strong>行為審計</strong>頁面查看內網使用者收發郵件的記錄</td>
+</TR>
+</table>
+</div>
+
+<div  id="PdbUpdata" style="display:">
+<hr>
+<p>策略庫
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>更新</td>
+<Td class=normalCell>下載並自動更新對應的策略庫</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>更新全部條目</td>
+<Td class=normalCell>下載並自動更新清單中全部的策略庫</td>
+</TR>
+</table>
+</div>
+
+</div>
+
+<div id="QosGl">
+<hr>
+<p><b><font size="+1" color="#666666">頻寬管理</font></a></b>
+
+<div  id="Group" style="display:">
+<p>精細化限速
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>組名、起始、結束IP位址</td>
+<Td class=normalCell>定義組名及該精細化限速生效的地址段</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>限速策略——獨享</td>
+<Td class=normalCell>符合此限速規則的每個IP位址獨自佔用所設置的速率</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>限速策略——共用</td>
+<Td class=normalCell>符合此限速規則的所有IP位址共同分享所設置的速率</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>上傳、下載速率限制</td>
+<Td class=normalCell>分別設置最大上傳、下載的速率限制</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>生效時間設置</td>
+<Td class=normalCell>設置該精細化限速生效的時間</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>移動到</td>
+<Td class=normalCell>設備匹配精細化限速的原則是從上至下，用戶可通過“移動到”按鈕調整精細化限速實例的順序</td>
+</TR>
+</table>
+</div>
+
+<div  id="SmartQos" style="display:">
+<hr>
+<p>彈性頻寬
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>彈性頻寬功能與精細化限速功能不能同時啟用；同時啟用後，速率限制中頻寬值小的優先生效</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>WAN口上、下行頻寬</td>
+<Td class=normalCell>填寫向運營商申請的頻寬</td>
+</TR>
+</table>
+</div>
+
+<div  id="ConnectionLimit" style="display:">
+<hr>
+<p>連接限制
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>允許內網每台主機的最大連接；默認總連接數為2500、TCP連接數為2200、UDP連接數為800、ICMP連接數為100</td>
+</TR>
+</table>
+</div>
+
+</div>
+
+
+<div id="FwGl">
+<hr>
+<p><b><font size="+1" color="#666666">防火牆</font></a></b>
+
+<div id="FwBase">
+<p><a name="FwBaseHl"></a></p>
+<p>安全配置</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用DDoS攻擊防禦</TD>
+<Td class=normalCell>設備將有效防禦內網常見的DDoS攻擊</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用衝擊波防禦</TD>
+<Td class=normalCell>設備將有效防禦衝擊波病毒的攻擊</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用ARP欺骗防御</TD>
+<Td class=normalCell>启用该功能后，设备LAN口会每隔一定的时间（默认为100毫秒）发送ARP广播包，该功能能有效防御ARP欺骗</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用設備存取控制</TD>
+<Td class=normalCell>啟用設備存取控制後，只有後續設置的IP位址能訪問設備</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>拒絕外部ping</TD>
+<Td class=normalCell>禁止設備回應外部ping</td>
+</TR>
+</table>
+</div>
+
+<div id="FireWall">
+<hr>
+<p><a name="FireWallHl"></a></p>
+<p>存取控制策略</p>
+<Td class=normalCell>使用者定義的存取控制策略將按清單中的順序從上至下進行匹配；當設備收到一個資料包後，將從列表的頂端開始向下匹配策略，如果第一條策略匹配成功——轉發或者丟棄資料包，則不再匹配後續的策略；如果第一條策略不匹配則繼續向下匹配直到最後</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>策略名、源地址</TD>
+<Td class=normalCell>定義該存取控制策略的名稱及匹配的內網地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>動作——禁止</TD>
+<Td class=normalCell>如果資料包匹配該條策略則丟棄該資料包，關鍵字過濾動作只能為禁止</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>動作——允許</TD>
+<Td class=normalCell>如果資料包匹配該條策略則轉發該資料包</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>IP過濾</TD>
+<Td class=normalCell>設置要過濾的源埠、目的IP位址、目的埠；目的埠可通過選擇協定、常用服務來定義</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>URL過濾</TD>
+<Td class=normalCell>設置要過濾的URL位址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</TD>
+<Td class=normalCell>1、URL位址中，英文字元不區分大小寫。輸入URL時請不要包含http://</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></TD>
+<Td class=normalCell>2、URL過濾是根據URL的關鍵字進行過濾的，當訪問的網頁的URL中含有與“過濾內容”完全匹配的欄位時，就認為是匹配該策略的。輸入一個完整的功能變數名稱，則以該功能變數名稱開頭的所有網頁都被匹配。輸入功能變數名稱的子字串，則URL中包含該子字串的所有網頁都被匹配，從而實現對某個網站的所有網頁的過濾</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>關鍵字過濾</TD>
+<Td class=normalCell>設置要過濾的關鍵字，其動作只能為禁止</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>生效時間設置</TD>
+<Td class=normalCell>設置該策略生效的時間</td>
+</TR>
+</table>
+</div>
+<div id="DnsFilter">
+<hr>
+<p><a name="DnsFilterHl"></a></p>
+<p>功能變數名稱過濾</p>
+<Td class=normalCell>通過配置過濾功能，能夠只禁止指定用戶在指定時間訪問功能變數名稱列表中的功能變數名稱，或只允許指定用戶在指定時間訪問功能變數名稱列表中的功能變數名稱</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</TD>
+<Td class=normalCell>1、功能變數名稱名稱中英文字元不區分大小寫；輸入功能變數名稱名稱時請不要包含http://</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></TD>
+<Td class=normalCell>2、功能變數名稱過濾可通過萬用字元“*”來實現對多個功能變數名稱的過濾，例如在功能變數名稱名稱中輸入 www.163.* ，內網用戶將不能訪問以 www.163. 開頭的所有網頁</td>
+</TR>
+</table>
+</div>
+</div>
+
+
+<div id="VPN" style="display:">
+<hr>
+<p><b><font size="+1" color="#666666">VPN配置</font></a></b>
+<p>
+<div  id="PPTP" style="display:">
+<p>PPTP
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>通過PPTP協議建立VPN隧道</Td>
+</tr></table>
+<p>PPTP用戶端
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用NAT</td>
+<Td class=normalCell>客户端启用NAT后，能实现本地网络到隧道对端网络的单向访问</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>隧道名稱</td>
+<Td class=normalCell>定義此條隧道的名稱</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>用戶名、密碼</td>
+<Td class=normalCell>填寫用戶端撥號的用戶名、密碼</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>密碼驗證方式</td>
+<Td class=normalCell>選項有：NONE(不進行驗證)、PAP、CHAP、EITHER(自動和對端設備協商密碼驗證方式)；密碼驗證方式要確保與服務端的一致</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>遠端內網網路位址、子網路遮罩</td>
+<Td class=normalCell>隧道對端的內網地址及子網路遮罩</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>通道伺服器地址（名）</td>
+<Td class=normalCell>PPTP伺服器的公網IP地址或功能變數名稱</td>
+</TR>
+</table>
+<p>PPTP伺服器
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>隧道名稱</td>
+<Td class=normalCell>定義此條隧道的名稱</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>用戶類型</td>
+<Td class=normalCell>選項包括：LAN到LAN、移動用戶</Td>
+</tr><tr>
+<TD width=120 valign=top class=italicCell>LAN到LAN</td>
+<Td class=normalCell>撥入的PPTP用戶是一個網段的用戶，往往是通過一個路由器撥入，實現PPTP隧道兩端內網的通信</Td>
+</tr><tr>
+<TD width=120 valign=top class=italicCell>移動用戶</td>
+<Td class=normalCell>撥入的VPN用戶是個人使用者，往往由單個電腦撥入，實現PPTP隧道遠端電腦與本地內網的通信</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>用戶名、密碼</td>
+<Td class=normalCell>設置用戶端撥號的用戶名及密碼</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>遠端內網網路位址、子網路遮罩</td>
+<Td class=normalCell>隧道對端內網地址及子網路遮罩</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>密碼驗證方式</td>
+<Td class=normalCell>設置驗證用戶端的密碼驗證方式，選項有：NONE、PAP、CHAP、EITHER</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>位址集區起始位址、位址集區位址數</td>
+<Td class=normalCell>設置PPTP服務端的位址集區，PPTP隧道建立成功後伺服器會分配一個位址給客戶段作為用戶端的虛介面IP位址</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>服務端IP位址</td>
+<Td class=normalCell>隧道服務端的虛介面IP位址，該位址不包含在位址集區中</Td>
+</tr>
+</table>
+</div>
+</div>
+
+<div id="UrcpGl">
+<hr>
+<p><b><font size="+1" color="#666666">聯動管理</font></a></b>
+<div  id="discover">
+<p>聯動管理
+<p>在本頁面點擊&lt;聯動發現&gt;可查看內網中其他交換機的相關資訊，輸入相應的密碼可以對其進行遠端系統管理
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>IP</td>
+<Td class=normalCell>點擊相應的IP位址能夠直接登錄設置（前提是本機的LAN口的IP位址與遠端設備在同一網段）</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>密碼</td>
+<Td class=normalCell>遠端設備登錄密碼</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>全域密碼設置</td>
+<Td class=normalCell>遠端設備密碼相同的情況下，可以統一輸入</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>管理</td>
+<Td class=normalCell>點擊&lt;管理&gt;可對相應的遠端設備進行遠端系統管理，包括：埠管理、埠VLAN、埠彙聚、埠鏡像、系統設置、重啟設備、恢復出廠配置、獲取配置、下發配置及查看其設備系統資訊</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>批量操作</td>
+<Td class=normalCell>勾選要進行批量管理的遠端設備，並輸入密碼，點擊&lt;批量操作&gt;後可對設備進行批量管理，包括：修改遠端設備的登錄密碼、安全綁定、重啟設備、恢復出廠配置、獲取配置、下發配置</td>
+</TR>
+</table>
+
+<div  id="portsUrcp">
+<p>埠管理
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>全域設置</TD>
+<Td class=normalCell>用於統一設置所有埠的設置模式、允許最大幀以及埠保護等功能，例如，選擇設置模式為1000（全雙工），則所有埠的設置模式都自動設置為1000（全雙工）</td>
+</TR><tr>
+<TD width=120 valign=top class=italicCell>埠名稱</TD>
+<Td class=normalCell>為管理運行維護方便而給交換機設置的具有知意性的一串字元</td>
+</TR>
+
+<tr>
+<TD width=120 valign=top class=italicCell>連接狀態</td>
+<Td class=normalCell>顯示埠的連接狀態，背景為綠色框的表示100M鏈路，背景為橘黃色框的表示1000M鏈路，背景為無的表示鏈路DOWN或禁用</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>模式</td>
+<Td class=normalCell>設置埠的工作模式，選項有自動協商、10（半雙工）、10（全雙工）、100（半雙工）、100（全雙工）、1000（全雙工）以及禁止</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>允許最大幀</td>
+<Td class=normalCell>交換機埠允許通過的最大幀</td>
+</TR>
+<tr>
+<tr>
+<TD width=120 valign=top class=italicCell>流控</td>
+<Td class=normalCell>流控用於防止在埠阻塞的情況下丟幀，勾選表示開啟相關埠的流控</td>
+</TR>
+<TD width=120 valign=top class=italicCell>埠保護</td>
+<Td class=normalCell>啟用/禁用埠保護功能，啟用埠保護功能後，埠不再學習新的MAC位址，並且只轉發靜態繫結的MAC位址；禁用埠保護後，則重新開始學習新的MAC位址</td>
+</TR>
+
+<tr>
+<TD width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>在沒有設置靜態MAC位址的情況下，啟用所有埠的埠保護，將導致所有用戶都無法通過該交換機連接網路</td>
+</TR>
+    <tr>
+<TD width=120 valign=top class=italicCell>泛洪</td>
+<Td class=normalCell>啟用該功能即是關閉了埠的MAC位址學習功能，埠收到資料幀後直接向其他埠轉發</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>該功能會嚴重影響網路的性能，請慎用！</td>
+</TR>
+</table>
+</div>
+
+<div  id="portvlanUrcp">
+<p>埠VLAN
+<p>VLAN（虛擬區域網路）可以將網路邏輯地分割成多個不同的廣播域，從而有助於控制流量、簡化網路管理、加強網路安全性
+<p>埠VLAN是將不同的埠劃分到一個VLAN組內，屬於同一個VLAN的埠之間可以相互通信，不同VLAN的埠之間不能通信
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>一個埠可以屬於多個VLAN，預設情況下所有埠都屬於一個VLAN，VLAN組號為1
+</td>
+</TR>
+</table>
+</div>
+
+<div  id="aggrUrcp">
+<p>埠彙聚
+<p>把2個或多個交換埠聚合在一起，形成一個高頻寬的資料傳輸通道。聚合在一起的所有埠看作一個邏輯埠，工作起來像一條通道一樣，該邏輯埠頻寬為彙聚組內所有埠頻寬的疊加
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>1、同一彙聚組內的埠的埠參數必須一致，埠速率、雙工模式必須相同，且必須完全屬於某一VLAN</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2、若設備設置了TAG VLAN，則同一彙聚組內的埠必須具有相同的TAG VLAN埠設置</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>3、彙聚組內不能含有監控埠</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>4、同一彙聚組內的埠的速率限制必須相同</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>5、已開啟LACP或RSTP的埠，無法設置彙聚</td>
+</TR>
+</table>
+</div>
+
+<div  id="mirrorUrcp">
+<p>埠鏡像
+<p>將交換機其他埠的流量自動複製到監控埠，即時提供各埠的傳輸狀況的詳細資料，以便網路管理人員進行流量監控、性能分析和故障診斷
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>監控埠</td>
+<Td class=normalCell>對被監控埠流量進行監控的埠，監控埠只能有一個
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>被監控埠</td>
+<Td class=normalCell> 可選擇一個或多個埠
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell> 1、若開啟埠鏡像功能則被監控埠不能與監控埠是同一個埠
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell> 2、如果某埠已經屬於某個彙聚組，則此埠不能再設置為監控埠（監控埠下拉清單中的紅色字體的埠表示該埠屬於彙聚組中）
+</td>
+</TR>
+</table>
+</div>
+
+<div  id="sysInfoUrcp">
+<p>系統資訊
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>CPU佔用</TD>
+<Td class=normalCell>當前CPU資源使用率</td>
+</TR><tr>
+<TD width=120 valign=top class=italicCell>記憶體使用</TD>
+<Td class=normalCell>當前記憶體資源使用率</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>U盤使用</td>
+<Td class=normalCell>當前U盤資源使用率（只有外插U盤的時候才會顯示該條目）</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>CPU、記憶體、U盤這三個參數的值都通過進度條和數值（百分比）兩種方式顯示，數值的取值範圍為0%~100%；根據數值的大小，進度條可能會顯示為空、綠色、黃色或者紅色：</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>1、當數值<1%時，進度條為空</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2、當 1%<=數值<50 %時，進度條為綠色</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>3、當 50%<=數值<70%時，進度條為黃色</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>4、當數值>=70%時，進度條為紅色</td>
+</TR>
+</table>
+</div>
+
+<div id="sysUrcp">
+<p>系統設置 
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用DHCP中繼</TD>
+<Td 
+class=normalCell>啟用DHCP中繼後，會將經過交換機的DHCP報文插入中繼資訊，以方便支援DHCP中繼的伺服器根據插入的資訊來分配特定的IP位址，插入資訊的格式為2位元的埠號加MAC位址，
+                     例如收到DHCP包的交換機埠號為埠3，交換機的MAC位址為0022aa0022aa，那麼中繼的資訊則為030022aa0022aa </td>
+</TR>
+<tr>
+<TD width=120 valign="top" class="italicCell" >啟用DHCP用戶端</TD>
+<Td class=normalCell>設置交換機是否作為DHCP用戶端，啟用此功能後，交換機將從網路中已經存在的DHCP Server處獲得IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class="italicCell">IP地址、子網路遮罩</TD>
+<Td class=normalCell>用於設定我們管理交換機時使用的IP位址。為了方便對交換機進行管理，交換機的管理IP位址一般設為與局域網同網段</td>
+</TR>
+<tr>
+<TD width=120 valign=top class="italicCell">閘道</TD>
+<Td class=normalCell>局域網的閘道位址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class="italicCell">CPU VLAN ID</TD>
+<Td class=normalCell>設置該設備的CPU VLAN ID，預設為1。若設備開啟了VLAN功能，且工作在TAG VLAN模式，則只有在，VLAN ID等於此處CPU VLAN  ID 的TAG VLAN所包含的埠上，連接的使用者可管理該設備，其他不可管理</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC地址老化時間</TD>
+<Td class=normalCell> 系統自動擦除已有MAC位址的時間，默認300秒</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>設備名</TD>
+<Td class=normalCell>為管理運行維護方便而給交換機設置的具有知意性的一串字元</td>
+</TR>
+<tr>
+<TD width=120 valign="top" class="italicCell">密碼</TD>
+<Td class=normalCell>設置登錄交換機管理介面時輸入的密碼</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</TD>
+<Td class=normalCell>更改密碼後，請妥善保管新密碼，一旦忘記密碼，則只有通過Reset按鈕，將配置恢復為出廠值，才能進入交換機的管理介面</td></TR>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用ARP欺騙防禦</TD>
+<Td class=normalCell>啟用/禁用ARP欺騙防禦功能，啟用此功能後，再進入安全設置—ARP欺騙防禦頁面，設置IP/MAC綁定，就可以有效防止ARP欺騙</td>
+</TR>
+</table>
+</div>
+
+<div  id="linkageGetConfUrcp">
+<p>聯動配置
+<p>該頁面可以查看存儲在設備記憶體中設定檔的相關資訊。這些設定檔是通過聯動管理功能中的配置獲取功能獲取到的，它將遠端設備的設定檔存儲在本設備的記憶體中（設備重啟設定檔清單將清空）
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>下載</td>
+<Td class=normalCell>點擊&lt;下載&gt;將設定檔下載到本地PC上</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>編輯</td>
+<Td class=normalCell>點擊編輯圖示，可修改設定檔的名稱</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>刪除</td>
+<Td class=normalCell>點擊刪除圖示，可將設定檔從設備記憶體中清除</td>
+</TR>
+</table>
+</div>
+
+<div id="linkageSendConf">
+<p>下發配置
+<p>在本頁面可以將本機上存在的配置下發給其他設備
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>本機設定檔</td>
+<td class=normalCell>指要下發到遠程交換機上的設定檔為本機設定檔
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>聯動設定檔</td>
+<td class=normalCell>指要下發到遠端交換機上的設定檔是通過聯動獲取的設定檔，從設定檔列表中選擇要下發得聯動設定檔
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>手動選擇配置項</td>
+<td class=normalCell>指可以選擇性的去下發相應的設定檔，如：系統組態（只下發“啟動DHCP中繼”、“啟動DHCP用戶端”、“MAC位址老化時間”）、VLAN配置、彙聚配置等
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>完全覆蓋</td>
+<td class=normalCell>指本機/聯動設定檔將完全覆蓋遠端交換機的配置（IP位址資訊將不會下發）
+</td>
+</TR>
+</table>
+</div>
+
+</div>
+
+<div  id="linkageGetConf">
+<hr>
+<p>聯動配置
+<p>該頁面可以查看存儲在設備記憶體中設定檔的相關資訊。這些設定檔是通過聯動管理功能中的配置獲取功能獲取到的，它將遠端設備的設定檔存儲在本設備的記憶體中（設備重啟設定檔清單將清空）
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>下載</td>
+<Td class=normalCell>點擊&lt;下載&gt;將設定檔下載到本地PC上</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>編輯</td>
+<Td class=normalCell>點擊編輯圖示，可修改設定檔的名稱</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>刪除</td>
+<Td class=normalCell>點擊刪除圖示，可將設定檔從設備記憶體中清除</td>
+</TR>
+</table>
+</div>
+
+<div  id="topoy">
+<hr>
+<p>網路拓撲
+<p>點擊&lt;拓撲發現&gt;，設備能發現同一廣播域中支援拓撲發現功能的其他設備，且能顯示其網路拓撲結構
+<p>根節點即為當前登錄的設備
+<p>點擊拓撲圖中設備，在輸入登錄密碼後能夠對其進行遠端系統管理
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>父節點埠</td>
+<td class=normalCell>為上聯交換機上與該交換機的連接埠號
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>本節點埠</td>
+<td class=normalCell>為該交換機上與上聯交換機連接埠號
+</td>
+</TR>
+
+<tr>
+<td width=120 valign=top class=italicCell>父節點彙聚</td>
+<td class=normalCell>如果該交換機與上聯交換機做了彙聚，則顯示上聯交換機彙聚組成員埠號
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>本節點彙聚</td>
+<td class=normalCell>若此設備設置了彙聚，則顯示本節點到父節點對應的彙聚組成員埠
+</td>
+</TR>
+
+<tr>
+<td width=120 valign=top class=italicCell>安全警報</td>
+<td class=normalCell>表明該交換機發生了告警事件，如：ARP攻擊、記憶體使用過高等，可通過該交換機的“安全性記錄檔”查看具體事件資訊
+</td>
+</TR>
+</table>
+</div>
+</div>
+
+<div id="SysMng" style="display:">
+<hr>
+<p><b><font size="+1" color="#666666">系統管理</font></a></b><p>
+
+<div  id="User" style="display:">
+<p>管理員配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>可修改管理員登錄的用戶名、密碼或創建新的管理員</td>
+</TR>
+</table>
+</div>
+
+<div  id="langChange" style="display:">
+<hr>
+<p>語言選擇
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>選擇設備WEB管理介面顯示的語言，目前只支援中文簡體</td>
+</TR>
+</table>
+</div>
+
+<div  id="SysClock" style="display:">
+<hr>
+<p>時鐘管理
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>當前系統時間</td>
+<Td class=normalCell>顯示裝置當前系統的時間</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>時區選擇</td>
+<Td class=normalCell>只有選擇了正確的時區，網路時間同步功能才能正常工作</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>手工設置時間</td>
+<Td class=normalCell>手工輸入當前的日期和時間</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>網路時鐘同步</td>
+<Td class=normalCell>設置正確的ntp伺服器後，當設備連接到Internet之後，就會自動和所設置ntp伺服器同步時間</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>伺服器IP地址</td>
+<Td class=normalCell> 系統預設兩個ntp伺服器192.43.244.18、129.6.15.28，一般情況下不需要修改。若想解更多ntp知識及伺服器，可訪問http://www.ntp.org</td>
+</TR>
+</table>
+</div>
+
+<div  id="DeviceConfig" style="display:">
+<hr>
+<p>配置管理
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>保存當前配置到本地</td>
+<Td class=normalCell>將系統當前運行的配置備份到管理電腦中（.xml格式）</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>導入前恢復出廠配置</td>
+<Td class=normalCell>勾選後，在導入配置之前設備將恢復出廠配置</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>選擇設定檔</td>
+<Td class=normalCell>點擊&lt;流覽&gt;選擇管理電腦上的設定檔</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>恢復設備出廠配置</td>
+<Td class=normalCell>點擊&lt;恢復&gt;後應重啟設備，才會將設備恢復到出廠配置</td>
+</TR>
+</table>
+</div>
+
+<div  id="SoftwareUpdate" style="display:">
+<hr>
+<p>軟體升級
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>升級前請確認升級的軟體與當前硬體版本一致；升級過程中不能關閉電源</td>
+</TR>
+<tr>
+<Td class=normalCell>點擊&lt;流覽&gt;，在管理電腦上選擇要升級的軟體，再點擊&lt;升級&gt;；升級成功後設備將自動重啟</td>
+</TR>
+</table>
+</div>
+
+<div  id="Remote" style="display:">
+<hr>
+<p>遠端系統管理
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>啟用Http</td>
+<Td class=normalCell>勾選表示啟用WEB遠端系統管理功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>外部埠</td>
+<Td class=normalCell>默認的埠號為8081</td>
+</TR>
+</table>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>啟用遠端系統管理後，如果WAN1口的IP位址為200.200.210.20，那麼遠端電腦登錄設備的方式是在流覽器的位址欄中輸入http://200.200.210.20:8081
+</Td></tr></table>
+</div>
+
+<div  id="TaskScheduler" style="display:">
+<hr>
+<p>計畫任務
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>通過配置計畫任務，管理員可以預定義設備在規定的時間裡完成規定的動作
+</Td></tr></table>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>任務名</td>
+<Td class=normalCell>定義任務名</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>啟動類型</td>
+<Td class=normalCell>選擇時間週期，可選項有：每星期、每天、每小時、每分鐘</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>執行時間</td>
+<Td class=normalCell>執行這個計畫任務的具體時間，它的設置根據啟動類型不同而不同</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>任務內容</td>
+<Td class=normalCell>選擇相應的任務內容</td>
+</TR>
+</table>
+</div>
+</div>
+
+<div id="SysSts" style="display:" >
+<hr>
+<p><b><font size="+1" color="#666666">系統狀態</font></a></b>
+<p>
+<div  id="RunStatus" style="display:">
+<p>
+<p>運行狀態
+<table id="RunStatusNormal"  style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>通過此頁面可以查看設備各介面的相關資訊，如：介面的接入方式、IP位址、MAC位址、子網路遮罩、連線時間等資訊</td>
+</TR>
+</table>
+<table id="RunStatus1800"  style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>通過此頁面可以查看設備LAN口的相關資訊：如：LAN口的接入方式、IP位址、MAC位址、子網路遮罩、連線時間等資訊</td>
+</TR>
+</table>
+</div>
+
+<div  id="SysInfo" style="display:">
+<p>
+<hr>
+<p>系統資訊
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>系統當前時間</td>
+<Td class=normalCell>設備當前的日期和時間</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>系統執行時間</td>
+<Td class=normalCell>設備本次啟動至查看時刻的時間</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>CPU佔用</td>
+<Td class=normalCell>當前CPU使用的百分比</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>記憶體使用</td>
+<Td class=normalCell>當前記憶體使用百分比</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>CPU、記憶體這兩個參數的值都通過進度條和數值（百分比）兩種方式顯示，數值的取值範圍為0%~100%；根據數值的大小進度條可能會顯示為空、綠色、黃色或者紅色</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>1、當數值&lt;1%時，進度條為空</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2、當 1%&le;數值&lt;50 %時，進度條為綠色</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>3、當 50%&le;數值&lt;70%時，進度條為黃色</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>4、當數值&ge;70%時，進度條為紅色</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>序號</td>
+<Td class=normalCell>設備的序號</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>產品型號</td>
+<Td class=normalCell>設備的產品型號</td>
+</TR>
+<tr id="hwModelTr" style="display:">
+<TD width=120 valign=top class=italicCell>硬體版本</td>
+<Td class=normalCell>設備的硬體版本</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>軟體版本</td>
+<Td class=normalCell>設備當前軟體的版本</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>歷史記錄</td>
+<Td class=normalCell>在該處可以查看系統記錄的相關資訊</td>
+</TR>
+</table>
+</div>
+</div>
+
+</body>
+</html>
+
+

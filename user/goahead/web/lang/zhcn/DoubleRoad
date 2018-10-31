@@ -1,0 +1,6 @@
+combinationMode=组合方式
+combinationContent1=部分线路负载均衡，其余备份
+combinationContent2=所有线路负载均衡
+Mroute=主线路
+Sroute=备份线路
+

@@ -1,0 +1,58 @@
+<po>
+<!-- 
+  <message msgid="save" msgstr="保存" />
+  <message msgid="reset" msgstr="重填" />
+  <message msgid="scan" msgstr="浏览。。。" />  
+
+
+  <message msgid="administrator" msgstr="管理员配置" />
+  <message msgid="user" msgstr="用户名" />
+  <message msgid="password" msgstr="密码" />
+  <message msgid="confirm password" msgstr="确认密码" />
+  <message msgid="attention1" msgstr="&lt;strong &gt;注意：&lt;/strong &gt;强烈建议修改初始的管理员密码，并谨慎保管用户名及密码。" />
+
+
+  <message msgid="sysclock" msgstr="时钟管理" />
+  <message msgid="now time" msgstr="当前系统时间" />
+  <message msgid="data" msgstr="日期" />
+  <message msgid="time" msgstr="时间" />
+  <message msgid="time zone selection" msgstr="时区选择" />
+  <message msgid="manual time" msgstr="手工设置时间" />
+  <message msgid="year" msgstr="年" />
+  <message msgid="month" msgstr="月" />
+  <message msgid="day" msgstr="日" />
+  <message msgid="auto time" msgstr="网络时间同步" />
+  <message msgid="servers1" msgstr="服务器1 IP地址" />
+  <message msgid="servers2" msgstr="服务器2 IP地址" />
+  <message msgid="servers3" msgstr="服务器3 IP地址" />
+  <message msgid="attention2" msgstr="&lt;strong &gt;注意：&lt;/strong &gt;只有时区选择正确，网络时间同步功能才能正常工作。" />
+
+
+  <message msgid="deviceconfig" msgstr="配置管理" />
+  <message msgid="save to local" msgstr="保存当前配置到本地" />
+  <message msgid="import config" msgstr="&lt;strong &gt;导入配置&lt;/strong &gt;" />
+  <message msgid="before import reset" msgstr="导入前恢复出厂配置" />
+  <message msgid="choose file" msgstr="请选择配置文件" />
+  <message msgid="import" msgstr="导入" />
+  <message msgid="recover config" msgstr="恢复设备出厂配置" />
+  <message msgid="recover" msgstr="恢复" />
+  <message msgid="attention3" msgstr="&lt;strong &gt;注意：&lt;/strong &gt;恢复出厂配置后，所有的配置都删除。建议先备份当前配置。执行本操作之后，需重启设备才能生效" />
+
+
+  <message msgid="software update" msgstr="软件升级" />
+  <message msgid="now software" msgstr="当前软件版本信息" />
+  <message msgid="save software" msgstr="保存当前软件到本地" />
+  <message msgid="download version" msgstr="下载最新版本" />
+  <message msgid="choose version" msgstr="请选择升级软件" />
+  <message msgid="update then reset" msgstr="升级后重启设备" />
+  <message msgid="update" msgstr="升级" />
+  <message msgid="attention4" msgstr="单击&lt;a href=‘http://wwwcom.cn/downloadcenter.php’ target=‘_blank’&gt;“下载最新版本”&lt;/a &gt;，您可以到科技公司官方网站下载最新的软件版本。 &lt;br/ &gt;升级软件必须与当前硬件版本一致。升级前可到系统管理—>配置管理备份系统当前配置。&lt;br/ &gt; 升级过程中不能关闭电源，否则可能导致无法补救的错误。 " />
+
+
+  <message msgid="remote" msgstr="远程管理" />
+  <message msgid="start HTTP" msgstr="启动HTTP" />
+  <message msgid="discription" msgstr="路由器将允许外部通过WEB进行管理。通过管理时以 “ IP 地址：端口”的方式访问。" />
+  <message msgid="external port" msgstr="外部端口" />
+  <message msgid="attention5" msgstr="&lt;strong &gt;注意：&lt;/strong &gt;为了您的网络安全，一般情况请不要打开远程管理功能。" />
+-->
+</po>

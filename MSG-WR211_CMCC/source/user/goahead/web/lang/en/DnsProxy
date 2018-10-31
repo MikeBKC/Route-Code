@@ -1,0 +1,13 @@
+startDns=Enable DNS Proxy
+show=To make DNS Proxy settings take effect,select the check box to enable DNS Proxy.
+dns1=Primary DNS Server
+ISPDNSSvc1=ISP DNS Server 1
+dns2=Secondary DNS Server
+ISPDNSSvc2=ISP DNS Server 2
+dhcpSvcSet=DHCP Server Settings
+staticDhcp=Static DHCP
+dhcpClient=DHCP Client List
+dnsSet=DNS Proxy
+dhcppool=DHCP Address Pool
+DHCP=DHCP Server
+server=Serve

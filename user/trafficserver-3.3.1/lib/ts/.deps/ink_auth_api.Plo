@@ -1,0 +1,94 @@
+ink_auth_api.lo: ink_auth_api.cc \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/time.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/include-fixed/features.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/sys/cdefs.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/wordsize.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/gnu/stubs.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/gnu/stubs-32.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/include/stddef.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/time.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/types.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/typesizes.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/xlocale.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/stdint.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/wchar.h \
+ ink_rand.h ink_port.h ink_config.h ink_autoconf.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/inttypes.h \
+ ink_apidefs.h ink_code.h ../../../include/openssl/md5.h \
+ ../../../include/openssl/e_os2.h ../../../include/openssl/opensslconf.h \
+ ink_auth_api.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/sys/types.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/endian.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/endian.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/sys/select.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/select.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/sigset.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/sys/sysmacros.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/pthreadtypes.h \
+ /data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/string.h
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/time.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/include-fixed/features.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/sys/cdefs.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/wordsize.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/gnu/stubs.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/gnu/stubs-32.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/include/stddef.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/time.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/types.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/typesizes.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/xlocale.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/stdint.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/wchar.h:
+
+ink_rand.h:
+
+ink_port.h:
+
+ink_config.h:
+
+ink_autoconf.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/inttypes.h:
+
+ink_apidefs.h:
+
+ink_code.h:
+
+../../../include/openssl/md5.h:
+
+../../../include/openssl/e_os2.h:
+
+../../../include/openssl/opensslconf.h:
+
+ink_auth_api.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/sys/types.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/endian.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/endian.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/sys/select.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/select.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/sigset.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/sys/sysmacros.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/bits/pthreadtypes.h:
+
+/data3/chen.bin/openwrt/glibc/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib/gcc/i486-openwrt-linux-gnu/4.4.3/../../../../i486-openwrt-linux-gnu/sys-include/string.h:

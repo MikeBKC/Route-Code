@@ -1,0 +1,20 @@
+InterfaceFlow=Status-Interface Traffic 
+InterfaceDetail=Interface Details 
+Interval=(2 seconds interval, 10 minutes window) 
+receive=Rx 
+average=Avg 
+maximum=Peak 
+total=Total 
+send=Tx 
+timeShaft=Avg: 
+flowShaft=Max: 
+show=Display:
+color=Color: 
+showTip=(Please install SVG Viewer if the page cannot be displayed properly.)
+attention=Note: Wait for the page to load, timeout after 10 seconds. 
+standard=Uniform 
+maximize=Per IF 
+hollow=Line 
+solid=Solid 
+turn=Reverse 
+

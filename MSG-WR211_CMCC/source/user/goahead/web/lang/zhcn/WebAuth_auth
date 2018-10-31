@@ -1,0 +1,6 @@
+auth_input=需要认证上网！请输入您的用户名和密码！
+auth_tip=提示：请允许本网站的弹出框通知，否则您可能无法正常上网！
+auth_success=认证成功！
+auth_fail=认证失败！
+auth_enter=登 录
+

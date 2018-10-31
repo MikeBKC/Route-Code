@@ -1,0 +1,143 @@
+menu "UTT Module"
+
+choice
+        prompt "UTT_MODEL"
+
+        config  UTT_NV840G
+        bool "nv840G"
+
+		config UTT_WX100
+		bool "WX100"
+
+        config  UTT_NV510V2
+        bool "nv510v2"
+
+        config  UTT_NV510V4
+        bool "nv510v4"
+
+
+	config  UTT_NV520V2
+	bool "nv520v2"
+
+	config  UTT_NV640EV2
+	bool "nv640Ev2"
+
+	config  UTT_NV810V2
+	bool "nv810v2"
+
+	config  UTT_NV810V3
+	bool "nv810v3"
+
+        config  UTT_NV811V4
+        bool "nv811v4"
+
+        config  UTT_NV821V2
+        bool "nv821v2"
+
+        config  UTT_NV841V4
+        bool "nv841v4"
+
+	config  UTT_NV810V4
+	bool "nv810v4"
+
+	config  UTT_NV830V3
+	bool "nv830v3"
+
+	config  UTT_NV840V2
+	bool "nv840v2"
+
+	config  UTT_NV840V4
+	bool "nv840v4"
+
+        config  UTT_NV1540
+        bool "nv1540"
+
+        config  UTT_NV3520G
+        bool "nv3520G"
+
+	config UTT_WX1000
+	bool "WX1000"
+	
+	config  UTT_NV510W
+        bool "nv510W"
+
+	config  UTT_NV520W
+        bool "nv520W"
+
+	config  UTT_NV520WV3
+        bool "nv520Wv3"
+
+	config  UTT_NV842WV3
+        bool "nv842Wv3"
+
+	config  UTT_NV1800N
+        bool "nv1800N"
+
+	config  UTT_NV512WV2
+        bool "nv512Wv2"
+
+	config  UTT_NV515W
+        bool "nv515W"
+
+	config  UTT_NV521GV2
+        bool "nv521Gv2"
+
+	config  UTT_NV750GW
+        bool "nv750GW"
+
+	config UTT_NV512WV3
+	bool "nv512Wv3"
+
+	config UTT_NV518WV3
+	bool "nv518Wv3"
+
+	config UTT_750W
+	bool "750W"
+
+	config UTT_U1000NV2
+	bool "u1000N"
+	config UTT_U1100
+	bool "u1100"
+
+	config UTT_NV840DV3
+	bool "nv840Dv3"
+	
+	 config UTT_NV517W
+	bool "nv517W"
+	
+	config UTT_NV840EV3
+	bool "nv840Ev3"
+
+	config UTT_D915W
+	bool "nvD915W"
+
+	config UTT_U1900
+	bool "u1900"
+	
+	config  UTT_NVD904W 
+	bool "nvD904W"
+endchoice
+
+config  UTT_ROUTER_CHIP_FUNC
+        bool "router chip related functions designed in kernel ( mirror or vlan  e.g.)"
+        default n
+
+config  UTT_WANPORT_SET
+        bool "wan port set on vlan" 
+        depends on UTT_ROUTER_CHIP_FUNC 
+        default n
+
+config  UTT_RDD_MIRROR
+        bool "reduced mirror config" 
+        depends on UTT_ROUTER_CHIP_FUNC 
+        default n
+
+config  UTT_RDD_PVLAN
+        bool "reduced port-based vlan" 
+        depends on UTT_ROUTER_CHIP_FUNC 
+        default n
+
+config  UTT_PERFORMANCE
+         bool "utt performance"
+endmenu
+

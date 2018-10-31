@@ -1,0 +1,5 @@
+wanP_confirm=改变WAN口数量会恢复出厂配置，是否继续？
+wanP_numerror=WAN口数量错误！
+wanP_config=动态端口配置
+wanP_num=WAN口数量
+

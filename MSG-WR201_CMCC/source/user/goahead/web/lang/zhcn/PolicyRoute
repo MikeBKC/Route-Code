@@ -1,0 +1,11 @@
+pr_configlist=策略路由列表
+pr_routename=策略路由名
+pr_dstip=目的地址
+pr_start=启用策略路由
+pr_routeconf=策略路由配置
+pr_moveTip=请先配置策略路由
+pr_modifyalert=不能修改策略路由名
+pr_profileErr=绑定接口不能为空
+pr_invalid=无效
+pr_segTip=策略控制的外网IP地址段。
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+	"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg"
+	 xmlns:xlink="http://www.w3.org/1999/xlink"
+	 id="canvas" width="500" height="300"  viewBox='0 0 500 300'
+	 onload="init(evt)" style="font-family:SimSun;font-size:12px;"> 
+	 <script type="text/ecmascript">
+	<![CDATA[
+		
+	function init(evt){
+		
+		var curBar = parent.cloudFlowBar;
+		curBar.svgDocument = evt.target.ownerDocument;
+		curBar.drawBarFun=function()
+		{
+		parent.drawBarChart(curBar);
+		}
+		curBar.drawBarFun();
+	};
+
+		]]>
+	</script>
+	
+</svg>

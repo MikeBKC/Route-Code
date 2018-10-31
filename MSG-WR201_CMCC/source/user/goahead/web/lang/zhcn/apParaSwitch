@@ -1,0 +1,5 @@
+chooseConfig=选择配置
+userfuiConfig=生效配置:
+localConfig=本地配置
+wireOutConfig=无线集中控制器下发的配置
+rebootTips=注意：更改配置过程中AP会进行重启。

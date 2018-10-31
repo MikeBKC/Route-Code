@@ -1,0 +1,15 @@
+WirelessHostStat=无线主机状态
+WirelessHostSList=无线主机状态信息列表
+ID=ID
+MACAddr=MAC地址
+Filter=过滤
+ChannelBand=频道带宽
+CancelFilter=取消过滤
+ConfirmStr1=你真的要
+ConfirmStr2=该MAC地址吗？
+ShowMsg0=过滤：
+ShowMsg=当复选框未被选中时，您可以选中它，将当前MAC地址添加到MAC地址过滤表中：反之，当复选框已被选中时，您可以将当前MAC地址从过滤表中删除。
+ShowMsg1=全部过滤：
+ShowMsg2=将当前状态表中所有无线主机的MAC地址添加到MAC地址过滤表中。
+FilterAll=全部过滤
+SecondTitle=无线主机状态

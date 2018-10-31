@@ -1,0 +1,14 @@
+nar_natRuleList=NAT Rule List
+nar_natRuleInfo=NAT rule
+nar_natRuleConf=NAT Rule Settings
+nar_ruleName=Rule Name
+nar_natType=NAT Type
+nar_exterIP=External IP
+nar_exterFIP=Start External IP
+nar_easyIPTip=Multiple internal IP addresses are mapped to a single external IP address.
+nar_one2oneTip=One internal IP address is mapped to one external IP address.
+nar_ruleIDTip=Cannot use system reserved rule names.
+nar_cmpIPTip=Start internal IP address cannot be larger than end internal IP address.
+nar_bind=Bind to
+nar_modiTip=Cannot modify default rules.
+nar_delTip=Cannot delete default rules.

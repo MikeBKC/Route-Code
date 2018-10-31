@@ -1,0 +1,7 @@
+hotel=即插即用
+hotelStart=启用即插即用
+hotelContent1=啓用後，內網用戶無需更改任何配置（如IP地址、網關地址、DNS服務器地址），就可以通過本設備上網；如果內網主機的IP地址與設備LAN口IP地址在同壹網段，則主機的網關地址必須設置爲設備LAN口的IP地址，否則無法上網。
+hotelContent2=啓用後，內網IP地址相同的用戶不能同時上網，且內網用戶的IP地址不能與設備各接口的IP地址相同。
+hotelContent3=啓用後，系統將默認開啓ARP代理和DNS代理，關閉IP欺騙防禦且允許未被IP/MAC綁定的主機通過。
+hotel_warn1=內網可能存在其他路由器，若使用該路由器上網，請勿開啓本設備易上網功能 
+hotel_waitCheck=網絡環境檢測中，請稍候

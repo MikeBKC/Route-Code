@@ -1,0 +1,15 @@
+bandWidthWeight=頻寬權重
+bwidthWeightTip=(範圍：1-100)
+routeStatus=線路狀態
+detectInterval=檢測間隔
+dInterTip=秒(範圍：1-60，0表示不檢測)
+detectTimes=檢測次數
+dTimeTip=次(範圍：3-1000)
+targetDetectIP=目標檢測IP位址
+checkDestIPAlert=当检测目标位其它IP地址时，检测目标IP地址不能为0.0.0.0
+destIP=检测目标
+gatewayIP=网关IP地址
+otherIP=其它IP地址
+routeCombConf=線路組合配置
+dri_routeList=線路組合狀態資訊清單
+

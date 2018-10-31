@@ -1,0 +1,11 @@
+<po>    
+  <message msgid="upnp list" msgstr="UPnP NAT映射列表" />
+  <message msgid="start upnp" msgstr="启用UPnP" />
+  <message msgid="ttl1" msgstr="序号" />
+  <message msgid="ttl2" msgstr="内部地址" />
+  <message msgid="ttl3" msgstr="内部端口" />
+  <message msgid="ttl4" msgstr="协议" />
+  <message msgid="ttl5" msgstr="对端地址" />
+  <message msgid="ttl6" msgstr="对端端口" />
+  <message msgid="ttl7" msgstr="描述" />
+</po>

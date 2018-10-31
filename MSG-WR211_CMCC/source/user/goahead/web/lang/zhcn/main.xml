@@ -1,0 +1,116 @@
+<po>
+  <message msgid="top taolun" msgstr="产品讨论" />
+  <message msgid="top zhishiku" msgstr="知识库" />
+  <message msgid="top yuyue" msgstr="预约服务" />
+  <message msgid="top productID" msgstr="型号：" />
+  <message msgid="top revisions" msgstr="版本：" />
+  <message msgid="top taolun title" msgstr="访问艾泰产品讨论区" />
+  <message msgid="top zhishiku title" msgstr="链接到艾泰网站知识库查找帮助" />
+  <message msgid="top yuyue title" msgstr="预约指定时间的客户服务" />
+
+  <message msgid="button button" msgstr="版权所有 上海艾泰科技有限公司" />
+  <message msgid="realtime-svg" msgstr="端口流量" />
+
+  <message msgid="left_gif" msgstr="" />
+  
+  <message msgid="left menud0" msgstr="配置向导" />
+  <message msgid="left menud1" msgstr="运行状态" />
+  <message msgid="left menud2" msgstr="流量统计" />
+  <message msgid="left menud3" msgstr="重启设备" />
+  <message msgid="workMode" msgstr="工作模式" />
+  <message msgid="switchFC" msgstr="交换功能" />
+  <message msgid="unitMNG" msgstr="联动管理" />
+  <message msgid="doubleLine" msgstr="线路组合" />
+  <message msgid="wirePar" msgstr="无线参数" />
+  <message msgid="chooseConf" msgstr="选择配置" />
+  <message msgid="SSIDS" msgstr="多SSID" />
+  <message msgid="APCongfile" msgstr="AP配置文件" />
+  <message msgid="portAdmin" msgstr="端口管理" />
+  <message msgid="portMirror" msgstr="端口镜像" />
+  <message msgid="portVLAN" msgstr="端口VLAN" />
+  <message msgid="portTeg" msgstr="端口汇聚" />
+  <message msgid="connectLimit" msgstr="连接限制" />
+  <message msgid="unitConF" msgstr="联动配置" />
+  <message msgid="networkTop" msgstr="网络拓扑" />
+  <message msgid="userST" msgstr="用户状态" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+
+  <message msgid="left tag1" msgstr="网络参数" />
+  <message msgid="left tag2" msgstr="无线配置" />
+  <message msgid="left tag3" msgstr="高级配置" />
+  <message msgid="left tag4" msgstr="用户管理" />
+  <message msgid="left tag5" msgstr="防火墙" />
+  <message msgid="left tag6" msgstr="系统管理" />
+  <message msgid="left tag7" msgstr="系统状态" />
+  <message msgid="left tag8" msgstr="客户服务" />
+  <message msgid="left tag9" msgstr="接入方式" />
+  <message msgid="left tag10" msgstr="VPN配置" />
+  <message msgid="left tag11" msgstr="AP集中管理" />
+   
+
+  <message msgid="left menud4" msgstr="WAN口配置" />
+  <message msgid="left menud5" msgstr="LAN口配置" />
+  <message msgid="left menud6" msgstr="DHCP服务器" />
+  <message msgid="left menud7" msgstr="DDNS配置" />
+
+  <message msgid="left menud8" msgstr="基本设置" />
+  <message msgid="left menud9" msgstr="无线安全设置" />
+  <message msgid="left menud10" msgstr="无线MAC地址过滤" />
+  <message msgid="left menud11" msgstr="无线高级配置" />
+  <message msgid="left menud12" msgstr="无线主机状态" />
+
+  <message msgid="left menud13" msgstr="NAT和DMZ配置" />
+  <message msgid="left menud14" msgstr="IP/MAC绑定" />
+  <message msgid="left menud15" msgstr="路由配置" />
+  <message msgid="left menud16" msgstr="UPnP" />
+
+  <message msgid="left menud17" msgstr="上网行为管理" />
+  <message msgid="left menud18" msgstr="精细化限速" />
+
+  <message msgid="left menud19" msgstr="基本安全配置" />
+  <message msgid="left menud20" msgstr="访问控制策略" />
+  <message msgid="left menud21" msgstr="地址组" />
+  <message msgid="left menud22" msgstr="服务组" />
+  <message msgid="left menud23" msgstr="域名过滤" />
+
+  <message msgid="left menud24" msgstr="管理员配置" />
+  <message msgid="left menud25" msgstr="时钟管理" />
+  <message msgid="left menud26" msgstr="配置管理" />
+  <message msgid="left menud27" msgstr="软件升级" />
+  <message msgid="left menud28" msgstr="远程管理" />
+
+  <message msgid="left menud29" msgstr="运行状态" />
+  <message msgid="left menud30" msgstr="流量统计" />
+  <message msgid="left menud31" msgstr="系统信息" />
+  <message msgid="left menud32" msgstr="语言选择" />
+  <message msgid="left menud33" msgstr="管理员配置" />
+  <message msgid="left menud34" msgstr="NAT静态映射" />
+  <message msgid="left menud35" msgstr="PPPoE服务器" />
+  <message msgid="left menud36" msgstr="安全配置" />
+
+  <message msgid="left menud37" msgstr="计划任务" />
+  <message msgid="left menud38" msgstr="PPTP" />
+  <message msgid="left menud39" msgstr="L2TP" />
+  <message msgid="left menud40" msgstr="动态端口配置" />
+  <message msgid="left menud41" msgstr="网络尖兵防御" />
+  <message msgid="left menud42" msgstr="弹性带宽" />
+  <message msgid="left menud43" msgstr="通告功能" />
+  <message msgid="left menud44" msgstr="策略库" />
+
+  <message msgid="left menud45" msgstr="AP管理" />
+  <message msgid="left menud46" msgstr="AP配置模版" />
+  <message msgid="left menud47" msgstr="AP软件管理" />
+  <message msgid="left menud48" msgstr="服务区" />
+  <message msgid="left menud49" msgstr="无线客户端" />
+
+
+</po>

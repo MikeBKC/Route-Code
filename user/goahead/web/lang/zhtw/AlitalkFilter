@@ -1,0 +1,16 @@
+AliWhite=阿里旺旺白名单
+AliWhiteList=阿里旺旺白名单表
+AliID=阿里旺旺账号
+Describe=描述
+MaxConfErr=配置已经达到最大条数，不能添加新配置
+SureDel=确定删除？
+SureDelAll=确定删除所有条目？
+UseAliWhiteList=启用阿里旺旺白名单
+AliWhiteConf=阿里旺旺白名单配置信息
+PleaseInputAliID=请填写阿里旺旺账号！
+PleaseInputRQQNu=请正确填写qq号码的数字类型！
+EXISTAliID=阿里旺旺账号已存在！
+MoreThan30AliID=阿里旺旺账号长度超过30位！
+DescribeLengthMax=描述长度不能超过30位!
+DescribeLength=阿里旺旺账号长度不能少于5位或超过25位！
+Selecte=全选/全不选

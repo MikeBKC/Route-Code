@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLISH_MODULE xmlns="http://clish.sourceforge.net/XMLSchema" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xsi:schemaLocation="http://clish.sourceforge.net/XMLSchema
+                     http://clish.sourceforge.net/XMLSchema/clish.xsd">
+	<!--=======================================================-->
+
+<VIEW name="configure-if-view">
+
+    <COMMAND name="ppp"
+	help="Point-to-Point Protocol"
+	mode="subcommand"/>
+
+    <COMMAND name="ppp authentication"
+	help="Set PPP link authentication method"
+	ptype="SUBCOMMAND"
+	mode="switch">
+	<PARAM name="pap"
+	    help="Password Authentication Protocol (PAP)"
+	    ptype="SUBCOMMAND"
+	    mode="subcommand"/>
+	<PARAM name="callout"
+	    help="Authenticate remote on outgoing call only"
+	    ptype="SUBCOMMAND"
+	    mode="subcommand"/>
+	<ACTION builtin="clish_ppp_auth"/>
+		
+    </COMMAND>
+    
+    <COMMAND name="ppp pap"
+	help="Set PAP authentication parameters"
+	ptype="SUBCOMMAND"
+	mode="subcommand"/>
+
+    <COMMAND name="ppp pap sent-username"
+	help="Set outbound PAP username"
+	ptype="SUBCOMMAND"
+	mode="subcommand">
+	<PARAM name="username"
+	    help="Outbound PAP username"
+	    ptype="STRING"/>
+	<PARAM name="password"
+	    help="Set outbound PAP password"
+	    ptype="SUBCOMMAND"
+	    mode="subcommand">
+	    <PARAM name="passwd"
+		help="Specifies an UNENCRYPTED password will follow"
+		ptype="STRING"/>
+	</PARAM>
+	<ACTION builtin="clish_ppp_pap_sentusername"/>
+
+    </COMMAND>
+
+    <COMMAND name="dial"
+	help="PPPoE automatic dialing"
+	ptype="STRING"
+	mode="common">
+	<ACTION builtin="clish_dial"/>
+
+    </COMMAND>
+
+</VIEW>
+
+
+</CLISH_MODULE>

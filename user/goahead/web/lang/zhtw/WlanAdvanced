@@ -1,0 +1,16 @@
+RTSThreshold=RTS閾值
+SectionHold=分段閾值
+BeaconGap=Beacon間隔
+DTIMGap=DTIM間隔
+WirelessAdvance=無線高級配置
+AdvancePar=高級參數
+DSSID=多SSID
+range5=位元組（取值範圍：1-2347）
+range6=位元組（取值範圍：256-2346）
+range7=毫秒（取值範圍：20-999）
+range8=（取值範圍：1-255）
+UsingBel=啟用短前導
+UsingWMM=啟用WMM
+ShowHelp=啟用WMM（無線用戶端也需啟用），多媒體資料（如音訊、視頻）將被就先發送。
+
+

@@ -1,0 +1,13 @@
+utt_defaultGW=Default Gateway
+utt_interface=Interface
+utt_member=Group Members
+utt_bridgeConf=Bridge Configuration
+utt_outInterface=WAN
+utt_inInterface=LAN
+utt_checkIPTips1=The IP address and gateway address are not in the same subnet.
+utt_checkIPTips2=IP address can't be 0.0.0.0
+utt_delInterfaceTips1=The default information cannot be deleted.
+utt_delInterfaceTips2=Please select the information that needs to be deleted.
+utt_addInterfaceTips1=Please select the information that needs to be added.
+utt_addInterfaceTips2=It contains the same content in this group.
+

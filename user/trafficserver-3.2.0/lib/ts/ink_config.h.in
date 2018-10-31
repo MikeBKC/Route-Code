@@ -1,0 +1,202 @@
+/** @file
+
+  Some small general interest definitions. The general standard is to
+  prefix these defines with TS_.
+
+  @section license License
+
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+ */
+
+#ifndef _ink_config_h
+#define	_ink_config_h
+
+// Note: All "defines" should be prefixed with TS_ when appropriate, please
+// don't use ATS_ any more.
+
+/* GENERATED FILE WARNING!  DO NOT EDIT ink_config.h
+ *
+ * You must modify ink_config.h.in instead.
+ *
+ */
+
+/* Include automake generated defines
+ */
+#include "ink_autoconf.h"
+
+#define BUILD_MACHINE                  "@build_machine@"
+#define BUILD_PERSON                   "@build_person@"
+#define BUILD_GROUP                    "@build_group@"
+
+/* Includes */
+#define TS_HAVE_SYS_EPOLL_H            @sys_epollh@
+#define TS_HAVE_SYS_EVENT_H            @sys_eventh@
+#define TS_HAVE_MACHINE_ENDIAN_H       @machine_endianh@
+#define TS_HAVE_ENDIAN_H               @endianh@
+#define TS_HAVE_NETINET_IN_H           @netinet_inh@
+#define TS_HAVE_NETINET_IN_SYSTM_H     @netinet_in_systmh@
+#define TS_HAVE_NETINET_TCP_H          @netinet_tcph@
+#define TS_HAVE_SYS_IOCTL_H            @sys_ioctlh@
+#define TS_HAVE_SYS_BYTEORDER_H        @sys_byteorderh@
+#define TS_HAVE_SYS_SOCKIO_H           @sys_sockioh@
+#define TS_HAVE_SYS_SYSCTL_H           @sys_sysctlh@
+#define TS_HAVE_SYS_SYSINFO_H          @sys_sysinfoh@
+#define TS_HAVE_SYS_SYSTEMINFO_H       @sys_systeminfoh@
+#define TS_HAVE_ARPA_INET_H            @arpa_ineth@
+#define TS_HAVE_ARPA_NAMESER_H         @arpa_nameserh@
+#define TS_HAVE_ARPA_NAMESER_COMPAT_H  @arpa_nameser_compath@
+#define TS_HAVE_EXECINFO_H             @execinfoh@
+#define TS_HAVE_NETDB_H                @netdbh@
+#define TS_HAVE_CTYPE_H                @ctypeh@
+#define TS_HAVE_SIGINFO_H              @siginfoh@
+#define TS_HAVE_MALLOC_H               @malloch@
+#define TS_HAVE_WAIT_H                 @waith@
+#define TS_HAVE_FLOAT_H                @floath@
+#define TS_HAVE_LIBGEN_H               @libgenh@
+#define TS_HAVE_VALUES_H               @valuesh@
+#define TS_HAVE_ALLOCA_H               @allocah@
+#define TS_HAVE_CPIO_H                 @cpioh@
+#define TS_HAVE_STROPTS_H              @stroptsh@
+#define TS_HAVE_SYS_MOUNT_H            @sys_mounth@
+#define TS_HAVE_SYS_PARAM_H            @sys_paramh@
+#define TS_HAVE_SYS_SYSMACROS_H        @sys_sysmacrosh@
+#define TS_HAVE_MATH_H                 @mathh@
+#define TS_HAVE_NET_PPP_DEFS_H         @net_ppp_defsh@
+#define TS_HAVE_NETINET_IP_H           @netinet_iph@
+#define TS_HAVE_NETINET_IP_ICMP_H      @netinet_ip_icmph@
+#define TS_HAVE_EXECINFO_H             @execinfoh@
+#define TS_HAVE_IFADDRS_H              @ifaddrsh@
+#define TS_HAVE_READLINE_READLINE_H    @readline_readlineh@
+
+/* Libraries */
+#define TS_HAS_LIBZ                    @zlibh@
+#define TS_HAS_LZMA                    @lzmah@
+#define TS_HAS_EXPAT                   @expath@
+#define TS_HAS_JEMALLOC                @jemalloch@
+#define TS_HAS_TCMALLOC                @has_tcmalloc@
+
+
+/* Features */
+#define TS_HAS_EVENTFD                 @has_eventfd@
+#define TS_HAS_CLOCK_GETTIME           @has_clock_gettime@
+#define TS_HAS_POSIX_MEMALIGN          @has_posix_memalign@
+#define TS_HAS_POSIX_FADVISE           @has_posix_fadvise@
+#define TS_HAS_LRAND48_R               @has_lrand48_r@
+#define TS_HAS_SRAND48_R               @has_srand48_r@
+#define TS_HAS_STRLCPY                 @has_strlcpy@
+#define TS_HAS_STRLCAT                 @has_strlcat@
+#define TS_HAS_IN6_IS_ADDR_UNSPECIFIED @has_in6_is_addr_unspecified@
+
+#define TS_HAS_BACKTRACE               @has_backtrace@
+#define TS_HAS_PROFILER                @has_profiler@
+#define TS_USE_FAST_SDK                @use_fast_sdk@
+#define TS_USE_DIAGS                   @use_diags@
+#define TS_USE_EPOLL                   @use_epoll@
+#define TS_USE_KQUEUE                  @use_kqueue@
+#define TS_USE_PORT                    @use_port@
+#define TS_USE_POSIX_CAP               @use_posix_cap@
+#define TS_USE_TPROXY                  @use_tproxy@
+#define TS_HAS_SO_MARK                 @has_so_mark@
+#define TS_HAS_IP_TOS                  @has_ip_tos@
+#define TS_USE_HWLOC                   @use_hwloc@
+#define TS_USE_FREELIST                @use_freelist@
+#define TS_USE_TLS_NPN                 @use_tls_npn@
+#define TS_USE_TLS_SNI                 @use_tls_sni@
+
+/* OS API definitions */
+#define GETHOSTBYNAME_R_HOSTENT_DATA   @gethostbyname_r_hostent_data@
+#define GETHOSTBYNAME_R_GLIBC2         @gethostbyname_r_glibc2@
+#define NEED_UNION_SEMUN               @need_union_semun@
+#define SIZEOF_VOID_POINTER            @ac_cv_sizeof_voidp@
+#define TS_IP_TRANSPARENT              @ip_transparent@
+
+/* API */
+#define TS_IS_MICRO_BUILD              @is_micro_build@
+#define TS_HAS_STANDALONE_IOCORE       @has_standalone_iocore@
+#define TS_HAS_INKAPI                  @has_inkapi@
+#define TS_HAS_DEMANGLE                @has_demangle@
+#define TS_HAS_TESTS                   @has_tests@
+#define TS_HAS_WCCP                    @has_wccp@
+
+/* XXX: Should make those individually selectable ? */
+/* TODO: Use TS prefix instead no prefix or INK    */
+#if TS_IS_MICRO_BUILD
+# define TS_MICRO                       1
+# define INK_NO_ACL                     1
+# define INK_NO_CLUSTER                 1
+# define TS_USE_DIAGS                   0
+# define INK_NO_HOSTDB                  1
+# define INK_NO_ICP                     1
+# define INK_NO_LOG                     1
+# define INK_NO_REVERSE                 1
+# define INK_NO_SOCKS                   1
+# define INK_NO_STAT_PAGES              1
+# define INK_USE_MUTEX_FOR_ATOMICLISTS  1
+# define USE_MD5_FOR_MMH                1
+#endif
+
+# define TS_MAX_THREADS_IN_EACH_THREAD_TYPE  @max_threads_per_type@
+# define TS_MAX_NUMBER_EVENT_THREADS  @max_event_threads@
+
+# define TS_ARG_MAX	                @arg_max@
+# define TS_ARG_MAX_STR                 "@arg_max@"
+
+# define TS_MAX_HOST_NAME_LEN           @max_host_name_len@
+
+
+#if TS_HAS_INKAPI
+#define TS_MAX_API_STATS               @max_api_stats@
+/* XXX: Should make those individually selectable ? */
+#else
+# define TS_NO_TRANSFORM                1
+# define TS_NO_API                      1
+#endif
+
+#if TS_HAS_STANDALONE_IOCORE
+# define STANDALONE_IOCORE              1
+#else
+# define FIXME_NONMODULAR               1
+# define SPLIT_DNS                      1
+# define NON_MODULAR                    1
+# define HTTP_CACHE                     1
+#endif
+
+/* Defaults for user / group */
+#define TS_PKGSYSUSER                   "@pkgsysuser@"
+#define TS_PKGSYSGROUP                  "@pkgsysgroup@"
+
+/* Various "build" defines */
+#define TS_BUILD_PREFIX "@prefix@"
+#define TS_BUILD_EXEC_PREFIX "@rel_exec_prefix@"
+#define TS_BUILD_BINDIR "@rel_bindir@"
+#define TS_BUILD_SBINDIR "@rel_sbindir@"
+#define TS_BUILD_SYSCONFDIR "@rel_sysconfdir@"
+#define TS_BUILD_SYSCONFIGDIR "@exp_sysconfdir@"
+#define TS_BUILD_DATADIR "@rel_datadir@"
+#define TS_BUILD_INCLUDEDIR "@rel_includedir@"
+#define TS_BUILD_LIBDIR "@rel_libdir@"
+#define TS_BUILD_LIBEXECDIR "@rel_libexecdir@"
+#define TS_BUILD_LOCALSTATEDIR "@rel_localstatedir@"
+#define TS_BUILD_RUNTIMEDIR "@rel_runtimedir@"
+#define TS_BUILD_LOGDIR "@rel_logdir@"
+#define TS_BUILD_MANDIR "@rel_mandir@"
+#define TS_BUILD_CACHEDIR "@rel_cachedir@"
+#define TS_BUILD_INFODIR "@rel_infodir@"
+
+#define TS_BUILD_DEFAULT_LOOPBACK_IFACE "@default_loopback_iface@"
+
+#endif /* _ink_config_h */

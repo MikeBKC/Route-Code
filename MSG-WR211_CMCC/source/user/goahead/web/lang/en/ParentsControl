@@ -1,0 +1,16 @@
+par_start=Enable Parental Control
+par_list=Parental Control List
+par_allowSite=Websites Accessible 
+par_innerMac=MAC Addresses of the Computers in Current Intranet
+par_parentsMac_1=The MAC Address of the Parents' Computer
+par_parentsMac_2=MAC Address 
+par_macerror= The MAC has been added to the MAC addresses of parents' computers. Please choose again.
+par_usererror=The user name cannot be changed!
+par_childMac=The MAC Addresses of Children's Computers
+par_allows=Websites Accessible for Children
+par_addDomainTip=Input the wildcard "*" to represent multiple websites, such as input< br >  "www.google.*" in Websites Accessible, Intranet users will be able to access to all webpages begin with "www.google."
+par_siteList=Website List
+par_enter=Enter the
+par_toSetTime= to configure effective time.
+par_maxParentsmac=Unable to add! You can add up to 4 MAC addresses of parents' computers.
+par_samemac=The MAC address exists!

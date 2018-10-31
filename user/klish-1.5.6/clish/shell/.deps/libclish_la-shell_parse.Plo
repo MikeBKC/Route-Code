@@ -1,0 +1,136 @@
+clish/shell/libclish_la-shell_parse.lo \
+  clish/shell/libclish_la-shell_parse.o: clish/shell/shell_parse.c \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/string.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/features.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/uClibc_config.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/sys/cdefs.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/assert.h \
+  ./lub/string.h ./lub/c_decl.h ./lub/types.h ./lub/system.h ./lub/argv.h \
+  ./lub/c_decl.h ./lub/types.h clish/shell/private.h ./lub/bintree.h \
+  ./tinyrl/tinyrl.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/stdio.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/types.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/kernel_types.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/wordsize.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/pthreadtypes.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/sched.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/uClibc_stdio.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/wchar.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/wchar.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/stdio_lim.h \
+  ./lub/types.h ./lub/c_decl.h ./tinyrl/history.h ./clish/shell.h \
+  ./lub/c_decl.h ./lub/types.h ./lub/argv.h ./tinyrl/tinyrl.h \
+  ./clish/view.h ./clish/command.h ./lub/bintree.h ./clish/types.h \
+  ./clish/pargv.h ./clish/ptype.h ./clish/param.h ./clish/var.h \
+  ./clish/action.h ./clish/config.h ./clish/nspace.h \
+  /data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/regex.h \
+  ./konf/net.h ./konf/buf.h ./lub/bintree.h ./clish/pargv.h ./clish/var.h \
+  ./clish/action.h
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/string.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/features.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/uClibc_config.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/sys/cdefs.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/assert.h:
+
+./lub/string.h:
+
+./lub/c_decl.h:
+
+./lub/types.h:
+
+./lub/system.h:
+
+./lub/argv.h:
+
+./lub/c_decl.h:
+
+./lub/types.h:
+
+clish/shell/private.h:
+
+./lub/bintree.h:
+
+./tinyrl/tinyrl.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/stdio.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/types.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/kernel_types.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/wordsize.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/pthreadtypes.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/sched.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/uClibc_stdio.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/wchar.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/wchar.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/bits/stdio_lim.h:
+
+./lub/types.h:
+
+./lub/c_decl.h:
+
+./tinyrl/history.h:
+
+./clish/shell.h:
+
+./lub/c_decl.h:
+
+./lub/types.h:
+
+./lub/argv.h:
+
+./tinyrl/tinyrl.h:
+
+./clish/view.h:
+
+./clish/command.h:
+
+./lub/bintree.h:
+
+./clish/types.h:
+
+./clish/pargv.h:
+
+./clish/ptype.h:
+
+./clish/param.h:
+
+./clish/var.h:
+
+./clish/action.h:
+
+./clish/config.h:
+
+./clish/nspace.h:
+
+/data3/hou.bo/3520G_REl/nv3520G/source/user/klish-1.5.6-shared-lib/../../lib/include/regex.h:
+
+./konf/net.h:
+
+./konf/buf.h:
+
+./lub/bintree.h:
+
+./clish/pargv.h:
+
+./clish/var.h:
+
+./clish/action.h:

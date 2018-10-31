@@ -1,0 +1,11 @@
+sequenceNo=序号
+users=用户
+ipAddr=IP地址
+macAddr=MAC地址
+typeOfAuth=认证方式
+linkedFitAp=所连AP
+wlanMode=无线模式
+ssid=SSID
+wlanCltList=无线客户端列表
+APClt=无线客户端
+wlanClt=无线客户端

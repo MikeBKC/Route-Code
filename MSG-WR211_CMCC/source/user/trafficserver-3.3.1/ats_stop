@@ -1,0 +1,11 @@
+#!/bin/sh 
+
+start-stop-daemon -K -q  -p /var/trafficserver/cop.lock -n traffic_cop
+start-stop-daemon -K -q -p /var/trafficserver/manager.lock
+rm -f /var/trafficserver/cop.lock
+rm -f /var/trafficserver/manager.lock
+rm -f /var/trafficserver/server.lock
+chmod 777 -R /var/trafficserver
+	
+
+

@@ -1,0 +1,10 @@
+title_AccessControl=访问控制
+AccessControl_open=开启访问控制
+allowIP_MASK=允许IP段
+start_IP=起始地址
+end_IP=结束地址
+compare_IP=结束地址应大于起始地址！
+forbid_message=登录账户或密码错误次数达到5次，30秒内将禁止登录！
+less_time=剩余时间
+try_again=重试
+accessctrl_warn=开启访问控制前，请先配置IP/MAC绑定，以固定您的IP地址！

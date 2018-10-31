@@ -1,0 +1,2 @@
+ . /sbin/global.sh
+ pppd file /etc/options.pppoe &

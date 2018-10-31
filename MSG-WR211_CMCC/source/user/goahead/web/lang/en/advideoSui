@@ -1,0 +1,14 @@
+adv_open=Enable advertising filtering
+adv_filt=URL Filter
+adv_youku=Youku
+adv_tudou=Tudou
+adv_leshi= leTV
+adv_tx=Tencent
+adv_iqiyi=iqiyi
+adv_sohu=Sohu
+adv_warn1=1. Not effective advertising filter, please try "to clear the browser cache".
+adv_warn2=2.The use of step 1 is still not effective after, please try to restart your browser.
+adv_warn3=3.Using steps 1 and 2 are still not effective after, please try to "remove the DNS cache" or "reboot".
+updateWay=Update
+auto=Auto
+manual=Manual

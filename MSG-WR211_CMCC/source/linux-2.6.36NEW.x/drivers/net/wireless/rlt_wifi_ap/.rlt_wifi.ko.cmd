@@ -1,0 +1,1 @@
+cmd_drivers/net/wireless/rlt_wifi_ap/rlt_wifi.ko := /opt/buildroot-gcc463/usr/bin/mipsel-linux-ld -r  -m elf32ltsmip -T /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR211_CMCC/source/linux-2.6.36NEW.x/scripts/module-common.lds --build-id  -o drivers/net/wireless/rlt_wifi_ap/rlt_wifi.ko drivers/net/wireless/rlt_wifi_ap/rlt_wifi.o drivers/net/wireless/rlt_wifi_ap/rlt_wifi.mod.o

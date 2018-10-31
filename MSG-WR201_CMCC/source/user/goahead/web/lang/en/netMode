@@ -1,0 +1,6 @@
+netMode=Network Mode
+nat=NAT Mode
+route=Route Mode
+gateway=Gateway Mode
+bridge=Bridge Mode
+rebootTips=Note: Device will reboot after you change the mode.

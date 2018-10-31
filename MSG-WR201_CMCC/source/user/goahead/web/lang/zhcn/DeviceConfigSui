@@ -1,0 +1,11 @@
+warning1=请指定配置文件
+warning2=注意：如果配置文件不正确，将导致现有配置被清空
+warning3=恢复出厂配置？
+warning4=建议先保存现有配置。您确定要继续吗？
+warning5=注意：如果配置文件不正确，将导致现有配置被清空"+"\n"+"建议先保存现有配置。您确定要继续吗？
+fileErr=文件格式错误
+file2=备份配置文件
+file3=配置文件备份
+restorFile=还原配置文件
+routerImpConf=导入前将路由器恢复到出厂配置
+reConfig=恢复出厂配置

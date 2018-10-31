@@ -1,0 +1,11 @@
+warning1=Please select a configuration file.
+warning2=Note: If the configuration file is incorrect, the current configuration will be cleared.
+warning3=Are you sure you want to reset the Device to factory default settings?
+warning4=You'd better backup the current configuration first. Do you want to continue?
+warning5=Note: if the configuration file is not correct, will cause the existing configuration to clear the "+" \ n "+" Suggestions to save current configuration. Are you sure you want to continue?
+fileErr=File format error
+file2=Backup Configuration
+file3=Backup Configuration to Local PC
+restorFile=Restore Configuration
+routerImpConf=Reset to Factory Defaults before Restore
+reConfig=Reset to Factory Defaults

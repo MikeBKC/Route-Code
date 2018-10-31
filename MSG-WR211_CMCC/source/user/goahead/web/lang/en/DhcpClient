@@ -1,0 +1,14 @@
+DhcpList=DHCP Client List
+vid=VID
+ipAddr=IP Address
+subnet=Subnet Mask
+macAddr=MAC Address
+remainTime=Lease Remaining
+refresh=Refresh
+dhcpSvcSet=DHCP Server Settings
+staticDhcp=Static DHCP
+dhcpClient=DHCP Client List
+dnsSet=DNS Proxy
+dhcppool=DHCP Address Pool
+DHCP=DHCP Server
+server=Server

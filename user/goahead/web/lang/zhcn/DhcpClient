@@ -1,0 +1,14 @@
+DhcpList=DHCP客户端列表
+vid=VID
+ipAddr=IP地址
+subnet=子网掩码
+macAddr=MAC地址
+remainTime=剩余租期
+refresh=刷新
+dhcpSvcSet=DHCP服务器设置
+staticDhcp=静态DHCP
+dhcpClient=DHCP客户端列表
+dnsSet=DNS代理
+dhcppool=DHCP地址池列表
+DHCP=DHCP服务器
+server=服务器

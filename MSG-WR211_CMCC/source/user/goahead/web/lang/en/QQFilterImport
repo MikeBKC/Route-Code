@@ -1,0 +1,14 @@
+QQF_nameTip=contains illegal characters
+QQF_pwdApp=bite.
+QQF_hang=line
+QQF_userLen= user name is too long.
+QQF_userExist= already exists in the account list, please re-enter.
+QQF_remarkLen=: The description length greater than 31 bytes, please re-enter.
+QQF_noInst=No idle instance to increase number  
+QQF_instApp=user 
+QQF_userName= user name and 
+QQF_nameApp= user name repeated.
+QQF_null=The imported information can not be empty.
+QQF_helpOne=1.Enter one entry per line, in the format: QQ Number <Space> Description, e.g., 1440398074 Jimmy.
+QQF_helpTwo=2.There must be at least one space between QQ Number and Description.
+QQF_QQAcc=Import QQ Numbers

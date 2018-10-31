@@ -1,0 +1,14 @@
+qqf_qqList=QQ白名单列表
+qqf_qqNum=QQ号码
+qqf_allow=允许400/800企业QQ
+qqf_start=启用QQ白名单
+qqf_qqInfo=QQ白名单信息
+qqf_input=请填写QQ号码!
+qqf_numType=请正确填写qq号码的数字类型!
+qqf_qqZero=QQ号码不能为0
+qqf_qqLen=qq号码长度过长!
+qqf_qqExist=qq号码已存在
+qqf_remarkLen=描述长度不能超过30位!
+qqf_qqConf=QQ白名单配置
+qqf_qq27error=QQ不能为2700000000-2799999999之间的号码
+

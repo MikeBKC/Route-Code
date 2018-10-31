@@ -1,0 +1,47 @@
+#!/bin/sh
+# Remount read/write
+mount -o remount,rw / >/dev/null 2>/dev/null
+
+# Mount /proc
+mount -t proc proc /proc
+
+# Mount /sys
+mount -t sysfs sys /sys
+
+# devpts
+mount -t devpts devpts /dev/pts
+mdev -s
+
+sleep 3
+mount -a
+#internet.sh
+mkdir -p /var/run
+mkdir /tmp/ddns
+mkdir /etc/ppp
+mkdir -p /tmp/urcp/images
+mkdir -p /tmp/urcp/ap_configs
+initdev.sh
+cat /etc_ro/motd
+touch /etc/utt-speedmsg
+touch /etc/utt-nvramshm
+touch /tmp/uttMsgforRoute
+touch /tmp/uttshmfornvram
+touch /tmp/uttPppoeSrvMsg
+touch /tmp/uttSemForSpeedweb
+touch /tmp/uttMsgforCwmp
+speedweb&
+date -s 010100002011
+sleep 6
+nvram_daemon&
+#goahead&
+#easyNetbios&
+#urcp&
+
+#for telnet debugging
+telnetd
+
+#for crond
+cron-init.sh
+
+#for syslogd
+mkdir -p /var/log

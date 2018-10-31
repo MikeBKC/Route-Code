@@ -1,0 +1,22 @@
+SysInfo=System Information
+systemnow=Current System Time
+lasttime=System Up Time
+VerAndRes=Resources & Version
+CPUusage=CPU
+memusage=Memory
+Usbfdusage=USB Disk
+SerNum=SN
+ProMod=Model
+SofVer=Firmware
+HardVer=Hardware
+history=System Log
+UsedSpace=Used Space:
+TotalSize=Total Size:
+DeviceName=System Name:
+sysinfo_width1=35%
+sys_runTime=System Up Time
+sys_serialnum=Serial
+sys_usedvolume=Usage
+sys_ramusage=Memory Usage
+sys_memusage=Storage Space Utilization
+

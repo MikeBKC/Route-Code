@@ -1,0 +1,479 @@
+<po>
+
+
+<!-- Common -->
+  <message msgid="save" msgstr="保存" />
+  <message msgid="reset" msgstr="重填" />
+  <message msgid="update" msgstr="刷新" />
+  <message msgid="renew" msgstr="更新" />
+  <message msgid="help" msgstr="帮助" />
+  <message msgid="sequenceNo" msgstr="序号" />
+  <message msgid="apName" msgstr="AP名称" />
+  <message msgid="apType" msgstr="AP型号" />
+  <message msgid="serialNo" msgstr="序列号" />
+  <message msgid="ipAddr" msgstr="IP地址" />
+  <message msgid="macAddr" msgstr="MAC地址" />
+  <message msgid="apStatus" msgstr="AP状态" />
+  <message msgid="allType" msgstr="所有类型" />
+  <message msgid="onLine" msgstr="在线" />
+  <message msgid="offLine" msgstr="离线" />
+  <message msgid="enable" msgstr="开启" />
+  <message msgid="disable" msgstr="关闭" />
+  <message msgid="wlanMode" msgstr="无线模式" />
+  <message msgid="search" msgstr="搜索" />
+  <message msgid="gateway" msgstr="网关" />
+  <message msgid="scan" msgstr="扫描" />
+  <message msgid="confirm" msgstr="确定" />
+  <message msgid="modify" msgstr="修改" />
+  <message msgid="delAllEntry" msgstr="删除所有条目" />
+  <message msgid="" msgstr="" />
+  
+<!-- warnings -->
+  <message msgid="warning3" msgstr="确定删除？" />
+  <message msgid="warning4" msgstr="确定删除所有的条目？" />
+  <message msgid="warning5" msgstr="默认权限不能删除！" />
+  <message msgid="warning6" msgstr="起始序列号不能大于结束序列号！" />
+  <message msgid="warning7" msgstr="已经达到最大条目数，不能继续添加新的条目！" />
+  <message msgid="warning8" msgstr="该操作将同时对有线用户生效，是否确定？" />
+  <message msgid="warning9" msgstr="IP地址不能为0.0.0.0！" />
+  <message msgid="warning10" msgstr="子网掩码不能为0.0.0.0！" />
+  <message msgid="warning11" msgstr="IP地址最后一个数字不能为0或255！" />
+  <message msgid="warning12" msgstr="该设备不支持多服务区！" />
+  <message msgid="warning13" msgstr="最多只能同时加入四个服务区！" />
+  <message msgid="warning14" msgstr="已经存在同名条目！" />
+  <message msgid="warning15" msgstr="同型号同硬件版本的设备只能选择一个默认软件！" />
+  <message msgid="warning16" msgstr="同型号同硬件版本的设备只能选择一个默认模版！" />
+  <message msgid="warning17" msgstr="起始地址不能大于结束地址。" />
+  <message msgid="warning18" msgstr="该型号该硬件版本的配置模版已经达到3个，无法再继续添加！" />
+  <message msgid="warning19" msgstr="记录未找到！" />
+  <message msgid="warning20" msgstr="当前扫描模式为手动扫描，无法执行刷新操作！" />
+  <message msgid="warning21" msgstr="没有可管理的设备！" />
+  <message msgid="warning22" msgstr="含有不可管理的设备，该操作将只对可管理的设备生效！" />
+  <message msgid="warning23" msgstr="与已有地址池冲突，请更换为其他的地址段！" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+<!-- AP Administrate -->
+  <message msgid="APAdmin" msgstr="AP管理" />
+  <message msgid="APList" msgstr="AP列表" />
+  <message msgid="APPower" msgstr="AP权限" />
+  <message msgid="APScan" msgstr="扫描方式" />
+  <message msgid="autoScan" msgstr="自动扫描" />
+  <message msgid="manuScan" msgstr="手动扫描" />
+  <message msgid="maxAP" msgstr="可管理的最大AP数：" />
+  <message msgid="scanDev" msgstr="扫描所有无线设备：" />
+  <message msgid="delChk" msgstr="全选/全不选" />
+  <message msgid="addNewCase" msgstr="添加新条目" />
+  <message msgid="del" msgstr="删除" />
+  <message msgid="back" msgstr="返回" />
+  <message msgid="power" msgstr="权限" />
+  <message msgid="allow" msgstr="允许" />
+  <message msgid="ban" msgstr="禁止" />
+  <message msgid="serialNum" msgstr="序列号" />
+  <message msgid="designation" msgstr="名称" />
+  <message msgid="defPower" msgstr="默认权限：" />
+  <message msgid="default" msgstr="默认" />
+  <message msgid="action" msgstr="动作" />
+  <message msgid="beginSerialNo" msgstr="起始序列号" />
+  <message msgid="endSerialNo" msgstr="结束序列号" />
+  <message msgid="type" msgstr="型号" />
+  <message msgid="allType" msgstr="所有型号" />
+  <message msgid="others" msgstr="其他" />
+  <message msgid="setGloPasswd" msgstr="全局密码" />
+  <message msgid="patchOperate" msgstr="批量操作" />
+  <message msgid="thinAP" msgstr="瘦AP" />
+  <message msgid="fatAP" msgstr="胖AP" />
+  <message msgid="impowered" msgstr="已授权" />
+  <message msgid="APScanCurrentTips" msgstr="当前扫描模式为自动扫描，无法执行手动扫描操作！" />
+  <message msgid="admin" msgstr="管理" />
+  <message msgid="doubleLine" msgstr="线路组合" />
+  <message msgid="lineMsgList" msgstr="线路连接信息列表" />
+  <message msgid="APName" msgstr="AP名称" />
+  <message msgid="APType" msgstr="AP型号" />
+  <message msgid="workMode" msgstr="工作模式" />
+  <message msgid="channel" msgstr="信道" />
+  <message msgid="clientNum" msgstr="客户端数量" />
+  <message msgid="passwd" msgstr="密码" />
+  <message msgid="edit" msgstr="编辑" />
+  <message msgid="updateStrategy" msgstr="更新策略" />
+  <message msgid="wirelessHostSt" msgstr="无线主机状态" />
+  <message msgid="IP/MACBanding" msgstr="IP/MAC绑定" />
+  <message msgid="behaviourAdmin" msgstr="行为管理" />
+  <message msgid="limitConnect" msgstr="连接限制" />
+  <message msgid="MACClash" msgstr="存在MAC地址冲突" />
+  <message msgid="APAminTips" msgstr="故无法针对该AP进行管理" />
+  <message msgid="device" msgstr="设备" />
+  <message msgid="addUnitAdminTips" msgstr="故无法针对该地址进行联动管理" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+  <message msgid="waitAPScanning" msgstr="AP扫描中，请稍等……" />
+  <message msgid="" msgstr="" />
+  
+  <message msgid="baseInfor" msgstr="基本信息" />
+  <message msgid="wireSt" msgstr="无线状态" />
+  <message msgid="portInfor" msgstr="接口信息" />
+  <message msgid="gatewayAddr" msgstr="网关地址" />
+  <message msgid="sysInfo" msgstr="系统信息" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+    
+<!-- Service Zone -->
+  <message msgid="svcZoneStatus" msgstr="服务区状态" />
+  <message msgid="svcZoneName" msgstr="服务区名称" />
+  <message msgid="vlanTag" msgstr="VLAN ID" />
+  <message msgid="netMask" msgstr="子网掩码" />
+  <message msgid="ssid" msgstr="SSID" />
+  <message msgid="broadcast" msgstr="SSID广播" />
+  <message msgid="dhcpServer" msgstr="DHCP服务器" />
+  <message msgid="svcZoneList" msgstr="服务区列表" />
+  <message msgid="svcZoneConf" msgstr="服务区配置" />
+  <message msgid="serviceZone" msgstr="服务区" />
+  <message msgid="startIp" msgstr="起始IP地址" />
+  <message msgid="endIp" msgstr="结束IP地址" />
+  <message msgid="primaryDns" msgstr="主DNS服务器" />
+  <message msgid="backupDns" msgstr="备DNS服务器" />
+  <message msgid="lease" msgstr="租用时间" />
+  <message msgid="visitor" msgstr="访客" />\
+  <message msgid="serviceZone ID" msgstr="服务区ID" />
+  <message msgid="gateWayIPAddr" msgstr="网关IP地址" />
+  <message msgid="gateWayIPMask" msgstr="网关IP掩码" />
+  <message msgid="addEntry" msgstr="添加新条目" />
+  <message msgid="joinSZ" msgstr="加入服务区" />
+  <message msgid="auto" msgstr="自动" />
+  <message msgid="opensys" msgstr="开放系统" />
+  <message msgid="shareKey" msgstr="共享密钥" />
+  <message msgid="tipsAuot_td" msgstr="自动表示设备根据无线客户端的请求自动选择开放系统或共享密钥。" />
+  <message msgid="addrPool" msgstr="地址池" />
+  <message msgid="tips_sec" msgstr="秒 (取值范围：1-65535)" />
+  <message msgid="keyUpdateCyc" msgstr="密钥更新周期" />
+  <message msgid="PSK" msgstr="预共享密钥" />
+  <message msgid="encryptway" msgstr="加密方式" />
+  <message msgid="enAlg" msgstr="加密算法" />
+  <message msgid="WPAVersion" msgstr="WPA版本" />
+  <message msgid="RadiusKey" msgstr="Radius密码" />
+  <message msgid="charSize" msgstr="（取值范围：1-31个字符）" />
+  <message msgid="RadiusPort" msgstr="Radius服务器端口" />
+  <message msgid="RadiusSVCIP" msgstr="Radius服务器IP" />
+  <message msgid="forbid" msgstr="禁用" />
+  <message msgid="key1" msgstr="密钥1：" />
+  <message msgid="key2" msgstr="密钥2：" />
+  <message msgid="key3" msgstr="密钥3：" />
+  <message msgid="64bit" msgstr="64位" />
+  <message msgid="128bit" msgstr="128位" />
+  <message msgid="webKey" msgstr="WEP密钥" />
+  <message msgid="keyType" msgstr="密钥类型" />
+  <message msgid="keyOption" msgstr="密钥选择" />
+  <message msgid="keyForm" msgstr="密钥格式" />
+  <message msgid="16band" msgstr="16进制" />
+  <message msgid="ASCII" msgstr="ASCII码" />
+  <message msgid="authenType" msgstr="认证类型" />
+  <message msgid="miaoValueSizeTips" msgstr="秒 （取值范围：60-86400； 0表示不更新）" />
+  <message msgid="tipsVlanId_td" msgstr="（取值范围：1-4094）" />
+  <message msgid="band" msgstr="16进制" />
+  <message msgid="openSys" msgstr="开放系统" />
+  <message msgid="no safe mode" msgstr="无认证类型" />
+  <message msgid="key" msgstr="密钥" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+<!--  AP Base Setting -->
+  <message msgid="APBaseSet" msgstr="AP基本设置" />
+  <message msgid="username" msgstr="用户名" />
+  <message msgid="surepasswd" msgstr="密码确认" />
+  <message msgid="mazxCLT" msgstr="最大客户端数" />
+  <message msgid="userConfig" msgstr="生效配置" />
+  <message msgid="localConfig" msgstr="本地配置" />
+  <message msgid="wireOutConfig" msgstr="无线集中控制器下发的配置" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+  
+  <message msgid="lawless" msgstr="非法操作！" />
+  <message msgid="checkingCode" msgstr="密码验证中，请稍等。。。" />
+  <message msgid="overTMConnect" msgstr="连接超时，请检查您的网络连接。。。" />
+  <message msgid="outtingConfig" msgstr="配置下发中，请稍等。。。" />
+  <message msgid="gettingConfig" msgstr="配置获取中，请稍等。。。" />
+  <message msgid="gettingSoft" msgstr="软件获取中，请稍等。。。" />
+  <message msgid="passwordError" msgstr="密码错误！" />
+  <message msgid="outtingSoftware" msgstr="软件下发中，请稍等。。。" />
+  <message msgid="outtingConfTemp" msgstr="配置模版下发中，请稍等。。。" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+<!-- Fit Ap List -->
+  <message msgid="fitApList" msgstr="瘦AP管理列表" />
+  <message msgid="softVersion" msgstr="软件版本" />
+  <message msgid="apAllCount" msgstr="AP总数：" />
+  <message msgid="onlineApCount" msgstr="在线AP数：" />
+  <message msgid="offlineApCount" msgstr="离线AP数：" />
+  <message msgid="seconds" msgstr="秒" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+  
+  <message msgid="inputName" msgstr="请输入名称:" />
+  <message msgid="delall" msgstr="删除全部" />
+  <message msgid="saveToU" msgstr="保存到U盘" />
+  <message msgid="saveAllToU" msgstr="全部保存到U盘" />
+  <message msgid="download" msgstr="下载" />
+  <message msgid="saved" msgstr="已保存" />
+  <message msgid="size" msgstr="大小" />
+  <message msgid="downToPC" msgstr="下载到PC" />
+  <message msgid="APSet" msgstr="AP配置文件" />
+  <message msgid="confirmDelTips" msgstr="您确定要删除所选文件？注意：删除后不可恢复。" />
+  <message msgid="confirmSaveTips" msgstr="您确定要保存所选配置文件到本设备？" />
+  <message msgid="usedTips" msgstr="该名称已经被其他配置文件使用，请重新输入！" />
+  <message msgid="confirmDelAllFileTips" msgstr="您确定要删除全部的文件？注意：删除后不可恢复，但不包括本机当前使用的软件。" />
+  <message msgid="confirmSaveAllTips" msgstr="您确定要保存全部的配置文件到本设备？" />
+  <message msgid="rename" msgstr="文件重命名" />
+  <message msgid="cancel" msgstr="取消" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+<!-- Wlan Client List -->
+  <message msgid="users" msgstr="用户" />
+  <message msgid="userStatus" msgstr="用户状态" />
+  <message msgid="linkedFitAp" msgstr="所连AP" />
+  <message msgid="wlanCltList" msgstr="无线客户端列表" />
+  <message msgid="onlineUserCount" msgstr="在线人数" />
+  <message msgid="typeOfAuth" msgstr="认证方式" />
+  <message msgid="flow" msgstr="流量（KB/s）" />
+  <message msgid="APClt" msgstr="无线客户端" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+  
+  <message msgid="userfuiConfig" msgstr="生效配置：" />
+  <message msgid="chooseConfig" msgstr="选择配置" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+  <!--fitApClts.asp-->
+  <message msgid="wireHostLT" msgstr="无线主机状态列表" />
+  <message msgid="config" msgstr="配置" />
+  <message msgid="soft" msgstr="软件" />
+  <message msgid="APMngRcd" msgstr="AP管理记录" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+
+<!-- Discover Fit Ap -->
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+
+<!-- Configuration Template -->
+  <message msgid="confTemplate" msgstr="配置模版" />
+  <message msgid="channel_1" msgstr="信道" />
+  <message msgid="modeName" msgstr="模版名称" />
+  <message msgid="hardVersion" msgstr="硬件版本" />
+  <message msgid="setDef" msgstr="设为默认" />
+  <message msgid="APSettingMode" msgstr="AP配置模版" />
+  <message msgid="APSettingModeList" msgstr="AP配置模版列表" />
+  <message msgid="modeList" msgstr="模版列表" />
+  <message msgid="editMode" msgstr="编辑模版" />
+  <message msgid="softSize" msgstr="软件大小" />
+  <message msgid="AdminAPSoft" msgstr="AP软件管理" />
+  <message msgid="softList" msgstr="软件列表" />
+  <message msgid="upSoft" msgstr="上传软件" />
+  <message msgid="wireFC" msgstr="启用无线功能" />
+  <message msgid="wireRate" msgstr="无线速率" />
+  
+<!--  AP Remote Manage-->
+  <message msgid="APRemoteMSG" msgstr="远程AP信息" />
+  <message msgid="devName" msgstr="设备名" />
+  <message msgid="APRemoteMG" msgstr="远程AP管理" />
+  <message msgid="baseSET" msgstr="基本设置" />
+  <message msgid="reConfig" msgstr="恢复出厂配置" />
+  <message msgid="reboot" msgstr="重启设备" />
+  <message msgid="outSoft" msgstr="下发软件" />
+  <message msgid="outMode" msgstr="下发模版" />
+  <message msgid="outConfig" msgstr="下发配置" />
+  <message msgid="getConfig" msgstr="获取配置" />
+  <message msgid="rebootAPTips" msgstr="确定重启该AP？（AP重启约需1分钟后，才可再次工作。）" />
+  <message msgid="reConfigTips" msgstr="确定恢复出厂配置？注意：1、强烈建议恢复前，先进行配置保存。2、恢复完毕，AP将立即自动重启。" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+  
+  <message msgid="batchMNG" msgstr="批量管理" />
+  <message msgid="passwd1" msgstr="密码：" />
+  <message msgid="surepasswd1" msgstr="密码确认：" />
+  <message msgid="modifyPW" msgstr="修改密码" />
+  <message msgid="webUnitMNG" msgstr="网络管理-联动管理" />
+  <message msgid="suerDevTips" msgstr="确定所选设备，全部进行安全绑定?" />
+  <message msgid="rebootDevTips" msgstr="确定重启所选AP？（AP重启约需1分钟后，才可再次工作。）" />
+  <message msgid="closeUintTips" msgstr="关闭联动惩罚，当前所有被禁止的主机将自动解禁。确定继续?" />
+  <message msgid="openUintTips" msgstr="开启联动惩罚，将禁止非法主机上网。确定继续?" />
+  <message msgid="delUintTips" msgstr="确定解除全部联动惩罚？注意：只解除本次惩罚，若被解禁的主机再次有非法行为，将依然被禁止。" />
+  <message msgid="sureDevPW" msgstr="确定修改所选设备密码？" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+  <message msgid="sureout" msgstr="确定下发" />
+  <message msgid="sureConfig" msgstr="选择此配置" />
+  <message msgid="confName" msgstr="配置文件名" />
+  <message msgid="createTM" msgstr="创建时间" />
+  <message msgid="configList" msgstr="配置文件列表" />
+  <message msgid="first" msgstr="第一页" />
+  <message msgid="Prev" msgstr="上一页" />
+  <message msgid="Next" msgstr="下一页" />
+  <message msgid="last" msgstr="最后页" />
+  <message msgid="go" msgstr="前往" />
+  <message msgid="di" msgstr="第" />
+  <message msgid="page" msgstr="页" />
+  <message msgid="search" msgstr="搜索" />
+  <message msgid="UnitOutConf" msgstr="远程AP管理-下发配置" />
+  <message msgid="UnitOutTemp" msgstr="远程AP管理-下发配置模版" />
+  <message msgid="UnitOutSoft" msgstr="远程AP管理-下发软件" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="lawfull" msgstr="操作成功！" />
+  <message msgid="failTips" msgstr="操作失败！" />
+  <message msgid="configOption" msgstr="请至少选择一个配置项！" />
+  <message msgid="continueTips" msgstr="下发完毕需重启远程设备才能生效。确定继续？" />
+  <message msgid="chooseFile" msgstr="请在列表中选择一个条目！" />
+  <message msgid="configOut" msgstr="配置下发" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+  
+  <message msgid="outSltMode" msgstr="下发选中模版" />
+  <message msgid="chooseMode" msgstr="模版选择" />
+  <message msgid="chooseSoft" msgstr="下发选中软件" />
+  <message msgid="chooseSoft1" msgstr="软件选择" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+  
+  <message msgid="nowSysTM" msgstr="系统当前时间:" />
+  <message msgid="lastSysTM" msgstr="系统运行时间:" />
+  <message msgid="verSTa" msgstr="版本及资源状态：" />
+  <message msgid="ownCPU" msgstr="CPU占用:" />
+  <message msgid="usedMem" msgstr="内存使用:" />
+  <message msgid="usedFlash" msgstr="U盘使用: " />
+  <message msgid="SN" msgstr="序列号:" />
+  <message msgid="product" msgstr="产品型号:" />
+  <message msgid="hardVer" msgstr="硬件版本:" />
+  <message msgid="sofgVer" msgstr="软件版本:" />
+  <message msgid="usedSpace" msgstr="已用空间：" />
+  <message msgid="totalSize" msgstr="总大小：" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+  
+  <message msgid="cutWorkMode" msgstr="工作模式切换中..." />
+  <message msgid="" msgstr="" />
+
+<!-- Admin Ap Software -->
+  <message msgid="softName" msgstr="软件名称" />
+  <message msgid="suitType" msgstr="适用型号" />
+  <message msgid="chooseVer" msgstr="请选择软件" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+  
+<!--  AP Setting Mode-->
+  <message msgid="channelBW" msgstr="频道带宽" />
+  <message msgid="wireCLT" msgstr="无线客户端隔离" />
+  <message msgid="wirePower" msgstr="无线传输功率" />
+  <message msgid="openWMM" msgstr="启用WMM" />
+  <message msgid="onlyG" msgstr="仅11g" />
+  <message msgid="onlyN" msgstr="仅11n" />
+  <message msgid="mix" msgstr="11b/g/n混合" />
+  <message msgid="manu" msgstr="手动" />
+  <message msgid="low" msgstr="低" />
+  <message msgid="mid" msgstr="中" />
+  <message msgid="hight" msgstr="高" />
+  <message msgid="wirePar" msgstr="无线参数" />
+  <message msgid="modeList" msgstr="模版列表" />
+  <message msgid="editWirePar" msgstr="编辑无线参数" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+
+</po>

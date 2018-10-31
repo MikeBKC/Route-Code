@@ -1,0 +1,13 @@
+#!/bin/sh
+# Copyright (C) 2011 UTT
+START=10
+
+start() {
+        mount -t sysfs sysfs /sys
+        mount -t proc none /proc
+        echo /sbin/mdev > /proc/sys/kernel/hotplug
+        mdev -s
+        mount -t devpts devpts /dev/pts
+        mkdir /ff
+        mount -t ext2 /dev/sda2 /ff
+}

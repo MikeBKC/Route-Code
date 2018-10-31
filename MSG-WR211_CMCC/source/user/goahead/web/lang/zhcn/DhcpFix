@@ -1,0 +1,17 @@
+staticDhcpList=静态DHCP列表
+staticDhcp=静态DHCP
+name=用户名
+poolName=地址池名称
+poolVid=VID
+ipAddr=IP地址
+macAddr=MAC地址
+dhcpSvcSet=DHCP服务器设置
+staticDhcp=静态DHCP
+dhcpClient=DHCP客户端列表
+dnsSet=DNS代理
+dhcppool=DHCP地址池列表
+DHCP=DHCP服务器
+staticDHCPMsg=静态DHCP信息
+server=服务器
+maxConfigTips=配置已经达到最大条数,不能添加新配置
+

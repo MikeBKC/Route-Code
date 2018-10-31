@@ -1,0 +1,14 @@
+konf/query/query_dump.lo konf/query/query_dump.o:  \
+ konf/query/query_dump.c konf/query/private.h ./konf/query.h \
+  ./lub/types.h ./lub/dump.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h
+
+konf/query/private.h:
+
+./konf/query.h:
+
+./lub/types.h:
+
+./lub/dump.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h:

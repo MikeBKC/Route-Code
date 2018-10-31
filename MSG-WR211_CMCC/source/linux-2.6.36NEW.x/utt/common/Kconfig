@@ -1,0 +1,15 @@
+if PERFORMANCE_OPTIMIZATION
+
+config UTT_TIME_SET_MAX
+        int "Maximum number of utt time sets"
+	default 10
+	range 2 32
+	depends on PERFORMANCE_OPTIMIZATION
+	help
+	    You can define here default value of the maximum number 
+	    of utt time sets for the kernel.
+
+	    The value can be overriden by the 'maxTimeSets' module
+	    parameter of the 'utt_time_set' module.
+endif
+

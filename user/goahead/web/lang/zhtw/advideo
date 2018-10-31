@@ -1,0 +1,11 @@
+ant_guanggao=视频广告过滤
+guanggao=视频广告过滤
+adv_open=开启广告过滤
+adv_filt=过滤网站
+adv_youku=优酷网
+adv_tudou=土豆网
+adv_leshi=乐视网
+adv_tx=腾讯
+adv_warn1=1. 若广告过滤不生效，请尝试"清除浏览器缓存"。
+adv_warn2=2.使用步骤1后仍不生效，请尝试"重启浏览器"。
+adv_warn3=3.使用步骤1和2后仍不生效，请尝试"清除DNS缓存"或"重启电脑"。

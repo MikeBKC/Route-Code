@@ -1,0 +1,9 @@
+#!/bin/sh
+
+START=95
+boot() {
+	# process user commands
+	[ -f /etc_ro/rc.local ] && {
+		sh /etc_ro/rc.local
+	}
+}

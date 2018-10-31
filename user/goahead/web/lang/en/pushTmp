@@ -1,0 +1,19 @@
+outMode=Distribute Template List
+chooseMode=Selected
+modeName=Template Name
+APType=AP Model
+hardVersion=Hardware Version
+
+wlFre=无线频段
+wlMode=无线模式
+wlRate=速率
+
+APRemoteMG=Remote AP Management
+continueTips=After distribution is complete, you need to restart the AP for the new configuration to take effect. Do you want to continue?
+chooseFile=Please select an entry from the list.
+lawfull=Operation succeeded.
+failTips=Operation failed.
+sureout=Distribute
+lawless=Illegal operation.
+
+UnitOutTemp=Remote AP Management - Distribute Config Template

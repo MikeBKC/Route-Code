@@ -1,0 +1,15 @@
+WirelessMacFilter=无线MAC地址过滤
+MACAddrFilterList=MAC地址过滤信息列表
+MACAddr=MAC地址
+SureDel=确定删除？
+SureDelAll=确定删除所有条目？
+StartMacAddrFilter=启用MAC地址过滤
+FilterRule=过滤规则
+AddrNew=添加新条目
+DelAll=删除所有条目
+MacAddrFilterMsg=MAC地址过滤信息
+Allow=允许 只允许列表中的MAC地址访问本无线网络
+Forbid=禁止 只禁止列表中的MAC地址访问本无线网络
+Selecte=全选/全不选
+MacFilterEdit=MAC地址过滤配置
+Eg=(例如：0022aa03a4b5)

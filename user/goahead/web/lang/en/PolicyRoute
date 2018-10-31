@@ -1,0 +1,11 @@
+pr_configlist=Policy Routing List
+pr_routename=Policy routing name
+pr_dstip=Destination address
+pr_start=Enable policy routing
+pr_routeconf=Policy routing configuration
+pr_moveTip=Please config policy routing
+pr_modifyalert=You can not modify the policy route name
+pr_profileErr=Binding interface can not be empty
+pr_invalid=Invalid
+pr_segTip=Policy controlled WAN IP addresses.
+

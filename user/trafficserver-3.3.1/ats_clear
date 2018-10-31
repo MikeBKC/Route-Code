@@ -1,0 +1,10 @@
+#!/bin/sh 
+#traffic_server -Cclear
+echo "clear......"
+rm -f /var/trafficserver/cop.lock
+rm -f /var/trafficserver/manager.lock
+rm -f /var/trafficserver/server.lock
+chmod 777 -R /var/trafficserver
+	
+
+

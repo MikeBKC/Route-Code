@@ -1,0 +1,16 @@
+tim_timeList=Schedule List
+tim_name=Schedule Name
+tim_start=Start Date
+tim_end=End Date
+tim_timeInfo=schedule
+tim_date=Effective Date Range
+tim_rangeOne=Time Period 1
+tim_rangeTwo=Time Period 2
+tim_rangeThree=Time Period 3
+tim_startTip=Invalid start date:year must be between 1989 and 2050.
+tim_endTip=Invalid end date:year must be between 1989 and 2050.
+tim_selOne=Time Period 1: Please select day(s).
+tim_selTwo=Time Period 2: Please select day(s).
+tim_selThree=Time Period 3: Please select day(s).
+tim_today=Today
+tim_forever=Forever

@@ -1,0 +1,3 @@
+fastlz.lo: fastlz.c fastlz.c
+
+fastlz.c:

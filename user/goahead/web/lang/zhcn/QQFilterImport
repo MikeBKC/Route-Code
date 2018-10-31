@@ -1,0 +1,14 @@
+QQF_nameTip=中含有非法字符
+QQF_pwdApp=位。
+QQF_hang=行
+QQF_userLen=个用户名长度过长
+QQF_userExist=已经存在于账号列表，请重新输入！
+QQF_remarkLen=行描述长度大于31个字节，请重新输入！
+QQF_noInst=没有空闲实例数再增加第
+QQF_instApp=个用户
+QQF_userName=行用户名与第
+QQF_nameApp=行用户名重复输入
+QQF_null=导入信息不能为空
+QQF_helpOne=1、配置QQ白名单账号批量导入绑定时，其输入格式为“账号+备注”，例如：123456 张三，每行只能输入一条配置；
+QQF_helpTwo=2、注意在上述输入格式中账户与备注之间可有一个或多个空格。
+

@@ -1,0 +1,9 @@
+ConnectLimit=连接数限制
+ConnectConfErr=TCP，UDP，ICMP连接数不能大于总连接数
+TotleConCount=总连接数
+TCPConCount=TCP连接数
+UDPConCount=UDP连接数
+ICMPConCount=ICMP连接数
+SUseConLimit=启用连接数限制
+HelpMessage1=注：
+HelpMessage2=0表示对内网每台主机的连接数不进行限制

@@ -1,0 +1,6 @@
+RunStateList=Interface Status
+ConnectionTime=Duration
+run_day=: Days
+run_hour=: Hours
+run_minute=: Minutes
+run_second= Seconds

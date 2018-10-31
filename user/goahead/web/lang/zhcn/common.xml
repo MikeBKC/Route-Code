@@ -1,0 +1,6 @@
+<po>
+  <message msgid="save" msgstr="保存" />
+  <message msgid="reset" msgstr="重填" />
+  <message msgid="goback" msgstr="返回" />
+  <message msgid="refresh" msgstr="刷新" />      
+</po>

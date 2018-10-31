@@ -1,0 +1,239 @@
+phruncall.o: phruncall.c phruncall.h phsocket.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/types.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/features.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/predefs.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/cdefs.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/wordsize.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/gnu/stubs.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/gnu/stubs-32.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/types.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/typesizes.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/time.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../lib/gcc/powerpc-linux-gnu/4.5.1/include/stddef.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/endian.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/endian.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/byteswap.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/select.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/select.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/sigset.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/time.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/sysmacros.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/pthreadtypes.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/socket.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/uio.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/uio.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/socket.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/sockaddr.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/asm/socket.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/asm/sockios.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/ioctl.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/ioctls.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/asm/ioctls.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/asm/ioctl.h \
+ /data3/xiao.yunyang/test/20150319/main/qv3320G/source/linux-2.6-cloud/include/asm-generic/ioctl.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/ioctl-types.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/termios.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/termios.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/ttydefaults.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/netinet/in.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../lib/gcc/powerpc-linux-gnu/4.5.1/include/stdint.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/stdint.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/wchar.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/in.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/arpa/inet.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/unistd.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/posix_opt.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/confname.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/getopt.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/errno.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/errno.h \
+ /data3/xiao.yunyang/test/20150319/main/qv3320G/source/linux-2.6-cloud/include/linux/errno.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/asm/errno.h \
+ /data3/xiao.yunyang/test/20150319/main/qv3320G/source/linux-2.6-cloud/include/asm-generic/errno.h \
+ /data3/xiao.yunyang/test/20150319/main/qv3320G/source/linux-2.6-cloud/include/asm-generic/errno-base.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/netdb.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/rpc/netdb.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/netdb.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/string.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/xlocale.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/string.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/string2.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/stdlib.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/time.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/timeb.h \
+ /data3/xiao.yunyang/test/20150319/main/qv3320G/source/uttShareHead/config/uttMachine.h \
+ /data3/xiao.yunyang/test/20150319/main/qv3320G/source/linux-2.6-cloud/include/linux/autoconf.h \
+ /data3/xiao.yunyang/test/20150319/main/qv3320G/source/uttShareHead/config/uttMachineAllMacro.h \
+ phglobal.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/net/if_arp.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/net/if.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/stdio.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/libio.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/_G_config.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/wchar.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../lib/gcc/powerpc-linux-gnu/4.5.1/include/stdarg.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/stdio_lim.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/sys_errlist.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/stdio.h \
+ /data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/alloca.h \
+ log.h
+
+phruncall.h:
+
+phsocket.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/types.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/features.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/predefs.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/cdefs.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/wordsize.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/gnu/stubs.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/gnu/stubs-32.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/types.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/typesizes.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/time.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../lib/gcc/powerpc-linux-gnu/4.5.1/include/stddef.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/endian.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/endian.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/byteswap.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/select.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/select.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/sigset.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/time.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/sysmacros.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/pthreadtypes.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/socket.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/uio.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/uio.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/socket.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/sockaddr.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/asm/socket.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/asm/sockios.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/ioctl.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/ioctls.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/asm/ioctls.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/asm/ioctl.h:
+
+/data3/xiao.yunyang/test/20150319/main/qv3320G/source/linux-2.6-cloud/include/asm-generic/ioctl.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/ioctl-types.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/termios.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/termios.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/ttydefaults.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/netinet/in.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../lib/gcc/powerpc-linux-gnu/4.5.1/include/stdint.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/stdint.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/wchar.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/in.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/arpa/inet.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/unistd.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/posix_opt.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/confname.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/getopt.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/errno.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/errno.h:
+
+/data3/xiao.yunyang/test/20150319/main/qv3320G/source/linux-2.6-cloud/include/linux/errno.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/asm/errno.h:
+
+/data3/xiao.yunyang/test/20150319/main/qv3320G/source/linux-2.6-cloud/include/asm-generic/errno.h:
+
+/data3/xiao.yunyang/test/20150319/main/qv3320G/source/linux-2.6-cloud/include/asm-generic/errno-base.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/netdb.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/rpc/netdb.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/netdb.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/string.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/xlocale.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/string.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/string2.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/stdlib.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/time.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/sys/timeb.h:
+
+/data3/xiao.yunyang/test/20150319/main/qv3320G/source/uttShareHead/config/uttMachine.h:
+
+/data3/xiao.yunyang/test/20150319/main/qv3320G/source/linux-2.6-cloud/include/linux/autoconf.h:
+
+/data3/xiao.yunyang/test/20150319/main/qv3320G/source/uttShareHead/config/uttMachineAllMacro.h:
+
+phglobal.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/net/if_arp.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/net/if.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/stdio.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/libio.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/_G_config.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/wchar.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../lib/gcc/powerpc-linux-gnu/4.5.1/include/stdarg.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/stdio_lim.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/sys_errlist.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/bits/stdio.h:
+
+/data5/data3_backup/sun.jianqing/4320G_tool/freescale/usr/local/gcc-4.5.55-eglibc-2.11.55/powerpc-linux-gnu/bin/../powerpc-linux-gnu/libc/usr/include/alloca.h:
+
+log.h:

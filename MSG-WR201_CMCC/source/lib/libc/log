@@ -1,0 +1,6444 @@
+
+inet_aton.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T inet_aton
+
+inet_addr.o:
+         U _gp_disp
+00000000 T inet_addr
+         U inet_aton
+
+inet_ntoa.o:
+         U _gp_disp
+000000c0 T inet_ntoa
+00000000 T inet_ntoa_r
+         U _uintmaxtostr
+
+inet_makeaddr.o:
+00000000 T inet_makeaddr
+
+inet_lnaof.o:
+00000000 T inet_lnaof
+
+inet_netof.o:
+00000000 T inet_netof
+
+encodeh.o:
+00000000 T __encode_header
+
+decodeh.o:
+00000000 T __decode_header
+
+encoded.o:
+00000000 T __encode_dotted
+         U _gp_disp
+         U memcpy
+         U strchr
+         U strlen
+
+decoded.o:
+00000000 T __decode_dotted
+         U _gp_disp
+         U memcpy
+
+lengthd.o:
+00000000 T __length_dotted
+
+encodeq.o:
+         U __encode_dotted
+00000000 T __encode_question
+         U _gp_disp
+
+decodeq.o:
+         U __decode_dotted
+00000000 T __decode_question
+         U _gp_disp
+         U strdup
+
+lengthq.o:
+         U _gp_disp
+         U __length_dotted
+00000000 T __length_question
+
+encodea.o:
+00000000 T __encode_answer
+         U __encode_dotted
+         U _gp_disp
+         U memcpy
+
+decodea.o:
+00000000 T __decode_answer
+         U __decode_dotted
+         U _gp_disp
+         U strdup
+
+encodep.o:
+         U __encode_answer
+         U __encode_header
+00000000 T __encode_packet
+         U __encode_question
+         U _gp_disp
+
+decodep.o:
+         U __decode_header
+00000000 T __decode_packet
+         U _gp_disp
+
+formquery.o:
+         U __encode_header
+         U __encode_question
+00000000 T __form_query
+         U _gp_disp
+         U memset
+
+dnslookup.o:
+         U close
+         U connect
+         U __decode_answer
+         U __decode_header
+00000000 T __dns_lookup
+         U __encode_header
+         U __encode_question
+         U __errno_location
+         U free
+         U _gp_disp
+         U __h_errno_location
+         U inet_addr
+         U inet_pton
+00000000 r $LC0
+         U __length_question
+         U malloc
+         U memcpy
+         U memset
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U recv
+         U __resolv_lock
+         U __searchdomain
+         U __searchdomains
+         U select
+         U send
+         U socket
+         U strncat
+         U strncpy
+
+resolveaddress.o:
+
+opennameservers.o:
+         U __ctype_b
+         U fclose
+         U fgets
+         U fopen
+         U free
+         U _gp_disp
+         U __h_errno_location
+00000000 r $LC0
+00000014 r $LC1
+00000018 r $LC2
+00000030 r $LC3
+0000003c r $LC4
+00000044 r $LC5
+0000000c C __nameserver
+00000004 C __nameservers
+00000000 T __open_nameservers
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 B __resolv_lock
+00000010 C __searchdomain
+00000004 C __searchdomains
+         U strcmp
+         U strdup
+
+closenameservers.o:
+00000000 T __close_nameservers
+         U free
+         U _gp_disp
+         U __nameserver
+         U __nameservers
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U __resolv_lock
+         U __searchdomain
+         U __searchdomains
+
+resolvename.o:
+
+gethostbyname.o:
+00000000 T gethostbyname
+         U gethostbyname_r
+         U _gp_disp
+         U __h_errno_location
+
+res_init.o:
+         U __close_nameservers
+         U _gp_disp
+         U inet_aton
+         U __nameserver
+         U __nameservers
+         U __open_nameservers
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U random
+00000200 C _res
+00000000 T __res_close
+00000008 T __res_init
+         U __resolv_lock
+         U __searchdomain
+         U __searchdomains
+
+res_query.o:
+         U __dns_lookup
+         U __errno_location
+         U free
+         U _gp_disp
+         U __h_errno_location
+00000000 r $LC0
+         U memcpy
+         U memset
+         U __nameserver
+         U __nameservers
+         U __open_nameservers
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U _res
+         U __res_init
+         U __resolv_lock
+00000000 T __res_query
+000001c8 T __res_querydomain
+000003b8 T __res_search
+         U snprintf
+         U strlen
+         U strncpy
+
+gethostbyaddr.o:
+00000000 T gethostbyaddr
+         U gethostbyaddr_r
+         U _gp_disp
+         U __h_errno_location
+
+read_etc_hosts_r.o:
+         U __ctype_b
+         U __errno_location
+         U fclose
+         U fgets
+         U fopen
+         U _gp_disp
+         U inet_pton
+00000000 r $LC0
+0000000c r $LC1
+00000010 r $LC2
+00000000 T __open_etc_hosts
+00000078 T __read_etc_hosts_r
+         U strcasecmp
+         U strchr
+         U strcmp
+
+get_hosts_byname_r.o:
+00000000 T __get_hosts_byname_r
+         U _gp_disp
+         U __read_etc_hosts_r
+
+get_hosts_byaddr_r.o:
+00000000 T __get_hosts_byaddr_r
+         U _gp_disp
+         U inet_ntop
+         U __read_etc_hosts_r
+
+gethostbyname2.o:
+00000000 T gethostbyname2
+         U gethostbyname2_r
+         U _gp_disp
+         U __h_errno_location
+
+getnameinfo.o:
+         U __errno_location
+         U getdomainname
+         U gethostbyaddr
+00000000 T getnameinfo
+         U getservbyport
+         U _gp_disp
+         U inet_ntop
+00000000 r $LC0
+0000000c r $LC1
+00000010 r $LC2
+00000014 r $LC3
+         U snprintf
+         U strncpy
+         U strstr
+         U uname
+
+gethostent.o:
+0000024c T endhostent
+         U fclose
+000001ac T gethostent
+0000005c T gethostent_r
+         U _gp_disp
+         U __h_errno_location
+         U __open_etc_hosts
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U __read_etc_hosts_r
+00000000 T sethostent
+
+gethostbyname_r.o:
+         U __dns_lookup
+         U __errno_location
+         U free
+00000000 T gethostbyname_r
+         U __get_hosts_byname_r
+         U _gp_disp
+         U inet_aton
+         U memcpy
+         U memmove
+         U __nameserver
+         U __nameservers
+         U __open_nameservers
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U __resolv_lock
+         U strncpy
+
+gethostbyname2_r.o:
+         U __decode_dotted
+         U __dns_lookup
+         U __errno_location
+         U free
+00000000 T gethostbyname2_r
+         U gethostbyname_r
+         U __get_hosts_byname_r
+         U _gp_disp
+         U inet_pton
+         U memcpy
+         U memset
+         U __nameserver
+         U __nameservers
+         U __open_nameservers
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U __resolv_lock
+         U strncpy
+
+gethostbyaddr_r.o:
+         U __decode_dotted
+         U __dns_lookup
+         U free
+00000000 T gethostbyaddr_r
+         U __get_hosts_byaddr_r
+         U _gp_disp
+00000000 r $LC0
+0000001c r $LC1
+00000024 r $LC2
+         U memcpy
+         U memset
+         U __nameserver
+         U __nameservers
+         U __open_nameservers
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U __resolv_lock
+         U sprintf
+         U strcpy
+         U strncpy
+
+res_comp.o:
+00000000 T __dn_expand
+         U _gp_disp
+         U __ns_name_uncompress
+
+ns_name.o:
+         U __errno_location
+         U _gp_disp
+00000000 r $LC0
+         U memcpy
+00000000 T __ns_name_ntop
+000003e8 T __ns_name_uncompress
+00000214 T __ns_name_unpack
+
+accept.o:
+00000000 W accept
+         U __errno_location
+         U _gp_disp
+00000000 T __libc_accept
+
+bind.o:
+00000000 T bind
+         U __errno_location
+         U _gp_disp
+
+connect.o:
+00000000 W connect
+         U __errno_location
+         U _gp_disp
+00000000 T __libc_connect
+
+getpeername.o:
+         U __errno_location
+00000000 T getpeername
+         U _gp_disp
+
+getsockname.o:
+         U __errno_location
+00000000 T getsockname
+         U _gp_disp
+
+getsockopt.o:
+         U __errno_location
+00000000 T getsockopt
+         U _gp_disp
+
+listen.o:
+         U __errno_location
+         U _gp_disp
+00000000 T listen
+
+recv.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __libc_recv
+00000000 W recv
+
+recvfrom.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __libc_recvfrom
+00000000 W recvfrom
+
+recvmsg.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __libc_recvmsg
+00000000 W recvmsg
+
+send.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __libc_send
+00000000 W send
+
+sendmsg.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __libc_sendmsg
+00000000 W sendmsg
+
+sendto.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __libc_sendto
+00000000 W sendto
+
+setsockopt.o:
+         U __errno_location
+         U _gp_disp
+00000000 T setsockopt
+
+shutdown.o:
+         U __errno_location
+         U _gp_disp
+00000000 T shutdown
+
+socket.o:
+         U __errno_location
+         U _gp_disp
+00000000 T socket
+
+socketpair.o:
+         U __errno_location
+         U _gp_disp
+00000000 T socketpair
+
+getservice.o:
+         U abort
+         U atoi
+00000410 T endservent
+         U __errno_location
+         U fclose
+         U fgets
+         U fopen
+00000918 T getservbyname
+00000750 T getservbyname_r
+000006cc T getservbyport
+0000054c T getservbyport_r
+000003a8 T getservent
+00000000 T getservent_r
+         U _gp_disp
+00000000 r $LC0
+00000010 r $LC1
+00000014 r $LC2
+00000018 r $LC3
+0000001c r $LC4
+         U malloc
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U rewind
+00000494 T setservent
+         U strcmp
+         U strpbrk
+
+getproto.o:
+         U abort
+         U atoi
+000003f4 T endprotoent
+         U __errno_location
+         U fclose
+         U fgets
+         U fopen
+00000874 T getprotobyname
+000006e0 T getprotobyname_r
+0000066c T getprotobynumber
+00000530 T getprotobynumber_r
+0000038c T getprotoent
+00000070 T getprotoent_r
+         U _gp_disp
+00000000 r $LC0
+00000010 r $LC1
+00000014 r $LC2
+00000018 r $LC3
+         U malloc
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U rewind
+00000478 T setprotoent
+         U strcmp
+         U strpbrk
+
+hostid.o:
+         U close
+         U __errno_location
+         U geteuid
+         U gethostbyname
+00000000 T gethostid
+         U gethostname
+         U getuid
+         U _gp_disp
+00000000 r $LC0
+         U memcpy
+         U open
+         U read
+00000128 T sethostid
+         U write
+
+getnetent.o:
+         U abort
+00000314 T endnetent
+         U fclose
+         U fgets
+         U fopen
+00000040 T getnetent
+         U _gp_disp
+         U inet_network
+00000000 r $LC0
+00000004 r $LC1
+00000008 r $LC2
+         U malloc
+00000004 C _net_stayopen
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U rewind
+00000398 T setnetent
+
+getnetbynm.o:
+         U endnetent
+00000000 T getnetbyname
+         U getnetent
+         U _gp_disp
+         U _net_stayopen
+         U setnetent
+         U strcmp
+
+getnetbyad.o:
+         U endnetent
+00000000 T getnetbyaddr
+         U getnetent
+         U _gp_disp
+         U _net_stayopen
+         U setnetent
+
+inet_net.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T inet_network
+
+ntop.o:
+         U __errno_location
+         U _gp_disp
+000005a0 T inet_ntop
+000000e0 T inet_pton
+00000000 r $LC1
+         U memcpy
+         U memset
+         U sprintf
+         U strchr
+         U strcpy
+         U strlen
+         U tolower
+
+herror.o:
+         U fprintf
+         U _gp_disp
+         U __h_errno_location
+00000064 T herror
+00000000 T hstrerror
+00000000 r $LC0
+         U stderr
+
+if_nametoindex.o:
+         U close
+         U __errno_location
+         U free
+         U _gp_disp
+000004f4 T if_freenameindex
+00000060 T if_indextoname
+00000258 T if_nameindex
+00000154 T if_nametoindex
+         U ioctl
+         U malloc
+         U realloc
+         U socket
+         U strdup
+         U strncpy
+
+gai_strerror.o:
+00000000 T gai_strerror
+         U _gp_disp
+00000000 r $LC0
+
+getaddrinfo.o:
+         U close
+         U __errno_location
+         U free
+00000000 T freeaddrinfo
+00001010 T getaddrinfo
+         U gethostbyaddr_r
+         U gethostbyname2_r
+         U getservbyname_r
+         U _gp_disp
+         U __h_errno_location
+         U if_nametoindex
+         U __in6addr_loopback
+         U inet_ntop
+         U inet_pton
+         U malloc
+         U memcpy
+         U memset
+         U socket
+         U strchr
+         U strcpy
+         U strlen
+         U strtoul
+
+in6_addr.o:
+00000000 R __in6addr_any
+00000000 V in6addr_any
+00000010 R __in6addr_loopback
+00000010 V in6addr_loopback
+
+ether_addr.o:
+         U __ctype_b
+         U __ctype_tolower
+00000174 T ether_aton
+00000000 T ether_aton_r
+00000208 T ether_ntoa
+00000194 T ether_ntoa_r
+         U _gp_disp
+00000000 r $LC0
+         U sprintf
+
+ntohl.o:
+00000040 T htonl
+00000068 T htons
+00000000 T ntohl
+00000028 T ntohs
+
+auth_none.o:
+00000090 T authnone_create
+         U calloc
+         U _gp_disp
+         U _null_auth
+         U __rpc_thread_variables
+         U xdrmem_create
+         U xdr_opaque_auth
+
+auth_unix.o:
+         U abort
+00000498 T authunix_create
+000006e0 T authunix_create_default
+         U fputs
+         U free
+         U getegid
+         U geteuid
+         U getgroups
+         U gethostname
+         U gettimeofday
+         U _gp_disp
+00000000 r $LC0
+00000028 r $LC1
+         U malloc
+         U memcpy
+         U _null_auth
+         U perror
+         U stderr
+         U sysconf
+         U xdr_authunix_parms
+         U xdrmem_create
+         U xdr_opaque_auth
+
+authunix_prot.o:
+         U _gp_disp
+         U xdr_array
+00000000 T xdr_authunix_parms
+         U xdr_string
+         U xdr_u_int
+         U xdr_u_long
+
+bindresvport.o:
+         U bind
+00000000 T bindresvport
+         U __errno_location
+         U getpid
+         U _gp_disp
+         U memset
+
+clnt_generic.o:
+00000000 T clnt_create
+         U clnttcp_create
+         U clntudp_create
+         U clntunix_create
+         U __errno_location
+         U gethostbyname_r
+         U getprotobyname
+         U _gp_disp
+00000000 r $LC0
+         U memcpy
+         U memset
+         U __rpc_thread_createerr
+         U strcmp
+         U strcpy
+
+clnt_perror.o:
+00000364 T clnt_pcreateerror
+000000a8 T clnt_perrno
+00000634 T clnt_perror
+0000015c T clnt_spcreateerror
+00000000 T clnt_sperrno
+000003ac T clnt_sperror
+         U fputs
+         U free
+         U __glibc_strerror_r
+         U _gp_disp
+00000000 r $LC0
+0000001c r $LC1
+00000024 r $LC2
+00000028 r $LC3
+00000038 r $LC4
+00000060 r $LC5
+0000006c r $LC6
+00000090 r $LC7
+         U malloc
+         U __rpc_thread_createerr
+         U __rpc_thread_variables
+         U sprintf
+         U stderr
+         U strcpy
+         U strlen
+
+clnt_raw.o:
+         U authnone_create
+         U calloc
+0000009c T clntraw_create
+         U _gp_disp
+00000000 r $LC0
+         U _null_auth
+         U perror
+         U __rpc_thread_variables
+         U _seterr_reply
+         U svc_getreq
+         U xdr_callhdr
+         U xdrmem_create
+         U xdr_opaque_auth
+         U xdr_replymsg
+
+clnt_simple.o:
+         U calloc
+00000094 T callrpc
+         U clntudp_create
+         U close
+         U __errno_location
+         U free
+         U gethostbyname_r
+         U _gp_disp
+         U malloc
+         U memcpy
+00000000 T __rpc_thread_clnt_cleanup
+         U __rpc_thread_createerr
+         U __rpc_thread_variables
+         U strcmp
+         U strncpy
+
+clnt_tcp.o:
+         U authnone_create
+         U bindresvport
+000002b0 T clnttcp_create
+         U close
+         U connect
+         U _create_xid
+         U __errno_location
+         U fputs
+         U free
+         U _gp_disp
+00000000 r $LC0
+         U malloc
+         U _null_auth
+         U pmap_getport
+         U poll
+         U read
+         U __rpc_thread_createerr
+         U _seterr_reply
+         U socket
+         U stderr
+         U write
+         U xdr_callhdr
+         U xdrmem_create
+         U xdr_opaque_auth
+         U xdrrec_create
+         U xdrrec_endofrecord
+         U xdrrec_skiprecord
+         U xdr_replymsg
+         U xdr_void
+
+clnt_udp.o:
+         U authnone_create
+         U bindresvport
+00000248 T clntudp_bufcreate
+000005b0 T clntudp_create
+         U close
+         U __cmsg_nxthdr
+         U _create_xid
+         U __errno_location
+         U fputs
+         U free
+         U _gp_disp
+         U ioctl
+00000000 r $LC0
+         U malloc
+         U memcmp
+         U _null_auth
+         U pmap_getport
+         U poll
+         U recvfrom
+         U recvmsg
+         U __rpc_thread_createerr
+         U sendto
+         U _seterr_reply
+         U setsockopt
+         U socket
+         U stderr
+         U xdr_callhdr
+         U xdrmem_create
+         U xdr_opaque_auth
+         U xdr_replymsg
+
+rpc_dtablesize.o:
+         U getdtablesize
+         U _gp_disp
+00000000 T _rpc_dtablesize
+
+get_myaddress.o:
+         U close
+         U exit
+00000000 T get_myaddress
+         U _gp_disp
+         U ioctl
+00000000 r $LC0
+00000018 r $LC1
+0000004c r $LC2
+         U perror
+         U socket
+
+getrpcent.o:
+         U atoi
+         U calloc
+000003a8 T endrpcent
+         U fclose
+         U fgets
+         U fopen
+         U free
+000005f4 T getrpcbyname
+00000534 T getrpcbynumber
+000000dc T getrpcent
+         U _gp_disp
+         U index
+00000000 r $LC0
+         U rewind
+00000464 T setrpcent
+         U strcmp
+         U strlen
+         U strncpy
+
+getrpcport.o:
+         U __errno_location
+         U gethostbyname_r
+00000000 T getrpcport
+         U _gp_disp
+         U memcpy
+         U pmap_getport
+
+pmap_clnt.o:
+         U clnt_perror
+         U clntudp_bufcreate
+         U close
+         U exit
+         U _gp_disp
+         U ioctl
+00000000 r $LC0
+00000018 r $LC1
+00000050 r $LC2
+00000068 r $LC3
+         U perror
+00000358 T pmap_set
+00000220 T pmap_unset
+         U socket
+         U xdr_bool
+         U xdr_pmap
+
+pmap_getmaps.o:
+         U clnt_perror
+         U clnttcp_create
+         U _gp_disp
+00000000 r $LC0
+00000000 T pmap_getmaps
+         U xdr_pmaplist
+         U xdr_void
+
+pmap_getport.o:
+         U clntudp_bufcreate
+         U _gp_disp
+00000000 T pmap_getport
+         U __rpc_thread_createerr
+         U xdr_pmap
+         U xdr_u_short
+
+pmap_prot.o:
+         U _gp_disp
+00000000 T xdr_pmap
+         U xdr_u_long
+
+pmap_prot2.o:
+         U _gp_disp
+         U xdr_bool
+         U xdr_pmap
+00000000 T xdr_pmaplist
+         U xdr_reference
+
+pmap_rmt.o:
+         U authunix_create_default
+000001a4 T clnt_broadcast
+         U clntudp_create
+         U close
+         U _create_xid
+         U __errno_location
+         U _gp_disp
+         U inet_makeaddr
+         U inet_netof
+         U ioctl
+00000000 r $LC0
+00000028 r $LC1
+00000050 r $LC2
+00000080 r $LC3
+000000a8 r $LC4
+000000c8 r $LC5
+000000e0 r $LC6
+         U memset
+         U _null_auth
+         U perror
+000009f8 T pmap_rmtcall
+         U poll
+         U recvfrom
+         U sendto
+         U setsockopt
+         U socket
+         U xdr_callmsg
+         U xdrmem_create
+         U xdr_reference
+         U xdr_replymsg
+00000000 T xdr_rmtcall_args
+00000950 T xdr_rmtcallres
+         U xdr_u_long
+         U xdr_void
+
+rpc_prot.o:
+         U _gp_disp
+00000000 T _seterr_reply
+00000434 T xdr_accepted_reply
+         U xdr_bytes
+00000164 T xdr_callhdr
+000003a4 T xdr_des_block
+         U xdr_enum
+         U xdr_opaque
+000003c0 T xdr_opaque_auth
+00000244 T xdr_rejected_reply
+000002fc T xdr_replymsg
+         U xdr_u_long
+         U xdr_union
+
+rpc_commondata.o:
+0000000c C _null_auth
+00000010 C rpc_createerr
+00000080 C svc_fdset
+00000004 C svc_max_pollfd
+00000004 C svc_pollfd
+
+rpc_callmsg.o:
+         U _gp_disp
+         U malloc
+         U memcpy
+00000000 T xdr_callmsg
+         U xdr_enum
+         U xdr_opaque
+         U xdr_opaque_auth
+         U xdr_u_int
+         U xdr_u_long
+
+svc.o:
+         U _authenticate
+         U ffs
+         U free
+         U _gp_disp
+         U malloc
+         U _null_auth
+         U pmap_set
+         U pmap_unset
+         U realloc
+         U _rpc_dtablesize
+000007d4 T __rpc_thread_svc_cleanup
+         U __rpc_thread_svc_fdset
+         U __rpc_thread_svc_max_pollfd
+         U __rpc_thread_svc_pollfd
+         U __rpc_thread_variables
+00000184 T svcerr_auth
+000000c4 T svcerr_decode
+00000064 T svcerr_noproc
+000001ec T svcerr_noprog
+00000248 T svcerr_progvers
+00000124 T svcerr_systemerr
+000001d0 T svcerr_weakauth
+000006b8 T svc_getreq
+0000034c T svc_getreq_common
+00000a9c T svc_getreq_poll
+000005d0 T svc_getreqset
+00000850 T svc_register
+00000000 T svc_sendreply
+00000710 T svc_unregister
+00000bcc T xprt_register
+00000964 T xprt_unregister
+
+svc_auth.o:
+00000000 T _authenticate
+         U _gp_disp
+         U _null_auth
+         U _svcauth_short
+         U _svcauth_unix
+
+svc_auth_unix.o:
+         U _gp_disp
+00000000 r $LC0
+         U memcpy
+         U printf
+00000000 T _svcauth_short
+00000008 T _svcauth_unix
+         U xdr_authunix_parms
+         U xdrmem_create
+
+svc_raw.o:
+         U calloc
+         U _gp_disp
+         U __rpc_thread_variables
+00000100 T svcraw_create
+         U xdr_callmsg
+         U xdrmem_create
+         U xdr_replymsg
+
+svc_run.o:
+         U __errno_location
+         U free
+         U _gp_disp
+00000000 r $LC0
+         U malloc
+         U perror
+         U poll
+         U __rpc_thread_svc_max_pollfd
+         U __rpc_thread_svc_pollfd
+00000000 T svc_exit
+         U svc_getreq_poll
+00000074 T svc_run
+
+svc_simple.o:
+         U asprintf
+         U exit
+         U fputs
+         U free
+         U _gp_disp
+00000000 r $LC0
+00000028 r $LC1
+00000048 r $LC2
+00000070 r $LC3
+0000008c r $LC4
+00000094 r $LC5
+000000b4 r $LC6
+         U malloc
+         U memset
+         U pmap_unset
+00000000 T registerrpc
+         U __rpc_thread_variables
+         U stderr
+         U strdup
+         U svcerr_decode
+         U svc_register
+         U svc_sendreply
+         U svcudp_create
+         U write
+         U xdr_void
+
+svc_tcp.o:
+         U abort
+         U accept
+         U bind
+         U bindresvport
+         U close
+         U __errno_location
+         U fputs
+         U free
+         U getsockname
+         U _gp_disp
+00000000 r $LC0
+00000028 r $LC1
+00000050 r $LC2
+0000007c r $LC3
+         U listen
+         U malloc
+         U memcpy
+         U memset
+         U _null_auth
+         U perror
+         U poll
+         U read
+         U socket
+         U stderr
+00000184 T svcfd_create
+000005b8 T svctcp_create
+         U write
+         U xdr_callmsg
+         U xdrrec_create
+         U xdrrec_endofrecord
+         U xdrrec_eof
+         U xdrrec_skiprecord
+         U xdr_replymsg
+         U xprt_register
+         U xprt_unregister
+
+svc_udp.o:
+         U bind
+         U bindresvport
+         U close
+         U __errno_location
+         U fprintf
+         U fputs
+         U free
+         U getsockname
+         U _gp_disp
+00000000 r $LC0
+00000004 r $LC1
+00000150 r $LC10
+00000028 r $LC2
+00000050 r $LC3
+0000007c r $LC4
+000000a8 r $LC5
+000000d0 r $LC6
+000000f4 r $LC7
+00000114 r $LC8
+00000130 r $LC9
+         U malloc
+         U memcmp
+         U memcpy
+         U memset
+         U perror
+         U recvfrom
+         U recvmsg
+         U sendmsg
+         U sendto
+         U setsockopt
+         U socket
+         U stderr
+000001c4 T svcudp_bufcreate
+000004d0 T svcudp_create
+00000038 T svcudp_enablecache
+         U xdr_callmsg
+         U xdrmem_create
+         U xdr_replymsg
+         U xprt_register
+         U xprt_unregister
+
+xdr.o:
+         U fputs
+         U free
+         U _gp_disp
+00000000 r $LC0
+0000001c r $LC1
+         U malloc
+         U stderr
+         U strlen
+000005d0 T xdr_bool
+00000a78 T xdr_bytes
+00000510 T xdr_char
+00000684 T xdr_enum
+00000000 T xdr_free
+0000016c T xdr_hyper
+00000090 T xdr_int
+0000003c T xdr_long
+00000388 T xdr_longlong_t
+00000bec T xdr_netobj
+000006a0 T xdr_opaque
+000003c0 T xdr_short
+0000089c T xdr_string
+00000570 T xdr_u_char
+00000278 T xdr_u_hyper
+00000150 T xdr_u_int
+000000ac T xdr_u_long
+000003a4 T xdr_u_longlong_t
+000007b4 T xdr_union
+00000468 T xdr_u_short
+00000034 T xdr_void
+00000a3c T xdr_wrapstring
+
+xdr_array.o:
+         U fputs
+         U free
+         U _gp_disp
+00000000 r $LC0
+         U malloc
+         U memset
+         U stderr
+0000008c T xdr_array
+         U xdr_u_int
+00000000 T xdr_vector
+
+xdr_float.o:
+00000050 T xdr_double
+00000000 T xdr_float
+
+xdr_mem.o:
+         U _gp_disp
+         U memcpy
+00000000 T xdrmem_create
+
+xdr_rec.o:
+         U fputs
+         U free
+         U _gp_disp
+00000000 r $LC0
+         U lseek
+         U malloc
+         U memcpy
+         U stderr
+00000de0 T xdrrec_create
+00000148 T xdrrec_endofrecord
+00000640 T xdrrec_eof
+00000708 T xdrrec_skiprecord
+
+xdr_reference.o:
+         U fputs
+         U free
+         U _gp_disp
+00000000 r $LC0
+         U malloc
+         U memset
+         U stderr
+         U xdr_bool
+00000124 T xdr_pointer
+00000000 T xdr_reference
+
+xdr_stdio.o:
+         U fflush
+         U fread
+         U fseek
+         U ftell
+         U fwrite
+         U _gp_disp
+00000000 T xdrstdio_create
+
+rtime.o:
+         U close
+         U connect
+         U __errno_location
+         U _gp_disp
+         U poll
+         U read
+         U recvfrom
+0000006c T rtime
+         U sendto
+         U socket
+
+clnt_unix.o:
+         U authnone_create
+000002f8 T clntunix_create
+         U close
+         U connect
+         U _create_xid
+         U __errno_location
+         U fputs
+         U free
+         U getegid
+         U geteuid
+         U getpid
+         U _gp_disp
+00000000 r $LC0
+         U malloc
+         U memcpy
+         U _null_auth
+         U poll
+         U recvmsg
+         U __rpc_thread_createerr
+         U sendmsg
+         U _seterr_reply
+         U setsockopt
+         U socket
+         U stderr
+         U strlen
+         U xdr_callhdr
+         U xdrmem_create
+         U xdr_opaque_auth
+         U xdrrec_create
+         U xdrrec_endofrecord
+         U xdrrec_skiprecord
+         U xdr_replymsg
+         U xdr_void
+
+svc_unix.o:
+         U abort
+         U accept
+         U bind
+         U close
+         U __errno_location
+         U fputs
+         U free
+         U getegid
+         U geteuid
+         U getpid
+         U getsockname
+         U _gp_disp
+00000000 r $LC0
+00000028 r $LC1
+00000058 r $LC2
+00000084 r $LC3
+         U listen
+         U malloc
+         U memcpy
+         U memset
+         U _null_auth
+         U perror
+         U poll
+         U recvmsg
+         U sendmsg
+         U setsockopt
+         U socket
+         U stderr
+         U strlen
+000007e4 T svcunix_create
+00000184 T svcunixfd_create
+         U xdr_callmsg
+         U xdrrec_create
+         U xdrrec_endofrecord
+         U xdrrec_eof
+         U xdrrec_skiprecord
+         U xdr_replymsg
+         U xprt_register
+         U xprt_unregister
+
+create_xid.o:
+00000000 T _create_xid
+         U gettimeofday
+         U _gp_disp
+         U lrand48_r
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U srand48_r
+
+xdr_intXX_t.o:
+000002cc T xdr_int16_t
+0000022c T xdr_int32_t
+00000000 T xdr_int64_t
+0000041c T xdr_int8_t
+00000374 T xdr_uint16_t
+0000027c T xdr_uint32_t
+00000114 T xdr_uint64_t
+000004c4 T xdr_uint8_t
+
+rcmd.o:
+         U accept
+         U bcopy
+         U bind
+00000000 D __check_rhosts_file
+         U close
+         U connect
+         U __ctype_b
+         U __ctype_tolower
+         U __errno_location
+         U fclose
+         U fcntl
+         U __fgetc_unlocked
+         U fileno
+         U fopen
+         U fprintf
+         U free
+         U fstat
+         U geteuid
+         U gethostbyname
+         U getline
+         U getpid
+         U getpwnam
+         U _gp_disp
+         U inet_addr
+         U inet_ntoa
+00000900 T iruserok
+000004dc T __ivaliduser
+00000000 r $LC0
+00000004 r $LC1
+00000090 r $LC10
+000000a4 r $LC11
+000000b0 r $LC12
+000000d0 r $LC13
+000000e4 r $LC14
+000000fc r $LC15
+0000010c r $LC16
+00000114 r $LC17
+00000118 r $LC18
+0000011c r $LC19
+00000008 r $LC2
+00000144 r $LC20
+00000168 r $LC21
+00000194 r $LC22
+000001a8 r $LC23
+000001d4 r $LC24
+00000018 r $LC3
+0000002c r $LC4
+00000030 r $LC5
+0000003c r $LC6
+0000004c r $LC7
+00000058 r $LC8
+00000078 r $LC9
+         U listen
+         U lstat
+         U malloc
+         U memcmp
+         U perror
+         U poll
+00000b7c T rcmd
+00000004 C __rcmd_errstr
+         U read
+00000a34 T rresvport
+00000944 T ruserok
+         U seteuid
+         U sigblock
+         U sigsetmask
+         U sleep
+         U snprintf
+         U socket
+         U stderr
+         U strcat
+         U strchr
+         U strcmp
+         U strcpy
+         U strlen
+         U strncmp
+         U write
+
+rexec.o:
+         U accept
+00000401 C ahostbuf
+         U atoi
+         U close
+         U connect
+         U __errno_location
+         U free
+         U freeaddrinfo
+         U getaddrinfo
+         U getnameinfo
+         U getsockname
+         U _gp_disp
+00000000 r $LC0
+00000004 r $LC1
+00000014 r $LC2
+00000018 r $LC3
+00000024 r $LC4
+00000028 r $LC5
+         U __libc_sa_len
+         U listen
+         U memset
+         U perror
+         U read
+000006bc T rexec
+00000000 T rexec_af
+00000004 C rexecoptions
+         U ruserpass
+         U sleep
+         U snprintf
+         U socket
+         U sprintf
+         U strlen
+         U strncpy
+         U write
+
+sa_len.o:
+00000000 T __libc_sa_len
+
+ruserpass.o:
+         U __errno_location
+         U fclose
+         U __fgetc_unlocked
+         U fileno
+         U fopen
+         U __fsetlocking
+         U fstat
+         U getegid
+         U getenv
+         U geteuid
+         U getgid
+         U gethostname
+         U getuid
+         U _gp_disp
+00000000 r $LC0
+00000008 r $LC1
+00000010 r $LC2
+00000014 r $LC3
+00000018 r $LC4
+00000028 r $LC5
+00000034 r $LC6
+00000060 r $LC7
+00000094 r $LC8
+         U malloc
+         U printf
+00000324 T ruserpass
+         U strcasecmp
+         U strcat
+         U strchr
+         U strcmp
+         U strcpy
+         U strlen
+         U strncasecmp
+
+rpc_thread.o:
+         U calloc
+         U free
+         U _gp_disp
+         U __libc_internal_tsd_get
+         U __libc_internal_tsd_set
+         w __pthread_once
+         U rpc_createerr
+         U __rpc_thread_clnt_cleanup
+00000268 T __rpc_thread_createerr
+00000318 T __rpc_thread_destroy
+         U __rpc_thread_svc_cleanup
+000002c0 T __rpc_thread_svc_fdset
+000001b8 T __rpc_thread_svc_max_pollfd
+00000210 T __rpc_thread_svc_pollfd
+0000003c T __rpc_thread_variables
+         U svc_fdset
+         U svc_max_pollfd
+         U svc_pollfd
+
+__assert.o:
+         U abort
+00000000 T __assert
+         U fprintf
+         U _gp_disp
+00000000 r $LC0
+0000000c r $LC1
+         U __progname
+         U stderr
+
+isalnum.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T isalnum
+
+isalpha.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T isalpha
+
+isascii.o:
+00000000 T isascii
+
+iscntrl.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T iscntrl
+
+isdigit.o:
+00000000 T isdigit
+
+isgraph.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T isgraph
+
+islower.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T islower
+
+isprint.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T isprint
+
+ispunct.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T ispunct
+
+isspace.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T isspace
+
+isupper.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T isupper
+
+isxdigit.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T isxdigit
+
+toascii.o:
+00000000 T toascii
+
+tolower.o:
+         U __ctype_tolower
+         U _gp_disp
+00000000 T tolower
+
+toupper.o:
+         U __ctype_toupper
+         U _gp_disp
+00000000 T toupper
+
+isblank.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T isblank
+
+isxlower.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T isxlower
+
+isxupper.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T isxupper
+
+__C_ctype_b.o:
+00000000 D __C_ctype_b
+00000000 R __C_ctype_b_data
+00000004 D __ctype_b
+
+__C_ctype_tolower.o:
+00000000 D __C_ctype_tolower
+00000000 R __C_ctype_tolower_data
+00000004 D __ctype_tolower
+
+__C_ctype_toupper.o:
+00000000 D __C_ctype_toupper
+00000000 R __C_ctype_toupper_data
+00000004 D __ctype_toupper
+
+__ctype_b_loc.o:
+
+__ctype_tolower_loc.o:
+
+__ctype_toupper_loc.o:
+
+__ctype_assert.o:
+
+isctype.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T isctype
+
+alphasort.o:
+00000000 T alphasort
+         U _gp_disp
+         U strcmp
+
+closedir.o:
+         U close
+00000000 T closedir
+         U __errno_location
+         U free
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+dirfd.o:
+00000000 T dirfd
+         U __errno_location
+         U _gp_disp
+
+opendir.o:
+         U calloc
+         U close
+         U __errno_location
+         U fcntl
+         U free
+         U _gp_disp
+         U malloc
+         U open
+00000000 T opendir
+         U __pthread_mutex_init
+         U stat
+
+readdir.o:
+         U __errno_location
+         U __getdents
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 T readdir
+
+rewinddir.o:
+         U __errno_location
+         U _gp_disp
+         U lseek
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 T rewinddir
+
+scandir.o:
+         U closedir
+         U __errno_location
+         U free
+         U _gp_disp
+         U malloc
+         U memcpy
+         U opendir
+         U qsort
+         U readdir
+         U realloc
+00000000 T scandir
+
+seekdir.o:
+         U __errno_location
+         U _gp_disp
+         U lseek
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 T seekdir
+
+telldir.o:
+         U __errno_location
+         U _gp_disp
+00000000 T telldir
+
+readdir64.o:
+         U __errno_location
+         U __getdents64
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 T readdir64
+
+alphasort64.o:
+00000000 T alphasort64
+         U _gp_disp
+         U strcmp
+
+scandir64.o:
+         U closedir
+         U __errno_location
+         U free
+         U _gp_disp
+         U malloc
+         U memcpy
+         U opendir
+         U qsort
+         U readdir64
+         U realloc
+00000000 T scandir64
+
+readdir_r.o:
+         U __errno_location
+         U __getdents
+         U _gp_disp
+         U memcpy
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 T readdir_r
+
+readdir64_r.o:
+         U __errno_location
+         U __getdents64
+         U _gp_disp
+         U memcpy
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 T readdir64_r
+
+error.o:
+000001ec W error
+000001ec T __error
+00000000 T __error_at_line
+00000000 W error_at_line
+00000004 C error_message_count
+00000004 C error_one_per_line
+00000000 B error_print_progname
+         U exit
+         U fflush
+         U fprintf
+         U fputc
+         U __fputc_unlocked
+         U _gp_disp
+00000000 r $LC0
+00000008 r $LC1
+         U stderr
+         U stdout
+         U strcmp
+         U strerror
+         U vfprintf
+
+err.o:
+00000254 T err
+         U __errno_location
+000001b8 T errx
+         U exit
+         U fprintf
+         U _gp_disp
+         U __progname
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U stderr
+0000020c T verr
+00000170 T verrx
+         U vfprintf
+000001ec T vwarn
+00000150 T vwarnx
+000002d4 T warn
+00000288 T warnx
+         U __xpg_strerror_r
+
+lockf.o:
+         U __errno_location
+         U fcntl
+         U getpid
+         U _gp_disp
+00000000 T lockf
+         U memset
+
+lockf64.o:
+         U __errno_location
+         U fcntl64
+         U getpid
+         U _gp_disp
+00000000 T lockf64
+         U memset
+
+fnmatch.o:
+         U __ctype_b
+         U __ctype_tolower
+00000000 T fnmatch
+         U _gp_disp
+
+glob.o:
+         U closedir
+         U __errno_location
+         U fnmatch
+         U free
+00000858 T glob
+         U __glob_closedir_hook
+000000a8 T globfree
+         U __glob_opendir_hook
+00000000 T glob_pattern_p
+         U __glob_readdir_hook
+         U _gp_disp
+00000000 r $LC0
+00000004 r $LC1
+         U lstat
+         U malloc
+         U memcpy
+         U opendir
+         U qsort
+         U readdir
+         U realloc
+         U strcat
+         U strcmp
+         U strcoll
+         U strlen
+         U strrchr
+
+glob64.o:
+         U closedir
+         U __errno_location
+         U fnmatch
+         U free
+000007b8 T glob64
+         U __glob_closedir_hook
+00000000 T globfree64
+         U __glob_opendir_hook
+         U glob_pattern_p
+         U __glob_readdir_hook
+         U _gp_disp
+00000000 r $LC0
+00000004 r $LC1
+         U lstat64
+         U malloc
+         U memcpy
+         U opendir
+         U qsort
+         U readdir64
+         U realloc
+         U strcat
+         U strcmp
+         U strcoll
+         U strlen
+         U strrchr
+
+glob-hooks.o:
+00000004 C __glob_closedir_hook
+00000004 C __glob_opendir_hook
+00000004 C __glob_readdir_hook
+
+obstack.o:
+         U abort
+         U exit
+         U fprintf
+         U _gp_disp
+00000000 r $LC0
+00000004 r $LC1
+00000004 C _obstack
+000003f4 T _obstack_allocated_p
+00000000 D obstack_alloc_failed_handler
+00000000 T _obstack_begin
+000000e8 T _obstack_begin_1
+00000000 D obstack_exit_failure
+000005a8 T _obstack_free
+000004c0 T obstack_free
+00000438 T _obstack_memory_used
+000001f4 T _obstack_newchunk
+         U stderr
+
+__uClibc_main.o:
+         U abort
+0000000c B __app_fini
+00000000 V environ
+00000000 B __environ
+         w __errno_location
+         U exit
+         U fstat
+         U getegid
+         U geteuid
+         U getgid
+         U getuid
+         U _gp_disp
+         w __h_errno_location
+00000000 r $LC0
+         U __libc_fcntl
+         U __libc_open
+         U __libc_stack_end
+         w main
+         U memcpy
+00000004 B __pagesize
+00000008 B __progname
+         w __pthread_initialize_minimal
+00000010 B __rtld_fini
+         w _stdio_init
+000000fc T __uClibc_init
+00000194 T __uClibc_main
+00000450 T __uClibc_start_main
+
+tempname.o:
+         U close
+         U __errno_location
+00000058 T __gen_tempname
+         U getpid
+         U gettimeofday
+         U _gp_disp
+00000000 r $LC0
+00000008 r $LC1
+00000018 r $LC2
+00000024 r $LC3
+0000002c r $LC4
+00000034 r $LC5
+         U mkdir
+         U open
+         U open64
+0000045c T __path_search
+         U read
+         U sprintf
+         U stat
+         U strcmp
+         U strlen
+
+errno.o:
+00000000 V errno
+00000000 B _errno
+00000004 B _h_errno
+00000004 V h_errno
+
+__errno_location.o:
+         U errno
+00000000 W __errno_location
+         U _gp_disp
+
+__h_errno_location.o:
+         U _gp_disp
+         U h_errno
+00000000 W __h_errno_location
+
+setlocale.o:
+         U _gp_disp
+00000000 r $LC0
+00000000 T setlocale
+         U strcmp
+
+localeconv.o:
+         U _gp_disp
+00000000 T localeconv
+
+_locale_init.o:
+
+nl_langinfo.o:
+         U _gp_disp
+00000000 T nl_langinfo
+
+mntent.o:
+         U abort
+00000080 T addmntent
+         U atoi
+00000000 T endmntent
+         U fclose
+         U fgets
+         U fopen
+         U fprintf
+         U fseek
+0000030c T getmntent
+00000120 T getmntent_r
+         U _gp_disp
+00000060 T hasmntopt
+00000000 r $LC0
+00000014 r $LC1
+00000018 r $LC2
+         U malloc
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000044 T setmntent
+         U strstr
+         U strtok_r
+
+no-tsd.o:
+00000004 C __libc_internal_tsd_get
+00000004 C __libc_internal_tsd_set
+
+weaks.o:
+         U exit
+         U _gp_disp
+00000000 W pthread_attr_destroy
+00000000 W pthread_attr_getdetachstate
+00000000 W pthread_attr_getinheritsched
+00000000 W pthread_attr_getschedparam
+00000000 W pthread_attr_getschedpolicy
+00000000 W pthread_attr_getscope
+00000000 W pthread_attr_init
+00000000 W pthread_attr_setdetachstate
+00000000 W pthread_attr_setinheritsched
+00000000 W pthread_attr_setschedparam
+00000000 W pthread_attr_setschedpolicy
+00000000 W pthread_attr_setscope
+00000000 W pthread_condattr_destroy
+00000000 W pthread_condattr_init
+00000000 W pthread_cond_broadcast
+00000000 W pthread_cond_destroy
+00000000 W pthread_cond_init
+00000000 W pthread_cond_signal
+00000000 W pthread_cond_timedwait
+00000000 W pthread_cond_wait
+00000008 W pthread_equal
+00000010 W pthread_exit
+00000000 W pthread_getschedparam
+00000000 W pthread_mutex_destroy
+00000000 W __pthread_mutex_init
+00000000 W pthread_mutex_init
+00000000 W __pthread_mutex_lock
+00000000 W pthread_mutex_lock
+00000000 W __pthread_mutex_trylock
+00000000 W __pthread_mutex_unlock
+00000000 W pthread_mutex_unlock
+00000000 W pthread_self
+00000000 W pthread_setcancelstate
+00000000 W pthread_setcanceltype
+00000000 W pthread_setschedparam
+
+regex.o:
+         U abort
+         U btowc
+         U __ctype_b
+         U __ctype_tolower
+         U free
+         U _gp_disp
+         U iswctype
+00000000 r $LC0
+00000008 r $LC1
+00000010 r $LC2
+         U malloc
+         U memcmp
+         U memcpy
+         U memset
+         U realloc
+00003398 T re_comp
+00003a50 T re_compile_fastmap
+000034d0 T re_compile_pattern
+000067ec T re_exec
+00003a70 T regcomp
+00000740 T regerror
+0000661c T regexec
+00000690 T regfree
+00006214 T re_match
+000061f4 T re_match_2
+00000000 D re_max_failures
+000065c0 T re_search
+00006270 T re_search_2
+0000064c T re_set_registers
+0000062c T re_set_syntax
+00000004 C re_syntax_options
+         U strcmp
+         U strlen
+         U wctype
+
+hsearch.o:
+         U _gp_disp
+00000020 T hcreate
+         U hcreate_r
+00000000 T hdestroy
+         U hdestroy_r
+00000040 T hsearch
+         U hsearch_r
+
+tsearch.o:
+         U _gp_disp
+         U malloc
+00000000 T tsearch
+
+tfind.o:
+00000000 T tfind
+
+tdelete.o:
+         U free
+         U _gp_disp
+00000000 T tdelete
+
+twalk.o:
+         U _gp_disp
+000000e4 T twalk
+
+tdestroy.o:
+         U free
+         U _gp_disp
+000000a0 T tdestroy
+
+lfind.o:
+00000000 T lfind
+
+lsearch.o:
+         U _gp_disp
+         U lfind
+00000000 T lsearch
+         U memcpy
+
+insque.o:
+00000000 T insque
+
+remque.o:
+00000000 T remque
+
+hcreate_r.o:
+         U calloc
+         U __errno_location
+         U _gp_disp
+00000000 T hcreate_r
+
+hdestroy_r.o:
+         U __errno_location
+         U free
+         U _gp_disp
+00000000 T hdestroy_r
+
+hsearch_r.o:
+         U __errno_location
+         U _gp_disp
+00000000 T hsearch_r
+         U strcmp
+         U strlen
+
+fstatfs64.o:
+         U fstatfs
+00000000 T fstatfs64
+         U _gp_disp
+         U memcpy
+
+statfs64.o:
+         U _gp_disp
+         U memcpy
+         U statfs
+00000000 T statfs64
+
+statvfs.o:
+         U endmntent
+         U __errno_location
+         U getmntent_r
+         U _gp_disp
+00000000 r $LC0
+00000010 r $LC1
+00000054 r $LC10
+00000060 r $LC11
+00000014 r $LC2
+00000020 r $LC3
+00000024 r $LC4
+0000002c r $LC5
+00000034 r $LC6
+0000003c r $LC7
+00000044 r $LC8
+0000004c r $LC9
+         U memset
+         U setmntent
+         U stat
+         U statfs
+00000000 T statvfs
+         U strcmp
+         U strsep
+
+statvfs64.o:
+         U endmntent
+         U __errno_location
+         U getmntent_r
+         U _gp_disp
+00000000 r $LC0
+00000010 r $LC1
+00000054 r $LC10
+00000060 r $LC11
+00000014 r $LC2
+00000020 r $LC3
+00000024 r $LC4
+0000002c r $LC5
+00000034 r $LC6
+0000003c r $LC7
+00000044 r $LC8
+0000004c r $LC9
+         U memset
+         U setmntent
+         U stat64
+         U statfs64
+00000000 T statvfs64
+         U strcmp
+         U strsep
+
+fstatvfs.o:
+         U endmntent
+         U __errno_location
+         U fstat
+         U fstatfs
+00000000 T fstatvfs
+         U getmntent_r
+         U _gp_disp
+00000000 r $LC0
+00000010 r $LC1
+00000054 r $LC10
+00000060 r $LC11
+00000014 r $LC2
+00000020 r $LC3
+00000024 r $LC4
+0000002c r $LC5
+00000034 r $LC6
+0000003c r $LC7
+00000044 r $LC8
+0000004c r $LC9
+         U memset
+         U setmntent
+         U stat
+         U strcmp
+         U strsep
+
+fstatvfs64.o:
+         U endmntent
+         U __errno_location
+         U fstat64
+         U fstatfs64
+00000000 T fstatvfs64
+         U getmntent_r
+         U _gp_disp
+00000000 r $LC0
+00000010 r $LC1
+00000054 r $LC10
+00000060 r $LC11
+00000014 r $LC2
+00000020 r $LC3
+00000024 r $LC4
+0000002c r $LC5
+00000034 r $LC6
+0000003c r $LC7
+00000044 r $LC8
+0000004c r $LC9
+         U memset
+         U setmntent
+         U stat64
+         U strcmp
+         U strsep
+
+syslog.o:
+         U close
+0000015c T closelog
+         U connect
+         U ctime
+         U __errno_location
+         U getpid
+         U _gp_disp
+         U index
+00000000 r $LC0
+00000008 r $LC1
+00000014 r $LC2
+00000020 r $LC3
+00000024 r $LC4
+00000040 r $LC5
+00000048 r $LC6
+         U memcpy
+         U memmove
+         U memset
+         U open
+0000019c T openlog
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 T setlogmask
+         U sigaction
+         U sigemptyset
+         U socket
+         U sprintf
+         U strlen
+         U strncpy
+000008d4 T syslog
+         U time
+         U vsnprintf
+000003bc T vsyslog
+         U write
+
+semget.o:
+         U _gp_disp
+00000000 T semget
+         U __syscall_ipc
+
+semctl.o:
+         U _gp_disp
+00000000 T semctl
+         U __syscall_ipc
+
+semop.o:
+         U _gp_disp
+00000000 T semop
+         U __syscall_ipc
+
+shmat.o:
+         U _gp_disp
+00000000 T shmat
+         U __syscall_ipc
+
+shmctl.o:
+         U _gp_disp
+00000000 T shmctl
+         U __syscall_ipc
+
+shmdt.o:
+         U _gp_disp
+00000000 T shmdt
+         U __syscall_ipc
+
+shmget.o:
+         U _gp_disp
+00000000 T shmget
+         U __syscall_ipc
+
+msgctl.o:
+         U _gp_disp
+00000000 T msgctl
+         U __syscall_ipc
+
+msgget.o:
+         U _gp_disp
+00000000 T msgget
+         U __syscall_ipc
+
+msgrcv.o:
+         U _gp_disp
+00000000 T msgrcv
+         U __syscall_ipc
+
+msgsnd.o:
+         U _gp_disp
+00000000 T msgsnd
+         U __syscall_ipc
+
+ftok.o:
+00000000 T ftok
+         U _gp_disp
+         U stat
+
+adjtime.o:
+00000000 T adjtime
+         U adjtimex
+         U __errno_location
+         U _gp_disp
+
+ftime.o:
+00000000 T ftime
+         U gettimeofday
+         U _gp_disp
+
+asctime.o:
+00000000 T asctime
+         U asctime_r
+         U _gp_disp
+
+asctime_r.o:
+00000000 T asctime_r
+         U _gp_disp
+         U memcpy
+
+clock.o:
+00000000 T clock
+         U _gp_disp
+         U times
+
+ctime.o:
+         U asctime
+00000000 T ctime
+         U _gp_disp
+         U localtime
+
+ctime_r.o:
+         U asctime_r
+00000000 T ctime_r
+         U _gp_disp
+         U localtime_r
+
+gmtime.o:
+00000000 T gmtime
+         U _gp_disp
+         U _time_t2tm
+         U __time_tm
+
+gmtime_r.o:
+00000000 T gmtime_r
+         U _gp_disp
+         U _time_t2tm
+
+localtime.o:
+         U _gp_disp
+00000000 T localtime
+         U localtime_r
+         U __time_tm
+
+localtime_r.o:
+         U _gp_disp
+00000000 T localtime_r
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U __time_localtime_tzi
+         U _time_tzinfo
+         U _time_tzlock
+         U tzset
+
+mktime.o:
+         U _gp_disp
+00000000 T mktime
+00000000 W timelocal
+         U _time_mktime
+
+strftime.o:
+         U _gp_disp
+00000000 r $LC0
+         U nl_langinfo
+00000074 T strftime
+         U _time_mktime
+         U tzset
+         U _uintmaxtostr
+
+strptime.o:
+         U __ctype_b
+         U __errno_location
+         U _gp_disp
+         U localtime_r
+         U nl_langinfo
+         U strlen
+         U strncasecmp
+00000000 T strptime
+         U strtol
+
+tzset.o:
+         U close
+         U __ctype_b
+00000000 B daylight
+         U getenv
+         U _gp_disp
+00000000 r $LC0
+         U memcpy
+         U memset
+         U open
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U read
+         U strcmp
+         U strcpy
+         U strncpy
+00000030 C _time_tzinfo
+00000000 D _time_tzlock
+00000004 B timezone
+00000000 D tzname
+000000c4 T tzset
+
+_time_t2tm.o:
+         U _gp_disp
+00000000 T _time_t2tm
+
+__time_tm.o:
+0000002c C __time_tm
+
+_time_mktime.o:
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 T _time_mktime
+         U _time_mktime_tzi
+         U _time_tzinfo
+         U _time_tzlock
+         U tzset
+
+dysize.o:
+00000000 T dysize
+
+timegm.o:
+         U _gp_disp
+00000000 r $LC0
+         U memset
+         U strcpy
+00000000 T timegm
+         U _time_mktime_tzi
+
+_time_mktime_tzi.o:
+         U _gp_disp
+         U memcpy
+         U __time_localtime_tzi
+00000000 T _time_mktime_tzi
+
+_time_localtime_tzi.o:
+         U _gp_disp
+         U malloc
+         U strcmp
+         U strcpy
+         U strnlen
+00000000 T __time_localtime_tzi
+         U _time_t2tm
+
+difftime.o:
+00000000 T difftime
+
+wcsftime.o:
+00000000 T wcsftime
+
+getttyent.o:
+         U abort
+         U __ctype_b
+00000104 T endttyent
+         U fclose
+         U __fgetc_unlocked
+         U fgets_unlocked
+         U fopen
+         U __fsetlocking
+00000208 T getttyent
+000006f8 T getttynam
+         U _gp_disp
+         U index
+00000000 r $LC0
+0000000c r $LC1
+00000010 r $LC2
+00000014 r $LC3
+00000018 r $LC4
+00000020 r $LC5
+         U malloc
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U rewind
+00000168 T setttyent
+         U strcmp
+         U strncmp
+
+utent.o:
+         U close
+000000fc T endutent
+         U fcntl
+         U free
+00000630 T getutent
+00000430 T getutid
+00000374 T getutline
+         U _gp_disp
+         U lseek
+         U open
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000534 T pututline
+         U read
+00000184 T setutent
+         U strcmp
+         U strdup
+         U strncmp
+00000000 T utmpname
+         U write
+
+wtent.o:
+         U close
+         U _gp_disp
+         U lockf
+         U open
+00000000 T updwtmp
+         U write
+
+btowc.o:
+00000000 T btowc
+
+wctob.o:
+00000000 T wctob
+
+mbsinit.o:
+00000000 T mbsinit
+
+mbrlen.o:
+         U _gp_disp
+00000000 W mbrlen
+00000000 T __mbrlen
+         U mbrtowc
+
+mbrtowc.o:
+         U _gp_disp
+00000000 T mbrtowc
+         U __mbsnrtowcs
+
+wcrtomb.o:
+         U _gp_disp
+00000000 T wcrtomb
+         U __wcsnrtombs
+
+mbsrtowcs.o:
+         U _gp_disp
+         U __mbsnrtowcs
+00000000 T mbsrtowcs
+
+wcsrtombs.o:
+         U _gp_disp
+         U __wcsnrtombs
+00000000 T wcsrtombs
+
+_wchar_utf8sntowcs.o:
+
+_wchar_wcsntoutf8s.o:
+
+__mbsnrtowcs.o:
+         U __errno_location
+         U _gp_disp
+00000000 W mbsnrtowcs
+00000000 T __mbsnrtowcs
+
+__wcsnrtombs.o:
+         U __errno_location
+         U _gp_disp
+00000000 W wcsnrtombs
+00000000 T __wcsnrtombs
+
+wcwidth.o:
+         U _gp_disp
+         U wcswidth
+00000000 T wcwidth
+
+wcswidth.o:
+00000000 T wcswidth
+
+iswalnum.o:
+         U _gp_disp
+00000000 T iswalnum
+         U __iswctype
+
+iswalpha.o:
+         U _gp_disp
+00000000 T iswalpha
+         U __iswctype
+
+iswcntrl.o:
+         U _gp_disp
+00000000 T iswcntrl
+         U __iswctype
+
+iswdigit.o:
+         U _gp_disp
+         U __iswctype
+00000000 T iswdigit
+
+iswgraph.o:
+         U _gp_disp
+         U __iswctype
+00000000 T iswgraph
+
+iswlower.o:
+         U _gp_disp
+         U __iswctype
+00000000 T iswlower
+
+iswprint.o:
+         U _gp_disp
+         U __iswctype
+00000000 T iswprint
+
+iswpunct.o:
+         U _gp_disp
+         U __iswctype
+00000000 T iswpunct
+
+iswspace.o:
+         U _gp_disp
+         U __iswctype
+00000000 T iswspace
+
+iswupper.o:
+         U _gp_disp
+         U __iswctype
+00000000 T iswupper
+
+iswxdigit.o:
+         U _gp_disp
+         U __iswctype
+00000000 T iswxdigit
+
+iswblank.o:
+         U _gp_disp
+00000000 T iswblank
+         U __iswctype
+
+wctrans.o:
+         U _gp_disp
+         U strcmp
+00000000 T wctrans
+
+towctrans.o:
+         U __errno_location
+         U _gp_disp
+         U tolower
+         U toupper
+00000000 T towctrans
+
+wctype.o:
+         U _gp_disp
+         U strcmp
+00000000 T wctype
+
+iswctype.o:
+         U __ctype_b
+         U _gp_disp
+00000000 W iswctype
+00000000 T __iswctype
+
+towlower.o:
+         U __C_ctype_tolower
+         U _gp_disp
+00000000 T towlower
+
+towupper.o:
+         U __C_ctype_toupper
+         U _gp_disp
+00000000 T towupper
+
+fgetpwent_r.o:
+00000000 T fgetpwent_r
+         U _gp_disp
+         U __parsepwent
+         U __pgsreader
+
+fgetgrent_r.o:
+00000000 T fgetgrent_r
+         U _gp_disp
+         U __parsegrent
+         U __pgsreader
+
+fgetpwent.o:
+00000000 T fgetpwent
+         U fgetpwent_r
+         U _gp_disp
+
+fgetgrent.o:
+00000000 T fgetgrent
+         U fgetgrent_r
+         U _gp_disp
+
+getpwnam_r.o:
+         U __errno_location
+         U fclose
+         U fopen
+00000000 T getpwnam_r
+         U _gp_disp
+00000000 r $LC0
+0000000c r $LC1
+         U __parsepwent
+         U __pgsreader
+         U strcmp
+
+getgrnam_r.o:
+         U __errno_location
+         U fclose
+         U fopen
+00000000 T getgrnam_r
+         U _gp_disp
+00000000 r $LC0
+0000000c r $LC1
+         U __parsegrent
+         U __pgsreader
+         U strcmp
+
+getpwuid_r.o:
+         U __errno_location
+         U fclose
+         U fopen
+00000000 T getpwuid_r
+         U _gp_disp
+00000000 r $LC0
+0000000c r $LC1
+         U __parsepwent
+         U __pgsreader
+
+getgrgid_r.o:
+         U __errno_location
+         U fclose
+         U fopen
+00000000 T getgrgid_r
+         U _gp_disp
+00000000 r $LC0
+0000000c r $LC1
+         U __parsegrent
+         U __pgsreader
+
+getpwuid.o:
+00000000 T getpwuid
+         U getpwuid_r
+         U _gp_disp
+
+getgrgid.o:
+00000000 T getgrgid
+         U getgrgid_r
+         U _gp_disp
+
+getpwnam.o:
+00000000 T getpwnam
+         U getpwnam_r
+         U _gp_disp
+
+getgrnam.o:
+00000000 T getgrnam
+         U getgrnam_r
+         U _gp_disp
+
+getpw.o:
+         U __errno_location
+00000000 T getpw
+         U getpwuid_r
+         U _gp_disp
+00000000 r $LC0
+         U sprintf
+
+getpwent_r.o:
+00000128 T endpwent
+         U __errno_location
+         U fclose
+         U fopen
+00000000 T getpwent_r
+         U _gp_disp
+00000000 r $LC0
+0000000c r $LC1
+         U __parsepwent
+         U __pgsreader
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U rewind
+000001a4 T setpwent
+
+getgrent_r.o:
+00000128 T endgrent
+         U __errno_location
+         U fclose
+         U fopen
+00000000 T getgrent_r
+         U _gp_disp
+00000000 r $LC0
+0000000c r $LC1
+         U __parsegrent
+         U __pgsreader
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U rewind
+000001a4 T setgrent
+
+getpwent.o:
+00000000 T getpwent
+         U getpwent_r
+         U _gp_disp
+
+getgrent.o:
+00000000 T getgrent
+         U getgrent_r
+         U _gp_disp
+
+initgroups.o:
+         U fclose
+         U fopen
+         U free
+         U _gp_disp
+00000000 T initgroups
+00000000 r $LC0
+0000000c r $LC1
+         U malloc
+         U __parsegrent
+         U __pgsreader
+         U realloc
+         U setgroups
+         U strcmp
+
+putpwent.o:
+         U __errno_location
+         U fprintf
+         U _gp_disp
+00000000 r $LC0
+00000000 T putpwent
+
+putgrent.o:
+         U __errno_location
+         U fprintf
+         U __fputc_unlocked
+         U _gp_disp
+00000000 r $LC0
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 T putgrent
+
+__parsepwent.o:
+         U _gp_disp
+00000000 T __parsepwent
+         U strchr
+         U strtoul
+
+__parsegrent.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T __parsegrent
+         U strchr
+         U strtoul
+
+__pgsreader.o:
+         U __ctype_b
+         U __errno_location
+         U fgets_unlocked
+         U _gp_disp
+         U __parsegrent
+00000000 T __pgsreader
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U strlen
+
+allocrtsig.o:
+         U _gp_disp
+00000040 T __libc_allocate_rtsig
+00000020 T __libc_current_sigrtmax
+00000000 T __libc_current_sigrtmin
+
+killpg.o:
+         U __errno_location
+         U _gp_disp
+         U kill
+00000000 T killpg
+
+raise.o:
+         U getpid
+         U _gp_disp
+         U kill
+00000000 T raise
+
+sigaction.o:
+         U _gp_disp
+00000000 T __libc_sigaction
+         U memcpy
+00000000 W sigaction
+         U __syscall_rt_sigaction
+
+sigaddset.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sigaddset
+         U __sigaddset
+
+sigandset.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sigandset
+
+sigblock.o:
+         U _gp_disp
+         U __sigaddset
+00000000 T sigblock
+         U __sigismember
+         U sigprocmask
+
+sigdelset.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sigdelset
+         U __sigdelset
+
+sigempty.o:
+         U __errno_location
+         U _gp_disp
+         U memset
+00000000 T sigemptyset
+
+sigfillset.o:
+         U __errno_location
+         U _gp_disp
+         U memset
+00000000 T sigfillset
+
+siggetmask.o:
+         U _gp_disp
+         U sigblock
+00000000 T siggetmask
+
+sighold.o:
+         U _gp_disp
+         U __sigaddset
+00000000 T sighold
+         U sigprocmask
+
+sigignore.o:
+         U _gp_disp
+         U sigaction
+00000000 T sigignore
+
+sigintr.o:
+         U _gp_disp
+         U sigaction
+         U __sigaddset
+         U __sigdelset
+00000000 T siginterrupt
+         U _sigintr
+
+sigisempty.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sigisemptyset
+
+sigismem.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sigismember
+         U __sigismember
+
+sigjmp.o:
+         U _gp_disp
+00000000 T __sigjmp_save
+         U sigprocmask
+
+signal.o:
+00000000 T bsd_signal
+         U __errno_location
+         U _gp_disp
+         U sigaction
+         U __sigaddset
+00000080 C _sigintr
+         U __sigismember
+00000000 W signal
+
+sigorset.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sigorset
+
+sigpause.o:
+         U _gp_disp
+         U __sigaddset
+         U sigdelset
+         U sigemptyset
+00000120 T sigpause
+00000000 T __sigpause
+         U sigprocmask
+         U sigsuspend
+
+sigrelse.o:
+         U _gp_disp
+         U __sigdelset
+         U sigprocmask
+00000000 T sigrelse
+
+sigset.o:
+         U __errno_location
+         U _gp_disp
+         U sigaction
+         U __sigaddset
+         U sigprocmask
+00000000 T sigset
+
+sigsetmask.o:
+         U _gp_disp
+         U __sigaddset
+         U __sigismember
+         U sigprocmask
+00000000 T sigsetmask
+
+sigsetops.o:
+00000028 T __sigaddset
+00000054 T __sigdelset
+00000000 T __sigismember
+
+sysv_signal.o:
+         U __errno_location
+         U _gp_disp
+         U sigaction
+00000000 T __sysv_signal
+00000000 W sysv_signal
+
+sigwait.o:
+         U _gp_disp
+00000000 T sigwait
+         U sigwaitinfo
+
+fclose.o:
+         U close
+00000000 T fclose
+         U __fflush_unlocked
+         U free
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U _stdio_openlist
+         U _stdio_openlist_lock
+
+fcloseall.o:
+         U fclose
+00000000 T fcloseall
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U _stdio_openlist
+         U _stdio_openlist_lock
+
+fdopen.o:
+         U fcntl
+00000000 T fdopen
+         U _gp_disp
+         U _stdio_fopen
+
+fgetpos.o:
+00000000 T fgetpos
+         U ftell
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+fopen.o:
+00000000 T fopen
+         U _gp_disp
+         U _stdio_fopen
+
+freopen.o:
+         U fclose
+00000000 T freopen
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U _stdio_fopen
+
+fseeko.o:
+00000000 T fseek
+00000000 W fseeko
+         U __fseeko64
+         U _gp_disp
+
+fsetpos.o:
+         U fseek
+00000000 T fsetpos
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+ftello.o:
+         U __errno_location
+00000000 T ftell
+00000000 W ftello
+         U __ftello64
+         U _gp_disp
+
+getdelim.o:
+         U __errno_location
+         U __fgetc_unlocked
+00000000 W getdelim
+00000000 T __getdelim
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U realloc
+
+getline.o:
+         U __getdelim
+00000000 T getline
+         U _gp_disp
+
+gets.o:
+         U __getchar_unlocked
+00000000 T gets
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U stdin
+
+getw.o:
+         U __fread_unlocked
+00000000 T getw
+         U _gp_disp
+
+perror.o:
+         U __errno_location
+         U fprintf
+         U __glibc_strerror_r
+         U _gp_disp
+00000000 r $LC0
+00000004 r $LC1
+00000000 T perror
+         U stderr
+
+puts.o:
+         U __fputc_unlocked
+         U __fputs_unlocked
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 T puts
+         U stdout
+
+putw.o:
+         U __fwrite_unlocked
+         U _gp_disp
+00000000 T putw
+
+remove.o:
+         U __errno_location
+         U _gp_disp
+00000000 T remove
+         U rmdir
+         U unlink
+
+rewind.o:
+         U fseek
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 T rewind
+
+setbuf.o:
+         U _gp_disp
+00000000 T setbuf
+         U setvbuf
+
+setbuffer.o:
+         U _gp_disp
+00000000 T setbuffer
+         U setvbuf
+
+setlinebuf.o:
+         U _gp_disp
+00000000 T setlinebuf
+         U setvbuf
+
+setvbuf.o:
+         U __errno_location
+         U free
+         U _gp_disp
+         U malloc
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 T setvbuf
+
+ungetc.o:
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U __stdio_trans2r_o
+00000000 T ungetc
+
+printf.o:
+         U _gp_disp
+00000000 T printf
+         U stdout
+         U vfprintf
+
+vprintf.o:
+         U _gp_disp
+         U stdout
+         U vfprintf
+00000000 T vprintf
+
+vsprintf.o:
+         U _gp_disp
+         U vsnprintf
+00000000 T vsprintf
+
+fprintf.o:
+00000000 T fprintf
+         U _gp_disp
+         U vfprintf
+
+snprintf.o:
+         U _gp_disp
+00000000 T snprintf
+         U vsnprintf
+
+dprintf.o:
+00000000 T dprintf
+         U _gp_disp
+         U vdprintf
+
+asprintf.o:
+00000000 W asprintf
+00000000 T __asprintf
+         U _gp_disp
+         U vasprintf
+
+sprintf.o:
+         U _gp_disp
+00000000 T sprintf
+         U vsnprintf
+
+vasprintf.o:
+         U free
+         U _gp_disp
+         U malloc
+00000000 T vasprintf
+         U vsnprintf
+
+vdprintf.o:
+         U __fflush_unlocked
+         U _gp_disp
+         U __stdio_init_mutex
+00000000 T vdprintf
+         U vfprintf
+
+vsnprintf.o:
+         U _gp_disp
+         U __stdio_init_mutex
+         U vfprintf
+00000000 T vsnprintf
+
+tmpfile.o:
+         U close
+         U fdopen
+         U __gen_tempname
+         U _gp_disp
+00000000 r $LC0
+00000008 r $LC1
+         U __path_search
+         U remove
+00000000 T tmpfile
+00000000 W tmpfile64
+
+tmpnam.o:
+         U __gen_tempname
+         U _gp_disp
+         U memcpy
+         U __path_search
+00000000 T tmpnam
+
+tmpnam_r.o:
+         U __gen_tempname
+         U _gp_disp
+         U __path_search
+00000000 T tmpnam_r
+
+popen.o:
+         U close
+         U dup2
+         U __errno_location
+         U execl
+         U _exit
+         U fclose
+         U fdopen
+         U fork
+         U free
+         U _gp_disp
+00000000 r $LC0
+00000008 r $LC1
+0000000c r $LC2
+         U malloc
+00000000 T pclose
+         U pipe
+0000019c T popen
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U waitpid
+
+tempnam.o:
+         U __gen_tempname
+         U _gp_disp
+         U __path_search
+         U strdup
+00000000 T tempnam
+
+ctermid.o:
+00000000 T ctermid
+         U _gp_disp
+00000000 r $LC0
+         U strcpy
+
+_READ.o:
+         U _gp_disp
+         U read
+00000000 T __stdio_READ
+
+_WRITE.o:
+         U _gp_disp
+00000000 T __stdio_WRITE
+         U write
+
+_adjust_pos.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __stdio_adjust_position
+
+_fopen.o:
+         U __errno_location
+         U fcntl
+         U free
+         U _gp_disp
+         U isatty
+         U malloc
+         U open
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 T _stdio_fopen
+         U __stdio_init_mutex
+         U _stdio_openlist
+         U _stdio_openlist_lock
+         U _stdio_user_locking
+
+_fwrite.o:
+         U _gp_disp
+         U memchr
+         U memcpy
+         U memrchr
+00000000 T __stdio_fwrite
+         U __stdio_wcommit
+         U __stdio_WRITE
+
+_rfill.o:
+         U _gp_disp
+         U __stdio_READ
+00000000 T __stdio_rfill
+
+_stdio.o:
+         U __errno_location
+         U _gp_disp
+         U isatty
+         U memcpy
+         U __pthread_mutex_trylock
+00000008 D stderr
+00000000 D stdin
+0000000c D __stdin
+00000000 T _stdio_init
+000000b8 T __stdio_init_mutex
+00000014 D _stdio_openlist
+00000000 B _stdio_openlist_delflag
+00000000 D _stdio_openlist_lock
+000000d8 T _stdio_term
+00000018 D _stdio_user_locking
+         U __stdio_wcommit
+00000004 D stdout
+00000010 D __stdout
+
+_trans2r.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __stdio_trans2r_o
+         U __stdio_wcommit
+
+_trans2w.o:
+         U __errno_location
+         U fseek
+         U _gp_disp
+00000000 T __stdio_trans2w_o
+
+_wcommit.o:
+         U _gp_disp
+00000000 T __stdio_wcommit
+         U __stdio_WRITE
+
+_cs_funcs.o:
+         U _gp_disp
+         U lseek64
+00000000 T __stdio_seek
+
+_load_inttype.o:
+00000000 T _load_inttype
+
+_store_inttype.o:
+00000000 T _store_inttype
+
+_uintmaxtostr.o:
+00000000 T _uintmaxtostr
+
+_fpmaxtostr.o:
+00000000 T _fpmaxtostr
+         U _gp_disp
+00000000 r $LC0
+00000008 r $LC1
+00000010 r $LC2
+00000018 r $LC3
+00000020 r $LC4
+00000028 r $LC5
+00000030 r $LC6
+         U memset
+
+__fbufsize.o:
+00000000 T __fbufsize
+
+__flbf.o:
+00000000 T __flbf
+
+__fpending.o:
+00000000 T __fpending
+
+__fpurge.o:
+00000000 T __fpurge
+
+__freadable.o:
+00000000 T __freadable
+
+__freading.o:
+00000000 T __freading
+
+__fsetlocking.o:
+00000000 T __fsetlocking
+         U _gp_disp
+         U _stdio_user_locking
+
+__fwritable.o:
+00000000 T __fwritable
+
+__fwriting.o:
+00000000 T __fwriting
+
+_flushlbf.o:
+         U __fflush_unlocked
+00000000 T _flushlbf
+         U _gp_disp
+         U _stdio_openlist
+
+flockfile.o:
+00000000 T flockfile
+         U _gp_disp
+         U __pthread_mutex_lock
+
+ftrylockfile.o:
+00000000 T ftrylockfile
+         U _gp_disp
+         U __pthread_mutex_trylock
+
+funlockfile.o:
+00000000 T funlockfile
+         U _gp_disp
+         U __pthread_mutex_unlock
+
+clearerr.o:
+00000000 T clearerr
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+feof.o:
+00000000 T feof
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+ferror.o:
+00000000 T ferror
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+fflush.o:
+00000000 T fflush
+         U __fflush_unlocked
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U _stdio_openlist
+
+fgetc.o:
+00000000 T fgetc
+         U __fgetc_unlocked
+00000000 W getc
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+fgets.o:
+00000000 T fgets
+         U __fgets_unlocked
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+fileno.o:
+00000000 T fileno
+         U __fileno_unlocked
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+fputc.o:
+00000000 T fputc
+         U __fputc_unlocked
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 W putc
+
+fputs.o:
+00000000 T fputs
+         U __fputs_unlocked
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+fread.o:
+00000000 T fread
+         U __fread_unlocked
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+fwrite.o:
+00000000 T fwrite
+         U __fwrite_unlocked
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+getchar.o:
+         U __fgetc_unlocked
+00000000 T getchar
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U stdin
+
+putchar.o:
+         U __fputc_unlocked
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 T putchar
+         U stdout
+
+fgetwc.o:
+00000000 T fgetwc
+         U __fgetwc_unlocked
+00000000 W getwc
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+getwchar.o:
+         U fgetwc
+00000000 T getwchar
+         U _gp_disp
+         U stdin
+
+fgetws.o:
+00000000 T fgetws
+         U __fgetws_unlocked
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+fputwc.o:
+00000000 T fputwc
+         U __fputwc_unlocked
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 W putwc
+
+putwchar.o:
+         U fputc
+         U __fputc_unlocked
+         U _gp_disp
+00000000 T putwchar
+         U stdout
+
+fputws.o:
+00000000 T fputws
+         U __fputws_unlocked
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+_wfwrite.o:
+         U _gp_disp
+         U __stdio_fwrite
+         U __stdio_trans2w_o
+         U __wcsnrtombs
+         U wmemcpy
+00000000 T _wstdio_fwrite
+
+fwprintf.o:
+00000000 T fwprintf
+         U _gp_disp
+         U vfwprintf
+
+swprintf.o:
+         U _gp_disp
+00000000 T swprintf
+         U vswprintf
+
+vswprintf.o:
+         U _gp_disp
+         U __stdio_init_mutex
+         U vfwprintf
+00000000 T vswprintf
+
+vwprintf.o:
+         U _gp_disp
+         U stdout
+         U vfwprintf
+00000000 T vwprintf
+
+wprintf.o:
+         U _gp_disp
+         U stdout
+         U vfwprintf
+00000000 T wprintf
+
+fwide.o:
+00000000 T fwide
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+ungetwc.o:
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U __stdio_trans2r_o
+00000000 T ungetwc
+
+clearerr_unlocked.o:
+00000000 T __clearerr_unlocked
+00000000 W clearerr_unlocked
+
+feof_unlocked.o:
+00000000 T __feof_unlocked
+00000000 W feof_unlocked
+
+ferror_unlocked.o:
+00000000 T __ferror_unlocked
+00000000 W ferror_unlocked
+
+fflush_unlocked.o:
+00000000 T __fflush_unlocked
+00000000 W fflush_unlocked
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U _stdio_openlist
+         U _stdio_openlist_lock
+         U _stdio_user_locking
+         U __stdio_wcommit
+
+fgetc_unlocked.o:
+         U __fflush_unlocked
+00000000 T __fgetc_unlocked
+00000000 W fgetc_unlocked
+00000000 W getc_unlocked
+         U _gp_disp
+         U _stdio_openlist
+         U __stdio_READ
+         U __stdio_rfill
+         U __stdio_trans2r_o
+
+fgets_unlocked.o:
+         U __fgetc_unlocked
+00000000 T __fgets_unlocked
+00000000 W fgets_unlocked
+         U _gp_disp
+
+fileno_unlocked.o:
+         U __errno_location
+00000000 T __fileno_unlocked
+00000000 W fileno_unlocked
+         U _gp_disp
+
+fputc_unlocked.o:
+00000000 T __fputc_unlocked
+00000000 W fputc_unlocked
+         U _gp_disp
+00000000 W putc_unlocked
+         U __stdio_trans2w_o
+         U __stdio_wcommit
+         U __stdio_WRITE
+
+fputs_unlocked.o:
+00000000 T __fputs_unlocked
+00000000 W fputs_unlocked
+         U __fwrite_unlocked
+         U _gp_disp
+         U strlen
+
+fread_unlocked.o:
+         U __errno_location
+         U __fflush_unlocked
+00000000 T __fread_unlocked
+00000000 W fread_unlocked
+         U _gp_disp
+         U memcpy
+         U _stdio_openlist
+         U __stdio_READ
+         U __stdio_trans2r_o
+
+fwrite_unlocked.o:
+         U __errno_location
+00000000 T __fwrite_unlocked
+00000000 W fwrite_unlocked
+         U _gp_disp
+         U __stdio_fwrite
+         U __stdio_trans2w_o
+
+getchar_unlocked.o:
+         U __fgetc_unlocked
+00000000 T __getchar_unlocked
+00000000 W getchar_unlocked
+         U _gp_disp
+         U stdin
+
+putchar_unlocked.o:
+         U __fputc_unlocked
+         U _gp_disp
+00000000 T __putchar_unlocked
+00000000 W putchar_unlocked
+         U stdout
+
+fgetwc_unlocked.o:
+         U __errno_location
+0000001c T __fgetwc_unlocked
+0000001c W fgetwc_unlocked
+0000001c W getwc_unlocked
+         U _gp_disp
+         U mbrtowc
+         U __stdio_rfill
+         U __stdio_trans2r_o
+
+getwchar_unlocked.o:
+         U __fgetwc_unlocked
+00000000 T __getwchar_unlocked
+00000000 W getwchar_unlocked
+         U _gp_disp
+         U stdin
+
+fgetws_unlocked.o:
+         U __fgetwc_unlocked
+00000000 T __fgetws_unlocked
+00000000 W fgetws_unlocked
+         U _gp_disp
+
+fputwc_unlocked.o:
+00000000 T __fputwc_unlocked
+00000000 W fputwc_unlocked
+         U _gp_disp
+00000000 W putwc_unlocked
+         U _wstdio_fwrite
+
+putwchar_unlocked.o:
+         U __fputwc_unlocked
+         U _gp_disp
+00000000 T __putwchar_unlocked
+00000000 W putwchar_unlocked
+         U stdout
+
+fputws_unlocked.o:
+00000000 T __fputws_unlocked
+00000000 W fputws_unlocked
+         U _gp_disp
+         U wcslen
+         U _wstdio_fwrite
+
+vfprintf.o:
+         U _fpmaxtostr
+         U __fputs_unlocked
+         U _gp_disp
+00000000 r $LC0
+00000008 r $LC1
+         U _load_inttype
+         U _ppfs_init
+         U _ppfs_parsespec
+         U _ppfs_prepargs
+         U _ppfs_setargs
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U __stdio_fwrite
+         U __stdio_trans2w_o
+         U _store_inttype
+         U strlen
+         U strnlen
+         U _uintmaxtostr
+0000017c T vfprintf
+         U wcrtomb
+         U wcsrtombs
+
+_ppfs_init.o:
+         U _gp_disp
+         U memset
+00000000 T _ppfs_init
+         U _ppfs_parsespec
+
+_ppfs_prepargs.o:
+         U _gp_disp
+00000000 T _ppfs_prepargs
+         U _ppfs_setargs
+
+_ppfs_setargs.o:
+00000000 T _ppfs_setargs
+
+_ppfs_parsespec.o:
+         U __ctype_b
+         U _gp_disp
+         U memcpy
+00000070 T _ppfs_parsespec
+
+register_printf_function.o:
+
+parse_printf_format.o:
+         U _gp_disp
+00000000 T parse_printf_format
+         U _ppfs_init
+         U _ppfs_parsespec
+
+vfwprintf.o:
+         U btowc
+         U _fpmaxtostr
+         U fputws
+         U _gp_disp
+00000000 r $LC0
+00000008 r $LC1
+         U _load_inttype
+         U mbsrtowcs
+         U memset
+         U _ppfs_parsespec
+         U _ppfs_prepargs
+         U _ppfs_setargs
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U __stdio_trans2w_o
+         U _store_inttype
+         U strlen
+         U _uintmaxtostr
+0000009c T vfwprintf
+         U wcslen
+         U wcsnlen
+         U wcsrtombs
+         U _wstdio_fwrite
+
+vfscanf.o:
+         U __ctype_b
+         U __errno_location
+         U getc_unlocked
+         U _gp_disp
+         U __init_scan_cookie
+         U mbrtowc
+         U memset
+         U __psfs_do_numeric
+         U __psfs_parse_spec
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U __scan_getc
+         U __scan_ungetc
+         U _store_inttype
+         U ungetc
+0000015c T vfscanf
+
+__scan_cookie.o:
+         U _gp_disp
+00000000 T __init_scan_cookie
+00000060 T __scan_getc
+00000108 T __scan_ungetc
+
+__psfs_parse_spec.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __psfs_parse_spec
+
+__psfs_do_numeric.o:
+         U __ctype_b
+         U _gp_disp
+00000000 T __psfs_do_numeric
+         U __scan_getc
+         U __scan_ungetc
+         U _stdlib_strto_ll
+         U _store_inttype
+         U strcpy
+         U __strtofpmax
+
+scanf.o:
+         U _gp_disp
+00000000 T scanf
+         U stdin
+         U vfscanf
+
+sscanf.o:
+         U _gp_disp
+00000000 T sscanf
+         U vsscanf
+
+fscanf.o:
+00000000 T fscanf
+         U _gp_disp
+         U vfscanf
+
+vscanf.o:
+         U _gp_disp
+         U stdin
+         U vfscanf
+00000000 T vscanf
+
+vsscanf.o:
+         U _gp_disp
+         U __stdio_init_mutex
+         U strlen
+         U vfscanf
+00000000 T vsscanf
+
+wscanf.o:
+         U _gp_disp
+         U stdin
+         U vfwscanf
+00000000 T wscanf
+
+swscanf.o:
+         U _gp_disp
+00000000 T swscanf
+         U vswscanf
+
+fwscanf.o:
+00000000 T fwscanf
+         U _gp_disp
+         U vfwscanf
+
+vwscanf.o:
+         U _gp_disp
+         U stdin
+         U vfwscanf
+00000000 T vwscanf
+
+vswscanf.o:
+         U _gp_disp
+         U __stdio_init_mutex
+         U vfwscanf
+00000000 T vswscanf
+         U wcslen
+
+vfwscanf.o:
+         U fgetwc_unlocked
+         U _gp_disp
+         U __init_scan_cookie
+         U iswspace
+         U memset
+         U __psfs_do_numeric
+         U __psfs_parse_spec
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U __scan_getc
+         U __scan_ungetc
+         U _store_inttype
+         U ungetwc
+00000208 T vfwscanf
+         U wcrtomb
+
+fgetpos64.o:
+00000000 T fgetpos64
+         U ftello64
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+fopen64.o:
+00000000 T fopen64
+         U _gp_disp
+         U _stdio_fopen
+
+freopen64.o:
+         U fclose
+00000000 T freopen64
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U _stdio_fopen
+
+fseeko64.o:
+         U __errno_location
+00000000 W fseeko64
+00000000 T __fseeko64
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U __stdio_adjust_position
+         U __stdio_seek
+         U __stdio_wcommit
+
+fsetpos64.o:
+         U fseeko64
+00000000 T fsetpos64
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+ftello64.o:
+00000000 W ftello64
+00000000 T __ftello64
+         U _gp_disp
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U __stdio_adjust_position
+         U __stdio_seek
+
+abs.o:
+
+labs.o:
+00000000 T abs
+00000000 T labs
+
+atoi.o:
+
+atol.o:
+00000000 T atoi
+00000000 T atol
+         U _gp_disp
+         U strtol
+
+strtol.o:
+         U _gp_disp
+         U _stdlib_strto_l
+00000000 T strtol
+
+strtoul.o:
+         U _gp_disp
+         U _stdlib_strto_l
+00000000 T strtoul
+
+_stdlib_strto_l.o:
+         U __ctype_b
+         U __errno_location
+         U _gp_disp
+00000000 T _stdlib_strto_l
+
+qsort.o:
+00000000 T qsort
+
+bsearch.o:
+00000000 T bsearch
+
+llabs.o:
+00000000 T imaxabs
+00000000 T llabs
+
+atoll.o:
+00000000 T atoll
+         U _gp_disp
+         U strtoll
+
+strtoll.o:
+         U _gp_disp
+         U _stdlib_strto_ll
+00000000 T strtoimax
+00000000 T strtoll
+00000000 T strtoq
+
+strtoull.o:
+         U _gp_disp
+         U _stdlib_strto_ll
+00000000 T strtoull
+00000000 T strtoumax
+00000000 T strtouq
+
+_stdlib_strto_ll.o:
+         U __ctype_b
+         U __errno_location
+         U _gp_disp
+00000000 T _stdlib_strto_ll
+
+atof.o:
+00000000 T atof
+         U _gp_disp
+         U strtod
+
+mblen.o:
+         U _gp_disp
+00000000 T mblen
+         U mbrlen
+
+mbtowc.o:
+         U _gp_disp
+         U mbrtowc
+00000000 T mbtowc
+
+wctomb.o:
+         U _gp_disp
+         U wcrtomb
+00000000 T wctomb
+
+mbstowcs.o:
+         U _gp_disp
+         U mbsrtowcs
+00000000 T mbstowcs
+
+wcstombs.o:
+         U _gp_disp
+         U wcsrtombs
+00000000 T wcstombs
+
+_stdlib_mb_cur_max.o:
+00000000 T _stdlib_mb_cur_max
+
+_stdlib_wcsto_l.o:
+         U __errno_location
+         U _gp_disp
+         U iswspace
+00000000 T _stdlib_wcsto_l
+
+_stdlib_wcsto_ll.o:
+         U __errno_location
+         U _gp_disp
+         U iswspace
+00000000 T _stdlib_wcsto_ll
+
+wcstol.o:
+         U _gp_disp
+         U _stdlib_wcsto_l
+00000000 T wcstol
+
+wcstoul.o:
+         U _gp_disp
+         U _stdlib_wcsto_l
+00000000 T wcstoul
+
+wcstoll.o:
+         U _gp_disp
+         U _stdlib_wcsto_ll
+00000000 T wcstoimax
+00000000 T wcstoll
+00000000 T wcstoq
+
+wcstoull.o:
+         U _gp_disp
+         U _stdlib_wcsto_ll
+00000000 T wcstoull
+00000000 T wcstoumax
+00000000 T wcstouq
+
+strtod.o:
+         U __fp_range_check
+         U _gp_disp
+00000000 T strtod
+         U __strtofpmax
+
+strtof.o:
+         U __fp_range_check
+         U _gp_disp
+00000000 T strtof
+         U __strtofpmax
+
+strtold.o:
+         U _gp_disp
+         U __strtofpmax
+00000000 T strtold
+
+__strtofpmax.o:
+         U __ctype_b
+         U __ctype_tolower
+         U __errno_location
+         U _gp_disp
+00000000 r $LC0
+00000008 r $LC1
+00000000 T __strtofpmax
+
+__fp_range_check.o:
+         U __errno_location
+00000000 T __fp_range_check
+         U _gp_disp
+00000000 r $LC0
+
+wcstod.o:
+         U __fp_range_check
+         U _gp_disp
+00000000 T wcstod
+         U __wcstofpmax
+
+wcstof.o:
+         U __fp_range_check
+         U _gp_disp
+00000000 T wcstof
+         U __wcstofpmax
+
+wcstold.o:
+         U _gp_disp
+         U __wcstofpmax
+00000000 T wcstold
+
+__wcstofpmax.o:
+         U __ctype_b
+         U __ctype_tolower
+         U __errno_location
+         U _gp_disp
+         U iswspace
+00000000 r $LC0
+00000008 r $LC1
+00000000 T __wcstofpmax
+
+atexit.o:
+00000000 T atexit
+         U __errno_location
+         U __exit_cleanup
+         U __exit_count
+         U __exit_function_table
+         U __exit_handler
+         U _gp_disp
+         U mylock
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+on_exit.o:
+         U __errno_location
+         U __exit_cleanup
+         U __exit_count
+         U __exit_function_table
+         U __exit_handler
+         U _gp_disp
+         U mylock
+00000000 T on_exit
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+__exit_handler.o:
+00000000 B __exit_count
+000000f0 C __exit_function_table
+00000000 T __exit_handler
+         U _gp_disp
+
+exit.o:
+         U __app_fini
+00000000 T exit
+         U _exit
+00000000 B __exit_cleanup
+         U _gp_disp
+00000000 D mylock
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         w _stdio_term
+
+abort.o:
+00000000 T abort
+         U _exit
+         U _gp_disp
+         U memset
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U raise
+         U sigaction
+         U __sigaddset
+         U sigprocmask
+
+getenv.o:
+         U __environ
+00000000 T getenv
+         U _gp_disp
+         U memcmp
+         U strlen
+
+mkdtemp.o:
+         U __gen_tempname
+         U _gp_disp
+00000000 T mkdtemp
+
+mktemp.o:
+         U __gen_tempname
+         U _gp_disp
+00000000 T mktemp
+
+realpath.o:
+         U __errno_location
+         U getcwd
+         U _gp_disp
+         U readlink
+00000000 T realpath
+         U strcat
+         U strcpy
+         U strlen
+
+mkstemp.o:
+         U __gen_tempname
+         U _gp_disp
+00000000 T mkstemp
+
+mkstemp64.o:
+         U __gen_tempname
+         U _gp_disp
+00000000 T mkstemp64
+
+rand.o:
+         U _gp_disp
+00000000 T rand
+         U random
+
+random.o:
+         U _gp_disp
+00000114 T initstate
+         U initstate_r
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 T random
+         U random_r
+0000007c T setstate
+         U setstate_r
+000001c0 W srand
+000001c0 T srandom
+         U srandom_r
+
+random_r.o:
+         U __errno_location
+         U _gp_disp
+00000390 T initstate_r
+00000000 T random_r
+00000258 T setstate_r
+00000104 T srandom_r
+
+setenv.o:
+0000020c T __add_to_environ
+00000000 T clearenv
+         U __environ
+         U __errno_location
+         U free
+         U _gp_disp
+         U malloc
+         U memcpy
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000508 T putenv
+         U realloc
+000005c8 T setenv
+         U strchr
+         U strlen
+         U strncmp
+         U strndup
+000000a4 T unsetenv
+
+system.o:
+         U execl
+         U _exit
+         U fork
+         U _gp_disp
+00000000 r $LC0
+00000008 r $LC1
+0000000c r $LC2
+00000000 T __libc_system
+         U signal
+00000000 W system
+         U wait4
+
+div.o:
+00000000 T div
+
+ldiv.o:
+00000000 T ldiv
+
+lldiv.o:
+         U __divdi3
+         U _gp_disp
+00000000 W imaxdiv
+00000000 T lldiv
+         U __moddi3
+
+getpt.o:
+00000000 T __bsd_getpt
+         U __errno_location
+0000014c T getpt
+         U _gp_disp
+00000000 r $LC0
+0000000c r $LC1
+         U memcpy
+         U open
+00000000 R _ptyname1
+00000014 R _ptyname2
+         U strlen
+
+ptsname.o:
+         U __errno_location
+         U fstat
+         U _gp_disp
+         U ioctl
+         U isatty
+00000000 r $LC0
+000003f8 T ptsname
+00000040 T ptsname_r
+         U _ptyname1
+         U _ptyname2
+         U stat
+         U strcat
+         U strcpy
+         U strlen
+         U _uintmaxtostr
+
+grantpt.o:
+00000000 T grantpt
+
+unlockpt.o:
+         U __errno_location
+         U _gp_disp
+         U ioctl
+00000000 T unlockpt
+
+gcvt.o:
+00000000 T gcvt
+         U _gp_disp
+00000000 r $LC0
+         U sprintf
+
+drand48-iter.o:
+00000000 T __drand48_iterate
+00000018 C __libc_drand48_data
+
+jrand48.o:
+         U _gp_disp
+00000000 T jrand48
+         U jrand48_r
+         U __libc_drand48_data
+
+jrand48_r.o:
+         U __drand48_iterate
+         U _gp_disp
+00000000 T jrand48_r
+
+lrand48.o:
+         U _gp_disp
+         U __libc_drand48_data
+00000000 T lrand48
+         U nrand48_r
+
+lrand48_r.o:
+         U _gp_disp
+00000000 T lrand48_r
+         U nrand48_r
+
+mrand48.o:
+         U _gp_disp
+         U jrand48_r
+         U __libc_drand48_data
+00000000 T mrand48
+
+mrand48_r.o:
+         U _gp_disp
+         U jrand48_r
+00000000 T mrand48_r
+
+nrand48.o:
+         U _gp_disp
+         U __libc_drand48_data
+00000000 T nrand48
+         U nrand48_r
+
+nrand48_r.o:
+         U __drand48_iterate
+         U _gp_disp
+00000000 T nrand48_r
+
+rand_r.o:
+00000000 T rand_r
+
+srand48.o:
+         U _gp_disp
+         U __libc_drand48_data
+00000000 T srand48
+         U srand48_r
+
+srand48_r.o:
+00000000 T srand48_r
+
+seed48.o:
+         U _gp_disp
+         U __libc_drand48_data
+00000000 T seed48
+         U seed48_r
+
+seed48_r.o:
+         U _gp_disp
+         U memcpy
+00000000 T seed48_r
+
+valloc.o:
+         U getpagesize
+         U _gp_disp
+         U memalign
+00000000 T valloc
+
+drand48.o:
+00000000 T drand48
+         U erand48_r
+         U _gp_disp
+         U __libc_drand48_data
+
+drand48_r.o:
+00000000 T drand48_r
+         U erand48_r
+         U _gp_disp
+
+erand48.o:
+00000000 T erand48
+         U erand48_r
+         U _gp_disp
+         U __libc_drand48_data
+
+erand48_r.o:
+         U __drand48_iterate
+00000000 T erand48_r
+         U _gp_disp
+00000000 r $LC0
+
+malloc.o:
+         U abort
+         U __errno_location
+         U free
+         U _gp_disp
+0000008c T malloc
+         U __malloc_consolidate
+00000000 D __malloc_lock
+00000378 C __malloc_state
+         U mmap
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U sbrk
+
+calloc.o:
+00000000 T calloc
+         U __errno_location
+         U _gp_disp
+         U malloc
+         U __malloc_lock
+         U memset
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+realloc.o:
+         U abort
+         U __errno_location
+         U free
+         U _gp_disp
+         U malloc
+         U __malloc_lock
+         U __malloc_state
+         U memcpy
+         U mremap
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+00000000 T realloc
+
+free.o:
+         U abort
+00000324 T free
+         U _gp_disp
+00000124 T __malloc_consolidate
+         U __malloc_lock
+         U __malloc_state
+000005a0 T malloc_trim
+         U munmap
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U sbrk
+         U sysconf
+
+memalign.o:
+         U __errno_location
+         U free
+         U _gp_disp
+         U malloc
+         U __malloc_lock
+00000000 T memalign
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+mallopt.o:
+         U _gp_disp
+         U __malloc_consolidate
+         U __malloc_lock
+         U __malloc_state
+00000000 T mallopt
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+
+mallinfo.o:
+         U fprintf
+         U _gp_disp
+00000000 r $LC0
+0000002c r $LC1
+00000058 r $LC2
+00000084 r $LC3
+000000b0 r $LC4
+000000dc r $LC5
+00000108 r $LC6
+00000134 r $LC7
+00000160 r $LC8
+00000000 T mallinfo
+         U __malloc_consolidate
+         U __malloc_lock
+         U __malloc_state
+000001c8 T malloc_stats
+         U __pthread_mutex_lock
+         U __pthread_mutex_unlock
+         U stderr
+
+basename.o:
+00000000 T basename
+
+bcopy.o:
+00000000 T bcopy
+         U _gp_disp
+         U memmove
+
+bzero.o:
+00000000 W bzero
+00000000 T __bzero
+
+dirname.o:
+00000000 T dirname
+         U _gp_disp
+
+ffs.o:
+00000000 T ffs
+
+memccpy.o:
+00000000 T memccpy
+
+memchr.o:
+00000000 T memchr
+
+memcmp.o:
+00000000 W bcmp
+00000000 T memcmp
+
+memcpy.o:
+00000000 T memcpy
+
+memmove.o:
+00000000 T memmove
+
+mempcpy.o:
+00000000 W mempcpy
+00000000 T __mempcpy
+
+memrchr.o:
+00000000 T memrchr
+
+memset.o:
+00000000 T memset
+
+rawmemchr.o:
+00000000 T rawmemchr
+
+stpcpy.o:
+00000000 T stpcpy
+
+stpncpy.o:
+00000000 T stpncpy
+
+strcasecmp.o:
+         U __ctype_tolower
+         U _gp_disp
+00000000 T strcasecmp
+
+strcasestr.o:
+         U __ctype_tolower
+         U _gp_disp
+00000000 T strcasestr
+
+strcat.o:
+00000000 T strcat
+
+strchrnul.o:
+00000000 W strchrnul
+00000000 T __strchrnul
+
+strchr.o:
+00000000 W index
+00000000 T strchr
+
+strcmp.o:
+00000000 T strcmp
+00000000 W strcoll
+
+strcpy.o:
+00000000 T strcpy
+
+strcspn.o:
+00000000 T strcspn
+
+strdup.o:
+         U _gp_disp
+         U malloc
+         U strcpy
+00000000 T strdup
+         U strlen
+
+strlen.o:
+00000000 T strlen
+
+strncasecmp.o:
+         U __ctype_tolower
+         U _gp_disp
+00000000 T strncasecmp
+
+strncat.o:
+00000000 T strncat
+
+strncmp.o:
+00000000 T strncmp
+
+strncpy.o:
+00000000 T strncpy
+
+strndup.o:
+         U _gp_disp
+         U malloc
+         U memcpy
+00000000 T strndup
+         U strnlen
+
+strnlen.o:
+00000000 T strnlen
+
+strpbrk.o:
+00000000 T strpbrk
+
+strrchr.o:
+00000000 W rindex
+00000000 T strrchr
+
+strsep.o:
+         U _gp_disp
+         U strpbrk
+00000000 T strsep
+
+strspn.o:
+00000000 T strspn
+
+strstr.o:
+00000000 T strstr
+
+strtok.o:
+         U _gp_disp
+00000000 T strtok
+         U __strtok_r
+
+strtok_r.o:
+         U _gp_disp
+         U strpbrk
+         U strspn
+00000000 T __strtok_r
+00000000 W strtok_r
+
+strerror.o:
+         U _gp_disp
+00000000 T strerror
+         U __xpg_strerror_r
+
+__xpg_strerror_r.o:
+         U __errno_location
+         U _gp_disp
+         U memcpy
+         U _string_syserrmsgs
+         U strlen
+         U _uintmaxtostr
+00000000 T __xpg_strerror_r
+
+_string_syserrmsgs.o:
+00000000 R _string_syserrmsgs
+
+__glibc_strerror_r.o:
+00000000 T __glibc_strerror_r
+00000000 W _glibc_strerror_r
+         U _gp_disp
+00000000 W __strerror_r
+         U __xpg_strerror_r
+
+_string_syssigmsgs.o:
+00000000 R _string_syssigmsgs
+
+sys_siglist.o:
+
+strsignal.o:
+         U _gp_disp
+         U memcpy
+         U _string_syssigmsgs
+00000000 T strsignal
+         U _uintmaxtostr
+
+psignal.o:
+         U fprintf
+         U _gp_disp
+00000000 r $LC0
+00000004 r $LC1
+00000000 T psignal
+         U stderr
+         U strsignal
+
+__xpg_basename.o:
+         U _gp_disp
+00000000 T __xpg_basename
+
+strlcat.o:
+00000000 T strlcat
+
+strlcpy.o:
+00000000 T strlcpy
+00000000 W strxfrm
+
+sys_errlist.o:
+
+memmem.o:
+00000000 T memmem
+
+wcscasecmp.o:
+         U _gp_disp
+         U towlower
+00000000 T wcscasecmp
+
+wcscat.o:
+00000000 T wcscat
+
+wcschrnul.o:
+00000000 W wcschrnul
+00000000 T __wcschrnul
+
+wcschr.o:
+00000000 T wcschr
+
+wcscmp.o:
+00000000 T wcscmp
+00000000 W wcscoll
+
+wcscpy.o:
+00000000 T wcscpy
+
+wcscspn.o:
+00000000 T wcscspn
+
+wcsdup.o:
+         U _gp_disp
+         U malloc
+         U wcscpy
+00000000 T wcsdup
+         U wcslen
+
+wcslen.o:
+00000000 T wcslen
+
+wcsncasecmp.o:
+         U _gp_disp
+         U towlower
+00000000 T wcsncasecmp
+
+wcsncat.o:
+00000000 T wcsncat
+
+wcsncmp.o:
+00000000 T wcsncmp
+
+wcsncpy.o:
+00000000 T wcsncpy
+
+wcsnlen.o:
+00000000 T wcsnlen
+
+wcspbrk.o:
+00000000 T wcspbrk
+
+wcsrchr.o:
+00000000 T wcsrchr
+
+wcsspn.o:
+00000000 T wcsspn
+
+wcsstr.o:
+00000000 T wcsstr
+00000000 W wcswcs
+
+wcstok.o:
+         U _gp_disp
+         U wcspbrk
+         U wcsspn
+00000000 T wcstok
+
+wmemchr.o:
+00000000 T wmemchr
+
+wmemcmp.o:
+00000000 T wmemcmp
+
+wmemcpy.o:
+00000000 T wmemcpy
+
+wmemmove.o:
+00000000 T wmemmove
+
+wmempcpy.o:
+00000000 T wmempcpy
+
+wmemset.o:
+00000000 T wmemset
+
+wcpcpy.o:
+00000000 T wcpcpy
+
+wcpncpy.o:
+00000000 T wcpncpy
+
+__wcslcpy.o:
+00000000 T __wcslcpy
+00000000 W wcsxfrm
+
+wcsxfrm.o:
+
+strxfrm.o:
+
+__rt_sigtimedwait.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __rt_sigtimedwait
+00000058 T sigtimedwait
+00000074 T sigwaitinfo
+
+__socketcall.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __socketcall
+
+__syscall_fcntl.o:
+         U __errno_location
+00000000 W fcntl
+         U _gp_disp
+00000000 T __libc_fcntl
+         U __libc_fcntl64
+
+__syscall_fcntl64.o:
+         U __errno_location
+00000000 W fcntl64
+         U _gp_disp
+00000000 T __libc_fcntl64
+
+__syscall_ipc.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __syscall_ipc
+
+__syscall_rt_sigaction.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __syscall_rt_sigaction
+
+__syscall_sigaction.o:
+
+_exit.o:
+         U __errno_location
+00000000 T _exit
+         U _gp_disp
+
+access.o:
+00000000 T access
+         U __errno_location
+         U _gp_disp
+
+acct.o:
+00000000 T acct
+         U __errno_location
+         U _gp_disp
+
+adjtimex.o:
+00000000 T adjtimex
+00000000 W __adjtimex
+         U __errno_location
+         U _gp_disp
+00000000 W ntp_adjtime
+
+alarm.o:
+00000000 T alarm
+         U __errno_location
+         U _gp_disp
+
+bdflush.o:
+00000000 T bdflush
+         U __errno_location
+         U _gp_disp
+
+capget.o:
+00000000 T capget
+         U __errno_location
+         U _gp_disp
+
+capset.o:
+00000000 T capset
+         U __errno_location
+         U _gp_disp
+
+chdir.o:
+00000000 T chdir
+         U __errno_location
+         U _gp_disp
+
+chmod.o:
+00000000 T chmod
+         U __errno_location
+         U _gp_disp
+
+chown.o:
+00000000 T chown
+         U __errno_location
+         U _gp_disp
+
+chroot.o:
+00000000 T chroot
+         U __errno_location
+         U _gp_disp
+
+clock_getres.o:
+00000000 T clock_getres
+         U __errno_location
+         U _gp_disp
+
+clock_gettime.o:
+00000000 T clock_gettime
+         U __errno_location
+         U _gp_disp
+
+clock_settime.o:
+00000000 T clock_settime
+         U __errno_location
+         U _gp_disp
+
+close.o:
+00000000 W close
+         U __errno_location
+         U _gp_disp
+00000000 T __libc_close
+
+cmsg_nxthdr.o:
+00000000 T __cmsg_nxthdr
+
+creat64.o:
+00000000 T creat64
+         U _gp_disp
+         U open64
+
+create_module.o:
+00000000 T create_module
+         U __errno_location
+         U _gp_disp
+
+delete_module.o:
+00000000 T delete_module
+         U __errno_location
+         U _gp_disp
+
+dup.o:
+00000000 T dup
+         U __errno_location
+         U _gp_disp
+
+dup2.o:
+00000000 T dup2
+         U __errno_location
+         U _gp_disp
+
+epoll.o:
+000000b0 T epoll_create
+00000058 T epoll_ctl
+00000000 T epoll_wait
+         U __errno_location
+         U _gp_disp
+
+execve.o:
+         U __errno_location
+00000000 T execve
+         U _gp_disp
+
+fchdir.o:
+         U __errno_location
+00000000 T fchdir
+         U _gp_disp
+
+fchmod.o:
+         U __errno_location
+00000000 T fchmod
+         U _gp_disp
+
+fchown.o:
+         U __errno_location
+00000000 T fchown
+         U _gp_disp
+
+fdatasync.o:
+         U __errno_location
+00000000 T fdatasync
+         U _gp_disp
+
+flock.o:
+         U __errno_location
+00000000 T flock
+         U _gp_disp
+
+fork.o:
+         U __errno_location
+00000000 W fork
+         U _gp_disp
+00000000 T __libc_fork
+
+fstat.o:
+         U __errno_location
+00000000 T fstat
+         U _gp_disp
+         U __xstat_conv
+
+fstat64.o:
+         U __errno_location
+00000000 T fstat64
+         U _gp_disp
+         U __xstat64_conv
+
+fstatfs.o:
+         U __errno_location
+00000000 T fstatfs
+         U _gp_disp
+
+fsync.o:
+         U __errno_location
+00000000 W fsync
+         U _gp_disp
+00000000 T __libc_fsync
+
+ftruncate.o:
+         U __errno_location
+00000000 T ftruncate
+         U _gp_disp
+
+ftruncate64.o:
+         U __errno_location
+00000000 T ftruncate64
+         U _gp_disp
+
+get_kernel_syms.o:
+         U __errno_location
+00000000 T get_kernel_syms
+         U _gp_disp
+
+getcwd.o:
+         U __errno_location
+         U free
+00000000 T getcwd
+         U _gp_disp
+         U malloc
+         U realloc
+
+getdents.o:
+         U __errno_location
+00000000 T __getdents
+         U _gp_disp
+         U lseek
+         U memcpy
+
+getdents64.o:
+         U __errno_location
+00000000 T __getdents64
+         U _gp_disp
+         U lseek64
+         U memcpy
+
+getdirname.o:
+00000000 T get_current_dir_name
+         U getcwd
+         U getenv
+         U _gp_disp
+00000000 r $LC0
+00000004 r $LC1
+         U stat64
+         U strdup
+
+getdnnm.o:
+         U __errno_location
+00000000 T getdomainname
+         U _gp_disp
+         U strcpy
+         U strlen
+         U uname
+
+getdtablesize.o:
+00000000 T getdtablesize
+         U getrlimit
+         U _gp_disp
+
+getegid.o:
+         U __errno_location
+00000000 T getegid
+         U _gp_disp
+
+geteuid.o:
+         U __errno_location
+00000000 T geteuid
+         U _gp_disp
+
+getgid.o:
+         U __errno_location
+00000000 T getgid
+         U _gp_disp
+
+getgroups.o:
+         U __errno_location
+00000000 T getgroups
+         U _gp_disp
+         U sysconf
+
+gethstnm.o:
+         U __errno_location
+00000000 T gethostname
+         U _gp_disp
+         U strcpy
+         U strlen
+         U uname
+
+getitimer.o:
+         U __errno_location
+00000000 T getitimer
+         U _gp_disp
+
+getpagesize.o:
+00000000 W getpagesize
+00000000 T __getpagesize
+         U _gp_disp
+         U __pagesize
+
+getpgid.o:
+         U __errno_location
+00000000 W getpgid
+00000000 T __getpgid
+         U _gp_disp
+
+getpgrp.o:
+         U __errno_location
+00000000 T getpgrp
+         U _gp_disp
+
+getpid.o:
+         U __errno_location
+00000000 W getpid
+00000000 W __getpid
+         U _gp_disp
+00000000 T __libc_getpid
+
+getppid.o:
+         U __errno_location
+00000000 T getppid
+         U _gp_disp
+
+getpriority.o:
+         U __errno_location
+00000000 T getpriority
+         U _gp_disp
+
+getresgid.o:
+         U __errno_location
+00000000 T getresgid
+         U _gp_disp
+
+getresuid.o:
+         U __errno_location
+00000000 T getresuid
+         U _gp_disp
+
+getrlimit.o:
+         U __errno_location
+00000000 T getrlimit
+         U _gp_disp
+
+getrlimit64.o:
+         U getrlimit
+00000000 T getrlimit64
+         U _gp_disp
+
+getrusage.o:
+         U __errno_location
+00000000 T getrusage
+         U _gp_disp
+
+getsid.o:
+         U __errno_location
+00000000 T getsid
+         U _gp_disp
+
+gettimeofday.o:
+         U __errno_location
+00000000 T gettimeofday
+         U _gp_disp
+
+getuid.o:
+         U __errno_location
+00000000 T getuid
+         U _gp_disp
+
+init_module.o:
+         U __errno_location
+         U _gp_disp
+00000000 T init_module
+
+ioctl.o:
+         U __errno_location
+         U _gp_disp
+00000058 T ioctl
+00000000 T __syscall_ioctl
+
+ioperm.o:
+         U __errno_location
+         U _gp_disp
+00000000 T ioperm
+
+iopl.o:
+         U __errno_location
+         U _gp_disp
+00000000 T iopl
+
+kill.o:
+         U __errno_location
+         U _gp_disp
+00000000 T kill
+
+klogctl.o:
+         U __errno_location
+         U _gp_disp
+00000000 T klogctl
+
+lchown.o:
+         U __errno_location
+         U _gp_disp
+00000000 T lchown
+
+link.o:
+         U __errno_location
+         U _gp_disp
+00000000 T link
+
+llseek.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __libc_lseek64
+00000000 W llseek
+00000000 W _llseek
+00000000 W lseek64
+
+longjmp.o:
+         U _gp_disp
+00000000 T __libc_longjmp
+00000000 W __libc_siglongjmp
+00000000 W longjmp
+00000000 W _longjmp
+         U __longjmp
+00000000 W siglongjmp
+         U sigprocmask
+
+lseek.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __libc_lseek
+00000000 W lseek
+
+lstat.o:
+         U __errno_location
+         U _gp_disp
+00000000 T lstat
+         U __xstat_conv
+
+lstat64.o:
+         U __errno_location
+         U _gp_disp
+00000000 T lstat64
+         U __xstat64_conv
+
+madvise.o:
+         U __errno_location
+         U _gp_disp
+00000000 T madvise
+
+mincore.o:
+         U __errno_location
+         U _gp_disp
+00000000 T mincore
+
+mkdir.o:
+         U __errno_location
+         U _gp_disp
+00000000 T mkdir
+
+mkfifo.o:
+         U _gp_disp
+00000000 T mkfifo
+         U mknod
+
+mknod.o:
+         U __errno_location
+         U _gp_disp
+00000000 T mknod
+
+mlock.o:
+         U __errno_location
+         U _gp_disp
+00000000 T mlock
+
+mlockall.o:
+         U __errno_location
+         U _gp_disp
+00000000 T mlockall
+
+mmap.o:
+         U __errno_location
+         U _gp_disp
+00000000 T mmap
+
+mmap64.o:
+         U __errno_location
+         U _gp_disp
+00000000 T mmap64
+
+modify_ldt.o:
+         U __errno_location
+         U _gp_disp
+00000000 W __modify_ldt
+00000000 T modify_ldt
+
+mount.o:
+         U __errno_location
+         U _gp_disp
+00000000 T mount
+
+mprotect.o:
+         U __errno_location
+         U _gp_disp
+00000000 T mprotect
+
+mremap.o:
+         U __errno_location
+         U _gp_disp
+00000000 T mremap
+
+msync.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __libc_msync
+00000000 W msync
+
+munlock.o:
+         U __errno_location
+         U _gp_disp
+00000000 T munlock
+
+munlockall.o:
+         U __errno_location
+         U _gp_disp
+00000000 T munlockall
+
+munmap.o:
+         U __errno_location
+         U _gp_disp
+00000000 T munmap
+
+nanosleep.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __libc_nanosleep
+00000000 W nanosleep
+
+nice.o:
+         U __errno_location
+         U getpriority
+         U _gp_disp
+00000000 T nice
+
+noophooks.o:
+00000000 T __cyg_profile_func_enter
+00000000 T __cyg_profile_func_exit
+
+ntp_gettime.o:
+         U __adjtimex
+         U _gp_disp
+00000000 T ntp_gettime
+
+open.o:
+00000070 T creat
+         U __errno_location
+         U _gp_disp
+00000000 T __libc_open
+00000000 W open
+
+open64.o:
+         U _gp_disp
+         U __libc_open
+00000000 T __libc_open64
+00000000 W open64
+
+pause.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __libc_pause
+00000000 W pause
+
+personality.o:
+         U __errno_location
+         U _gp_disp
+00000000 T personality
+
+pipe.o:
+         U errno
+00000000 T pipe
+
+pivot_root.o:
+         U __errno_location
+         U _gp_disp
+00000000 T pivot_root
+
+poll.o:
+         U __errno_location
+         U _gp_disp
+00000000 T poll
+
+posix_fadvise.o:
+         U __errno_location
+         U _gp_disp
+00000058 T __libc_posix_fadvise
+00000058 W posix_fadvise
+00000058 W posix_fadvise64
+00000000 T __syscall_fadvise64
+
+posix_fadvise64.o:
+
+prctl.o:
+         U __errno_location
+         U _gp_disp
+00000000 T prctl
+
+pread_write.o:
+         U __errno_location
+         U _gp_disp
+000001b4 T __libc_pread
+00000188 T __libc_pread64
+000000b4 T __libc_pwrite
+00000088 T __libc_pwrite64
+000001b4 W pread
+00000188 W pread64
+000000b4 W pwrite
+00000088 W pwrite64
+
+ptrace.o:
+         U __errno_location
+         U _gp_disp
+00000000 T ptrace
+
+query_module.o:
+         U __errno_location
+         U _gp_disp
+00000000 T query_module
+
+quotactl.o:
+         U __errno_location
+         U _gp_disp
+00000000 T quotactl
+
+read.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __libc_read
+00000000 W read
+
+readlink.o:
+         U __errno_location
+         U _gp_disp
+00000000 T readlink
+
+readv.o:
+         U __errno_location
+         U _gp_disp
+00000000 T readv
+
+reboot.o:
+         U __errno_location
+         U _gp_disp
+00000000 T reboot
+
+rename.o:
+         U __errno_location
+         U _gp_disp
+00000000 T rename
+
+rmdir.o:
+         U __errno_location
+         U _gp_disp
+00000000 T rmdir
+
+sbrk.o:
+         U brk
+         U __curbrk
+         U _gp_disp
+00000000 T sbrk
+
+sched_get_priority_max.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sched_get_priority_max
+
+sched_get_priority_min.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sched_get_priority_min
+
+sched_getparam.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sched_getparam
+
+sched_getscheduler.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sched_getscheduler
+
+sched_rr_get_interval.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sched_rr_get_interval
+
+sched_setparam.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sched_setparam
+
+sched_setscheduler.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sched_setscheduler
+
+sched_yield.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sched_yield
+
+select.o:
+         U __errno_location
+         U _gp_disp
+00000000 T _newselect
+00000000 W select
+
+sendfile.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sendfile
+
+sendfile64.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sendfile64
+
+setdomainname.o:
+         U __errno_location
+         U _gp_disp
+00000000 T setdomainname
+
+setegid.o:
+         U __errno_location
+         U _gp_disp
+00000000 T setegid
+         U setregid
+         U setresgid
+
+seteuid.o:
+         U __errno_location
+         U _gp_disp
+00000000 T seteuid
+         U setresuid
+         U setreuid
+
+setfsgid.o:
+         U __errno_location
+         U _gp_disp
+00000000 T setfsgid
+
+setfsuid.o:
+         U __errno_location
+         U _gp_disp
+00000000 T setfsuid
+
+setgid.o:
+         U __errno_location
+         U _gp_disp
+00000000 T setgid
+
+setgroups.o:
+         U __errno_location
+         U _gp_disp
+00000000 T setgroups
+         U sysconf
+
+sethostname.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sethostname
+
+setitimer.o:
+         U __errno_location
+         U _gp_disp
+00000000 T setitimer
+
+setpgid.o:
+         U __errno_location
+         U _gp_disp
+00000000 T setpgid
+
+setpgrp.o:
+         U _gp_disp
+         U setpgid
+00000000 T setpgrp
+
+setpriority.o:
+         U __errno_location
+         U _gp_disp
+00000000 T setpriority
+
+setregid.o:
+         U __errno_location
+         U _gp_disp
+00000000 T setregid
+
+setresgid.o:
+         U __errno_location
+         U _gp_disp
+00000000 T setresgid
+
+setresuid.o:
+         U __errno_location
+         U _gp_disp
+00000000 T setresuid
+
+setreuid.o:
+         U __errno_location
+         U _gp_disp
+00000000 T setreuid
+
+setrlimit.o:
+         U __errno_location
+         U _gp_disp
+00000058 T setrlimit
+00000000 T __setrlimit
+
+setrlimit64.o:
+         U _gp_disp
+         U setrlimit
+00000000 T setrlimit64
+
+setsid.o:
+         U __errno_location
+         U _gp_disp
+00000000 T setsid
+
+settimeofday.o:
+         U __errno_location
+         U _gp_disp
+00000000 T settimeofday
+
+setuid.o:
+         U __errno_location
+         U _gp_disp
+00000000 T setuid
+
+sigaltstack.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sigaltstack
+
+sigpending.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __rt_sigpending
+00000058 T sigpending
+
+sigprocmask.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __rt_sigprocmask
+00000058 T sigprocmask
+
+sigsuspend.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __rt_sigsuspend
+00000058 T sigsuspend
+
+stat.o:
+         U __errno_location
+         U _gp_disp
+00000000 T stat
+         U __xstat_conv
+
+stat64.o:
+         U __errno_location
+         U _gp_disp
+00000000 T stat64
+         U __xstat64_conv
+
+statfs.o:
+         U __errno_location
+         U _gp_disp
+00000000 T statfs
+
+stime.o:
+         U __errno_location
+         U _gp_disp
+00000000 T stime
+
+swapoff.o:
+         U __errno_location
+         U _gp_disp
+00000000 T swapoff
+
+swapon.o:
+         U __errno_location
+         U _gp_disp
+00000000 T swapon
+
+symlink.o:
+         U __errno_location
+         U _gp_disp
+00000000 T symlink
+
+sync.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sync
+
+sysctl.o:
+         U __errno_location
+         U _gp_disp
+         U memset
+00000000 T sysctl
+
+sysfs.o:
+
+sysinfo.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sysinfo
+
+time.o:
+         U __errno_location
+         U _gp_disp
+00000000 T time
+
+times.o:
+         U __errno_location
+         U _gp_disp
+00000000 T times
+
+truncate.o:
+         U __errno_location
+         U _gp_disp
+00000000 T truncate
+
+truncate64.o:
+         U __errno_location
+         U _gp_disp
+00000000 T truncate64
+
+ulimit.o:
+         U __errno_location
+         U getrlimit
+         U _gp_disp
+         U setrlimit
+         U sysconf
+00000000 T ulimit
+
+umask.o:
+         U __errno_location
+         U _gp_disp
+00000000 T umask
+
+umount.o:
+         U __errno_location
+         U _gp_disp
+00000000 T umount
+
+umount2.o:
+         U __errno_location
+         U _gp_disp
+00000000 T umount2
+
+uname.o:
+         U __errno_location
+         U _gp_disp
+00000000 T uname
+
+unlink.o:
+         U __errno_location
+         U _gp_disp
+00000000 T unlink
+
+uselib.o:
+         U __errno_location
+         U _gp_disp
+00000000 T uselib
+
+ustat.o:
+         U __errno_location
+         U _gp_disp
+00000000 T ustat
+
+utime.o:
+         U __errno_location
+         U _gp_disp
+00000000 T utime
+
+utimes.o:
+         U __errno_location
+         U _gp_disp
+00000000 T utimes
+
+vfork.o:
+         U fork
+         U _gp_disp
+00000000 T vfork
+
+vhangup.o:
+         U __errno_location
+         U _gp_disp
+00000000 T vhangup
+
+wait.o:
+         U _gp_disp
+00000000 T __libc_wait
+00000000 W wait
+         U wait4
+
+wait3.o:
+         U _gp_disp
+00000000 T wait3
+         U wait4
+
+wait4.o:
+         U __errno_location
+         U _gp_disp
+00000000 T wait4
+
+waitpid.o:
+         U _gp_disp
+00000000 T __libc_waitpid
+         U wait4
+00000000 W waitpid
+
+write.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __libc_write
+00000000 W write
+00000000 W __write
+
+writev.o:
+         U __errno_location
+         U _gp_disp
+00000000 T writev
+
+xattr.o:
+         U __errno_location
+00000210 T fgetxattr
+00000108 T flistxattr
+00000000 T fremovexattr
+00000318 T fsetxattr
+000002c0 T getxattr
+         U _gp_disp
+00000268 T lgetxattr
+000001b8 T listxattr
+00000160 T llistxattr
+00000058 T lremovexattr
+0000038c T lsetxattr
+000000b0 T removexattr
+00000400 T setxattr
+
+xstatconv.o:
+0000009c T __xstat64_conv
+00000000 T __xstat_conv
+
+bsd-_setjmp.o:
+         U _gp_disp
+00000000 T _setjmp
+         U __sigsetjmp
+
+bsd-setjmp.o:
+         U _gp_disp
+00000000 T setjmp
+         U __sigsetjmp
+
+setjmp.o:
+         U _gp_disp
+00000000 T __sigsetjmp
+         U __sigsetjmp_aux
+
+clone.o:
+00000000 W clone
+00000000 T __clone
+         U _exit
+         U _gp_disp
+         U __syscall_error
+00000070 T __thread_start
+
+syscall.o:
+00000000 T syscall
+
+__longjmp.o:
+00000000 T __longjmp
+
+brk.o:
+00000000 T brk
+00000000 B __curbrk
+         U __errno_location
+         U _gp_disp
+
+setjmp_aux.o:
+         U _gp_disp
+         U __sigjmp_save
+00000000 T __sigsetjmp_aux
+
+__syscall_error.o:
+         U __errno_location
+         U _gp_disp
+00000000 T __syscall_error
+
+cacheflush.o:
+00000000 T cachectl
+00000058 T cacheflush
+         U __errno_location
+00000058 W _flush_cache
+         U _gp_disp
+
+sysmips.o:
+         U __errno_location
+         U _gp_disp
+00000000 T sysmips
+
+_test_and_set.o:
+         U _gp_disp
+         U sysmips
+00000000 T _test_and_set
+
+tcdrain.o:
+         U _gp_disp
+         U ioctl
+00000000 T __libc_tcdrain
+00000000 W tcdrain
+
+tcflow.o:
+         U _gp_disp
+         U ioctl
+00000000 T tcflow
+
+tcflush.o:
+         U _gp_disp
+         U ioctl
+00000000 T tcflush
+
+tcsendbreak.o:
+         U _gp_disp
+         U ioctl
+00000000 T tcsendbreak
+
+tcsetpgrp.o:
+         U _gp_disp
+         U ioctl
+00000000 T tcsetpgrp
+
+tcgetpgrp.o:
+         U _gp_disp
+         U ioctl
+00000000 T tcgetpgrp
+
+isatty.o:
+         U _gp_disp
+00000000 T isatty
+         U tcgetattr
+
+cfgetospeed.o:
+00000000 T cfgetospeed
+
+cfgetispeed.o:
+00000000 T cfgetispeed
+
+cfsetospeed.o:
+00000000 T cfsetospeed
+         U __errno_location
+         U _gp_disp
+
+cfsetispeed.o:
+00000000 T cfsetispeed
+         U __errno_location
+         U _gp_disp
+
+cfmakeraw.o:
+00000000 T cfmakeraw
+
+cfsetspeed.o:
+         U cfsetispeed
+         U cfsetospeed
+00000000 T cfsetspeed
+         U __errno_location
+         U _gp_disp
+
+tcgetattr.o:
+         U _gp_disp
+         U ioctl
+         U mempcpy
+         U memset
+00000000 T tcgetattr
+
+tcgetsid.o:
+         U __errno_location
+         U getsid
+         U _gp_disp
+         U ioctl
+         U tcgetpgrp
+00000000 T tcgetsid
+
+tcsetattr.o:
+         U __errno_location
+         U _gp_disp
+         U ioctl
+         U memcpy
+00000000 T tcsetattr
+
+ttyname.o:
+         U closedir
+         U __errno_location
+         U fstat
+         U _gp_disp
+         U isatty
+         U lstat
+         U opendir
+         U readdir
+         U strcpy
+         U strlen
+000002b4 T ttyname
+00000000 T ttyname_r
+
+sleep.o:
+         U __errno_location
+         U _gp_disp
+         U nanosleep
+         U sigaction
+         U __sigaddset
+         U __sigismember
+         U sigprocmask
+00000000 T sleep
+
+usleep.o:
+         U _gp_disp
+         U nanosleep
+00000000 T usleep
+
+ualarm.o:
+         U _gp_disp
+         U setitimer
+00000000 T ualarm
+
+getpass.o:
+         U fclose
+         U fflush
+         U fgets
+         U fileno
+         U fopen
+         U fputc
+         U __fputc_unlocked
+         U fputs
+00000000 T getpass
+         U _gp_disp
+00000000 r $LC0
+0000000c r $LC1
+         U setvbuf
+         U stderr
+         U stdin
+         U strlen
+         U tcgetattr
+         U tcsetattr
+
+sysconf.o:
+         U __errno_location
+         U getdtablesize
+         U getpagesize
+         U _gp_disp
+00000000 W sysconf
+00000000 T __sysconf
+
+getlogin.o:
+00000020 T cuserid
+         U getenv
+00000000 T getlogin
+00000094 T getlogin_r
+         U _gp_disp
+00000000 r $LC0
+00000008 r $LC1
+         U strcpy
+         U strncpy
+
+fpathconf.o:
+         U __errno_location
+00000000 T fpathconf
+         U fstat
+         U fstatfs
+         U _gp_disp
+
+confstr.o:
+00000000 T confstr
+         U __errno_location
+         U _gp_disp
+         U memcpy
+
+pathconf.o:
+         U __errno_location
+         U _gp_disp
+00000000 T pathconf
+         U stat
+         U statfs
+
+swab.o:
+00000000 T swab
+
+usershell.o:
+         U calloc
+         U __ctype_b
+000003c4 T endusershell
+         U fclose
+         U fgets_unlocked
+         U fileno
+         U fopen
+         U free
+         U __fsetlocking
+         U fstat
+00000344 T getusershell
+         U _gp_disp
+00000000 r $LC0
+0000000c r $LC1
+         U malloc
+000002f4 T setusershell
+
+getsubopt.o:
+00000000 T getsubopt
+         U _gp_disp
+         U memchr
+         U memcmp
+         U __strchrnul
+
+daemon.o:
+         U chdir
+         U close
+00000000 T daemon
+         U dup2
+         U _exit
+         U fork
+         U _gp_disp
+00000000 r $LC0
+00000004 r $LC1
+         U open
+         U setsid
+
+getopt.o:
+         U fprintf
+         U getenv
+00000c98 T getopt
+0000010c T _getopt_internal
+00000c58 T getopt_long
+00000c14 T getopt_long_only
+         U _gp_disp
+00000000 r $LC0
+00000010 r $LC1
+00000124 r $LC10
+00000014 r $LC2
+00000034 r $LC3
+00000068 r $LC4
+0000009c r $LC5
+000000c4 r $LC6
+000000e4 r $LC7
+00000104 r $LC8
+00000108 r $LC9
+00000000 B optarg
+00000004 D opterr
+00000000 D optind
+00000008 D optopt
+         U stderr
+         U strchr
+         U strcmp
+         U strlen
+         U strncmp
+
+execl.o:
+         U __environ
+00000000 T execl
+         U execve
+         U _gp_disp
+
+execv.o:
+         U __environ
+00000000 T execv
+         U execve
+         U _gp_disp
+
+execle.o:
+00000000 T execle
+         U execve
+         U _gp_disp
+
+execlp.o:
+00000000 T execlp
+         U execvp
+         U _gp_disp
+
+execvp.o:
+         U __environ
+         U __errno_location
+         U execve
+00000000 T execvp
+         U getenv
+         U _gp_disp
+00000000 r $LC0
+00000008 r $LC1
+         U memcpy
+         U strchr
+         U __strchrnul
+         U strlen

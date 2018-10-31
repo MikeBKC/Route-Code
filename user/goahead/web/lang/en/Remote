@@ -1,0 +1,12 @@
+OutPort=Management Port
+Remote=Remote Management
+SUHTTP=Enable HTTP
+SUHTTPMessage=It allows you to manage the Device from anywhere over the Internet. URL format: http://IP address: port.
+Connector=Interface
+Attention=Note
+AttMessage=To ensure security, you'd better not enable HTTP remote management unless necessary.
+RYear=Year
+RMou=MonthRDay=Day
+rou_open=Enable Remote Management
+rou_dealPort=Remote Management Port
+rou_warn=After Remote Management is enabled, router will allow remote access to login the router's Web GUI through "http:// WAN IP Address: Remote management port"

@@ -1,0 +1,17 @@
+staticDhcpList=Static DHCP List
+staticDhcp=Static DHCP
+name=User Name
+poolName=Address Pool Name
+poolVid=VID
+ipAddr=IP Address
+macAddr=MAC Addres
+dhcpSvcSet=DHCP Server Settings
+staticDhcp=Static DHCP
+dhcpClient=DHCP Client List
+dnsSet=DNS Proxy
+dhcppool=DHCP Address Pool
+DHCP=DHCP Server
+staticDHCPMsg=static DHCP
+server=Server
+maxConfigTips=Maximum number of entries has been reached.Cannot add new entry.
+

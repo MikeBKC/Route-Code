@@ -1,0 +1,10 @@
+grou_setBW=带宽设置列表
+grou_limUp=上传限速
+grou_limDown=下载限速
+grou_bandLimDown=下载带宽限制
+grou_bandLimUp=上传带宽限制
+grou_dow=地
+grou_addr=址
+grou_setObj=带宽设置对象
+confine_name=限制对象
+mac_rate_limit=MAC限速

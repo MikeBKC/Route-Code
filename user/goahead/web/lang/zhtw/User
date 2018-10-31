@@ -1,0 +1,16 @@
+UserMesList=管理員配置資訊清單
+UserMaxMes=系統管理員已經達到最大個數，不能添加新管理員
+MakeSureDel=確定刪除？
+MakeSureDelAll=確定刪除所有條目？
+AddNew=添加新條目
+DelAll=刪除所有條目
+UserMes=管理員配置資訊
+SecondTitle=管理員配置
+Select=全選/全不選
+usr_username=用戶名稱
+usr_nowBit=當前流量
+usr_totalBit=流量統計
+usr_onlineTime=在線時長
+usr_down=下載
+usr_up=上傳
+usr_noNew=無信息

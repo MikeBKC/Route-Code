@@ -1,0 +1,2735 @@
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <dirent.h>
+#include <linux/autoconf.h>
+#include <mib.h>
+#include "utils.h"
+#include "webs.h"
+#include "firewall.h"
+#include "internet.h"
+#include "uttfunction.h"
+#include "uttMachine.h"
+#include "profacce.h"
+
+
+#include <net/if.h>
+#include <sys/ioctl.h>
+#include <netinet/in.h>
+
+#if defined CONFIG_SWITCH_EXT || (FEATURE_AC == FYES)
+#include <urcp_ipc.h>
+#include "webmsg.h"
+#endif
+
+#ifdef SWORD_DEBUG
+#define SWORD_PRINTF(fmt, args...)		printf(fmt, ## args)
+#else
+#define SWORD_PRINTF(fmt, args...)
+#endif
+int uttPlatMaxConfig[]={
+    UTT_MAX_WLAN_MAC_FILTER,
+    UTT_MAX_WLAN_MULTI_SSID,
+    UTT_MAX_DNS_FILTER,      
+    UTT_MAX_DHCP_STATIC_CLIENT,
+    UTT_MAX_NAT_MAP,
+    UTT_MAX_NAT_RULE,
+    UTT_MAX_NAT_BIND_IP,
+    UTT_MAX_STATIC_ROUTE,
+    UTT_MAX_ARP_BIND,
+    UTT_MAX_FIREWALL_POLICY,
+    //UTT_MAX_GROUP_CONFIG,
+    UTT_MAX_USER,
+    UTT_MAX_PPPOE_USER
+};
+
+#if SW_FEATURE_URCP || (FEATURE_AC == FYES)
+typedef urcp_status_t (*urcp_fp)(unsigned char mac[6], unsigned int userIp, unsigned int op_type);
+#endif
+/***********************************************************************
+ * 函 数 名：   wimSetScriptResult
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+void wimSetScriptResult(int eid, char *fmt, ...)
+{
+	va_list		args;
+	char_t		*buf;
+	
+	if(fmt == NULL) {    	
+    	ejSetResult(eid,fmt);
+    	return;
+	}
+
+	va_start(args, fmt);
+
+	buf = NULL;
+	fmtValloc(&buf, WEBS_BUFSIZE, fmt, args);
+	va_end(args);
+
+    ejSetResult(eid,buf);	
+    bfreeSafe(B_L, buf);	
+}
+/***********************************************************************
+ * 函 数 名：   aspForm
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+
+
+int aspForm(int eid, webs_t wp, int argc, char **argv)
+{
+	char *vName, *val;
+	
+	if(ejArgs(argc,argv,T("%s"), &vName) <1 ) {
+		websError(wp,500, T("Insufficient args\n"));
+	    return -1;
+	}
+	val=websGetVar(wp, T(vName),NULL); 
+	wimSetScriptResult(eid, val);
+	return 0;
+}
+/***********************************************************************
+ * 函 数 名：   aspGetInstMaxNum
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+int aspGetInstMaxNum(int eid, webs_t wp, int argc, char **argv)
+{
+    int profileType, instMax;
+    if(ejArgs(argc,argv,T("%d"), &profileType) <1 ) {
+	websError(wp,500, T("Insufficient args\n"));
+        return -1;
+    }
+    instMax = uttPlatMaxConfig[profileType];
+    wimSetScriptResult(eid, T("%d"), instMax);
+    return 0;
+}
+const char * day[]=
+{
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+    "Sun"
+};
+/***********************************************************************
+ * 函 数 名：   getDays
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+void getDays(unsigned char day_bit,char days[])
+{
+    unsigned char i,j=0;
+    for(i=0;i<7;i++)
+    {
+        if(day_bit&0x40)
+        {
+             strcat(days,day[i]);
+	     *(days+(j<<2)+3)=',';
+	     j++; 
+        }
+        day_bit<<=1;
+    }
+    *(days+(j<<2)-1)=0;
+}
+int webErrorIsOk = 1;
+int webRightIsOk = 1;
+static char errorMsgForWeb[MAX_LEN_ERROR_MSG];
+static char rightMsgForWeb[MAX_LEN_ERROR_MSG];
+/***********************************************************************
+ * 函 数 名：   setTheErrorMsg
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+void setTheErrorMsg(const char* errorMsg)
+{   
+    webErrorIsOk  = 0;
+    strncpy(errorMsgForWeb, errorMsg, MAX_LEN_ERROR_MSG - 1);
+}
+/***********************************************************************
+ * 函 数 名：   setTheErrorMsgOnFree
+ * 功能    ：   当错误消息内容为空的时候，写错误消息。否则不写
+ * 创建日期：	2011-11-05
+ * 修改日期：
+ * 作者：       bhou
+ * 附加说明：	无
+***********************************************************************/
+void setTheErrorMsgOnFree(const char* errorMsg)
+{   
+    if(webErrorIsOk == 1)
+    {
+	webErrorIsOk  = 0;
+	strncpy(errorMsgForWeb, errorMsg, MAX_LEN_ERROR_MSG - 1);
+    }
+}
+/***********************************************************************
+ * 函 数 名：   setTheErrorMsgCat
+ * 功能    ：   在现有错误消息的后面追加新的错误消息
+ * 创建日期：	2011-11-05
+ * 修改日期：
+ * 作者：       bhou
+ * 附加说明：	无
+***********************************************************************/
+void setTheErrorMsgCat(char* errorMsg)
+{   
+    int len = strlen(errorMsgForWeb);/*已有长度*/
+    webErrorIsOk  = 0;
+    strncpy(&errorMsgForWeb[len], errorMsg, MAX_LEN_ERROR_MSG - len - 1);
+}
+void setTheRightMsg(const char* rightMsg)
+{   
+    webRightIsOk  = 0;
+    strncpy(rightMsgForWeb, rightMsg, MAX_LEN_ERROR_MSG - 1);
+}
+/***********************************************************************
+ * 函 数 名：   getTheErrorMsg
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+int getTheErrorMsg(int eid, webs_t wp, int argc, char_t **argv)
+{
+    webErrorIsOk  = 1;
+    websWrite(wp,"var errorstr=\"%s\";", errorMsgForWeb);
+    memset(errorMsgForWeb, 0, MAX_LEN_ERROR_MSG);
+    return 0;
+}
+int getTheRightMsg(int eid, webs_t wp, int argc, char_t **argv)
+{
+    webRightIsOk  = 1;
+    websWrite(wp,"var rightstr=\"%s\";", rightMsgForWeb);
+    memset(rightMsgForWeb, 0, MAX_LEN_ERROR_MSG);
+    return 0;
+}
+/***********************************************************************
+ * 函 数 名：   strnmatch
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+char *strnmatch(const char *known,const char *substr,int n)
+{
+    char *tmp;
+    int ct=0;
+    tmp=(char*)known;
+    if (known == substr)
+        return ((char *)known);
+    if(!substr)
+	return NULL;
+    while (*known)
+    {
+//	DBGPRINT("F1\n");
+        if (
+		( *known++ == *substr )
+		&& (ct==n)
+	   )
+        {
+	  //  DBGPRINT("F2\n");
+            char *runner     = (char *)substr + 1;
+            char *matchpoint = (char *)known - 1;
+            while (*runner)
+            {
+                if ( *known != *runner )
+   	            break;
+                known++;
+                runner++;
+	   // DBGPRINT("A\n");
+            }
+	 //   DBGPRINT("runner:%s---match:%s\n",(runner-1),(known-1));
+	    if (
+	          !(*runner)
+		  && (!(*known) || (*known==UTT_SPLIT_SIGN_CHAR) ||(*known==UTT_SPLIT_SIGN_RECORD))
+                  && (matchpoint==tmp || *(matchpoint-1)==UTT_SPLIT_SIGN_CHAR || *(matchpoint-1)==UTT_SPLIT_SIGN_RECORD)
+               )//整个字段匹配，前后为',' ,  ';' or '\0'
+	    {
+	        return(matchpoint);
+            }
+	}
+	else
+	{
+	    if(*(known-1)==';')
+		 ct=0;
+	    else if(*(known-1)==',')
+	         ct++;
+	}
+    }
+  //  DBGPRINT("F3\n");
+    return(NULL);
+}
+/***********************************************************************
+ * 函 数 名：   Byte2Days
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+void Byte2Days(unsigned char byte,char days[])
+{
+    unsigned char i;
+    for(i=0;i<7;i++)
+    {
+       *(days+i)='0'+((byte&0x40)>>6);
+       byte<<=1;
+    }
+    *(days+7)=0;
+}
+/***********************************************************************
+ * 函 数 名：   NextRecordStart
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+char * NextRecordStart(char*Record)
+{
+    while(*Record && *Record!=UTT_SPLIT_SIGN_RECORD)
+    {
+       Record++;	
+    }
+    if(*Record) 
+       Record++;	
+    return Record;
+}
+/***********************************************************************
+ * 函 数 名：   int2ip
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+char* int2ip(unsigned int lip,char * ip)
+{
+    unsigned char i=0;
+    char *tmp=ip;
+    while(i++<3)
+    {
+        sprintf(tmp,"%u.",(lip&0xff000000)>>24);
+        lip=lip<<8;
+        tmp+=strlen(tmp);
+    }
+    sprintf(tmp,"%u",(lip&0xff000000)>>24);
+    return ip;
+}
+/***********************************************************************
+ * 函 数 名：   days2Byte
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+unsigned char days2Byte(char* day)
+{
+    unsigned char i=0,data=0;
+    while(i<7)
+    {
+        data<<=1;
+        if(*(day+i)!='0')
+             data |=1;
+	i++;
+    }
+    return data;
+}
+/***********************************************************************
+ * 函 数 名：   getnstr
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+char* getnstr(char* str,int n)
+{
+    int ct=0;
+    if(!n) return str;
+    while(*str && *str!=';' && ct<n)
+    {
+        if(*str++==',')
+           ct++;
+    }				       
+    if(ct<n)  return NULL;
+    return str;
+}
+/***********************************************************************
+ * 函 数 名：   utt_tolower
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+extern char utt_tolower(char x)
+{
+    if(x <= 'Z' && x >= 'A')
+        return (x | 0x20) ;
+    else
+        return x;
+
+}
+
+/***********************************************************************
+ * 函 数 名：   strstri
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+char *strstri (const char *known, const char *substr)
+{
+    if (known == substr)
+        return ((char *)known);
+
+    while (*known) {
+        /*
+         * Check to see if we match on a character yet
+         */
+        if ( utt_tolower(*known++) == utt_tolower(*substr) ) {
+            /*
+             * We do, so see if the rest of the substr matches
+             */
+            char *runner     = (char *)substr + 1;
+            char *matchpoint = (char *)known - 1;
+
+            while (*runner) {
+                /*
+                 * Compare our strings
+                 */
+                if ( utt_tolower(*known) != utt_tolower(*runner) )
+                    break;
+                /*
+                 * Step to the next comparison
+                 */
+                known++;
+                runner++;
+            }
+
+            /*
+             * Did we get to the end of the substring?
+             */
+            if (!(*runner))
+                return(matchpoint);
+        }
+    }
+
+    return(NULL);
+}
+/***********************************************************************
+ * 函 数 名：   bad_mask
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+int bad_mask(char* str, unsigned int addr)
+{
+    unsigned int mask;
+    struct in_addr ap;
+    if(!(inet_aton(str,&ap)))
+        return 1;
+    mask = ap.s_addr;
+    if (addr & (mask = ~mask))
+         return 1;
+    mask = ntohl(mask);
+    if (mask & (mask+1))
+         return 1;
+    return 0;       
+}
+/***********************************************************************
+ * 函 数 名：   Conversion2StdMac
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+void Conversion2StdMac(char* mac)
+{   
+    char *p;
+    p=mac+16;
+    mac=mac+11;
+    do
+    {
+        *p--=*mac--;
+        *p--=*mac--;
+        *p=':';
+    }while(--p!=mac);
+}
+/***********************************************************************
+ * 函 数 名：   getLanName
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+char * getLanName()
+{
+   static char *ifName="br0";
+   return ifName;
+}
+
+/***********************************************************************
+ * 函 数 名：   web_reload
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+void web_reload(webs_t wp, char_t *url)
+{
+    websRedirect(wp, url);
+}
+
+/***********************************************************************
+ * 函 数 名：   get_netarea
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       柏德秀
+ * 附加说明：	无
+***********************************************************************/
+#if (MULTI_LAN == FYES)
+/* return the number of bit "1" in the head of nm *
+ * headbits(0x8FFFFFFF) is 1 */
+int headbits(unsigned int nm)
+{
+    int i;
+    /* it is nothing, only a bit operation */
+    for(i=0; ((nm&0x80000000U) != 0U) && (i<=32) ; i++){
+        /* the first bit of the nm is 1 */
+        nm<<=1U;
+    }
+    return i;
+}
+char * get_netarea(char *lanIfName, char *netarea, char *natIp, int *num)
+{
+    MibProfileType mibTypeIF = MIB_PROF_INTERFACE;
+    InterfaceProfile *profIF = NULL;
+
+    unsigned int iIp = 0U, iIp2 = 0U, iIp3 = 0U, iIp4 = 0U;
+    unsigned int iNm = 0U, iNm2 = 0U, iNm3 = 0U, iNm4 = 0U;
+    unsigned int iNatIp = 0, iNatIp2 = 0, iNatIp3 = 0, iNatIp4 = 0;
+
+    memset(netarea, 0, sizeof(netarea));
+
+    /*
+     * 获得lan口profile
+     */
+    profIF = (InterfaceProfile *)ProfGetInstPointByIndex(mibTypeIF, 0);
+    if ((profIF != NULL) || (profIF->head.active == 1)) 
+    {
+	iIp = htonl(profIF->ether.sta.ip);
+	iIp2 = htonl(profIF->ether.sta.ip2);
+	iIp3 = htonl(profIF->ether.sta.ip3);
+	iIp4 = htonl(profIF->ether.sta.ip4);
+	iNm = htonl(profIF->ether.sta.nm);
+	iNm2 = htonl(profIF->ether.sta.nm2);
+	iNm3 = htonl(profIF->ether.sta.nm3);
+	iNm4 = htonl(profIF->ether.sta.nm4);
+	SWORD_PRINTF("%s------%d,iIp = %x, iIp2 = %x, iIp3 = %x, iIp4 = %x\n", __func__, __LINE__, iIp, iIp2, iIp3, iIp4);
+	SWORD_PRINTF("%s------%d,iNm = %x, iNm2 = %x, iNm3 = %x, iNm4 = %x\n", __func__, __LINE__, iNm, iNm2, iNm3, iNm4);
+	iNatIp = ip2int(natIp);
+	iIp &= iNm;
+	iIp2 &= iNm;
+	iIp3 &= iNm;
+	iIp4 &= iNm;
+	iNatIp &= iNm;
+	iNatIp2 = iNatIp & iNm2;
+	iNatIp3 = iNatIp & iNm3;
+	iNatIp4 = iNatIp & iNm4;
+	SWORD_PRINTF("%s------%d,iIp = %x, iIp2 = %x, iIp3 = %x, iIp4 = %x, iNatIp = %x, iNatIp2 = %x, iNatIp3 = %x, iNatIp4 = %x,\n", __func__, __LINE__, iIp, iIp2, iIp3, iIp4, iNatIp, iNatIp2, iNatIp3, iNatIp4);
+	if(iNatIp == iIp)
+	{
+	    *num = 1;
+	    int2ip(iIp, netarea);
+	    sprintf(netarea+strlen(netarea), "/%d", headbits(iNm)%100);
+	}
+	else if(iNatIp2 == iIp2)
+	{
+	    *num = 2;
+	    int2ip(iIp2, netarea);
+	    sprintf(netarea+strlen(netarea), "/%d", headbits(iNm2)%100);
+	}
+	else if(iNatIp3 == iIp3)
+	{
+	    *num = 3;
+	    int2ip(iIp3, netarea);
+	    sprintf(netarea+strlen(netarea), "/%d", headbits(iNm3)%100);
+	}
+	else if(iNatIp4 == iIp4)
+	{
+	    *num = 4;
+	    int2ip(iIp4, netarea);
+	    sprintf(netarea+strlen(netarea), "/%d", headbits(iNm4)%100);
+	}
+	else
+	{
+	    netarea = NULL;
+	}
+    }
+
+    SWORD_PRINTF("%s------%d, net area[%s], num = %d\n", __func__, __LINE__, netarea, *num);
+    return netarea;
+}
+#else
+char * get_netarea(char *wanIfName,char *netarea)
+{
+    char mask[16];
+    int i=0,num=0,num1=0;
+    getIfIp(wanIfName,netarea);
+    getIfNetmask(wanIfName,mask);
+    while(mask[i]!='\0')
+    {
+	if(mask[i]=='0')
+	    num++;
+	i++;
+    }
+    if(num==1)
+    {
+	i=0;
+	while(netarea[i]!='\0')
+	{
+	    if(netarea[i]=='.')
+		num1++;
+	    i++;
+	    if(num1==3)
+		break;
+	}
+	netarea[i]='\0';
+	strcat(netarea,"0/24");
+	return netarea;
+    }
+    if(num==2)
+    {
+	i=0;
+	num1=0;
+	while(netarea[i]!='\0')
+	{
+	    if(netarea[i]=='.')
+		num1++;
+	    i++;
+	    if(num1==2)
+		break;
+	}
+	netarea[i]='\0';
+	strcat(netarea,"0.0/16");
+	return netarea;
+    }
+    if(num==3)
+    {
+	i=0;
+	num1=0;
+	while(netarea[i]!='\0')
+	{
+	    if(netarea[i]=='.')
+		num1++;
+	    i++;
+	    if(num1==1)
+		break;
+	}
+	netarea[i]='\0';
+	strcat(netarea,"0.0.0/8");
+	return netarea;
+    }
+    if(num==4)
+    {
+	netarea="0.0.0.0/0";
+	return netarea;
+    }
+    if(num==0)
+    {
+	strcat(netarea,"/32");
+	return netarea;
+    }
+    return netarea;
+}
+#endif
+
+#if 0
+/*
+ * function for multi wan conf
+ */
+char * add_wanx(char *name, int wanNo, char * nvram_name)
+{
+    snprintf(nvram_name, MAX_UTT_CONF_NAME_LEN, _CONF_PREFIX_WAN"%s", wanNo%10, name);
+    return nvram_name;
+}
+#endif
+
+static char utt_toupper(char x)
+{
+    if(x <= 'z' && x >= 'a')
+        return (x & ~0x20) ;
+    else
+        return x;
+
+}
+char * utt_strtoup(char *str)
+{
+    int i;
+    char *tmp=str;
+    for(i=0;tmp[i];i++) {
+        tmp[i]=utt_toupper(tmp[i]);
+        if (i > 1000000 ) {
+            //DBGPRINT("string too long\n");
+            break;
+        }
+            
+    }
+    return str;
+        
+}
+
+/*
+ * 打印成员端口
+ * buf要足够长
+ * KeHuatao
+ *
+ */    
+void web_print_port_list(char* buf, unsigned char member[1], unsigned int size)
+{
+    int y, t;
+
+    sprintf(buf, "\"");/*开头*/    
+    for(y=0;y<size;y++)/*所有端口*/
+    {
+        if(member[y+1] > 0u)
+        {
+            t = strlen(buf);
+            sprintf(&buf[t], "%d ", (y+1));/*端口号*/
+        }
+    }
+    t = strlen(buf);
+    sprintf(&buf[t], "\"");/*结尾*/
+
+    return;
+}
+
+/*
+ *将字符型十六进制数转换成数值型
+ *KeHuatao
+ */
+int char2hex(unsigned char* ch)
+{
+    int ret=0;
+
+    if((*ch>='a') && (*ch<='z'))
+    {
+    /*小写*/
+	*ch = *ch - 'a' + 10;
+    }
+    else if((*ch>='A') && (*ch<='Z'))
+    {
+	/*大写*/
+	*ch = *ch - 'A' + 10;
+    }
+    else if((*ch>='0') && (*ch<='9'))
+    {
+	/*数字*/
+	*ch = *ch - '0';
+    }
+    else
+    {
+	/*错误*/
+	*ch = 0;
+	ret=-1;
+    }
+
+    return ret;
+}
+
+/*
+ *将字符串形式的mac地址转换为标准数值形式
+ *KeHuatao
+ */
+int str2mac(unsigned char strMac[12], unsigned char stdMac[6])
+{
+#if 1
+    unsigned char ch;
+    unsigned int i, j;
+
+    /*clear*/
+    memset(stdMac, 0, 6);
+    /*循环六次*/
+    for(i=0u;i<6u;i++)
+    {
+	/*取2个字符*/
+	for(j=0u;j<2u;j++)
+	{
+	    ch=strMac[i*2+j];
+	    /*结束*/
+	    if(ch=='\0')
+	    {
+		if(j==1u)
+		{
+		    /*后面补0*/
+		    stdMac[i] = stdMac[i]*((unsigned char)16);
+		}
+		return 0;
+	    }
+
+	    if(char2hex(&ch)<0)
+	    {
+		return -1;
+	    }
+	    /*左移*/
+	    stdMac[i] = stdMac[i]*((unsigned char)16) + ch;
+	}
+    }
+#else
+    if(sscanf(str, "%02x%02x%02x%02x%02x%02x", &stdMac[0], &stdMac[1], &stdMac[2], &stdMac[3], &stdMac[4], &stdMac[5])!=6)
+    {
+	return -1;
+    }
+#endif
+
+    return 0;
+}
+#if SW_FEATURE_URCP || (FEATURE_AC == FYES)
+/*
+ *
+ *页面带参数跳转
+ *
+ **KeHuatao
+ **/
+void websRedirectUrcp(webs_t wp, const char *page)
+{
+    char* isGroupOpt;
+    char tmp[64];
+
+    isGroupOpt = websGetVar(wp, "isGroupOpt", T(""));
+    sprintf(tmp, "%s?isGroupOpt=%s&urcpSet=1", page, isGroupOpt);
+
+    websRedirect(wp, tmp);
+
+    return;
+}
+/*
+ *打印成员端口
+ *buf要足够长
+ *KeHuatao
+ *
+ **/
+void webs_write_port_list(webs_t wp, unsigned int mask)
+{
+    unsigned int y;
+
+    websWrite(wp, "\'");/*ip*/
+    for(y=0u;y<PORT_COUNT;y++)/*所有端口*/
+    {
+	if((mask & (1u<<y)) > 0u)
+	{
+	    websWrite(wp, "%d ", port2ext(y));/*父节点对应port的vlan id*/
+	}
+    }
+    websWrite(wp, "\'");/*ip*/
+
+    return;
+}
+/*
+ *打印联动操作错误信息
+ *KeHuatao
+ */
+void getErrorArr(webs_t wp, urcp_fp fp, uint32 op_type)
+{
+    unsigned int ip, i;
+    unsigned char stdmac[MAC_LEN], *strMac, *tmp, tp[400];
+    char *ptr;
+    urcp_status_t ret;
+
+    /*读取mac地址*/
+    strMac = websGetVar(wp, "macStr", T(""));
+
+    i=0u;
+    websWrite(wp, "var errorArr = new Array(");
+    ip=ip2int(wp->ipaddr);
+    /*复制*/
+    strncpy(tp, strMac, sizeof(tp));
+    /*取各个mac*/
+    tmp=strtok_r(tp, URCP_SPLIT_STR, &ptr);
+    while(tmp!=NULL)
+    {
+        if(i>0u)
+	{
+	    websWrite(wp, ",");
+	}
+	str2mac(tmp, stdmac);
+	ret = fp(stdmac, ip, op_type);
+	/*输出错误信息*/
+        aspOutUrcpError(wp, ret);
+	i++;
+	/*继续*/
+        tmp=strtok_r(NULL, URCP_SPLIT_STR, &ptr);
+    }
+    websWrite(wp, ");\n");
+
+    return ;
+}
+/*
+ *从页面上读取批量操作的mac和密码信息
+ *KeHuatao
+ */
+int getBatchInfo(webs_t wp, char* strMac, char*strPasswd, urcp_batch_msg_t* batch_info)
+{
+    char tp[400], *tmp=tp, *ptr, *isGroupOpt=NULL;
+    int i;
+
+    /*初始化*/
+    i=sizeof(tp)-1;
+    memset(tp, 0, sizeof(tp));
+    /*先复制一份在取数据，防止数据被破坏,使asp文件内的var macStr="<%write(macStr);%>"读取不到数值*/
+    strncpy(tp, strMac, i);
+    i = 0;
+    tmp=strtok_r(tp,",", &ptr);
+    while(tmp!=NULL)
+    {
+	str2mac((unsigned char*)tmp, &(batch_info->dst_mac[MAC_LEN*i]));
+	i++;
+	tmp=strtok_r((char*)NULL, ",", &ptr);
+    }
+
+    /*是否为空*/
+    if(i>0)
+    {
+	/*用户ip*/
+	batch_info->user_ip = ip2int(wp->ipaddr);
+	batch_info->number = i;
+
+	/*判断是单机管理,还是批量操作*/
+	isGroupOpt = websGetVar(wp, "isGroupOpt", T(""));
+	if(strcmp(isGroupOpt, "1")==0)/*批量*/
+	{
+	    /*先复制一份在取数据，防止数据被破坏*/
+	    memset(tp, 0, sizeof(tp));
+	    i=sizeof(tp)-1;
+	    strncpy(tp, strPasswd, i);
+	    i = 0;
+	    /*取密码*/
+	    tmp=strtok_r(tp, PASSWD_SPLIT_STR, &ptr);
+	    while(tmp!=NULL)
+	    {
+		/*批量操作密码字符串前面加了个"P"分隔,需跳过*/
+		strncpy(batch_info->password[i], &tmp[1], MAX_PASSWORD_LEN);
+		tmp=strtok_r((char*)NULL, PASSWD_SPLIT_STR, &ptr);
+		i++;
+	    }
+	}
+	else/*单机*/
+	{
+	    strncpy(batch_info->password[0], strPasswd, MAX_PASSWORD_LEN);
+	    i=1;
+	}
+    }
+
+    return i;
+}
+/*
+ *需发送读取文件的命令
+ *KeHuatao
+ */
+int aspRemoteFileGet(webs_t wp, unsigned int file_id)
+{
+    int i=0;
+    char *strMac, *strPasswd;
+    urcp_batch_msg_t urcp_msg;
+
+    strMac = websGetVar(wp, "macStr", T(""));
+    strPasswd = websGetVar(wp, "passStr", T(""));
+
+    memset(&urcp_msg, 0, sizeof(urcp_batch_msg_t));
+    /*取mac地址*/
+    i = getBatchInfo(wp, strMac, strPasswd, &urcp_msg);
+    if(i>0)
+    {
+	/*发消息,通知交换机进程发包*/
+	sendwebmsgbuffer(MSG_TYPE_URCP, file_id, (char*)(&urcp_msg), sizeof(urcp_batch_msg_t));
+    }
+
+    return 0;
+}
+
+#endif
+/*******************************************************************************
+* write the fileContent to web client, in other words, download file
+*Params:
+*   wp:   web struct
+*   fileName: the default name which will be saved in client 
+*   fileContent: the file 's content
+*   fileLen :the file's length
+* RETURNS:
+*   null
+*******************************************************************************/
+void wimDownloadFile(webs_t wp, char * fileName, char *fileContent, int fileLen)
+{
+    char *fn;
+    int leftLen =0;
+    int writeLen =0;
+    int alloclen = 64* 1024-1;
+    int i,j;
+        
+    if((fileName == NULL) || (strlen(fileName) == 0))        
+       fn = T("download.bin");
+    else
+       fn = fileName;
+
+    websWrite(wp, T("HTTP/1.1 200 OK\n"));
+    websWrite(wp, T("Pragma: no-cache\r\n"));
+    websWrite(wp, T("Cache-control: no-cache\r\n"));
+    websWrite(wp, T("Content-type: application/octet-stream;charset=gb2312\r\n"));
+    websWrite(wp, T("Content-Transfer-Encoding: binary \r\n"));
+    websWrite(wp,T("Content-Disposition: attachment; filename=\"%s\";\r\n"),fn);
+    websWrite(wp, T("Content-Length: %d\r\n"),fileLen);
+    websWrite(wp,T("\r\n"));
+    j = fileLen/alloclen;
+    for(i = 0; i < j; i ++) {    
+		websWriteBlock(wp, fileContent+writeLen, alloclen);	
+		writeLen += alloclen;
+    }
+	leftLen = fileLen - writeLen;
+	if(leftLen > 0 ) 
+    	websWriteBlock(wp, fileContent+writeLen, leftLen);
+	websDone(wp, 200);
+}
+
+/*
+ * 判断输入的字符串是否是数字
+ * 返回值： 
+ * l	-   输入的字符串是数字
+ * 0	-   不是数字
+ */
+extern int uttIsNum(const char *str) {
+    /* 空字串 */
+    if (*str == '\0') {
+	return 0;
+    }
+    while(*str != '\0') {
+	if ((*str < '0') || (*str > '9')) {
+	    return 0;
+	}
+	str++;
+    }
+    return 1;
+}
+#if defined CONFIG_SWITCH_EXT || (FEATURE_AC == FYES)
+/*
+ * 删除目录下所有文件          
+ * KeHuatao
+ **/    
+void deldir(char* path)       
+{
+    char tmp[256];            
+
+    /*删除*/
+    sprintf(tmp, "rm -rf %s./*", path);
+    system(tmp);              
+    wait(NULL);
+
+    return;
+}
+/*
+ *打印成员端口
+ *buf要足够长
+ *KeHuatao
+ *
+ **/    
+void web_print_port_mask(char* buf, unsigned int mask)
+{
+    uint32 y, t;
+
+    sprintf(buf, "\"");/*开头*/    
+    for(y=0u;y<PORT_COUNT;y++)/*所有端口*/
+    {
+	if((mask & (1u<<y)) > 0u)      
+	{
+	    t = strlen(buf);
+	    sprintf(&buf[t], "%d ", (y+1));/*端口号*/
+	}
+    }
+    t = strlen(buf);
+    sprintf(&buf[t], "\"");/*结尾*/
+
+    return;
+}
+#endif
+/***************************************************************
+ * 函数：test_32_bit
+ * 功能：判断32位哪一位为1    
+ * 参数：32位数值             
+ * 返回：bit位
+ * 作者：jfgu
+ * 日期：2010-12-24
+ **************************************************************/
+extern int test_32_bit(unsigned long value)
+{
+    unsigned long i;
+
+    if (value == (unsigned long)-1)
+    {
+	return -1;
+    }
+
+    for (i = 0u; i < 32u; i++)
+    {
+	if (((value >> i) & (unsigned long)0x00000001) == (unsigned long)0x01)
+	{
+	    return (int)i;    
+	}
+    }
+    return -1;
+}
+
+/***
+ * 合并字符串中多余的空格以及换行
+ * 说明：换行前后的空格会被取除 
+ *       1个以上的空格合并成一个
+ *       空行删除
+ *  作者: bhou
+ *  2011-11-05
+ */
+extern void mergeMulSpaEnter(char* textarea)
+{
+    int itail=0U,ihead=0U;
+    char enter = '\n';
+
+    /*先跳过首部的换行与空格*/
+    for(ihead = 0u; textarea[ihead] != '\0'; ihead++)
+    {
+	if((textarea[ihead] != ' ') && (textarea[ihead] != enter))
+	{/*找到了非换行与非空格字符*/
+	    textarea[itail++] = textarea[ihead];
+	    break;
+	}
+    }
+
+    /*合并省下字符串中的换行与空格*/
+    for(++ihead; textarea[ihead] != '\0'; ihead++)
+    {
+	if(textarea[ihead] == ' ')/*遇到空格*/
+	{
+	    if((textarea[itail-1u] == ' ') || (textarea[itail-1u] == enter))
+	    { /*若上一个记录是空格或换行则本空格都跳过*/
+		continue;
+	    }
+	    else
+	    {/*记录本空格*/
+		textarea[itail++] = textarea[ihead];
+	    }
+	}
+	else if(textarea[ihead] == enter)/*遇到换行*/
+	{
+	    if(textarea[itail - 1u] == ' ')
+	    {/*上一个为空格则直接覆盖*/
+		textarea[itail - 1u] = textarea[ihead];
+	    }
+	    else if(textarea[itail - 1u] == enter)
+	    {/*上一个为换行则直接跳过*/
+		continue;
+	    }
+	    else
+	    {
+		/*上一个非空格非换行则记录本换行符*/
+		textarea[itail++] = textarea[ihead];
+	    }
+	}
+	else
+	{/*遇到非空格非换行则直接拷贝*/
+	    textarea[itail++] = textarea[ihead];
+	}
+
+    }
+    if((itail > 0) && (textarea[itail-1] == enter))
+    {/*若最后多一个换行应去掉*/
+	itail--;
+    }
+    textarea[itail]='\0';
+}
+/**
+ * 统计字符串中指定字符的个数
+ * bhou
+ */
+extern int strCountChar(char* str, char ch)
+{
+    int i = 0, retN = 0, len = 0;
+    len = strlen(str);
+    for(i = 0; i< len; i++)
+    {
+	if(str[i] == ch)
+	{
+	    retN++;
+	}
+    }
+    return retN;
+}
+
+/***********************************************************************
+ * 函 数 名：   get_ip
+ * 功能描述：	get interface ip
+ * 输入参数:    interface name,a 16-byte buffer to store ip address
+ * 输出参数：	ip
+ * 返回值：     0,-1
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       胡传香
+ * 附加说明：	无
+***********************************************************************/
+int get_ip(char *ifname, unsigned int *if_addr)
+{
+	struct ifreq ifr;
+	int skfd = 0;
+
+	if((skfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+		perror("getIfIp: open socket error");
+		return -1;
+	}
+
+	strncpy(ifr.ifr_name, ifname, IF_NAMESIZE);
+	if (ioctl(skfd, SIOCGIFADDR, &ifr) < 0) {
+		close(skfd);
+#if 0
+		printf("getIfIp: ioctl SIOCGIFADDR error for %s", ifname);
+#endif
+		return -1;
+	}
+
+	*if_addr = (unsigned int)(((struct sockaddr_in *)&ifr.ifr_addr)->sin_addr.s_addr);
+
+	close(skfd);
+	return 0;
+}
+
+/***********************************************************************
+ * 函 数 名：   get_mask 
+ * 功能描述：	get interface  netmask
+ * 输入参数:    interface name,a 16-byte buffer to store subnet mask
+ * 输出参数：	netmask
+ * 返回值：     0,-1
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       胡传香
+ * 附加说明：	无
+***********************************************************************/
+int get_mask(char *ifname, unsigned int *if_net)
+{
+	struct ifreq ifr;
+	int skfd = 0;
+
+	if((skfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+		printf("getIfNetmask: open socket error");
+		return -1;
+	}
+
+	strncpy(ifr.ifr_name, ifname, IF_NAMESIZE);
+	if (ioctl(skfd, SIOCGIFNETMASK, &ifr) < 0) {
+		close(skfd);
+#if 0
+		printf("getIfNetmask: ioctl SIOCGIFNETMASK error for %s\n", ifname);
+#endif
+		return -1;
+	}
+
+	*if_net = (unsigned int)(((struct sockaddr_in *)&ifr.ifr_addr)->sin_addr.s_addr);
+	close(skfd);
+	return 0;
+}
+#define MAC_LEN 6
+/***********************************************************************
+ * 函 数 名：   get_mac
+ * 功能描述：	get interface mac addr
+ * 输入参数:    interface name,a 18-byte buffer to store ip address
+ * 输出参数：	mac addr
+ * 返回值：     0,-1
+ * 创建日期：	2010-3-17
+ * 修改日期：
+ * 作者：       胡传香
+ * 附加说明：	无
+***********************************************************************/
+int get_mac(char *ifname, unsigned char *if_hw)
+{
+	struct ifreq ifr;
+	int skfd;
+
+	if((skfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+		perror("getIfMac: open socket error");
+		return -1;
+	}
+
+	strncpy(ifr.ifr_name, ifname, IF_NAMESIZE);
+	if(ioctl(skfd, SIOCGIFHWADDR, &ifr) < 0) {
+		close(skfd);
+		printf("getIfMac: ioctl SIOCGIFHWADDR error for %s", ifname);
+		return -1;
+	}
+	memcpy(if_hw, ifr.ifr_hwaddr.sa_data, MAC_LEN);
+	close(skfd);
+	return 0;
+}
+#if (VPN_ITEM_CONTROL == FYES)
+/***********************************************************************
+ * 函 数 名：   checkVpnFreeItems
+ * 功能描述：	当添加PPTP client、server acc 或者IPSec条目时，
+ *		检测VPN可配置条目数是否合法
+ * 输入参数:    null
+ * 输出参数：	是否存在VPN可配置条目
+ * 返回值：     返回 flag的值
+ *		为 1时，还存在VPN可配置条目数
+ *		为 0时，不存在VPN可配置条目数
+ * 创建日期：	2013-10-15
+ * 修改日期：
+ * 作者：       guo.deyuan
+ * 附加说明：	无
+***********************************************************************/
+extern int checkVpnFreeItems()
+{
+    int min = 0, max = 0, i = 0;
+    int totalrecs = 0;
+    int flag = 1;
+#if (PPTP_CLIENT == FYES)
+    MibProfileType mibpptpcli = MIB_PROF_PPTP_CLI;
+    PPTPCliProfile *profPptpC = NULL;
+#endif
+#if (PPTP_SERVER == FYES)
+    MibProfileType mibpptpsrv = MIB_PROF_PPTP_SRV_ACCOUNT;
+    PPTPSrvAccProfile *profPptpS = NULL;
+#endif
+#if (IP_SEC == FYES)
+    MibProfileType mibipsec = MIB_PROF_IPSEC;
+    ipsecConfProfile *profIPsec = NULL;
+#endif
+#if (L2TP_SERVER == FYES)
+    MibProfileType mibl2tpS = MIB_PROF_L2TP_SRV_ACCOUNT;
+    L2TPSrvAccProfile *profL2tpS = NULL;
+#endif
+#if (L2TP_CLIENT == FYES)
+    MibProfileType mibl2tpC = MIB_PROF_L2TP_CLIENT;
+    L2TPCliProfile *profL2tpC = NULL;
+#endif
+
+#if (PPTP_CLIENT == FYES)
+    ProfInstLowHigh(mibpptpcli, &max, &min);
+    for (i = min; i < max; i++) {
+	profPptpC = (PPTPCliProfile *)ProfGetInstPointByIndex(mibpptpcli, i);
+        if((profPptpC != NULL) && (ProfInstIsFree(profPptpC) == 0)) {
+	    totalrecs++;
+	}
+    }
+#endif
+#if (PPTP_SERVER == FYES)
+    ProfInstLowHigh(mibpptpsrv, &max, &min);
+    for (i = min; i < max; i++) {
+	profPptpS = (PPTPSrvAccProfile *)ProfGetInstPointByIndex(mibpptpsrv, i);
+        if((profPptpS != NULL) && (ProfInstIsFree(profPptpS) == 0)) {
+	    totalrecs++;
+	}
+    }
+#endif
+#if (IP_SEC == FYES)
+    ProfInstLowHigh(mibipsec, &max, &min);
+    for (i = min; i < max; i++) {
+	profIPsec = (ipsecConfProfile *)ProfGetInstPointByIndex(mibipsec, i);
+        if((profIPsec != NULL) && (ProfInstIsFree(profIPsec) == 0)) {
+	    totalrecs++;
+	}
+    }
+#endif
+#if (L2TP_SERVER == FYES)
+    ProfInstLowHigh(mibl2tpS, &max, &min);
+    for (i = min; i < max; i++) {
+	profL2tpS = (L2TPSrvAccProfile *)ProfGetInstPointByIndex(mibl2tpS, i);
+        if((profL2tpS != NULL) && (ProfInstIsFree(profL2tpS) == 0)) {
+	    totalrecs++;
+	}
+    }
+#endif
+#if (L2TP_CLIENT == FYES)
+    ProfInstLowHigh(mibl2tpC, &max, &min);
+    for (i = min; i < max; i++) {
+	profL2tpC = (L2TPCliProfile *)ProfGetInstPointByIndex(mibl2tpC, i);
+        if((profL2tpC != NULL) && (ProfInstIsFree(profL2tpC) == 0)) {
+	    totalrecs++;
+	}
+    }
+#endif
+    if(totalrecs>=MAX_VPN_ITEMS_NUM) {
+	flag = 0;
+	SWORD_PRINTF("%s-%d: no free vpn item, vpn totalrecs =%d, MAX_VPN_ITEMS_NUM =%d\n",__func__,__LINE__,totalrecs,MAX_VPN_ITEMS_NUM);
+    }
+
+    return flag;
+}
+
+#endif
+char* convertB2KM(unsigned long long data)
+{
+    static char strData[32];
+    char buf[16];
+    unsigned int h, l;
+
+    memset(strData, 0, sizeof(strData));
+    memset(buf, 0, sizeof(buf));
+    if(data >= 1000000000ull)/*G*/
+    {
+	h = data / 1000000000ull;
+	l = data % 1000000000ull;
+	sprintf(buf,"%d", l);
+	if(strlen(buf)>3) {
+	    buf[3] = '\0';
+	}
+	sprintf(strData,"%d.%sG", h, buf);
+    }
+    else if(data>=1000000ull) /*M*/
+    {
+	h = data / 1000000ull;
+	l = data % 1000000ull;
+	sprintf(buf,"%d", l);
+	if(strlen(buf)>3) {
+	    buf[3] = '\0';
+	}
+	sprintf(strData,"%d.%sM", h, buf);
+    }
+    else if(data >= 1000ull) /*K*/
+    {
+	h = data / 1000ull;
+	l = data % 1000ull;
+	sprintf(strData,"%d.%dK", h, l);
+    }
+    else
+    {
+	sprintf(strData,"%lld", data);
+    }
+
+    return strData;
+}
+
+/***************************************
+ *将秒转换成天：时：分：秒格式
+ *
+ *
+ **************************************/
+strTime_t* convertS2HMS(unsigned int seconds)
+{
+    static strTime_t strData; 
+    int time;
+    
+    memset(&strData, 0, sizeof(strData));
+    if(seconds>0)
+    {
+	strData.day = seconds / 86400; /*day*/
+	time = seconds % 86400; 
+	strData.hour = time / 3600; /*hour*/
+	time = time % 3600; 
+	strData.min = time / 60; /*min*/
+	strData.sec = time % 60;
+    }
+
+    return &strData;
+}
+
+#if (MAC_COMPANY_NAME == FYES)
+macOui_t gMacOUIData[ ] = {
+    {{0x00,0x00,0x95},"Sony"},
+    {{0x00,0x00,0xDD},"TCL"},
+    {{0x00,0x00,0xE2},"Acer"},
+    {{0x00,0x00,0xF0},"Samsung"},
+    {{0x00,0x01,0x24},"Acer"},
+    {{0x00,0x01,0x4A},"Sony"},
+    {{0x00,0x01,0x6B},"HTC"},
+    {{0x00,0x02,0x6C},"PHILIPS"},
+    {{0x00,0x02,0x78},"Samsung"},
+    {{0x00,0x02,0xEE},"Nokia"},
+    {{0x00,0x03,0x93},"Apple"},
+    {{0x00,0x04,0x1F},"Sony"},
+    {{0x00,0x05,0x02},"Apple"},
+    {{0x00,0x05,0x4E},"PHILIPS"},
+    {{0x00,0x06,0x1B},"Lenovo"},
+    {{0x00,0x07,0x14},"HTC"},
+    {{0x00,0x07,0xA8},"Haier"},
+    {{0x00,0x07,0xAB},"Samsung"},
+    {{0x00,0x08,0x59},"UNITONE"},
+    {{0x00,0x08,0xC6},"PHILIPS"},
+    {{0x00,0x09,0x18},"Samsung"},
+    {{0x00,0x09,0x2D},"HTC"},
+    {{0x00,0x09,0x47},"ZTE"},
+    {{0x00,0x09,0x5C},"PHILIPS"},
+    {{0x00,0x09,0xFB},"PHILIPS"},
+    {{0x00,0x0A,0x27},"Apple"},
+    {{0x00,0x0A,0x28},"Motorola"},
+    {{0x00,0x0A,0x95},"Apple"},
+    {{0x00,0x0A,0xD9},"Sony"},
+    {{0x00,0x0B,0xE1},"Nokia"},
+    {{0x00,0x0D,0x93},"Apple"},
+    {{0x00,0x0D,0xAE},"Samsung"},
+    {{0x00,0x0D,0xE5},"Samsung"},
+    {{0x00,0x0E,0x07},"Sony"},
+    {{0x00,0x0E,0x1F},"TCL"},
+    {{0x00,0x0E,0xC7},"Motorola"},
+    {{0x00,0x0E,0xED},"Nokia"},
+    {{0x00,0x0F,0xBB},"Nokia"},
+    {{0x00,0x0F,0xDE},"Sony"},
+    {{0x00,0x10,0xB3},"Nokia"},
+    {{0x00,0x10,0xFA},"Apple"},
+    {{0x00,0x11,0x24},"Apple"},
+    {{0x00,0x11,0x9F},"Nokia"},
+    {{0x00,0x12,0x40},"Amoi"},
+    {{0x00,0x12,0x47},"Samsung"},
+    {{0x00,0x12,0x62},"Nokia"},
+    {{0x00,0x12,0xEE},"Sony"},
+    {{0x00,0x12,0xFB},"Samsung"},
+    {{0x00,0x12,0xFE},"Lenovo"},
+    {{0x00,0x13,0x15},"Sony"},
+    {{0x00,0x13,0x52},"ZTE"},
+    {{0x00,0x13,0x70},"Nokia"},
+    {{0x00,0x13,0x77},"Samsung"},
+    {{0x00,0x13,0xA9},"Sony"},
+    {{0x00,0x13,0xFD},"Nokia"},
+    {{0x00,0x14,0x49},"Changhong"},
+    {{0x00,0x14,0x51},"Apple"},
+    {{0x00,0x14,0xA7},"Nokia"},
+    {{0x00,0x14,0xD5},"DATANG"},
+    {{0x00,0x15,0x2A},"Nokia"},
+    {{0x00,0x15,0x70},"Motorola"},
+    {{0x00,0x15,0x99},"Samsung"},
+    {{0x00,0x15,0xA0},"Nokia"},
+    {{0x00,0x15,0xB9},"Samsung"},
+    {{0x00,0x15,0xC1},"Sony"},
+    {{0x00,0x15,0xDE},"Nokia"},
+    {{0x00,0x15,0xEB},"ZTE"},
+    {{0x00,0x16,0x20},"Sony"},
+    {{0x00,0x16,0x32},"Samsung"},
+    {{0x00,0x16,0x4E},"Nokia"},
+    {{0x00,0x16,0x6B},"Samsung"},
+    {{0x00,0x16,0x6C},"Samsung"},
+    {{0x00,0x16,0x7A},"Skyworth"},
+    {{0x00,0x16,0xB8},"Sony"},
+    {{0x00,0x16,0xBC},"Nokia"},
+    {{0x00,0x16,0xCB},"Apple"},
+    {{0x00,0x16,0xD9},"NINGBO BIRD"},
+    {{0x00,0x16,0xDB},"Samsung"},
+    {{0x00,0x17,0x4B},"Nokia"},
+    {{0x00,0x17,0x88},"PHILIPS"},
+    {{0x00,0x17,0xB0},"Nokia"},
+    {{0x00,0x17,0xC9},"Samsung"},
+    {{0x00,0x17,0xD5},"Samsung"},
+    {{0x00,0x17,0xF2},"Apple"},
+    {{0x00,0x18,0x0F},"Nokia"},
+    {{0x00,0x18,0x13},"Sony"},
+    {{0x00,0x18,0x42},"Nokia"},
+    {{0x00,0x18,0x82},"Huawei"},
+    {{0x00,0x18,0x8D},"Nokia"},
+    {{0x00,0x18,0xAF},"Samsung"},
+    {{0x00,0x18,0xC5},"Nokia"},
+    {{0x00,0x19,0x2D},"Nokia"},
+    {{0x00,0x19,0x4F},"Nokia"},
+    {{0x00,0x19,0x63},"Sony"},
+    {{0x00,0x19,0x79},"Nokia"},
+    {{0x00,0x19,0xB7},"Nokia"},
+    {{0x00,0x19,0xC5},"Sony"},
+    {{0x00,0x19,0xC6},"ZTE"},
+    {{0x00,0x19,0xE3},"Apple"},
+    {{0x00,0x1A,0x16},"Nokia"},
+    {{0x00,0x1A,0x75},"Sony"},
+    {{0x00,0x1A,0x80},"Sony"},
+    {{0x00,0x1A,0x89},"Nokia"},
+    {{0x00,0x1A,0x8A},"Samsung"},
+    {{0x00,0x1A,0x95},"Hisense"},
+    {{0x00,0x1A,0x9A},"Skyworth"},
+    {{0x00,0x1A,0xDC},"Nokia"},
+    {{0x00,0x1A,0xE7},"ZTE"},
+    {{0x00,0x1A,0xEE},"ZTE"},
+    {{0x00,0x1B,0x33},"Nokia"},
+    {{0x00,0x1B,0x59},"Sony"},
+    {{0x00,0x1B,0x63},"Apple"},
+    {{0x00,0x1B,0x98},"Samsung"},
+    {{0x00,0x1B,0xAF},"Nokia"},
+    {{0x00,0x1B,0xEE},"Nokia"},
+    {{0x00,0x1C,0x1D},"GOSPELL"},
+    {{0x00,0x1C,0x35},"Nokia"},
+    {{0x00,0x1C,0x43},"Samsung"},
+    {{0x00,0x1C,0x50},"TCL"},
+    {{0x00,0x1C,0x9A},"Nokia"},
+    {{0x00,0x1C,0xA4},"Sony"},
+    {{0x00,0x1C,0xB3},"Apple"},
+    {{0x00,0x1C,0xD4},"Nokia"},
+    {{0x00,0x1C,0xD6},"Nokia"},
+    {{0x00,0x1D,0x0D},"Sony"},
+    {{0x00,0x1D,0x25},"Samsung"},
+    {{0x00,0x1D,0x28},"Sony"},
+    {{0x00,0x1D,0x3B},"Nokia"},
+    {{0x00,0x1D,0x4F},"Apple"},
+    {{0x00,0x1D,0x6E},"Nokia"},
+    {{0x00,0x1D,0x98},"Nokia"},
+    {{0x00,0x1D,0xBA},"Sony"},
+    {{0x00,0x1D,0xE9},"Nokia"},
+    {{0x00,0x1D,0xF6},"Samsung"},
+    {{0x00,0x1D,0xFB},"TCL"},
+    {{0x00,0x1D,0xFD},"Nokia"},
+    {{0x00,0x1E,0x10},"Huawei"},
+    {{0x00,0x1E,0x3A},"Nokia"},
+    {{0x00,0x1E,0x3B},"Nokia"},
+    {{0x00,0x1E,0x45},"Sony"},
+    {{0x00,0x1E,0x52},"Apple"},
+    {{0x00,0x1E,0x73},"ZTE"},
+    {{0x00,0x1E,0x7D},"Samsung"},
+    {{0x00,0x1E,0xA3},"Nokia"},
+    {{0x00,0x1E,0xA4},"Nokia"},
+    {{0x00,0x1E,0xA8},"DATANG"},
+    {{0x00,0x1E,0xC2},"Apple"},
+    {{0x00,0x1E,0xCF},"PHILIPS"},
+    {{0x00,0x1E,0xDC},"Sony"},
+    {{0x00,0x1E,0xE1},"Samsung"},
+    {{0x00,0x1E,0xE2},"Samsung"},
+    {{0x00,0x1F,0x00},"Nokia"},
+    {{0x00,0x1F,0x01},"Nokia"},
+    {{0x00,0x1F,0x07},"ZTE"},
+    {{0x00,0x1F,0x1B},"Altek"},
+    {{0x00,0x1F,0x59},"Acer"},
+    {{0x00,0x1F,0x5B},"Apple"},
+    {{0x00,0x1F,0x5C},"Nokia"},
+    {{0x00,0x1F,0x5D},"Nokia"},
+    {{0x00,0x1F,0xA7},"Sony"},
+    {{0x00,0x1F,0xC7},"Casio"},
+    {{0x00,0x1F,0xCC},"Samsung"},
+    {{0x00,0x1F,0xCD},"Samsung"},
+    {{0x00,0x1F,0xDE},"Nokia"},
+    {{0x00,0x1F,0xDF},"Nokia"},
+    {{0x00,0x1F,0xE4},"Sony"},
+    {{0x00,0x1F,0xF3},"Apple"},
+    {{0x00,0x20,0x75},"Motorola"},
+    {{0x00,0x21,0x08},"Nokia"},
+    {{0x00,0x21,0x09},"Nokia"},
+    {{0x00,0x21,0x19},"Samsung"},
+    {{0x00,0x21,0x4C},"Samsung"},
+    {{0x00,0x21,0x9E},"Sony"},
+    {{0x00,0x21,0xAA},"Nokia"},
+    {{0x00,0x21,0xAB},"Nokia"},
+    {{0x00,0x21,0xD1},"Samsung"},
+    {{0x00,0x21,0xD2},"Samsung"},
+    {{0x00,0x21,0xE3},"Altek"},
+    {{0x00,0x21,0xE9},"Apple"},
+    {{0x00,0x21,0xFC},"Nokia"},
+    {{0x00,0x21,0xFE},"Nokia"},
+    {{0x00,0x22,0x41},"Apple"},
+    {{0x00,0x22,0x65},"Nokia"},
+    {{0x00,0x22,0x66},"Nokia"},
+    {{0x00,0x22,0x93},"ZTE"},
+    {{0x00,0x22,0x98},"Sony"},
+    {{0x00,0x22,0xA1},"Huawei"},
+    {{0x00,0x22,0xA6},"Sony"},
+    {{0x00,0x22,0xDE},"OppO"},
+    {{0x00,0x22,0xFC},"Nokia"},
+    {{0x00,0x22,0xFD},"Nokia"},
+    {{0x00,0x23,0x12},"Apple"},
+    {{0x00,0x23,0x32},"Apple"},
+    {{0x00,0x23,0x39},"Samsung"},
+    {{0x00,0x23,0x3A},"Samsung"},
+    {{0x00,0x23,0x45},"Sony"},
+    {{0x00,0x23,0x68},"Motorola"},
+    {{0x00,0x23,0x6C},"Apple"},
+    {{0x00,0x23,0x76},"HTC"},
+    {{0x00,0x23,0x99},"Samsung"},
+    {{0x00,0x23,0xB4},"Nokia"},
+    {{0x00,0x23,0xC2},"Samsung"},
+    {{0x00,0x23,0xD6},"Samsung"},
+    {{0x00,0x23,0xD7},"Samsung"},
+    {{0x00,0x23,0xDF},"Apple"},
+    {{0x00,0x23,0xF1},"Sony"},
+    {{0x00,0x24,0x03},"Nokia"},
+    {{0x00,0x24,0x04},"Nokia"},
+    {{0x00,0x24,0x36},"Apple"},
+    {{0x00,0x24,0x37},"Motorola"},
+    {{0x00,0x24,0x47},"ZTE"},
+    {{0x00,0x24,0x54},"Samsung"},
+    {{0x00,0x24,0x7C},"Nokia"},
+    {{0x00,0x24,0x7D},"Nokia"},
+    {{0x00,0x24,0x8D},"Sony"},
+    {{0x00,0x24,0x90},"Samsung"},
+    {{0x00,0x24,0x91},"Samsung"},
+    {{0x00,0x24,0x92},"Motorola"},
+    {{0x00,0x24,0xBE},"Sony"},
+    {{0x00,0x24,0xE9},"Samsung"},
+    {{0x00,0x24,0xEF},"Sony"},
+    {{0x00,0x25,0x00},"Apple"},
+    {{0x00,0x25,0x12},"ZTE"},
+    {{0x00,0x25,0x1B},"PHILIPS"},
+    {{0x00,0x25,0x24},"HTC"},
+    {{0x00,0x25,0x38},"Samsung"},
+    {{0x00,0x25,0x47},"Nokia"},
+    {{0x00,0x25,0x48},"Nokia"},
+    {{0x00,0x25,0x4B},"Apple"},
+    {{0x00,0x25,0x66},"Samsung"},
+    {{0x00,0x25,0x67},"Samsung"},
+    {{0x00,0x25,0x68},"Huawei"},
+    {{0x00,0x25,0x8D},"Haier"},
+    {{0x00,0x25,0x9E},"Huawei"},
+    {{0x00,0x25,0xBC},"Apple"},
+    {{0x00,0x25,0xC7},"Altek"},
+    {{0x00,0x25,0xCF},"Nokia"},
+    {{0x00,0x25,0xD0},"Nokia"},
+    {{0x00,0x25,0xE7},"Sony"},
+    {{0x00,0x26,0x08},"Apple"},
+    {{0x00,0x26,0x37},"Samsung"},
+    {{0x00,0x26,0x4A},"Apple"},
+    {{0x00,0x26,0x5D},"Samsung"},
+    {{0x00,0x26,0x5F},"Samsung"},
+    {{0x00,0x26,0x68},"Nokia"},
+    {{0x00,0x26,0x69},"Nokia"},
+    {{0x00,0x26,0x75},"ZTE"},
+    {{0x00,0x26,0xB0},"Apple"},
+    {{0x00,0x26,0xBB},"Apple"},
+    {{0x00,0x26,0xCC},"Nokia"},
+    {{0x00,0x26,0xED},"ZTE"},
+    {{0x00,0x30,0x0A},"ZTE"},
+    {{0x00,0x30,0x65},"Apple"},
+    {{0x00,0x3E,0xE1},"Apple"},
+    {{0x00,0x40,0x43},"Nokia"},
+    {{0x00,0x46,0x4B},"Huawei"},
+    {{0x00,0x50,0x09},"PHILIPS"},
+    {{0x00,0x50,0xE4},"Apple"},
+    {{0x00,0x59,0x07},"Lenovo"},
+    {{0x00,0x5C,0xB1},"GOSPELL"},
+    {{0x00,0x60,0x67},"Acer"},
+    {{0x00,0x61,0x71},"Apple"},
+    {{0x00,0x66,0x4B},"Huawei"},
+    {{0x00,0x73,0xE0},"Samsung"},
+    {{0x00,0x88,0x65},"Apple"},
+    {{0x00,0x90,0x20},"PHILIPS"},
+    {{0x00,0x90,0x3E},"PHILIPS"},
+    {{0x00,0x90,0x3F},"ZTE"},
+    {{0x00,0x9E,0xC8},"Xiaomi"},
+    {{0x00,0xA0,0x40},"Apple"},
+    {{0x00,0xA0,0x60},"Acer"},
+    {{0x00,0xA0,0xBF},"Motorola"},
+    {{0x00,0xBD,0x3A},"Nokia"},
+    {{0x00,0xC6,0x10},"Apple"},
+    {{0x00,0xD0,0x33},"DAXIAN"},
+    {{0x00,0xD0,0xDE},"PHILIPS"},
+    {{0x00,0xD9,0xD1},"Sony"},
+    {{0x00,0xE0,0x03},"Nokia"},
+    {{0x00,0xE0,0x0C},"Motorola"},
+    {{0x00,0xE0,0x4C},"Altek"},
+    {{0x00,0xE0,0x64},"Samsung"},
+    {{0x00,0xE0,0xFC},"Huawei"},
+    {{0x00,0xE3,0xB2},"Samsung"},
+    {{0x00,0xEB,0x2D},"Sony"},
+    {{0x00,0xEE,0xBD},"HTC"},
+    {{0x00,0xF4,0x6F},"Samsung"},
+    {{0x00,0xF4,0xB9},"Apple"},
+    {{0x00,0xF7,0x6F},"Apple"},
+    {{0x04,0x0C,0xCE},"Apple"},
+    {{0x04,0x15,0x52},"Apple"},
+    {{0x04,0x18,0x0F},"Samsung"},
+    {{0x04,0x1B,0xBA},"Samsung"},
+    {{0x04,0x1E,0x64},"Apple"},
+    {{0x04,0x26,0x65},"Apple"},
+    {{0x04,0x48,0x9A},"Apple"},
+    {{0x04,0x4B,0xFF},"Hedy"},
+    {{0x04,0x54,0x53},"Apple"},
+    {{0x04,0x5A,0x95},"Nokia"},
+    {{0x04,0xA8,0x2A},"Nokia"},
+    {{0x04,0xBD,0x70},"Huawei"},
+    {{0x04,0xC0,0x6F},"Huawei"},
+    {{0x04,0xDB,0x56},"Apple"},
+    {{0x04,0xE5,0x36},"Apple"},
+    {{0x04,0xF1,0x3E},"Apple"},
+    {{0x04,0xF7,0xE4},"Apple"},
+    {{0x04,0xF9,0x38},"Huawei"},
+    {{0x04,0xFE,0x31},"Samsung"},
+    {{0x08,0x00,0x07},"Apple"},
+    {{0x08,0x00,0x46},"Sony"},
+    {{0x08,0x00,0x6F},"PHILIPS"},
+    {{0x08,0x00,0x74},"Casio"},
+    {{0x08,0x08,0xC2},"Samsung"},
+    {{0x08,0x18,0x1A},"ZTE"},
+    {{0x08,0x19,0xA6},"Huawei"},
+    {{0x08,0x37,0x3D},"Samsung"},
+    {{0x08,0x3D,0x88},"Samsung"},
+    {{0x08,0x63,0x61},"Huawei"},
+    {{0x08,0x70,0x45},"Apple"},
+    {{0x08,0x7A,0x4C},"Huawei"},
+    {{0x08,0xD4,0x2B},"Samsung"},
+    {{0x08,0xE8,0x4F},"Huawei"},
+    {{0x08,0xEE,0x8B},"Samsung"},
+    {{0x08,0xFC,0x88},"Samsung"},
+    {{0x08,0xFD,0x0E},"Samsung"},
+    {{0x0C,0x12,0x62},"ZTE"},
+    {{0x0C,0x14,0x20},"Samsung"},
+    {{0x0C,0x1D,0xAF},"Xiaomi"},
+    {{0x0C,0x30,0x21},"Apple"},
+    {{0x0C,0x37,0xDC},"Huawei"},
+    {{0x0C,0x3E,0x9F},"Apple"},
+    {{0x0C,0x4D,0xE9},"Apple"},
+    {{0x0C,0x71,0x5D},"Samsung"},
+    {{0x0C,0x74,0xC2},"Apple"},
+    {{0x0C,0x77,0x1A},"Apple"},
+    {{0x0C,0x89,0x10},"Samsung"},
+    {{0x0C,0x96,0xBF},"Huawei"},
+    {{0x0C,0xB3,0x19},"Samsung"},
+    {{0x0C,0xC6,0x6A},"Nokia"},
+    {{0x0C,0xDD,0xEF},"Nokia"},
+    {{0x0C,0xDF,0xA4},"Samsung"},
+    {{0x10,0x0E,0x2B},"Casio"},
+    {{0x10,0x1B,0x54},"Huawei"},
+    {{0x10,0x1C,0x0C},"Apple"},
+    {{0x10,0x1D,0xC0},"Samsung"},
+    {{0x10,0x30,0x47},"Samsung"},
+    {{0x10,0x3B,0x59},"Samsung"},
+    {{0x10,0x40,0xF3},"Apple"},
+    {{0x10,0x47,0x80},"Huawei"},
+    {{0x10,0x51,0x72},"Huawei"},
+    {{0x10,0x77,0xB1},"Samsung"},
+    {{0x10,0x92,0x66},"Samsung"},
+    {{0x10,0x93,0xE9},"Apple"},
+    {{0x10,0x9A,0xDD},"Apple"},
+    {{0x10,0xC6,0x1F},"Huawei"},
+    {{0x10,0xD5,0x42},"Samsung"},
+    {{0x10,0xDD,0xB1},"Apple"},
+    {{0x10,0xF9,0xEE},"Nokia"},
+    {{0x14,0x10,0x9F},"Apple"},
+    {{0x14,0x1A,0xA3},"Motorola"},
+    {{0x14,0x30,0xC6},"Motorola"},
+    {{0x14,0x36,0x05},"Nokia"},
+    {{0x14,0x36,0xC6},"Lenovo"},
+    {{0x14,0x49,0xE0},"Samsung"},
+    {{0x14,0x5A,0x05},"Apple"},
+    {{0x14,0x60,0x80},"ZTE"},
+    {{0x14,0x89,0xFD},"Samsung"},
+    {{0x14,0x8F,0xC6},"Apple"},
+    {{0x14,0x99,0xE2},"Apple"},
+    {{0x14,0x9F,0xE8},"Lenovo"},
+    {{0x14,0xA3,0x64},"Samsung"},
+    {{0x14,0xB4,0x84},"Samsung"},
+    {{0x14,0xB9,0x68},"Huawei"},
+    {{0x14,0xC1,0x26},"Nokia"},
+    {{0x14,0xF4,0x2A},"Samsung"},
+    {{0x14,0xF6,0x5A},"Xiaomi"},
+    {{0x18,0x00,0x2D},"Sony"},
+    {{0x18,0x14,0x56},"Nokia"},
+    {{0x18,0x1E,0xB0},"Samsung"},
+    {{0x18,0x20,0x12},"ZTE"},
+    {{0x18,0x20,0x32},"Apple"},
+    {{0x18,0x22,0x7E},"Samsung"},
+    {{0x18,0x26,0x66},"Samsung"},
+    {{0x18,0x34,0x51},"Apple"},
+    {{0x18,0x3F,0x47},"Samsung"},
+    {{0x18,0x46,0x17},"Samsung"},
+    {{0x18,0x67,0xB0},"Samsung"},
+    {{0x18,0x83,0x31},"Samsung"},
+    {{0x18,0x86,0xAC},"Nokia"},
+    {{0x18,0x87,0x96},"HTC"},
+    {{0x18,0x9E,0xFC},"Apple"},
+    {{0x18,0xAF,0x61},"Apple"},
+    {{0x18,0xAF,0x8F},"Apple"},
+    {{0x18,0xE2,0xC2},"Samsung"},
+    {{0x18,0xE7,0xF4},"Apple"},
+    {{0x1C,0x1A,0xC0},"Apple"},
+    {{0x1C,0x1D,0x67},"Huawei"},
+    {{0x1C,0x5A,0x3E},"Samsung"},
+    {{0x1C,0x5A,0x6B},"PHILIPS"},
+    {{0x1C,0x62,0xB8},"Samsung"},
+    {{0x1C,0x66,0xAA},"Samsung"},
+    {{0x1C,0x7B,0x21},"Sony"},
+    {{0x1C,0x8E,0x5C},"Huawei"},
+    {{0x1C,0xAB,0xA7},"Apple"},
+    {{0x1C,0xAF,0x05},"Samsung"},
+    {{0x1C,0xB0,0x94},"HTC"},
+    {{0x1C,0xE6,0x2B},"Apple"},
+    {{0x20,0x08,0xED},"Huawei"},
+    {{0x20,0x0B,0xC7},"Huawei"},
+    {{0x20,0x13,0xE0},"Samsung"},
+    {{0x20,0x2B,0xC1},"Huawei"},
+    {{0x20,0x54,0x76},"Sony"},
+    {{0x20,0x64,0x32},"Samsung"},
+    {{0x20,0x6E,0x9C},"Samsung"},
+    {{0x20,0x76,0x93},"Lenovo"},
+    {{0x20,0x7D,0x74},"Apple"},
+    {{0x20,0x89,0x86},"ZTE"},
+    {{0x20,0xA2,0xE4},"Apple"},
+    {{0x20,0xC9,0xD0},"Apple"},
+    {{0x20,0xD3,0x90},"Samsung"},
+    {{0x20,0xD5,0xBF},"Samsung"},
+    {{0x20,0xD6,0x07},"Nokia"},
+    {{0x20,0xF3,0xA3},"Huawei"},
+    {{0x24,0x09,0x95},"Huawei"},
+    {{0x24,0x21,0xAB},"Sony"},
+    {{0x24,0x69,0xA5},"Huawei"},
+    {{0x24,0x7F,0x3C},"Huawei"},
+    {{0x24,0xA0,0x74},"Apple"},
+    {{0x24,0xA2,0xE1},"Apple"},
+    {{0x24,0xAB,0x81},"Apple"},
+    {{0x24,0xC6,0x96},"Samsung"},
+    {{0x24,0xDB,0xAC},"Huawei"},
+    {{0x24,0xDB,0xED},"Samsung"},
+    {{0x24,0xE2,0x71},"Hisense"},
+    {{0x24,0xE3,0x14},"Apple"},
+    {{0x24,0xF5,0xAA},"Samsung"},
+    {{0x28,0x0B,0x5C},"Apple"},
+    {{0x28,0x0D,0xFC},"Sony"},
+    {{0x28,0x31,0x52},"Huawei"},
+    {{0x28,0x37,0x37},"Apple"},
+    {{0x28,0x3C,0xE4},"Huawei"},
+    {{0x28,0x47,0xAA},"Nokia"},
+    {{0x28,0x5F,0xDB},"Huawei"},
+    {{0x28,0x6A,0xB8},"Apple"},
+    {{0x28,0x6A,0xBA},"Apple"},
+    {{0x28,0x6E,0xD4},"Huawei"},
+    {{0x28,0x98,0x7B},"Samsung"},
+    {{0x28,0xBA,0xB5},"Samsung"},
+    {{0x28,0xCC,0x01},"Samsung"},
+    {{0x28,0xCF,0xDA},"Apple"},
+    {{0x28,0xCF,0xE9},"Apple"},
+    {{0x28,0xD1,0xAF},"Nokia"},
+    {{0x28,0xE0,0x2C},"Apple"},
+    {{0x28,0xE1,0x4C},"Apple"},
+    {{0x28,0xE3,0x1F},"Xiaomi"},
+    {{0x28,0xE7,0xCF},"Apple"},
+    {{0x2C,0x1F,0x23},"Apple"},
+    {{0x2C,0x26,0xC5},"ZTE"},
+    {{0x2C,0x28,0x2D},"BBK"},
+    {{0x2C,0x44,0x01},"Samsung"},
+    {{0x2C,0x5A,0x05},"Nokia"},
+    {{0x2C,0x8A,0x72},"HTC"},
+    {{0x2C,0x95,0x7F},"ZTE"},
+    {{0x2C,0xB4,0x3A},"Apple"},
+    {{0x2C,0xBE,0x08},"Apple"},
+    {{0x2C,0xCC,0x15},"Nokia"},
+    {{0x2C,0xD2,0xE7},"Nokia"},
+    {{0x2C,0xF0,0xEE},"Apple"},
+    {{0x30,0x10,0xE4},"Apple"},
+    {{0x30,0x17,0xC8},"Sony"},
+    {{0x30,0x19,0x66},"Samsung"},
+    {{0x30,0x38,0x55},"Nokia"},
+    {{0x30,0x39,0x26},"Sony"},
+    {{0x30,0x75,0x12},"Sony"},
+    {{0x30,0x87,0x30},"Huawei"},
+    {{0x30,0x90,0xAB},"Apple"},
+    {{0x30,0x9B,0xAD},"BBK"},
+    {{0x30,0xA8,0xDB},"Sony"},
+    {{0x30,0xC7,0xAE},"Samsung"},
+    {{0x30,0xCD,0xA7},"Samsung"},
+    {{0x30,0xD1,0x7E},"Huawei"},
+    {{0x30,0xD5,0x87},"Samsung"},
+    {{0x30,0xD6,0xC9},"Samsung"},
+    {{0x30,0xF3,0x1D},"ZTE"},
+    {{0x30,0xF7,0xC5},"Apple"},
+    {{0x30,0xF9,0xED},"Sony"},
+    {{0x34,0x00,0xA3},"Huawei"},
+    {{0x34,0x0A,0xFF},"Hisense"},
+    {{0x34,0x15,0x9E},"Apple"},
+    {{0x34,0x23,0xBA},"Samsung"},
+    {{0x34,0x31,0x11},"Samsung"},
+    {{0x34,0x4B,0x50},"ZTE"},
+    {{0x34,0x4D,0xEA},"ZTE"},
+    {{0x34,0x51,0xC9},"Apple"},
+    {{0x34,0x6B,0xD3},"Huawei"},
+    {{0x34,0x7E,0x39},"Nokia"},
+    {{0x34,0xA3,0x95},"Apple"},
+    {{0x34,0xAA,0x8B},"Samsung"},
+    {{0x34,0xBB,0x26},"Motorola"},
+    {{0x34,0xBE,0x00},"Samsung"},
+    {{0x34,0xC0,0x59},"Apple"},
+    {{0x34,0xC3,0xAC},"Samsung"},
+    {{0x34,0xC8,0x03},"Nokia"},
+    {{0x34,0xCD,0xBE},"Huawei"},
+    {{0x34,0xDE,0x34},"ZTE"},
+    {{0x34,0xE0,0xCF},"ZTE"},
+    {{0x34,0xE2,0xFD},"Apple"},
+    {{0x38,0x01,0x97},"Samsung"},
+    {{0x38,0x0A,0x94},"Samsung"},
+    {{0x38,0x0B,0x40},"Samsung"},
+    {{0x38,0x0F,0x4A},"Apple"},
+    {{0x38,0x16,0xD1},"Samsung"},
+    {{0x38,0x19,0x2F},"Nokia"},
+    {{0x38,0x2D,0xD1},"Samsung"},
+    {{0x38,0x46,0x08},"ZTE"},
+    {{0x38,0x48,0x4C},"Apple"},
+    {{0x38,0x94,0x96},"Samsung"},
+    {{0x38,0xAA,0x3C},"Samsung"},
+    {{0x38,0xBC,0x1A},"Meizu"},
+    {{0x38,0xBF,0x33},"Casio"},
+    {{0x38,0xE7,0xD8},"HTC"},
+    {{0x38,0xEC,0xE4},"Samsung"},
+    {{0x38,0xF8,0x89},"Huawei"},
+    {{0x3C,0x07,0x54},"Apple"},
+    {{0x3C,0x07,0x71},"Sony"},
+    {{0x3C,0x15,0xC2},"Apple"},
+    {{0x3C,0x18,0x9F},"Nokia"},
+    {{0x3C,0x25,0xD7},"Nokia"},
+    {{0x3C,0x36,0x3D},"Nokia"},
+    {{0x3C,0x5A,0x37},"Samsung"},
+    {{0x3C,0x62,0x00},"Samsung"},
+    {{0x3C,0x8B,0xFE},"Samsung"},
+    {{0x3C,0xA1,0x0D},"Samsung"},
+    {{0x3C,0xAB,0x8E},"Apple"},
+    {{0x3C,0xC2,0x43},"Nokia"},
+    {{0x3C,0xD0,0xF8},"Apple"},
+    {{0x3C,0xDF,0xBD},"Huawei"},
+    {{0x3C,0xE0,0x72},"Apple"},
+    {{0x3C,0xF3,0x92},"Altek"},
+    {{0x3C,0xF7,0x2A},"Nokia"},
+    {{0x3C,0xF8,0x08},"Huawei"},
+    {{0x40,0x0E,0x85},"Samsung"},
+    {{0x40,0x2B,0xA1},"Sony"},
+    {{0x40,0x30,0x04},"Apple"},
+    {{0x40,0x3C,0xFC},"Apple"},
+    {{0x40,0x4D,0x8E},"Huawei"},
+    {{0x40,0x6C,0x8F},"Apple"},
+    {{0x40,0x78,0x6A},"Motorola"},
+    {{0x40,0x7A,0x80},"Nokia"},
+    {{0x40,0x83,0xDE},"Motorola"},
+    {{0x40,0x8B,0xF6},"TCL"},
+    {{0x40,0xA6,0xD9},"Apple"},
+    {{0x40,0xB3,0x95},"Apple"},
+    {{0x40,0xCB,0xA8},"Huawei"},
+    {{0x40,0xD3,0x2D},"Apple"},
+    {{0x44,0x2A,0x60},"Apple"},
+    {{0x44,0x4C,0x0C},"Apple"},
+    {{0x44,0x4E,0x1A},"Samsung"},
+    {{0x44,0x6D,0x6C},"Samsung"},
+    {{0x44,0x74,0x6C},"Sony"},
+    {{0x44,0xD4,0xE0},"Sony"},
+    {{0x44,0xD8,0x84},"Apple"},
+    {{0x44,0xF4,0x59},"Samsung"},
+    {{0x44,0xFB,0x42},"Apple"},
+    {{0x48,0x13,0xF3},"BBK"},
+    {{0x48,0x28,0x2F},"ZTE"},
+    {{0x48,0x2C,0xEA},"Motorola"},
+    {{0x48,0x43,0x7C},"Apple"},
+    {{0x48,0x44,0xF7},"Samsung"},
+    {{0x48,0x46,0xFB},"Huawei"},
+    {{0x48,0x60,0xBC},"Apple"},
+    {{0x48,0x62,0x76},"Huawei"},
+    {{0x48,0x6B,0x2C},"BBK"},
+    {{0x48,0x74,0x6E},"Apple"},
+    {{0x48,0xD7,0x05},"Apple"},
+    {{0x48,0xDC,0xFB},"Nokia"},
+    {{0x4C,0x09,0xB4},"ZTE"},
+    {{0x4C,0x14,0xA3},"TCL"},
+    {{0x4C,0x16,0xF1},"ZTE"},
+    {{0x4C,0x1F,0xCC},"Huawei"},
+    {{0x4C,0x21,0xD0},"Sony"},
+    {{0x4C,0x25,0x78},"Nokia"},
+    {{0x4C,0x3C,0x16},"Samsung"},
+    {{0x4C,0x54,0x99},"Huawei"},
+    {{0x4C,0x7F,0x62},"Nokia"},
+    {{0x4C,0x8B,0xEF},"Huawei"},
+    {{0x4C,0x8D,0x79},"Apple"},
+    {{0x4C,0xA5,0x6D},"Samsung"},
+    {{0x4C,0xAC,0x0A},"ZTE"},
+    {{0x4C,0xB1,0x6C},"Huawei"},
+    {{0x4C,0xB1,0x99},"Apple"},
+    {{0x4C,0xBC,0xA5},"Samsung"},
+    {{0x4C,0xCB,0xF5},"ZTE"},
+    {{0x4C,0xCC,0x34},"Motorola"},
+    {{0x50,0x01,0xBB},"Samsung"},
+    {{0x50,0x2D,0x1D},"Nokia"},
+    {{0x50,0x2E,0x5C},"HTC"},
+    {{0x50,0x32,0x75},"Samsung"},
+    {{0x50,0x3C,0xC4},"Lenovo"},
+    {{0x50,0x56,0xBF},"Samsung"},
+    {{0x50,0x85,0x69},"Samsung"},
+    {{0x50,0x9F,0x27},"Huawei"},
+    {{0x50,0xA4,0xC8},"Samsung"},
+    {{0x50,0xB7,0xC3},"Samsung"},
+    {{0x50,0xCC,0xF8},"Samsung"},
+    {{0x50,0xEA,0xD6},"Apple"},
+    {{0x50,0xF5,0x20},"Samsung"},
+    {{0x50,0xFC,0x9F},"Samsung"},
+    {{0x54,0x22,0xF8},"ZTE"},
+    {{0x54,0x26,0x96},"Apple"},
+    {{0x54,0x39,0xDF},"Huawei"},
+    {{0x54,0x42,0x49},"Sony"},
+    {{0x54,0x44,0x08},"Nokia"},
+    {{0x54,0x53,0xED},"Sony"},
+    {{0x54,0x72,0x4F},"Apple"},
+    {{0x54,0x79,0x75},"Nokia"},
+    {{0x54,0x88,0x0E},"Samsung"},
+    {{0x54,0x89,0x98},"Huawei"},
+    {{0x54,0x92,0xBE},"Samsung"},
+    {{0x54,0x9B,0x12},"Samsung"},
+    {{0x54,0x9F,0x13},"Apple"},
+    {{0x54,0xA5,0x1B},"Huawei"},
+    {{0x54,0xAE,0x27},"Apple"},
+    {{0x54,0xE4,0x3A},"Apple"},
+    {{0x54,0xEA,0xA8},"Apple"},
+    {{0x54,0xFA,0x3E},"Samsung"},
+    {{0x58,0x17,0x0C},"Sony"},
+    {{0x58,0x1F,0x28},"Huawei"},
+    {{0x58,0x1F,0xAA},"Apple"},
+    {{0x58,0x55,0xCA},"Apple"},
+    {{0x58,0x7E,0x61},"Hisense"},
+    {{0x58,0xB0,0x35},"Apple"},
+    {{0x58,0xC3,0x8B},"Samsung"},
+    {{0x5C,0x0A,0x5B},"Samsung"},
+    {{0x5C,0x0E,0x8B},"Motorola"},
+    {{0x5C,0x2E,0x59},"Samsung"},
+    {{0x5C,0x36,0xB8},"TCL"},
+    {{0x5C,0x3C,0x27},"Samsung"},
+    {{0x5C,0x4C,0xA9},"Huawei"},
+    {{0x5C,0x57,0xC8},"Nokia"},
+    {{0x5C,0x59,0x48},"Apple"},
+    {{0x5C,0x7D,0x5E},"Huawei"},
+    {{0x5C,0x8D,0x4E},"Apple"},
+    {{0x5C,0x95,0xAE},"Apple"},
+    {{0x5C,0x96,0x9D},"Apple"},
+    {{0x5C,0x97,0xF3},"Apple"},
+    {{0x5C,0xA3,0x9D},"Samsung"},
+    {{0x5C,0xB5,0x24},"Sony"},
+    {{0x5C,0xC6,0xD0},"Skyworth"},
+    {{0x5C,0xE8,0xEB},"Samsung"},
+    {{0x5C,0xF6,0xDC},"Samsung"},
+    {{0x5C,0xF9,0x38},"Apple"},
+    {{0x5C,0xF9,0x6A},"Huawei"},
+    {{0x60,0x03,0x08},"Apple"},
+    {{0x60,0x33,0x4B},"Apple"},
+    {{0x60,0x69,0x44},"Apple"},
+    {{0x60,0x6B,0xBD},"Samsung"},
+    {{0x60,0x77,0xE2},"Samsung"},
+    {{0x60,0x8F,0x5C},"Samsung"},
+    {{0x60,0x92,0x17},"Apple"},
+    {{0x60,0x99,0xD1},"Lenovo"},
+    {{0x60,0xA1,0x0A},"Samsung"},
+    {{0x60,0xA8,0xFE},"Nokia"},
+    {{0x60,0xBE,0xB5},"Motorola"},
+    {{0x60,0xC5,0x47},"Apple"},
+    {{0x60,0xD0,0xA9},"Samsung"},
+    {{0x60,0xD9,0xA0},"Lenovo"},
+    {{0x60,0xD9,0xC7},"Apple"},
+    {{0x60,0xDE,0x44},"Huawei"},
+    {{0x60,0xE7,0x01},"Huawei"},
+    {{0x60,0xF8,0x1D},"Apple"},
+    {{0x60,0xFA,0xCD},"Apple"},
+    {{0x60,0xFB,0x42},"Apple"},
+    {{0x60,0xFE,0xC5},"Apple"},
+    {{0x64,0x09,0x80},"Xiaomi"},
+    {{0x64,0x16,0xF0},"Huawei"},
+    {{0x64,0x20,0x0C},"Apple"},
+    {{0x64,0x3E,0x8C},"Huawei"},
+    {{0x64,0x6C,0xB2},"Samsung"},
+    {{0x64,0x76,0xBA},"Apple"},
+    {{0x64,0x77,0x91},"Samsung"},
+    {{0x64,0x88,0xFF},"Changhong"},
+    {{0x64,0xA3,0xCB},"Apple"},
+    {{0x64,0xA7,0x69},"HTC"},
+    {{0x64,0xB3,0x10},"Samsung"},
+    {{0x64,0xB4,0x73},"Xiaomi"},
+    {{0x64,0xB8,0x53},"Samsung"},
+    {{0x64,0xB9,0xE8},"Apple"},
+    {{0x64,0xE6,0x82},"Apple"},
+    {{0x68,0x05,0x71},"Samsung"},
+    {{0x68,0x09,0x27},"Apple"},
+    {{0x68,0x1A,0xB2},"ZTE"},
+    {{0x68,0x48,0x98},"Samsung"},
+    {{0x68,0x5B,0x35},"Apple"},
+    {{0x68,0x76,0x4F},"Sony"},
+    {{0x68,0x96,0x7B},"Apple"},
+    {{0x68,0x9C,0x70},"Apple"},
+    {{0x68,0xA0,0xF6},"Huawei"},
+    {{0x68,0xA8,0x6D},"Apple"},
+    {{0x68,0xAE,0x20},"Apple"},
+    {{0x68,0xD9,0x3C},"Apple"},
+    {{0x68,0xDF,0xDD},"Xiaomi"},
+    {{0x68,0xEB,0xAE},"Samsung"},
+    {{0x6C,0x0E,0x0D},"Sony"},
+    {{0x6C,0x23,0xB9},"Sony"},
+    {{0x6C,0x25,0xB9},"BBK"},
+    {{0x6C,0x2F,0x2C},"Samsung"},
+    {{0x6C,0x3E,0x6D},"Apple"},
+    {{0x6C,0x40,0x08},"Apple"},
+    {{0x6C,0x5A,0xB5},"TCL"},
+    {{0x6C,0x5F,0x1C},"Lenovo"},
+    {{0x6C,0x70,0x9F},"Apple"},
+    {{0x6C,0x83,0x36},"Samsung"},
+    {{0x6C,0x8B,0x2F},"ZTE"},
+    {{0x6C,0x94,0xF8},"Apple"},
+    {{0x6C,0x9B,0x02},"Nokia"},
+    {{0x6C,0xA7,0x80},"Nokia"},
+    {{0x6C,0xB7,0xF4},"Samsung"},
+    {{0x6C,0xC2,0x6B},"Apple"},
+    {{0x6C,0xE9,0x07},"Nokia"},
+    {{0x6C,0xF3,0x73},"Samsung"},
+    {{0x70,0x11,0x24},"Apple"},
+    {{0x70,0x3E,0xAC},"Apple"},
+    {{0x70,0x54,0xF5},"Huawei"},
+    {{0x70,0x56,0x81},"Apple"},
+    {{0x70,0x72,0x0D},"Lenovo"},
+    {{0x70,0x72,0x3C},"Huawei"},
+    {{0x70,0x73,0xCB},"Apple"},
+    {{0x70,0x7B,0xE8},"Huawei"},
+    {{0x70,0x8D,0x09},"Nokia"},
+    {{0x70,0x9E,0x29},"Sony"},
+    {{0x70,0x9F,0x2D},"ZTE"},
+    {{0x70,0xA8,0xE3},"Huawei"},
+    {{0x70,0xCD,0x60},"Apple"},
+    {{0x70,0xDE,0xE2},"Apple"},
+    {{0x70,0xF9,0x27},"Samsung"},
+    {{0x74,0x45,0x8A},"Samsung"},
+    {{0x74,0x5F,0x00},"Samsung"},
+    {{0x74,0x88,0x2A},"Huawei"},
+    {{0x74,0xE1,0xB6},"Apple"},
+    {{0x74,0xE2,0xF5},"Apple"},
+    {{0x78,0x1D,0xBA},"Huawei"},
+    {{0x78,0x1F,0xDB},"Samsung"},
+    {{0x78,0x25,0xAD},"Samsung"},
+    {{0x78,0x2E,0xEF},"Nokia"},
+    {{0x78,0x31,0x2B},"ZTE"},
+    {{0x78,0x31,0xC1},"Apple"},
+    {{0x78,0x3A,0x84},"Apple"},
+    {{0x78,0x47,0x1D},"Samsung"},
+    {{0x78,0x52,0x1A},"Samsung"},
+    {{0x78,0x59,0x5E},"Samsung"},
+    {{0x78,0x66,0xAE},"ZTE"},
+    {{0x78,0x6A,0x89},"Huawei"},
+    {{0x78,0x6C,0x1C},"Apple"},
+    {{0x78,0x7E,0x61},"Apple"},
+    {{0x78,0x84,0x3C},"Sony"},
+    {{0x78,0x92,0x3E},"Nokia"},
+    {{0x78,0x9E,0xD0},"Samsung"},
+    {{0x78,0xA3,0xE4},"Apple"},
+    {{0x78,0xA8,0x73},"Samsung"},
+    {{0x78,0xAB,0xBB},"Samsung"},
+    {{0x78,0xB3,0xB9},"Sunup"},
+    {{0x78,0xCA,0x04},"Nokia"},
+    {{0x78,0xCA,0x39},"Apple"},
+    {{0x78,0xD6,0xF0},"Samsung"},
+    {{0x78,0xD7,0x52},"Huawei"},
+    {{0x78,0xE8,0xB6},"ZTE"},
+    {{0x78,0xF5,0xFD},"Huawei"},
+    {{0x78,0xF7,0xBE},"Samsung"},
+    {{0x78,0xFD,0x94},"Apple"},
+    {{0x7C,0x11,0xBE},"Apple"},
+    {{0x7C,0x1D,0xD9},"Xiaomi"},
+    {{0x7C,0x60,0x97},"Huawei"},
+    {{0x7C,0x61,0x93},"HTC"},
+    {{0x7C,0x6D,0x62},"Apple"},
+    {{0x7C,0x6D,0xF8},"Apple"},
+    {{0x7C,0x94,0xB2},"PHILIPS"},
+    {{0x7C,0xB2,0x32},"TCL"},
+    {{0x7C,0xC3,0xA1},"Apple"},
+    {{0x7C,0xC5,0x37},"Apple"},
+    {{0x7C,0xD1,0xC3},"Apple"},
+    {{0x7C,0xF0,0x5F},"Apple"},
+    {{0x7C,0xFA,0xDF},"Apple"},
+    {{0x80,0x00,0x6E},"Apple"},
+    {{0x80,0x18,0xA7},"Samsung"},
+    {{0x80,0x41,0x4E},"BBK"},
+    {{0x80,0x49,0x71},"Apple"},
+    {{0x80,0x50,0x1B},"Nokia"},
+    {{0x80,0x57,0x19},"Samsung"},
+    {{0x80,0x6C,0x1B},"Motorola"},
+    {{0x80,0x71,0x7A},"Huawei"},
+    {{0x80,0x92,0x9F},"Apple"},
+    {{0x80,0xB6,0x86},"Huawei"},
+    {{0x80,0xBE,0x05},"Apple"},
+    {{0x80,0xCF,0x41},"Lenovo"},
+    {{0x80,0xD0,0x9B},"Huawei"},
+    {{0x80,0xE6,0x50},"Apple"},
+    {{0x80,0xEA,0x96},"Apple"},
+    {{0x80,0xFB,0x06},"Huawei"},
+    {{0x84,0x00,0xD2},"Sony"},
+    {{0x84,0x0B,0x2D},"Samsung"},
+    {{0x84,0x24,0x8D},"Motorola"},
+    {{0x84,0x25,0xDB},"Samsung"},
+    {{0x84,0x29,0x99},"Apple"},
+    {{0x84,0x32,0xEA},"ZTE"},
+    {{0x84,0x38,0x35},"Apple"},
+    {{0x84,0x38,0x38},"Samsung"},
+    {{0x84,0x51,0x81},"Samsung"},
+    {{0x84,0x55,0xA5},"Samsung"},
+    {{0x84,0x74,0x2A},"ZTE"},
+    {{0x84,0x78,0x8B},"Apple"},
+    {{0x84,0x7A,0x88},"HTC"},
+    {{0x84,0x85,0x06},"Apple"},
+    {{0x84,0x85,0x0A},"ZTE"},
+    {{0x84,0x8E,0x0C},"Apple"},
+    {{0x84,0x8E,0xDF},"Sony"},
+    {{0x84,0xA4,0x66},"Samsung"},
+    {{0x84,0xA8,0xE4},"Huawei"},
+    {{0x84,0xB1,0x53},"Apple"},
+    {{0x84,0xDB,0xAC},"Huawei"},
+    {{0x84,0xFC,0xFE},"Apple"},
+    {{0x88,0x1F,0xA1},"Apple"},
+    {{0x88,0x32,0x9B},"Samsung"},
+    {{0x88,0x44,0xF6},"Nokia"},
+    {{0x88,0x53,0x95},"Apple"},
+    {{0x88,0x53,0xD4},"Huawei"},
+    {{0x88,0x63,0xDF},"Apple"},
+    {{0x88,0x70,0x8C},"Lenovo"},
+    {{0x88,0x86,0x03},"Huawei"},
+    {{0x88,0x9B,0x39},"Samsung"},
+    {{0x88,0xC6,0x63},"Apple"},
+    {{0x88,0xCB,0x87},"Apple"},
+    {{0x88,0xCE,0xFA},"Huawei"},
+    {{0x88,0xE3,0xAB},"Huawei"},
+    {{0x8C,0x00,0x6D},"Apple"},
+    {{0x8C,0x0E,0xE3},"OppO"},
+    {{0x8C,0x29,0x37},"Apple"},
+    {{0x8C,0x2D,0xAA},"Apple"},
+    {{0x8C,0x58,0x77},"Apple"},
+    {{0x8C,0x64,0x22},"Sony"},
+    {{0x8C,0x71,0xF8},"Samsung"},
+    {{0x8C,0x77,0x12},"Samsung"},
+    {{0x8C,0x7B,0x9D},"Apple"},
+    {{0x8C,0x7C,0x92},"Apple"},
+    {{0x8C,0xBE,0xBE},"Xiaomi"},
+    {{0x8C,0xC8,0xCD},"Samsung"},
+    {{0x8C,0xE0,0x81},"ZTE"},
+    {{0x8C,0xFA,0xBA},"Apple"},
+    {{0x90,0x17,0xAC},"Huawei"},
+    {{0x90,0x18,0x7C},"Samsung"},
+    {{0x90,0x1D,0x27},"ZTE"},
+    {{0x90,0x21,0x55},"HTC"},
+    {{0x90,0x27,0xE4},"Apple"},
+    {{0x90,0x4E,0x2B},"Huawei"},
+    {{0x90,0x68,0xC3},"Motorola"},
+    {{0x90,0x72,0x40},"Apple"},
+    {{0x90,0x84,0x0D},"Apple"},
+    {{0x90,0x8D,0x6C},"Apple"},
+    {{0x90,0xB2,0x1F},"Apple"},
+    {{0x90,0xB9,0x31},"Apple"},
+    {{0x90,0xC1,0x15},"Sony"},
+    {{0x90,0xCF,0x15},"Nokia"},
+    {{0x90,0xCF,0x7D},"Hisense"},
+    {{0x90,0xF1,0xAA},"Samsung"},
+    {{0x90,0xFD,0x61},"Apple"},
+    {{0x94,0x00,0x70},"Nokia"},
+    {{0x94,0x01,0xC2},"Samsung"},
+    {{0x94,0x20,0x53},"Nokia"},
+    {{0x94,0x35,0x0A},"Samsung"},
+    {{0x94,0x3A,0xF0},"Nokia"},
+    {{0x94,0x51,0x03},"Samsung"},
+    {{0x94,0x63,0xD1},"Samsung"},
+    {{0x94,0x94,0x26},"Apple"},
+    {{0x94,0xCE,0x2C},"Sony"},
+    {{0x94,0xD7,0x71},"Samsung"},
+    {{0x98,0x03,0xD8},"Apple"},
+    {{0x98,0x0C,0x82},"Samsung"},
+    {{0x98,0x0D,0x2E},"HTC"},
+    {{0x98,0x1D,0xFA},"Samsung"},
+    {{0x98,0x2F,0x3C},"Changhong"},
+    {{0x98,0x52,0xB1},"Samsung"},
+    {{0x98,0x6C,0xF5},"ZTE"},
+    {{0x98,0x94,0x49},"Skyworth"},
+    {{0x98,0xB8,0xE3},"Apple"},
+    {{0x98,0xD6,0xBB},"Apple"},
+    {{0x98,0xF0,0xAB},"Apple"},
+    {{0x98,0xF5,0x37},"ZTE"},
+    {{0x98,0xFA,0xE3},"Xiaomi"},
+    {{0x98,0xFE,0x94},"Apple"},
+    {{0x98,0xFF,0xD0},"Lenovo"},
+    {{0x9C,0x02,0x98},"Samsung"},
+    {{0x9C,0x04,0xEB},"Apple"},
+    {{0x9C,0x18,0x74},"Nokia"},
+    {{0x9C,0x20,0x7B},"Apple"},
+    {{0x9C,0x28,0xEF},"Huawei"},
+    {{0x9C,0x3A,0xAF},"Samsung"},
+    {{0x9C,0x4A,0x7B},"Nokia"},
+    {{0x9C,0x65,0xB0},"Samsung"},
+    {{0x9C,0xA9,0xE4},"ZTE"},
+    {{0x9C,0xC1,0x72},"Huawei"},
+    {{0x9C,0xCA,0xD9},"Nokia"},
+    {{0x9C,0xD2,0x4B},"ZTE"},
+    {{0x9C,0xD9,0x17},"Motorola"},
+    {{0x9C,0xE6,0xE7},"Samsung"},
+    {{0x9C,0xF3,0x87},"Apple"},
+    {{0xA0,0x07,0x98},"Samsung"},
+    {{0xA0,0x0B,0xBA},"Samsung"},
+    {{0xA0,0x21,0x95},"Samsung"},
+    {{0xA0,0x4E,0x04},"Nokia"},
+    {{0xA0,0x71,0xA9},"Nokia"},
+    {{0xA0,0x75,0x91},"Samsung"},
+    {{0xA0,0x82,0x1F},"Samsung"},
+    {{0xA0,0x89,0xE4},"Skyworth"},
+    {{0xA0,0x93,0x47},"OppO"},
+    {{0xA0,0xB4,0xA5},"Samsung"},
+    {{0xA0,0xE4,0x53},"Sony"},
+    {{0xA0,0xEC,0x80},"ZTE"},
+    {{0xA0,0xED,0xCD},"Apple"},
+    {{0xA0,0xF4,0x19},"Nokia"},
+    {{0xA0,0xF4,0x50},"HTC"},
+    {{0xA4,0x3D,0x78},"OppO"},
+    {{0xA4,0x67,0x06},"Apple"},
+    {{0xA4,0x70,0xD6},"Motorola"},
+    {{0xA4,0x77,0x60},"Nokia"},
+    {{0xA4,0x7E,0x39},"ZTE"},
+    {{0xA4,0x81,0xEE},"Nokia"},
+    {{0xA4,0x99,0x47},"Huawei"},
+    {{0xA4,0x9A,0x58},"Samsung"},
+    {{0xA4,0xB1,0x97},"Apple"},
+    {{0xA4,0xC3,0x61},"Apple"},
+    {{0xA4,0xD1,0xD2},"Apple"},
+    {{0xA4,0xE4,0xB8},"BlackBerry"},
+    {{0xA4,0xE7,0x31},"Nokia"},
+    {{0xA4,0xEB,0xD3},"Samsung"},
+    {{0xA8,0x06,0x00},"Samsung"},
+    {{0xA8,0x20,0x66},"Apple"},
+    {{0xA8,0x26,0xD9},"HTC"},
+    {{0xA8,0x44,0x81},"Nokia"},
+    {{0xA8,0x5B,0x78},"Apple"},
+    {{0xA8,0x7B,0x39},"Nokia"},
+    {{0xA8,0x7C,0x01},"Samsung"},
+    {{0xA8,0x7E,0x33},"Nokia"},
+    {{0xA8,0x86,0xDD},"Apple"},
+    {{0xA8,0x88,0x08},"Apple"},
+    {{0xA8,0x8E,0x24},"Apple"},
+    {{0xA8,0x96,0x8A},"Apple"},
+    {{0xA8,0xA6,0x68},"ZTE"},
+    {{0xA8,0xBB,0xCF},"Apple"},
+    {{0xA8,0xE0,0x18},"Nokia"},
+    {{0xA8,0xE3,0xEE},"Sony"},
+    {{0xA8,0xF2,0x74},"Samsung"},
+    {{0xA8,0xFA,0xD8},"Apple"},
+    {{0xAC,0x36,0x13},"Samsung"},
+    {{0xAC,0x38,0x70},"Lenovo"},
+    {{0xAC,0x3C,0x0B},"Apple"},
+    {{0xAC,0x4A,0xFE},"Hisense"},
+    {{0xAC,0x4E,0x91},"Huawei"},
+    {{0xAC,0x7F,0x3E},"Apple"},
+    {{0xAC,0x81,0xF3},"Nokia"},
+    {{0xAC,0x85,0x3D},"Huawei"},
+    {{0xAC,0x87,0xA3},"Apple"},
+    {{0xAC,0x93,0x2F},"Nokia"},
+    {{0xAC,0xCF,0x5C},"Apple"},
+    {{0xAC,0xE2,0x15},"Huawei"},
+    {{0xAC,0xE8,0x7B},"Huawei"},
+    {{0xAC,0xF7,0xF3},"Xiaomi"},
+    {{0xAC,0xFD,0xEC},"Apple"},
+    {{0xB0,0x34,0x95},"Apple"},
+    {{0xB0,0x35,0x8D},"Nokia"},
+    {{0xB0,0x5B,0x67},"Huawei"},
+    {{0xB0,0x5C,0xE5},"Nokia"},
+    {{0xB0,0x65,0xBD},"Apple"},
+    {{0xB0,0x75,0xD5},"ZTE"},
+    {{0xB0,0x79,0x94},"Motorola"},
+    {{0xB0,0x9F,0xBA},"Apple"},
+    {{0xB0,0xA3,0x7E},"Haier"},
+    {{0xB0,0xAA,0x36},"OppO"},
+    {{0xB0,0xC4,0xE7},"Samsung"},
+    {{0xB0,0xD0,0x9C},"Samsung"},
+    {{0xB0,0xDF,0x3A},"Samsung"},
+    {{0xB0,0xEC,0x71},"Samsung"},
+    {{0xB4,0x07,0xF9},"Samsung"},
+    {{0xB4,0x15,0x13},"Huawei"},
+    {{0xB4,0x18,0xD1},"Apple"},
+    {{0xB4,0x30,0x52},"Huawei"},
+    {{0xB4,0x3A,0x28},"Samsung"},
+    {{0xB4,0x52,0x7D},"Sony"},
+    {{0xB4,0x52,0x7E},"Sony"},
+    {{0xB4,0x62,0x93},"Samsung"},
+    {{0xB4,0x79,0xA7},"Samsung"},
+    {{0xB4,0x98,0x42},"ZTE"},
+    {{0xB4,0xB3,0x62},"ZTE"},
+    {{0xB4,0xC7,0x99},"Motorola"},
+    {{0xB4,0xCE,0xF6},"HTC"},
+    {{0xB4,0xF0,0xAB},"Apple"},
+    {{0xB8,0x09,0x8A},"Apple"},
+    {{0xB8,0x17,0xC2},"Apple"},
+    {{0xB8,0x5E,0x7B},"Samsung"},
+    {{0xB8,0x6C,0xE8},"Samsung"},
+    {{0xB8,0x78,0x2E},"Apple"},
+    {{0xB8,0x8D,0x12},"Apple"},
+    {{0xB8,0xC6,0x8E},"Samsung"},
+    {{0xB8,0xC7,0x5D},"Apple"},
+    {{0xB8,0xD9,0xCE},"Samsung"},
+    {{0xB8,0xE8,0x56},"Apple"},
+    {{0xB8,0xF6,0xB1},"Apple"},
+    {{0xB8,0xF9,0x34},"Sony"},
+    {{0xB8,0xFF,0x61},"Apple"},
+    {{0xBC,0x20,0xA4},"Samsung"},
+    {{0xBC,0x2B,0x6B},"Haier"},
+    {{0xBC,0x3B,0xAF},"Apple"},
+    {{0xBC,0x44,0x86},"Samsung"},
+    {{0xBC,0x47,0x60},"Samsung"},
+    {{0xBC,0x52,0xB7},"Apple"},
+    {{0xBC,0x67,0x78},"Apple"},
+    {{0xBC,0x6E,0x64},"Sony"},
+    {{0xBC,0x72,0xB1},"Samsung"},
+    {{0xBC,0x76,0x70},"Huawei"},
+    {{0xBC,0x79,0xAD},"Samsung"},
+    {{0xBC,0x85,0x1F},"Samsung"},
+    {{0xBC,0x8C,0xCD},"Samsung"},
+    {{0xBC,0x92,0x6B},"Apple"},
+    {{0xBC,0xB1,0xF3},"Samsung"},
+    {{0xBC,0xC6,0xDB},"Nokia"},
+    {{0xBC,0xCF,0xCC},"HTC"},
+    {{0xC0,0x38,0xF9},"Nokia"},
+    {{0xC0,0x63,0x94},"Apple"},
+    {{0xC0,0x64,0xC6},"Nokia"},
+    {{0xC0,0x65,0x99},"Samsung"},
+    {{0xC0,0x70,0x09},"Huawei"},
+    {{0xC0,0x84,0x7A},"Apple"},
+    {{0xC0,0x98,0x79},"Acer"},
+    {{0xC0,0x9F,0x42},"Apple"},
+    {{0xC0,0xBD,0xD1},"Samsung"},
+    {{0xC0,0xEE,0xFB},"OnePlus"},
+    {{0xC0,0xF2,0xFB},"Apple"},
+    {{0xC4,0x05,0x28},"Huawei"},
+    {{0xC4,0x2C,0x03},"Apple"},
+    {{0xC4,0x42,0x02},"Samsung"},
+    {{0xC4,0x50,0x06},"Samsung"},
+    {{0xC4,0x57,0x6E},"Samsung"},
+    {{0xC4,0x62,0xEA},"Samsung"},
+    {{0xC4,0x6A,0xB7},"Xiaomi"},
+    {{0xC4,0x73,0x1E},"Samsung"},
+    {{0xC4,0x7D,0xCC},"Motorola"},
+    {{0xC4,0x88,0xE5},"Samsung"},
+    {{0xC8,0x14,0x79},"Samsung"},
+    {{0xC8,0x16,0xBD},"Hisense"},
+    {{0xC8,0x19,0xF7},"Samsung"},
+    {{0xC8,0x2A,0x14},"Apple"},
+    {{0xC8,0x33,0x4B},"Apple"},
+    {{0xC8,0x3D,0x97},"Nokia"},
+    {{0xC8,0x64,0xC7},"ZTE"},
+    {{0xC8,0x6F,0x1D},"Apple"},
+    {{0xC8,0x7B,0x5B},"ZTE"},
+    {{0xC8,0x7E,0x75},"Samsung"},
+    {{0xC8,0x85,0x50},"Apple"},
+    {{0xC8,0x94,0xD2},"DATANG"},
+    {{0xC8,0x97,0x9F},"Nokia"},
+    {{0xC8,0xB5,0xB7},"Apple"},
+    {{0xC8,0xBA,0x94},"Samsung"},
+    {{0xC8,0xBC,0xC8},"Apple"},
+    {{0xC8,0xD1,0x0B},"Nokia"},
+    {{0xC8,0xD1,0x5E},"Huawei"},
+    {{0xC8,0xDD,0xC9},"Lenovo"},
+    {{0xC8,0xDF,0x7C},"Nokia"},
+    {{0xC8,0xE0,0xEB},"Apple"},
+    {{0xC8,0xF6,0x50},"Apple"},
+    {{0xCC,0x05,0x1B},"Samsung"},
+    {{0xCC,0x07,0xAB},"Samsung"},
+    {{0xCC,0x07,0xE4},"Lenovo"},
+    {{0xCC,0x08,0xE0},"Apple"},
+    {{0xCC,0x1A,0xFA},"ZTE"},
+    {{0xCC,0x3A,0x61},"Samsung"},
+    {{0xCC,0x53,0xB5},"Huawei"},
+    {{0xCC,0x78,0x5F},"Apple"},
+    {{0xCC,0x7B,0x35},"ZTE"},
+    {{0xCC,0x89,0xFD},"Nokia"},
+    {{0xCC,0x96,0xA0},"Huawei"},
+    {{0xCC,0xA2,0x23},"Huawei"},
+    {{0xCC,0xC3,0xEA},"Motorola"},
+    {{0xCC,0xCC,0x81},"Huawei"},
+    {{0xCC,0xF9,0xE8},"Samsung"},
+    {{0xCC,0xFE,0x3C},"Samsung"},
+    {{0xD0,0x15,0x4A},"ZTE"},
+    {{0xD0,0x17,0x6A},"Samsung"},
+    {{0xD0,0x22,0xBE},"Samsung"},
+    {{0xD0,0x23,0xDB},"Apple"},
+    {{0xD0,0x2D,0xB3},"Huawei"},
+    {{0xD0,0x4F,0x7E},"Apple"},
+    {{0xD0,0x51,0x62},"Sony"},
+    {{0xD0,0x59,0xE4},"Samsung"},
+    {{0xD0,0x5B,0xA8},"ZTE"},
+    {{0xD0,0x66,0x7B},"Samsung"},
+    {{0xD0,0x7A,0xB5},"Huawei"},
+    {{0xD0,0xC1,0xB1},"Samsung"},
+    {{0xD0,0xDB,0x32},"Nokia"},
+    {{0xD0,0xDF,0xC7},"Samsung"},
+    {{0xD0,0xE1,0x40},"Apple"},
+    {{0xD4,0x0B,0x1A},"HTC"},
+    {{0xD4,0x20,0x6D},"HTC"},
+    {{0xD4,0x22,0x3F},"Lenovo"},
+    {{0xD4,0x37,0xD7},"ZTE"},
+    {{0xD4,0x5D,0x42},"Nokia"},
+    {{0xD4,0x6A,0xA8},"Huawei"},
+    {{0xD4,0x6E,0x5C},"Huawei"},
+    {{0xD4,0x87,0xD8},"Samsung"},
+    {{0xD4,0x88,0x90},"Samsung"},
+    {{0xD4,0x93,0x98},"Nokia"},
+    {{0xD4,0x97,0x0B},"Xiaomi"},
+    {{0xD4,0x9A,0x20},"Apple"},
+    {{0xD4,0xB1,0x10},"Huawei"},
+    {{0xD4,0xC1,0xFC},"Nokia"},
+    {{0xD4,0xCB,0xAF},"Nokia"},
+    {{0xD4,0xE8,0xB2},"Samsung"},
+    {{0xD4,0xF4,0x6F},"Apple"},
+    {{0xD8,0x00,0x4D},"Apple"},
+    {{0xD8,0x2A,0x7E},"Nokia"},
+    {{0xD8,0x30,0x62},"Apple"},
+    {{0xD8,0x31,0xCF},"Samsung"},
+    {{0xD8,0x49,0x0B},"Huawei"},
+    {{0xD8,0x57,0xEF},"Samsung"},
+    {{0xD8,0x71,0x57},"Lenovo"},
+    {{0xD8,0x74,0x95},"ZTE"},
+    {{0xD8,0x75,0x33},"Nokia"},
+    {{0xD8,0x90,0xE8},"Samsung"},
+    {{0xD8,0x96,0x95},"Apple"},
+    {{0xD8,0x9E,0x3F},"Apple"},
+    {{0xD8,0xA2,0x5E},"Apple"},
+    {{0xD8,0xB3,0x77},"HTC"},
+    {{0xD8,0xBB,0x2C},"Apple"},
+    {{0xD8,0xCF,0x9C},"Apple"},
+    {{0xD8,0xD1,0xCB},"Apple"},
+    {{0xD8,0xD4,0x3C},"Sony"},
+    {{0xDC,0x02,0x8E},"ZTE"},
+    {{0xDC,0x2B,0x61},"Apple"},
+    {{0xDC,0x3E,0xF8},"Nokia"},
+    {{0xDC,0x66,0x3A},"Acer"},
+    {{0xDC,0x71,0x44},"Samsung"},
+    {{0xDC,0x86,0xD8},"Apple"},
+    {{0xDC,0x9B,0x9C},"Apple"},
+    {{0xDC,0x9F,0xA4},"Nokia"},
+    {{0xDC,0xC7,0x93},"Nokia"},
+    {{0xDC,0xD2,0xFC},"Huawei"},
+    {{0xDC,0xF1,0x10},"Nokia"},
+    {{0xE0,0x19,0x1D},"Huawei"},
+    {{0xE0,0x24,0x7F},"Huawei"},
+    {{0xE0,0x63,0xE5},"Sony"},
+    {{0xE0,0x66,0x78},"Apple"},
+    {{0xE0,0x75,0x7D},"Motorola"},
+    {{0xE0,0x97,0x96},"Huawei"},
+    {{0xE0,0xA6,0x70},"Nokia"},
+    {{0xE0,0xB5,0x2D},"Apple"},
+    {{0xE0,0xB9,0xBA},"Apple"},
+    {{0xE0,0xC3,0xF3},"ZTE"},
+    {{0xE0,0xC9,0x7A},"Apple"},
+    {{0xE0,0xCB,0xEE},"Samsung"},
+    {{0xE0,0xF5,0xC6},"Apple"},
+    {{0xE0,0xF8,0x47},"Apple"},
+    {{0xE4,0x12,0x1D},"Samsung"},
+    {{0xE4,0x25,0xE7},"Apple"},
+    {{0xE4,0x32,0xCB},"Samsung"},
+    {{0xE4,0x40,0xE2},"Samsung"},
+    {{0xE4,0x68,0xA3},"Huawei"},
+    {{0xE4,0x77,0x23},"ZTE"},
+    {{0xE4,0x7C,0xF9},"Samsung"},
+    {{0xE4,0x8B,0x7F},"Apple"},
+    {{0xE4,0x92,0xFB},"Samsung"},
+    {{0xE4,0x98,0xD6},"Apple"},
+    {{0xE4,0xB0,0x21},"Samsung"},
+    {{0xE4,0xC6,0x3D},"Apple"},
+    {{0xE4,0xCE,0x8F},"Apple"},
+    {{0xE4,0xE0,0xC5},"Samsung"},
+    {{0xE4,0xEC,0x10},"Nokia"},
+    {{0xE4,0xF8,0xEF},"Samsung"},
+    {{0xE8,0x03,0x9A},"Samsung"},
+    {{0xE8,0x04,0x0B},"Apple"},
+    {{0xE8,0x06,0x88},"Apple"},
+    {{0xE8,0x08,0x8B},"Huawei"},
+    {{0xE8,0x11,0x32},"Samsung"},
+    {{0xE8,0x15,0x0E},"Nokia"},
+    {{0xE8,0x4E,0x84},"Samsung"},
+    {{0xE8,0x80,0x2E},"Apple"},
+    {{0xE8,0x8D,0x28},"Apple"},
+    {{0xE8,0x99,0xC4},"HTC"},
+    {{0xE8,0xBB,0xA8},"OppO"},
+    {{0xE8,0xCB,0xA1},"Nokia"},
+    {{0xE8,0xCD,0x2D},"Huawei"},
+    {{0xE8,0xE5,0xD6},"Samsung"},
+    {{0xEC,0x1D,0x7F},"ZTE"},
+    {{0xEC,0x23,0x3D},"Huawei"},
+    {{0xEC,0x35,0x86},"Apple"},
+    {{0xEC,0x85,0x2F},"Apple"},
+    {{0xEC,0x88,0x92},"Motorola"},
+    {{0xEC,0x89,0xF5},"Lenovo"},
+    {{0xEC,0x8A,0x4C},"ZTE"},
+    {{0xEC,0x9B,0x5B},"Nokia"},
+    {{0xEC,0xCB,0x30},"Huawei"},
+    {{0xEC,0xE0,0x9B},"Samsung"},
+    {{0xEC,0xF3,0x5B},"Nokia"},
+    {{0xF0,0x08,0xF1},"Samsung"},
+    {{0xF0,0x24,0x75},"Apple"},
+    {{0xF0,0x25,0xB7},"Samsung"},
+    {{0xF0,0x5A,0x09},"Samsung"},
+    {{0xF0,0x6B,0xCA},"Samsung"},
+    {{0xF0,0x72,0x8C},"Samsung"},
+    {{0xF0,0x84,0xC9},"ZTE"},
+    {{0xF0,0xB4,0x79},"Apple"},
+    {{0xF0,0xBF,0x97},"Sony"},
+    {{0xF0,0xC1,0xF1},"Apple"},
+    {{0xF0,0xCB,0xA1},"Apple"},
+    {{0xF0,0xD1,0xA9},"Apple"},
+    {{0xF0,0xDB,0xE2},"Apple"},
+    {{0xF0,0xDB,0xF8},"Apple"},
+    {{0xF0,0xDC,0xE2},"Apple"},
+    {{0xF0,0xE7,0x7E},"Samsung"},
+    {{0xF0,0xF6,0x1C},"Apple"},
+    {{0xF4,0x09,0xD8},"Samsung"},
+    {{0xF4,0x1B,0xA1},"Apple"},
+    {{0xF4,0x37,0xB7},"Apple"},
+    {{0xF4,0x55,0x9C},"Huawei"},
+    {{0xF4,0x6D,0xE2},"ZTE"},
+    {{0xF4,0x7B,0x5E},"Samsung"},
+    {{0xF4,0x8E,0x09},"Nokia"},
+    {{0xF4,0x9F,0x54},"Samsung"},
+    {{0xF4,0x9F,0xF3},"Huawei"},
+    {{0xF4,0xC7,0x14},"Huawei"},
+    {{0xF4,0xD9,0xFB},"Samsung"},
+    {{0xF4,0xDC,0xF9},"Huawei"},
+    {{0xF4,0xF1,0x5A},"Apple"},
+    {{0xF4,0xF1,0xE1},"Motorola"},
+    {{0xF4,0xF5,0xA5},"Nokia"},
+    {{0xF4,0xF9,0x51},"Apple"},
+    {{0xF8,0x01,0x13},"Huawei"},
+    {{0xF8,0x0B,0xD0},"DATANG"},
+    {{0xF8,0x1E,0xDF},"Apple"},
+    {{0xF8,0x27,0x93},"Apple"},
+    {{0xF8,0x3D,0xFF},"Huawei"},
+    {{0xF8,0x4A,0xBF},"Huawei"},
+    {{0xF8,0x5F,0x2A},"Nokia"},
+    {{0xF8,0x84,0xF2},"Samsung"},
+    {{0xF8,0xA4,0x5F},"Xiaomi"},
+    {{0xF8,0xD0,0xAC},"Sony"},
+    {{0xF8,0xD0,0xBD},"Samsung"},
+    {{0xF8,0xDB,0x7F},"HTC"},
+    {{0xF8,0xDF,0xA8},"ZTE"},
+    {{0xF8,0xE0,0x79},"Motorola"},
+    {{0xF8,0xE8,0x11},"Huawei"},
+    {{0xF8,0xF1,0xB6},"Motorola"},
+    {{0xFC,0x00,0x12},"Samsung"},
+    {{0xFC,0x0A,0x81},"Motorola"},
+    {{0xFC,0x0F,0xE6},"Sony"},
+    {{0xFC,0x19,0x10},"Samsung"},
+    {{0xFC,0x1F,0x19},"Samsung"},
+    {{0xFC,0x25,0x3F},"Apple"},
+    {{0xFC,0x48,0xEF},"Huawei"},
+    {{0xFC,0x92,0x3B},"Nokia"},
+    {{0xFC,0xA1,0x3E},"Samsung"},
+    {{0xFC,0xC7,0x34},"Samsung"},
+    {{0xFC,0xC8,0x97},"ZTE"},
+    {{0xFC,0xE5,0x57},"Nokia"},
+    {{0xFC,0xF1,0x52},"Sony"},
+    {{0xFF,0xFF,0xFF}, NULL}
+};
+
+const char *getManuByOUI(uchar *mac)
+{
+    int low = 0, high = 0, mid = 0;
+    int ret = 0;
+    int i = 0;
+    if (mac == NULL)
+    {
+	return NULL;
+    }
+    high = sizeof(gMacOUIData)/sizeof(macOui_t);
+//    printf("%s, high = %d\n", __func__, high);
+    while(low<=high)
+    {
+//	printf("%s,%d\n", __func__, i++);
+	mid = (low + high)/2;
+	ret = memcmp(mac, gMacOUIData[mid].oui, sizeof(gMacOUIData[mid].oui));
+	if (ret < 0)
+	{
+	    high = mid - 1;
+	}
+	else if (ret > 0)
+	{
+	    low = mid + 1;
+	}
+	else
+	{
+	    return gMacOUIData[mid].vendor;
+	}
+    }
+    return NULL;
+}
+#endif

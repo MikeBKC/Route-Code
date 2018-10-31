@@ -1,0 +1,6 @@
+dmz_ipTip=DMZ host IP address cannot be 0.0.0.0.
+dmz_start=Enable DMZ
+dmz_startTip=After you enable DMZ, the DMZ host will be exposed to Internet.
+dmz_hostIP=DMZ Host IP Address
+dmz_set=DMZ configuration
+dmz_open=Enable DMZ Host

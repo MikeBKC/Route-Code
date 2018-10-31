@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLISH_MODULE xmlns="http://clish.sourceforge.net/XMLSchema" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xsi:schemaLocation="http://clish.sourceforge.net/XMLSchema
+                     http://clish.sourceforge.net/XMLSchema/clish.xsd">
+	<!--=======================================================-->
+
+
+<VIEW name="configure-if-view">
+
+
+<COMMAND name="rate-limit"                                                  
+help="Rate Limit"                                                       
+mode="subcommand">                                                      
+<PARAM name="policyname"                                                
+help="Policy name"                                                  
+ptype="STRING"/>                                                    
+<PARAM name="IPstartaddress"                                            
+help="Start IP address"                                             
+ptype="IP_ADDR"/>                                                   
+<PARAM name="IPendaddress"                                              
+help="End IP address"                                               
+ptype="IP_ADDR"/>                                                   
+<PARAM name="ratelimitmode"  
+help="Rate limiting mode"                                           
+ptype="SUBCOMMAND"                                                  
+mode="switch">                                                      
+<PARAM name="Each"                                                  
+help="Assign Bandwidth for Each IP Address"                     
+ptype="SUBCOMMAND"                                              
+mode="subcommand"/>                                             
+<PARAM name="Share"                                                 
+help="Share Bandwidth with All IP Addresses"                    
+ptype="SUBCOMMAND"                                              
+mode="subcommand"/>                                             
+</PARAM>                                                                
+<PARAM name="input"                                                     
+help="Rate limit on input"                                          
+ptype="SUBCOMMAND"                                                  
+mode="subcommand"/>                                                 
+<PARAM name="downrate"                                                  
+help="Max. Rx Rate(Kbit/s,0 means no limit)"                        
+ptype="UINT"/>
+<PARAM name="output"                                                    
+help="Rate limit on output"                                         
+ptype="SUBCOMMAND"                                                  
+mode="subcommand"/>                                                 
+<PARAM name="uprate"                                                    
+help="Max. Tx Rate(Kbit/s,0 means no limit)"                        
+ptype="UINT"/>                                                      
+<PARAM name="datemode"                                                  
+help="Choose a date input mode"                                     
+ptype="SUBCOMMAND"                                                  
+mode="switch">                                                      
+<PARAM name="any"                                                   
+help="Every day"                                                
+ptype="SUBCOMMAND"                                              
+mode="subcommand"/>                                             
+<PARAM name="week"                                                  
+help="0 means no limit,1 means limit(order:from Monday to Sunday)"
+ptype="<0000000-1111111>"/>                                     
+</PARAM>                                                                
+<PARAM name="timemode"                                                  
+help="Schedule settings"                                            
+ptype="SUBCOMMAND"
+mode="switch">                                                      
+<PARAM name="any"                                                   
+help="All day"                                                  
+ptype="SUBCOMMAND"                                              
+mode="subcommand"/>                                             
+<PARAM name="starttime"                                             
+help="Starting time in one day(example:09:03,12:00)"            
+ptype="TIME">                                                   
+<PARAM name="stoptime"                                          
+help="Stoping time in one day(example:09:03,12:00)"         
+ptype="TIME"/>                                              
+</PARAM>                                                            
+</PARAM>                                                                
+<ACTION builtin="clish_rate_limit"/>                                    
+</COMMAND>                                                                  
+
+<COMMAND name="no rate-limit"                                               
+help="Rate Limit"                                                       
+mode="subcommand">                                                      
+<PARAM name="policyname"                                                
+help="Policy name"                                                  
+ptype="STRING"/>
+<PARAM name="IPstartaddress"                                            
+help="Start IP address"                                             
+ptype="IP_ADDR"/>                                                   
+<PARAM name="IPendaddress"                                              
+help="End IP address"                                               
+ptype="IP_ADDR"/>                                                   
+<PARAM name="ratelimitmode"                                             
+help="Rate limiting mode"                                           
+ptype="SUBCOMMAND"                                                  
+mode="switch">                                                      
+<PARAM name="Each"                                                  
+help="Assign Bandwidth for Each IP Address"                     
+ptype="SUBCOMMAND"                                              
+mode="subcommand"/>                                             
+<PARAM name="Share"                                                 
+help="Share Bandwidth with All IP Addresses"                    
+ptype="SUBCOMMAND"                                              
+mode="subcommand"/>                                             
+</PARAM>
+<PARAM name="input"                                                     
+help="Rate limit on input"                                          
+ptype="SUBCOMMAND"                                                  
+mode="subcommand"/>                                                 
+<PARAM name="downrate"                                                  
+help="Max. Rx Rate(Kbit/s,0 means no limit)"                        
+ptype="UINT"/>                                                      
+<PARAM name="output"                                                    
+help="Rate limit on output"                                         
+ptype="SUBCOMMAND"                                                  
+mode="subcommand"/>                                                 
+<PARAM name="uprate"                                                    
+help="Max. Tx Rate(Kbit/s,0 means no limit)"                        
+ptype="UINT"/>                                                      
+<PARAM name="datemode"                                                  
+help="Choose a date input mode"                                     
+ptype="SUBCOMMAND"                                                  
+mode="switch">                                                      
+<PARAM name="any"                                                   
+help="Every day"                                                
+ptype="SUBCOMMAND"                                              
+mode="subcommand"/>
+<PARAM name="week"                                                  
+help="0 means no limit,1 means limit(order:from Monday to Sunday)"
+ptype="<0000000-1111111>"/>                                     
+</PARAM>                                                                
+<PARAM name="timemode"                                                  
+help="Schedule settings"                                            
+ptype="SUBCOMMAND"                                                  
+mode="switch">                                                      
+<PARAM name="any"                                                   
+help="All day"                                                  
+ptype="SUBCOMMAND"                                              
+mode="subcommand"/>                                             
+<PARAM name="starttime"                                             
+help="Starting time in one day(example:09:03,12:00)"            
+ptype="TIME">                                                   
+<PARAM name="stoptime"                                          
+help="Stoping time in one day(example:09:03,12:00)"         
+ptype="TIME"/>                                              
+</PARAM>                                                            
+</PARAM>                                                                
+<ACTION builtin="clish_no_rate_limit"/>                                 
+</COMMAND>
+</VIEW>                                                                         
+                                                                                
+</CLISH_MODULE> 

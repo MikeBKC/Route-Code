@@ -1,0 +1,6 @@
+editIpTip=修改IP地址后，您必须使用新的IP地址才能登录设备。 
+lan_advance=高级选项
+lan_advanceTip=(IP地址2，IP地址3，IP地址4。)
+lan_openDNS=开启DNS代理
+lan_deal=冲突检测与修复
+lan_domain=域名访问

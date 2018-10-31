@@ -1,0 +1,9 @@
+ConnectLimit=Session Limiting
+ConnectConfErr=The sum of max. TCP, UDP and ICMP connections cannot be larger than max. connections
+TotleConCount=Max. Sessions
+TCPConCount=Max. TCP Sessions
+UDPConCount=Max. UDP Sessions 
+ICMPConCount=Max. ICMP Sessions
+SUseConLimit=Enable Session Limit
+HelpMessage1=Note: 
+HelpMessage2=0 means no limit

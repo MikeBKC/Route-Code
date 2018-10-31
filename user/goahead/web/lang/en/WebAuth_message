@@ -1,0 +1,11 @@
+msg_logout=Logged off successfully.
+msg_helpOne=You have been successfully authenticated.
+msg_helpTwo=You can click on <Logoff>button to safely and timely log off!
+msg_helpThree=If this page was accidentally closed, you can reaccess this page.
+msg_helpFour= to do the operation you want!
+msg_modifyPasswd=Change Password
+msg_disConnect=Logoff
+msg_leftTime=Remaining:
+msg_effectData=Effective Date:
+msg_unlimited=unlimited 
+msg_forEver=Permanent

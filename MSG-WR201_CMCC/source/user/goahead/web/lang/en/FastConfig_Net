@@ -1,0 +1,8 @@
+configGuide1=Setup Wizard - LAN Settings 
+configGuide2=Setup Wizard - WAN1 Settings 
+configGuideTip=Here you can configure WAN1 connection as required. 
+configGuideTip1=Here you can configure LAN settings as required.
+configGuideTip2=Here you can configure WAN1 connection as required. 
+leave=Exit 
+skip=Skip 
+

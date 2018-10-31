@@ -1,0 +1,16 @@
+lub/string/string_suffix.lo lub/string/string_suffix.o:  \
+ lub/string/string_suffix.c lub/string/private.h ./lub/string.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h \
+  ./lub/c_decl.h ./lub/types.h ./lub/ctype.h
+
+lub/string/private.h:
+
+./lub/string.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h:
+
+./lub/c_decl.h:
+
+./lub/types.h:
+
+./lub/ctype.h:

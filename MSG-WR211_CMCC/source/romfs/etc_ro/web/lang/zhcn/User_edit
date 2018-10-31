@@ -1,0 +1,9 @@
+BadUserName=用户名中含有非法字符
+Administrantor=管理员配置
+Passwd=密码
+Confirmpasswd=确认密码
+Attention=注意
+FAttentionMesLine1=强烈建议修改初始的管理员密码，并谨慎保管用户名和密码；
+FAttentionMesLine2=用户名只能由字母、数字和下划线组成，最多31个字符。
+NPass=新密码
+ConfirmNewpasswd=确认新密码

@@ -1,0 +1,5 @@
+wanP_confirm=To change the number of WAN interfaces, the Device needs to be restored to factory default settings. Do you want to continue?
+wanP_numerror=Incorrect number of WAN interfaces!
+wanP_config=Dynamic Number of WAN Interfaces 
+wanP_num=Number of WAN Interfaces
+

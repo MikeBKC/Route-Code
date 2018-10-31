@@ -1,0 +1,872 @@
+make all SYSCFLAGS="-DLUA_USE_LINUX" SYSLIBS="-Wl,-E -ldl"
+make[1]: Entering directory `/data3/wbr/reosse/3520G/nv518G/source/user/lua-5.3.4'
+/opt/buildroot-gcc342/bin/mipsel-linux-uclibc-gcc -O2 -Wall -Wextra  -DLUA_USE_LINUX     -c -o lapi.o lapi.c
+In file included from lua.h:16,
+                 from lapi.c:16:
+luaconf.h:581:2: #error "Compiler does not support 'long long'. Use option '-DLUA_32BITS'   or '-DLUA_C89_NUMBERS' (see file 'luaconf.h' for details)"
+In file included from lapi.c:16:
+lua.h:93: error: parse error before "lua_Integer"
+lua.h:93: warning: type defaults to `int' in declaration of `lua_Integer'
+lua.h:93: warning: data definition has no type or storage class
+lua.h:96: error: parse error before "lua_Unsigned"
+lua.h:96: warning: type defaults to `int' in declaration of `lua_Unsigned'
+lua.h:96: warning: data definition has no type or storage class
+lua.h:182: warning: type defaults to `int' in declaration of `lua_Integer'
+lua.h:182: error: `lua_Integer' declared as function returning a function
+lua.h:182: warning: parameter names (without types) in function declaration
+lua.h:182: error: 'lua_Integer' redeclared as different kind of symbol
+lua.h:93: error: previous declaration of 'lua_Integer' was here
+lua.h:226: error: parse error before "lua_Integer"
+lua.h:244: error: parse error before "lua_Integer"
+lua.h:246: error: parse error before "lua_Integer"
+lua.h:261: error: parse error before "lua_Integer"
+lua.h:263: error: parse error before "lua_Integer"
+In file included from lapi.h:11,
+                 from lapi.c:18:
+llimits.h:71: error: parse error before "lua_Integer"
+llimits.h:71: warning: no semicolon at end of struct or union
+llimits.h:73: error: parse error before '}' token
+llimits.h:73: warning: type defaults to `int' in declaration of `L_Umaxalign'
+llimits.h:73: warning: data definition has no type or storage class
+llimits.h:80: error: parse error before "l_uacInt"
+llimits.h:80: warning: type defaults to `int' in declaration of `l_uacInt'
+llimits.h:80: warning: data definition has no type or storage class
+In file included from lstate.h:12,
+                 from lapi.h:12,
+                 from lapi.c:18:
+lobject.h:105: error: parse error before "lua_Integer"
+lobject.h:105: warning: no semicolon at end of struct or union
+lobject.h:107: error: parse error before '}' token
+lobject.h:107: warning: type defaults to `int' in declaration of `Value'
+lobject.h:107: warning: data definition has no type or storage class
+lobject.h:114: error: parse error before "Value"
+lobject.h:114: warning: no semicolon at end of struct or union
+lobject.h:115: error: parse error before '}' token
+lobject.h:115: warning: type defaults to `int' in declaration of `TValue'
+lobject.h:115: warning: data definition has no type or storage class
+lobject.h:294: error: parse error before '*' token
+lobject.h:294: warning: type defaults to `int' in declaration of `StkId'
+lobject.h:294: warning: data definition has no type or storage class
+lobject.h:319: error: parse error before "L_Umaxalign"
+lobject.h:319: warning: no semicolon at end of struct or union
+lobject.h:321: error: parse error before '}' token
+lobject.h:321: warning: type defaults to `int' in declaration of `UTString'
+lobject.h:321: warning: data definition has no type or storage class
+lobject.h:351: error: field `user_' has incomplete type
+lobject.h:359: error: parse error before "L_Umaxalign"
+lobject.h:359: warning: no semicolon at end of struct or union
+lobject.h:361: error: parse error before '}' token
+lobject.h:361: warning: type defaults to `int' in declaration of `UUdata'
+lobject.h:361: warning: data definition has no type or storage class
+lobject.h:420: error: parse error before "TValue"
+lobject.h:420: warning: no semicolon at end of struct or union
+lobject.h:429: error: parse error before '}' token
+lobject.h:429: warning: type defaults to `int' in declaration of `Proto'
+lobject.h:429: warning: data definition has no type or storage class
+lobject.h:449: error: parse error before "TValue"
+lobject.h:449: warning: no semicolon at end of struct or union
+lobject.h:450: warning: type defaults to `int' in declaration of `CClosure'
+lobject.h:450: warning: data definition has no type or storage class
+lobject.h:461: error: parse error before "CClosure"
+lobject.h:461: warning: no semicolon at end of struct or union
+lobject.h:462: error: conflicting types for 'l'
+llimits.h:72: error: previous declaration of 'l' was here
+lobject.h:463: error: parse error before '}' token
+lobject.h:463: warning: type defaults to `int' in declaration of `Closure'
+lobject.h:463: warning: data definition has no type or storage class
+lobject.h:477: error: parse error before "Value"
+lobject.h:477: warning: no semicolon at end of struct or union
+lobject.h:477: warning: no semicolon at end of struct or union
+lobject.h:479: error: parse error before '}' token
+lobject.h:479: warning: type defaults to `int' in declaration of `nk'
+lobject.h:479: warning: data definition has no type or storage class
+lobject.h:480: error: parse error before "tvk"
+lobject.h:480: warning: type defaults to `int' in declaration of `tvk'
+lobject.h:480: warning: data definition has no type or storage class
+lobject.h:481: warning: type defaults to `int' in declaration of `TKey'
+lobject.h:481: warning: data definition has no type or storage class
+lobject.h:492: error: parse error before "TValue"
+lobject.h:492: warning: no semicolon at end of struct or union
+lobject.h:493: warning: type defaults to `int' in declaration of `i_key'
+lobject.h:493: warning: data definition has no type or storage class
+lobject.h:494: warning: type defaults to `int' in declaration of `Node'
+lobject.h:494: warning: data definition has no type or storage class
+lobject.h:502: error: parse error before "TValue"
+lobject.h:502: warning: no semicolon at end of struct or union
+lobject.h:503: warning: type defaults to `int' in declaration of `node'
+lobject.h:503: warning: data definition has no type or storage class
+lobject.h:504: error: parse error before '*' token
+lobject.h:504: warning: type defaults to `int' in declaration of `lastfree'
+lobject.h:504: warning: data definition has no type or storage class
+lobject.h:507: error: parse error before '}' token
+lobject.h:507: warning: type defaults to `int' in declaration of `Table'
+lobject.h:507: warning: data definition has no type or storage class
+lobject.h:528: error: parse error before "luaO_nilobject_"
+lobject.h:528: warning: type defaults to `int' in declaration of `luaO_nilobject_'
+lobject.h:528: warning: data definition has no type or storage class
+lobject.h:537: warning: type defaults to `int' in declaration of `TValue'
+lobject.h:537: error: parse error before '*' token
+lobject.h:539: error: parse error before "TValue"
+lobject.h:541: error: parse error before "StkId"
+In file included from lstate.h:13,
+                 from lapi.h:12,
+                 from lapi.c:18:
+ltm.h:58: warning: type defaults to `int' in declaration of `TValue'
+ltm.h:58: error: parse error before '*' token
+ltm.h:60: error: parse error before '*' token
+ltm.h:60: error: parse error before '*' token
+ltm.h:60: warning: type defaults to `int' in declaration of `luaT_gettm'
+ltm.h:60: warning: data definition has no type or storage class
+ltm.h:61: error: parse error before '*' token
+ltm.h:61: warning: type defaults to `int' in declaration of `TValue'
+ltm.h:61: error: parse error before '*' token
+ltm.h:62: warning: type defaults to `int' in declaration of `luaT_gettmbyobj'
+ltm.h:62: warning: data definition has no type or storage class
+ltm.h:65: warning: type defaults to `int' in declaration of `TValue'
+ltm.h:65: error: parse error before '*' token
+ltm.h:67: warning: type defaults to `int' in declaration of `TValue'
+ltm.h:67: error: parse error before '*' token
+ltm.h:69: warning: type defaults to `int' in declaration of `TValue'
+ltm.h:69: error: parse error before '*' token
+ltm.h:71: warning: type defaults to `int' in declaration of `TValue'
+ltm.h:71: error: parse error before '*' token
+In file included from lapi.h:12,
+                 from lapi.c:18:
+lstate.h:75: error: parse error before "StkId"
+lstate.h:75: warning: no semicolon at end of struct or union
+lstate.h:76: warning: type defaults to `int' in declaration of `top'
+lstate.h:76: warning: data definition has no type or storage class
+lstate.h:77: error: conflicting types for 'next'
+lobject.h:478: error: previous declaration of 'next' was here
+lstate.h:80: error: parse error before "StkId"
+lstate.h:80: warning: no semicolon at end of struct or union
+lstate.h:80: warning: no semicolon at end of struct or union
+lstate.h:82: error: parse error before '}' token
+lstate.h:82: warning: type defaults to `int' in declaration of `l'
+lstate.h:82: error: conflicting types for 'l'
+lobject.h:462: error: previous declaration of 'l' was here
+lstate.h:82: error: conflicting types for 'l'
+lobject.h:462: error: previous declaration of 'l' was here
+lstate.h:82: warning: data definition has no type or storage class
+lstate.h:88: error: parse error before '}' token
+lstate.h:88: warning: type defaults to `int' in declaration of `u'
+lstate.h:88: warning: data definition has no type or storage class
+lstate.h:92: error: parse error before '}' token
+lstate.h:92: warning: type defaults to `int' in declaration of `CallInfo'
+lstate.h:92: warning: data definition has no type or storage class
+lstate.h:127: error: parse error before "TValue"
+lstate.h:127: warning: no semicolon at end of struct or union
+lstate.h:154: error: parse error before '}' token
+lstate.h:154: warning: type defaults to `int' in declaration of `global_State'
+lstate.h:154: warning: data definition has no type or storage class
+lstate.h:164: error: parse error before "StkId"
+lstate.h:164: warning: no semicolon at end of struct or union
+lstate.h:165: warning: type defaults to `int' in declaration of `l_G'
+lstate.h:165: warning: data definition has no type or storage class
+lstate.h:166: error: parse error before '*' token
+lstate.h:166: warning: type defaults to `int' in declaration of `ci'
+lstate.h:166: warning: data definition has no type or storage class
+lstate.h:168: error: parse error before "stack_last"
+lstate.h:168: warning: type defaults to `int' in declaration of `stack_last'
+lstate.h:168: warning: data definition has no type or storage class
+lstate.h:169: error: parse error before "stack"
+lstate.h:169: warning: type defaults to `int' in declaration of `stack'
+lstate.h:169: warning: data definition has no type or storage class
+lstate.h:174: error: parse error before "base_ci"
+lstate.h:174: warning: type defaults to `int' in declaration of `base_ci'
+lstate.h:174: warning: data definition has no type or storage class
+lstate.h:184: error: parse error before '}' token
+lstate.h:197: error: field `cl' has incomplete type
+lstate.h:198: error: field `h' has incomplete type
+lstate.h:199: error: field `p' has incomplete type
+lstate.h:200: error: field `th' has incomplete type
+lstate.h:227: error: parse error before '*' token
+lstate.h:229: error: parse error before '*' token
+lstate.h:229: warning: type defaults to `int' in declaration of `luaE_extendCI'
+lstate.h:229: warning: data definition has no type or storage class
+In file included from lapi.c:19:
+ldebug.h:21: warning: type defaults to `int' in declaration of `TValue'
+ldebug.h:21: error: parse error before '*' token
+ldebug.h:23: warning: type defaults to `int' in declaration of `TValue'
+ldebug.h:23: error: parse error before '*' token
+ldebug.h:25: warning: type defaults to `int' in declaration of `TValue'
+ldebug.h:25: error: parse error before '*' token
+ldebug.h:28: warning: type defaults to `int' in declaration of `TValue'
+ldebug.h:28: error: parse error before '*' token
+ldebug.h:30: warning: type defaults to `int' in declaration of `TValue'
+ldebug.h:30: error: parse error before '*' token
+In file included from lapi.c:20:
+ldo.h:42: error: parse error before "StkId"
+ldo.h:43: error: parse error before "StkId"
+ldo.h:44: error: parse error before "StkId"
+ldo.h:47: error: parse error before "CallInfo"
+In file included from lapi.c:21:
+lfunc.h:36: error: parse error before "TValue"
+lfunc.h:36: warning: no semicolon at end of struct or union
+lfunc.h:43: error: parse error before "TValue"
+lfunc.h:43: warning: no semicolon at end of struct or union
+lfunc.h:44: warning: type defaults to `int' in declaration of `u'
+lfunc.h:44: warning: data definition has no type or storage class
+lfunc.h:45: error: parse error before '}' token
+lfunc.h:50: error: parse error before '*' token
+lfunc.h:50: warning: type defaults to `int' in declaration of `luaF_newproto'
+lfunc.h:50: warning: data definition has no type or storage class
+lfunc.h:51: error: parse error before '*' token
+lfunc.h:51: warning: type defaults to `int' in declaration of `luaF_newCclosure'
+lfunc.h:51: warning: data definition has no type or storage class
+lfunc.h:54: error: parse error before "StkId"
+lfunc.h:55: error: parse error before "StkId"
+lfunc.h:56: error: parse error before "Proto"
+lfunc.h:57: warning: type defaults to `int' in declaration of `Proto'
+lfunc.h:57: error: parse error before '*' token
+In file included from lapi.c:22:
+lgc.h:141: error: parse error before "Table"
+lgc.h:143: error: parse error before "Table"
+In file included from lapi.c:26:
+lstring.h:40: error: parse error before '*' token
+In file included from lapi.c:27:
+ltable.h:43: error: parse error before '*' token
+ltable.h:43: error: parse error before '*' token
+ltable.h:43: warning: type defaults to `int' in declaration of `luaH_getint'
+ltable.h:43: warning: data definition has no type or storage class
+ltable.h:44: error: parse error before "Table"
+ltable.h:46: error: parse error before '*' token
+ltable.h:46: error: parse error before '*' token
+ltable.h:46: warning: type defaults to `int' in declaration of `luaH_getshortstr'
+ltable.h:46: warning: data definition has no type or storage class
+ltable.h:47: error: parse error before '*' token
+ltable.h:47: error: parse error before '*' token
+ltable.h:47: warning: type defaults to `int' in declaration of `luaH_getstr'
+ltable.h:47: warning: data definition has no type or storage class
+ltable.h:48: error: parse error before '*' token
+ltable.h:48: error: parse error before '*' token
+ltable.h:48: warning: type defaults to `int' in declaration of `luaH_get'
+ltable.h:48: warning: data definition has no type or storage class
+ltable.h:49: error: parse error before '*' token
+ltable.h:49: error: parse error before "Table"
+ltable.h:49: warning: type defaults to `int' in declaration of `luaH_newkey'
+ltable.h:49: warning: data definition has no type or storage class
+ltable.h:50: error: parse error before '*' token
+ltable.h:50: error: parse error before "Table"
+ltable.h:50: warning: type defaults to `int' in declaration of `luaH_set'
+ltable.h:50: warning: data definition has no type or storage class
+ltable.h:51: error: parse error before '*' token
+ltable.h:51: warning: type defaults to `int' in declaration of `luaH_new'
+ltable.h:51: warning: data definition has no type or storage class
+ltable.h:52: error: parse error before "Table"
+ltable.h:54: error: parse error before "Table"
+ltable.h:55: error: parse error before "Table"
+ltable.h:56: error: parse error before "Table"
+ltable.h:57: error: parse error before '*' token
+In file included from lapi.c:29:
+lundump.h:29: warning: type defaults to `int' in declaration of `Proto'
+lundump.h:29: error: parse error before '*' token
+In file included from lapi.c:30:
+lvm.h:96: warning: type defaults to `int' in declaration of `TValue'
+lvm.h:96: error: parse error before '*' token
+lvm.h:97: warning: type defaults to `int' in declaration of `TValue'
+lvm.h:97: error: parse error before '*' token
+lvm.h:98: warning: type defaults to `int' in declaration of `TValue'
+lvm.h:98: error: parse error before '*' token
+lvm.h:99: warning: type defaults to `int' in declaration of `TValue'
+lvm.h:99: error: parse error before '*' token
+lvm.h:100: warning: type defaults to `int' in declaration of `TValue'
+lvm.h:100: error: parse error before '*' token
+lvm.h:101: warning: type defaults to `int' in declaration of `TValue'
+lvm.h:101: error: parse error before '*' token
+lvm.h:103: warning: type defaults to `int' in declaration of `TValue'
+lvm.h:103: error: parse error before '*' token
+lvm.h:108: error: parse error before "luaV_div"
+lvm.h:108: error: parse error before "lua_Integer"
+lvm.h:108: warning: type defaults to `int' in declaration of `luaV_div'
+lvm.h:108: warning: data definition has no type or storage class
+lvm.h:109: error: parse error before "luaV_mod"
+lvm.h:109: error: parse error before "lua_Integer"
+lvm.h:109: warning: type defaults to `int' in declaration of `luaV_mod'
+lvm.h:109: warning: data definition has no type or storage class
+lvm.h:110: error: parse error before "luaV_shiftl"
+lvm.h:110: error: parse error before "x"
+lvm.h:110: warning: type defaults to `int' in declaration of `luaV_shiftl'
+lvm.h:110: warning: data definition has no type or storage class
+lvm.h:111: error: parse error before "StkId"
+lapi.c:60: error: parse error before '*' token
+lapi.c:60: warning: return type defaults to `int'
+lapi.c: In function `index2addr':
+lapi.c:61: error: invalid operands to binary *
+lapi.c:61: error: dereferencing pointer to incomplete type
+lapi.c:63: error: `o' undeclared (first use in this function)
+lapi.c:63: error: (Each undeclared identifier is reported only once
+lapi.c:63: error: for each function it appears in.)
+lapi.c:63: error: request for member `func' in something not a structure or union
+lapi.c:65: error: dereferencing pointer to incomplete type
+lapi.c:65: error: parse error before ')' token
+lapi.c:70: error: dereferencing pointer to incomplete type
+lapi.c:73: error: dereferencing pointer to incomplete type
+lapi.c:77: error: request for member `func' in something not a structure or union
+lapi.c:78: error: parse error before ')' token
+lapi.c:80: error: `func' undeclared (first use in this function)
+lapi.c:80: error: request for member `func' in something not a structure or union
+lapi.c:81: error: parse error before ')' token
+lapi.c: In function `lua_checkstack':
+lapi.c:99: error: invalid operands to binary *
+lapi.c:99: error: dereferencing pointer to incomplete type
+lapi.c:102: error: dereferencing pointer to incomplete type
+lapi.c:102: error: dereferencing pointer to incomplete type
+lapi.c:105: error: dereferencing pointer to incomplete type
+lapi.c:105: error: dereferencing pointer to incomplete type
+lapi.c:111: error: request for member `top' in something not a structure or union
+lapi.c:111: error: dereferencing pointer to incomplete type
+lapi.c:112: error: request for member `top' in something not a structure or union
+lapi.c:112: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_xmove':
+lapi.c:125: error: dereferencing pointer to incomplete type
+lapi.c:127: error: `io1' undeclared (first use in this function)
+lapi.c:127: error: dereferencing pointer to incomplete type
+lapi.c:127: error: dereferencing pointer to incomplete type
+lapi.c:128: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_atpanic':
+lapi.c:137: error: dereferencing pointer to incomplete type
+lapi.c:138: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_version':
+lapi.c:147: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_absindex':
+lapi.c:163: error: dereferencing pointer to incomplete type
+lapi.c:163: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_gettop':
+lapi.c:168: error: dereferencing pointer to incomplete type
+lapi.c:168: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_settop':
+lapi.c:173: error: parse error before "func"
+lapi.c:177: error: dereferencing pointer to incomplete type
+lapi.c:177: error: `func' undeclared (first use in this function)
+lapi.c:178: error: dereferencing pointer to incomplete type
+lapi.c:179: error: dereferencing pointer to incomplete type
+lapi.c:183: error: dereferencing pointer to incomplete type
+lapi.c: At top level:
+lapi.c:193: error: parse error before "StkId"
+lapi.c: In function `reverse':
+lapi.c:194: error: `from' undeclared (first use in this function)
+lapi.c:194: error: `to' undeclared (first use in this function)
+lapi.c:194: warning: left-hand operand of comma expression has no effect
+lapi.c:195: error: parse error before "temp"
+lapi.c:196: error: `io1' undeclared (first use in this function)
+lapi.c:196: error: `temp' undeclared (first use in this function)
+lapi.c:196: error: `L' undeclared (first use in this function)
+lapi.c: In function `lua_rotate':
+lapi.c:208: error: parse error before "p"
+lapi.c:210: error: `t' undeclared (first use in this function)
+lapi.c:210: error: dereferencing pointer to incomplete type
+lapi.c:211: warning: assignment from incompatible pointer type
+lapi.c:214: error: `m' undeclared (first use in this function)
+lapi.c: In function `lua_copy':
+lapi.c:223: error: `fr' undeclared (first use in this function)
+lapi.c:223: error: `to' undeclared (first use in this function)
+lapi.c:223: warning: left-hand operand of comma expression has no effect
+lapi.c:228: error: `io1' undeclared (first use in this function)
+lapi.c:230: error: dereferencing pointer to incomplete type
+lapi.c:230: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_pushvalue':
+lapi.c:239: error: `io1' undeclared (first use in this function)
+lapi.c:239: error: dereferencing pointer to incomplete type
+lapi.c:240: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_type':
+lapi.c:252: error: parse error before "o"
+lapi.c:253: error: `o' undeclared (first use in this function)
+lapi.c: In function `lua_iscfunction':
+lapi.c:265: error: parse error before "o"
+lapi.c:266: error: `o' undeclared (first use in this function)
+lapi.c: In function `lua_isinteger':
+lapi.c:271: error: parse error before "o"
+lapi.c:272: error: `o' undeclared (first use in this function)
+lapi.c: In function `lua_isnumber':
+lapi.c:278: error: syntax error before '*' token
+lapi.c:279: error: `o' undeclared (first use in this function)
+lapi.c:279: warning: left-hand operand of comma expression has no effect
+lapi.c: In function `lua_isstring':
+lapi.c:284: error: syntax error before '*' token
+lapi.c:285: error: `o' undeclared (first use in this function)
+lapi.c: In function `lua_isuserdata':
+lapi.c:290: error: syntax error before '*' token
+lapi.c:291: error: `o' undeclared (first use in this function)
+lapi.c: In function `lua_rawequal':
+lapi.c:296: error: parse error before "o1"
+lapi.c:298: error: `o1' undeclared (first use in this function)
+lapi.c:298: error: `o2' undeclared (first use in this function)
+lapi.c: In function `lua_arith':
+lapi.c:308: error: `io1' undeclared (first use in this function)
+lapi.c:308: error: dereferencing pointer to incomplete type
+lapi.c:308: error: dereferencing pointer to incomplete type
+lapi.c:309: error: dereferencing pointer to incomplete type
+lapi.c:312: error: dereferencing pointer to incomplete type
+lapi.c:312: error: dereferencing pointer to incomplete type
+lapi.c:312: error: dereferencing pointer to incomplete type
+lapi.c:313: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_compare':
+lapi.c:319: error: parse error before "o1"
+lapi.c:322: error: `o1' undeclared (first use in this function)
+lapi.c:323: error: `o2' undeclared (first use in this function)
+lapi.c: In function `lua_stringtonumber':
+lapi.c:338: error: dereferencing pointer to incomplete type
+lapi.c:340: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_tonumberx':
+lapi.c:347: error: syntax error before '*' token
+lapi.c:348: error: `o' undeclared (first use in this function)
+lapi.c:348: warning: left-hand operand of comma expression has no effect
+lapi.c: At top level:
+lapi.c:356: error: parse error before "lua_tointegerx"
+lapi.c:356: warning: return type defaults to `int'
+lapi.c: In function `lua_tointegerx':
+lapi.c:357: error: parse error before "res"
+lapi.c:358: error: syntax error before '*' token
+lapi.c:359: error: `o' undeclared (first use in this function)
+lapi.c:359: error: `res' undeclared (first use in this function)
+lapi.c:359: warning: left-hand operand of comma expression has no effect
+lapi.c: In function `lua_toboolean':
+lapi.c:368: error: syntax error before '*' token
+lapi.c:369: error: `o' undeclared (first use in this function)
+lapi.c: In function `lua_tolstring':
+lapi.c:374: error: parse error before "o"
+lapi.c:375: error: `o' undeclared (first use in this function)
+lapi.c:382: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_rawlen':
+lapi.c:393: error: parse error before "o"
+lapi.c:394: error: `o' undeclared (first use in this function)
+lapi.c: In function `lua_tocfunction':
+lapi.c:405: error: parse error before "o"
+lapi.c:406: error: `o' undeclared (first use in this function)
+lapi.c: In function `lua_touserdata':
+lapi.c:414: error: parse error before "o"
+lapi.c:415: error: `o' undeclared (first use in this function)
+lapi.c: In function `lua_tothread':
+lapi.c:424: error: parse error before "o"
+lapi.c:425: error: `o' undeclared (first use in this function)
+lapi.c: In function `lua_topointer':
+lapi.c:430: error: parse error before "o"
+lapi.c:431: error: `o' undeclared (first use in this function)
+lapi.c: In function `lua_pushnil':
+lapi.c:452: error: dereferencing pointer to incomplete type
+lapi.c:453: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_pushnumber':
+lapi.c:460: error: `io' undeclared (first use in this function)
+lapi.c:460: error: dereferencing pointer to incomplete type
+lapi.c:461: error: dereferencing pointer to incomplete type
+lapi.c: At top level:
+lapi.c:466: error: parse error before "lua_Integer"
+lapi.c: In function `lua_pushinteger':
+lapi.c:468: error: `io' undeclared (first use in this function)
+lapi.c:468: error: `L' undeclared (first use in this function)
+lapi.c: In function `lua_pushlstring':
+lapi.c:483: error: `io' undeclared (first use in this function)
+lapi.c:483: error: dereferencing pointer to incomplete type
+lapi.c:484: error: dereferencing pointer to incomplete type
+lapi.c:485: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_pushstring':
+lapi.c:494: error: dereferencing pointer to incomplete type
+lapi.c:498: error: `io' undeclared (first use in this function)
+lapi.c:498: error: dereferencing pointer to incomplete type
+lapi.c:501: error: dereferencing pointer to incomplete type
+lapi.c:502: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_pushvfstring':
+lapi.c:513: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_pushfstring':
+lapi.c:526: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_pushcclosure':
+lapi.c:535: error: `io' undeclared (first use in this function)
+lapi.c:535: error: dereferencing pointer to incomplete type
+lapi.c:538: error: `cl' undeclared (first use in this function)
+lapi.c:543: error: dereferencing pointer to incomplete type
+lapi.c:545: error: `io1' undeclared (first use in this function)
+lapi.c:545: error: dereferencing pointer to incomplete type
+lapi.c:548: error: dereferencing pointer to incomplete type
+lapi.c:548: error: `x_' undeclared (first use in this function)
+lapi.c:550: error: dereferencing pointer to incomplete type
+lapi.c:551: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_pushboolean':
+lapi.c:558: error: `io' undeclared (first use in this function)
+lapi.c:558: error: dereferencing pointer to incomplete type
+lapi.c:559: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_pushlightuserdata':
+lapi.c:566: error: `io' undeclared (first use in this function)
+lapi.c:566: error: dereferencing pointer to incomplete type
+lapi.c:567: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_pushthread':
+lapi.c:574: error: `io' undeclared (first use in this function)
+lapi.c:574: error: dereferencing pointer to incomplete type
+lapi.c:575: error: dereferencing pointer to incomplete type
+lapi.c:577: error: dereferencing pointer to incomplete type
+lapi.c: At top level:
+lapi.c:587: warning: type defaults to `int' in declaration of `TValue'
+lapi.c:587: error: parse error before '*' token
+lapi.c: In function `auxgetstr':
+lapi.c:588: error: syntax error before '*' token
+lapi.c:589: error: `L' undeclared (first use in this function)
+lapi.c:589: error: `k' undeclared (first use in this function)
+lapi.c:590: error: `t' undeclared (first use in this function)
+lapi.c:590: error: `slot' undeclared (first use in this function)
+lapi.c:590: warning: left-hand operand of comma expression has no effect
+lapi.c:590: warning: left-hand operand of comma expression has no effect
+lapi.c:591: error: `io1' undeclared (first use in this function)
+lapi.c:595: error: `io' undeclared (first use in this function)
+lapi.c: In function `lua_getglobal':
+lapi.c:605: error: `reg' undeclared (first use in this function)
+lapi.c:605: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_gettable':
+lapi.c:612: error: parse error before "t"
+lapi.c:614: error: `t' undeclared (first use in this function)
+lapi.c:615: error: syntax error before '*' token
+lapi.c:615: error: `slot' undeclared (first use in this function)
+lapi.c:615: warning: left-hand operand of comma expression has no effect
+lapi.c:615: error: dereferencing pointer to incomplete type
+lapi.c:615: warning: left-hand operand of comma expression has no effect
+lapi.c:615: error: `io1' undeclared (first use in this function)
+lapi.c:615: error: dereferencing pointer to incomplete type
+lapi.c:615: error: dereferencing pointer to incomplete type
+lapi.c:615: error: dereferencing pointer to incomplete type
+lapi.c:617: error: dereferencing pointer to incomplete type
+lapi.c: At top level:
+lapi.c:627: error: parse error before "lua_Integer"
+lapi.c: In function `lua_geti':
+lapi.c:628: error: parse error before "t"
+lapi.c:629: error: syntax error before '*' token
+lapi.c:631: error: `t' undeclared (first use in this function)
+lapi.c:631: error: `L' undeclared (first use in this function)
+lapi.c:631: error: `idx' undeclared (first use in this function)
+lapi.c:632: error: `slot' undeclared (first use in this function)
+lapi.c:632: warning: left-hand operand of comma expression has no effect
+lapi.c:632: warning: left-hand operand of comma expression has no effect
+lapi.c:633: error: `io1' undeclared (first use in this function)
+lapi.c:637: error: `io' undeclared (first use in this function)
+lapi.c: In function `lua_rawget':
+lapi.c:647: error: parse error before "t"
+lapi.c:649: error: `t' undeclared (first use in this function)
+lapi.c:651: error: `io1' undeclared (first use in this function)
+lapi.c:651: error: dereferencing pointer to incomplete type
+lapi.c:651: error: dereferencing pointer to incomplete type
+lapi.c:653: error: dereferencing pointer to incomplete type
+lapi.c: At top level:
+lapi.c:657: error: parse error before "lua_Integer"
+lapi.c: In function `lua_rawgeti':
+lapi.c:658: error: parse error before "t"
+lapi.c:660: error: `t' undeclared (first use in this function)
+lapi.c:660: error: `L' undeclared (first use in this function)
+lapi.c:660: error: `idx' undeclared (first use in this function)
+lapi.c:662: error: `io1' undeclared (first use in this function)
+lapi.c: In function `lua_rawgetp':
+lapi.c:670: error: parse error before "t"
+lapi.c:673: error: `t' undeclared (first use in this function)
+lapi.c:675: error: `io' undeclared (first use in this function)
+lapi.c:675: error: `k' undeclared (first use in this function)
+lapi.c:676: error: `io1' undeclared (first use in this function)
+lapi.c:676: error: dereferencing pointer to incomplete type
+lapi.c:677: error: dereferencing pointer to incomplete type
+lapi.c:679: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_createtable':
+lapi.c:684: error: `t' undeclared (first use in this function)
+lapi.c:687: error: `io' undeclared (first use in this function)
+lapi.c:687: error: dereferencing pointer to incomplete type
+lapi.c:687: error: `x_' undeclared (first use in this function)
+lapi.c:688: error: dereferencing pointer to incomplete type
+lapi.c:691: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_getmetatable':
+lapi.c:697: error: syntax error before '*' token
+lapi.c:698: error: invalid operands to binary *
+lapi.c:701: error: `obj' undeclared (first use in this function)
+lapi.c:710: error: dereferencing pointer to incomplete type
+lapi.c:714: error: `io' undeclared (first use in this function)
+lapi.c:714: error: dereferencing pointer to incomplete type
+lapi.c:714: error: `x_' undeclared (first use in this function)
+lapi.c:715: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_getuservalue':
+lapi.c:724: error: parse error before "o"
+lapi.c:726: error: `o' undeclared (first use in this function)
+lapi.c:728: error: `io' undeclared (first use in this function)
+lapi.c:728: error: dereferencing pointer to incomplete type
+lapi.c:729: error: dereferencing pointer to incomplete type
+lapi.c:731: error: dereferencing pointer to incomplete type
+lapi.c: At top level:
+lapi.c:742: warning: type defaults to `int' in declaration of `TValue'
+lapi.c:742: error: parse error before '*' token
+lapi.c: In function `auxsetstr':
+lapi.c:743: error: syntax error before '*' token
+lapi.c:744: error: `L' undeclared (first use in this function)
+lapi.c:744: error: `k' undeclared (first use in this function)
+lapi.c:746: error: `t' undeclared (first use in this function)
+lapi.c:746: error: `slot' undeclared (first use in this function)
+lapi.c:746: warning: left-hand operand of comma expression has no effect
+lapi.c:746: error: parse error before ')' token
+lapi.c:746: warning: left-hand operand of comma expression has no effect
+lapi.c:746: warning: left-hand operand of comma expression has no effect
+lapi.c:746: warning: left-hand operand of comma expression has no effect
+lapi.c:746: warning: left-hand operand of comma expression has no effect
+lapi.c:746: warning: left-hand operand of comma expression has no effect
+lapi.c:749: error: `io' undeclared (first use in this function)
+lapi.c: In function `lua_setglobal':
+lapi.c:759: error: `reg' undeclared (first use in this function)
+lapi.c:759: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_settable':
+lapi.c:766: error: parse error before "t"
+lapi.c:769: error: `t' undeclared (first use in this function)
+lapi.c:770: error: syntax error before '*' token
+lapi.c:770: error: `slot' undeclared (first use in this function)
+lapi.c:770: warning: left-hand operand of comma expression has no effect
+lapi.c:770: error: dereferencing pointer to incomplete type
+lapi.c:770: error: dereferencing pointer to incomplete type
+lapi.c:770: error: dereferencing pointer to incomplete type
+lapi.c:770: error: parse error before ')' token
+lapi.c:770: error: dereferencing pointer to incomplete type
+lapi.c:770: warning: left-hand operand of comma expression has no effect
+lapi.c:770: warning: left-hand operand of comma expression has no effect
+lapi.c:770: warning: left-hand operand of comma expression has no effect
+lapi.c:770: warning: left-hand operand of comma expression has no effect
+lapi.c:770: error: dereferencing pointer to incomplete type
+lapi.c:770: error: dereferencing pointer to incomplete type
+lapi.c:771: error: dereferencing pointer to incomplete type
+lapi.c: At top level:
+lapi.c:782: error: parse error before "lua_Integer"
+lapi.c: In function `lua_seti':
+lapi.c:783: error: parse error before "t"
+lapi.c:784: error: syntax error before '*' token
+lapi.c:787: error: `t' undeclared (first use in this function)
+lapi.c:787: error: `L' undeclared (first use in this function)
+lapi.c:787: error: `idx' undeclared (first use in this function)
+lapi.c:788: error: `slot' undeclared (first use in this function)
+lapi.c:788: warning: left-hand operand of comma expression has no effect
+lapi.c:788: error: parse error before ')' token
+lapi.c:788: warning: left-hand operand of comma expression has no effect
+lapi.c:788: warning: left-hand operand of comma expression has no effect
+lapi.c:788: warning: left-hand operand of comma expression has no effect
+lapi.c:788: warning: left-hand operand of comma expression has no effect
+lapi.c:788: warning: left-hand operand of comma expression has no effect
+lapi.c:791: error: `io' undeclared (first use in this function)
+lapi.c: In function `lua_rawset':
+lapi.c:801: error: parse error before "o"
+lapi.c:802: error: `slot' undeclared (first use in this function)
+lapi.c:805: error: `o' undeclared (first use in this function)
+lapi.c:807: error: dereferencing pointer to incomplete type
+lapi.c:808: error: dereferencing pointer to incomplete type
+lapi.c:808: warning: left-hand operand of comma expression has no effect
+lapi.c:810: error: dereferencing pointer to incomplete type
+lapi.c:810: error: dereferencing pointer to incomplete type
+lapi.c:811: error: dereferencing pointer to incomplete type
+lapi.c: At top level:
+lapi.c:816: error: parse error before "lua_Integer"
+lapi.c: In function `lua_rawseti':
+lapi.c:817: error: parse error before "o"
+lapi.c:820: error: `o' undeclared (first use in this function)
+lapi.c:820: error: `L' undeclared (first use in this function)
+lapi.c:820: error: `idx' undeclared (first use in this function)
+lapi.c: In function `lua_rawsetp':
+lapi.c:830: error: parse error before "o"
+lapi.c:834: error: `o' undeclared (first use in this function)
+lapi.c:836: error: `io' undeclared (first use in this function)
+lapi.c:836: error: `k' undeclared (first use in this function)
+lapi.c:837: error: `slot' undeclared (first use in this function)
+lapi.c:838: error: dereferencing pointer to incomplete type
+lapi.c:838: warning: left-hand operand of comma expression has no effect
+lapi.c:839: error: dereferencing pointer to incomplete type
+lapi.c:839: error: dereferencing pointer to incomplete type
+lapi.c:840: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_setmetatable':
+lapi.c:846: error: `obj' undeclared (first use in this function)
+lapi.c:847: error: invalid operands to binary *
+lapi.c:851: error: dereferencing pointer to incomplete type
+lapi.c:852: error: incompatible types in assignment
+lapi.c:855: error: dereferencing pointer to incomplete type
+lapi.c:861: error: request for member `marked' in something not a structure or union
+lapi.c:869: error: request for member `marked' in something not a structure or union
+lapi.c:875: error: dereferencing pointer to incomplete type
+lapi.c:879: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_setuservalue':
+lapi.c:886: error: parse error before "o"
+lapi.c:889: error: `o' undeclared (first use in this function)
+lapi.c:891: error: syntax error before '*' token
+lapi.c:891: error: `io' undeclared (first use in this function)
+lapi.c:892: error: dereferencing pointer to incomplete type
+lapi.c:892: error: dereferencing pointer to incomplete type
+lapi.c:892: error: dereferencing pointer to incomplete type
+lapi.c:893: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_callk':
+lapi.c:910: error: parse error before "func"
+lapi.c:917: error: `func' undeclared (first use in this function)
+lapi.c:917: error: dereferencing pointer to incomplete type
+lapi.c:918: error: dereferencing pointer to incomplete type
+lapi.c:919: error: dereferencing pointer to incomplete type
+lapi.c:920: error: dereferencing pointer to incomplete type
+lapi.c:925: error: dereferencing pointer to incomplete type
+lapi.c:925: error: dereferencing pointer to incomplete type
+lapi.c:925: error: dereferencing pointer to incomplete type
+lapi.c:925: error: dereferencing pointer to incomplete type
+lapi.c: At top level:
+lapi.c:935: error: parse error before "StkId"
+lapi.c:935: warning: no semicolon at end of struct or union
+lapi.c:936: error: conflicting types for 'nresults'
+lstate.h:90: error: previous declaration of 'nresults' was here
+lapi.c:937: error: parse error before '}' token
+lapi.c: In function `f_call':
+lapi.c:942: error: dereferencing pointer to incomplete type
+lapi.c:942: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_pcallk':
+lapi.c:949: error: storage size of 'c' isn't known
+lapi.c:961: error: parse error before "o"
+lapi.c:963: error: `o' undeclared (first use in this function)
+lapi.c:963: error: dereferencing pointer to incomplete type
+lapi.c:965: error: dereferencing pointer to incomplete type
+lapi.c:966: error: dereferencing pointer to incomplete type
+lapi.c:968: error: dereferencing pointer to incomplete type
+lapi.c:971: error: invalid operands to binary *
+lapi.c:971: error: dereferencing pointer to incomplete type
+lapi.c:972: error: request for member `u' in something not a structure or union
+lapi.c:973: error: request for member `u' in something not a structure or union
+lapi.c:975: error: request for member `extra' in something not a structure or union
+lapi.c:975: error: dereferencing pointer to incomplete type
+lapi.c:976: error: request for member `u' in something not a structure or union
+lapi.c:976: error: dereferencing pointer to incomplete type
+lapi.c:977: error: dereferencing pointer to incomplete type
+lapi.c:978: error: request for member `callstatus' in something not a structure or union
+lapi.c:978: error: request for member `callstatus' in something not a structure or union
+lapi.c:978: error: dereferencing pointer to incomplete type
+lapi.c:979: error: request for member `callstatus' in something not a structure or union
+lapi.c:981: error: request for member `callstatus' in something not a structure or union
+lapi.c:982: error: dereferencing pointer to incomplete type
+lapi.c:982: error: request for member `u' in something not a structure or union
+lapi.c:985: error: dereferencing pointer to incomplete type
+lapi.c:985: error: dereferencing pointer to incomplete type
+lapi.c:985: error: dereferencing pointer to incomplete type
+lapi.c:985: error: dereferencing pointer to incomplete type
+lapi.c:949: warning: unused variable `c'
+lapi.c: In function `lua_load':
+lapi.c:1000: error: dereferencing pointer to incomplete type
+lapi.c:1003: error: `reg' undeclared (first use in this function)
+lapi.c:1003: error: dereferencing pointer to incomplete type
+lapi.c:1004: error: syntax error before '*' token
+lapi.c:1006: error: `io1' undeclared (first use in this function)
+lapi.c:1006: error: dereferencing pointer to incomplete type
+lapi.c:1006: error: `gt' undeclared (first use in this function)
+lapi.c:1007: error: dereferencing pointer to incomplete type
+lapi.c:1007: error: dereferencing pointer to incomplete type
+lapi.c:1007: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_dump':
+lapi.c:1017: error: `o' undeclared (first use in this function)
+lapi.c:1020: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_status':
+lapi.c:1031: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_gc':
+lapi.c:1041: error: `g' undeclared (first use in this function)
+lapi.c:1043: error: dereferencing pointer to incomplete type
+lapi.c:1078: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_next':
+lapi.c:1123: error: parse error before "t"
+lapi.c:1126: error: `t' undeclared (first use in this function)
+lapi.c:1128: error: dereferencing pointer to incomplete type
+lapi.c:1130: error: dereferencing pointer to incomplete type
+lapi.c:1133: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_concat':
+lapi.c:1146: error: `io' undeclared (first use in this function)
+lapi.c:1146: error: dereferencing pointer to incomplete type
+lapi.c:1147: error: dereferencing pointer to incomplete type
+lapi.c:1150: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_len':
+lapi.c:1156: error: parse error before "t"
+lapi.c:1158: error: `t' undeclared (first use in this function)
+lapi.c:1159: error: dereferencing pointer to incomplete type
+lapi.c:1160: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_getallocf':
+lapi.c:1168: error: dereferencing pointer to incomplete type
+lapi.c:1169: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_setallocf':
+lapi.c:1177: error: dereferencing pointer to incomplete type
+lapi.c:1178: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_newuserdata':
+lapi.c:1187: error: `io' undeclared (first use in this function)
+lapi.c:1187: error: dereferencing pointer to incomplete type
+lapi.c:1188: error: dereferencing pointer to incomplete type
+lapi.c:1189: error: dereferencing pointer to incomplete type
+lapi.c: At top level:
+lapi.c:1196: error: parse error before "fi"
+lapi.c: In function `aux_upvalue':
+lapi.c:1198: error: `fi' undeclared (first use in this function)
+lapi.c:1200: error: `f' undeclared (first use in this function)
+lapi.c:1202: error: `val' undeclared (first use in this function)
+lapi.c:1203: error: `owner' undeclared (first use in this function)
+lapi.c:1209: error: invalid operands to binary *
+lapi.c:1210: error: request for member `sizeupvalues' in something not a structure or union
+lapi.c:1211: error: array subscript is not an integer
+lapi.c:1212: error: invalid operands to binary !=
+lapi.c:1212: error: invalid type argument of `unary *'
+lapi.c:1212: error: array subscript is not an integer
+lapi.c:1213: error: request for member `upvalues' in something not a structure or union
+lapi.c: In function `lua_getupvalue':
+lapi.c:1223: error: `val' undeclared (first use in this function)
+lapi.c:1227: error: `io1' undeclared (first use in this function)
+lapi.c:1227: error: dereferencing pointer to incomplete type
+lapi.c:1228: error: dereferencing pointer to incomplete type
+lapi.c: In function `lua_setupvalue':
+lapi.c:1237: error: `val' undeclared (first use in this function)
+lapi.c:1238: error: `owner' undeclared (first use in this function)
+lapi.c:1240: error: parse error before "fi"
+lapi.c:1242: error: `fi' undeclared (first use in this function)
+lapi.c:1246: error: dereferencing pointer to incomplete type
+lapi.c:1247: error: `io1' undeclared (first use in this function)
+lapi.c:1247: error: dereferencing pointer to incomplete type
+lapi.c:1248: error: dereferencing pointer to incomplete type
+lapi.c:1248: error: dereferencing pointer to incomplete type
+lapi.c:1248: error: dereferencing pointer to incomplete type
+lapi.c:1249: error: dereferencing pointer to incomplete type
+lapi.c:1249: error: dereferencing pointer to incomplete type
+lapi.c:1249: error: dereferencing pointer to incomplete type
+lapi.c: In function `getupvalref':
+lapi.c:1258: error: parse error before "fi"
+lapi.c:1260: error: `fi' undeclared (first use in this function)
+lapi.c: In function `lua_upvalueid':
+lapi.c:1268: error: parse error before "fi"
+lapi.c:1269: error: `fi' undeclared (first use in this function)
+lapi.c:1274: error: `f' undeclared (first use in this function)
+lapi.c: In function `lua_upvaluejoin':
+lapi.c:1293: error: dereferencing pointer to incomplete type
+lapi.c:1294: error: dereferencing pointer to incomplete type
+lapi.c:1294: error: dereferencing pointer to incomplete type
+lapi.c:1294: error: dereferencing pointer to incomplete type
+lapi.c:1295: error: dereferencing pointer to incomplete type
+lapi.c:1295: error: dereferencing pointer to incomplete type
+lapi.c:1295: error: dereferencing pointer to incomplete type
+lapi.c: At top level:
+lapi.c:1256: warning: unused parameter 'L'
+lapi.c:1256: warning: unused parameter 'fidx'
+lapi.c:429: warning: unused parameter 'L'
+lapi.c:429: warning: unused parameter 'idx'
+lapi.c:423: warning: unused parameter 'L'
+lapi.c:423: warning: unused parameter 'idx'
+lapi.c:413: warning: unused parameter 'L'
+lapi.c:413: warning: unused parameter 'idx'
+lapi.c:404: warning: unused parameter 'L'
+lapi.c:404: warning: unused parameter 'idx'
+lapi.c:392: warning: unused parameter 'L'
+lapi.c:392: warning: unused parameter 'idx'
+lapi.c:367: warning: unused parameter 'L'
+lapi.c:367: warning: unused parameter 'idx'
+lapi.c:356: warning: unused parameter 'L'
+lapi.c:356: warning: unused parameter 'idx'
+lapi.c:345: warning: unused parameter 'L'
+lapi.c:345: warning: unused parameter 'idx'
+lapi.c:295: warning: unused parameter 'L'
+lapi.c:295: warning: unused parameter 'index1'
+lapi.c:295: warning: unused parameter 'index2'
+lapi.c:289: warning: unused parameter 'L'
+lapi.c:289: warning: unused parameter 'idx'
+lapi.c:283: warning: unused parameter 'L'
+lapi.c:283: warning: unused parameter 'idx'
+lapi.c:276: warning: unused parameter 'L'
+lapi.c:276: warning: unused parameter 'idx'
+lapi.c:270: warning: unused parameter 'L'
+lapi.c:270: warning: unused parameter 'idx'
+lapi.c:264: warning: unused parameter 'L'
+lapi.c:264: warning: unused parameter 'idx'
+lapi.c:251: warning: unused parameter 'L'
+lapi.c:251: warning: unused parameter 'idx'
+lapi.c: In function `reverse':
+lapi.c:194: warning: statement with no effect
+lapi.c: In function `lua_copy':
+lapi.c:223: warning: statement with no effect
+make[1]: *** [lapi.o] Error 1
+make[1]: Leaving directory `/data3/wbr/reosse/3520G/nv518G/source/user/lua-5.3.4'
+make: *** [linux] Error 2

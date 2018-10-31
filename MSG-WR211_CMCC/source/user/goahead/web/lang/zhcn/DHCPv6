@@ -1,0 +1,13 @@
+ipv6_PreLen=IPv6前缀长度
+sta_time=租用时间
+ipv6_addr=IPv6地址
+ipv6_dns=IPv6DNS地址
+alert_one=起始和结束地址不在同一网段
+alert_two=起始地址不能大于结束地址
+dhcpv6=DHCPv6
+en_dhcp=启用DHCP服务器
+sta_ipv6=起始IPv6地址
+end_ipv6=结束IPv6地址
+main_dns=主DNS服务器
+bei_dns=备DNS服务器
+

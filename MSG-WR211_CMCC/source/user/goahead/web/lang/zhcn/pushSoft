@@ -1,0 +1,15 @@
+outSoft=下发软件
+chooseSoft1=软件选择
+softName=软件名称
+softVersion=软件版本
+suitType=适用型号
+hardVersion=硬件版本
+softSize=软件大小
+APRemoteMG=远程AP管理
+continueTips=下发完毕需重启远程设备才能生效。确定继续？
+chooseFile=请在列表中选择一个条目！
+UnitOutSoft=远程AP管理-下发软件
+lawfull=操作成功！
+failTips=操作失败！
+sureout=确定下发
+

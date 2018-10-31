@@ -1,0 +1,71 @@
+<po>
+
+<!-- RunStatus  -->
+  <message msgid="RunStatues" msgstr="运行状态" />
+  <message msgid="internet" msgstr="有线状态：" />
+  <message msgid="wireless" msgstr="无线状态：" />
+
+  <message msgid="WANsign" msgstr="WAN口状态" />
+  <message msgid="leixing" msgstr="连接类型" />
+  <message msgid="zhuangtai" msgstr="连接状态" />
+  <message msgid="ip addr" msgstr="IP地址" />
+  <message msgid="subnet" msgstr="子网掩码" />
+  <message msgid="gateway" msgstr="网关地址" />
+  <message msgid="MAC addr" msgstr="MAC地址" />
+  <message msgid="zhuDNS" msgstr="主DNS服务器" />
+  <message msgid="beiDNS" msgstr="备DNS服务器" />
+  <message msgid="LANsign" msgstr="LAN口状态" />
+  <message msgid="pinduan" msgstr="信道" />
+  <message msgid="auto" msgstr="自动" />
+  <message msgid="mode" msgstr="无线模式" />
+
+  <message msgid="update" msgstr="刷新" />
+
+<!--  FluxStat  -->
+  <message msgid="FluxStat" msgstr="流量统计" />
+  <message msgid="internetbyte" msgstr="有线流量" />
+  <message msgid="wirelessbyte" msgstr="无线流量" />
+
+  <message msgid="send" msgstr="发送" />
+  <message msgid="get" msgstr="接收" />
+  <message msgid="bytesize" msgstr="字节数" />
+  <message msgid="numsize" msgstr="数据包数" />
+
+  <message msgid="clear" msgstr="清除" />
+
+  <!--  SysInfo -->
+  <message msgid="SysInfo" msgstr="系统信息" />
+  <message msgid="nowtime" msgstr="&amp;nbsp;系统当前时间" />
+  <message msgid="lasttime" msgstr="&amp;nbsp;系统运行时间" />
+  <message msgid="some" msgstr="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;strong &gt;版本及资源状态：&lt;/strong &gt;" />
+  <message msgid="CPU" msgstr="&amp;nbsp;CPU占用" />
+  <message msgid="neicun" msgstr="&amp;nbsp;内存使用" />
+  <message msgid="flash" msgstr="&amp;nbsp;U盘使用" />
+  <message msgid="SN" msgstr="&amp;nbsp;序列号" />
+  <message msgid="revision" msgstr="&amp;nbsp;软件版本" />
+  <message msgid="history" msgstr="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;strong &gt;历史记录：&lt;/strong &gt;" />
+ 
+ <!--  SaleService  -->
+  <message msgid="SaleService" msgstr="客户服务" />
+  <message msgid="direction" msgstr="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;艾泰科技是中国领先的中小型网络解决方案提供商和服务商。成立于2000年，总部及研发中心位于上海市漕河泾开发区松江高科技园，在全国设有12个分支机构，是国家重点扶持的高新技术企业和软件企业。艾泰科技产品已广泛应用于企业、网吧、酒店、学校、连锁机构、宽带社区等众多行业，业绩稳健成长。针对中小型网络用户的特点，艾泰科技坚持以服务为中心的战略，坚持“简单+专业=成长”的市场理念，产品和服务一体化，帮助用户建设井然有序的网络。" />
+  <message msgid="phone" msgstr="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;艾泰科技全国客户服务热线：4006-120-780" />
+  <message msgid="line11" msgstr="&amp;nbsp;根据多年的探索和经" />
+  <message msgid="line12" msgstr="&amp;nbsp;验积累，2007年创新" />
+  <message msgid="line13" msgstr="&amp;nbsp;地推出了UTTCare服" />
+  <message msgid="line14" msgstr="&amp;nbsp;务体系......" />
+  <message msgid="line21" msgstr="&amp;nbsp;包括艾泰科技产品售" />
+  <message msgid="line22" msgstr="&amp;nbsp;前问题讨论区、艾泰" />
+  <message msgid="line23" msgstr="&amp;nbsp;科技产品售后问题讨" />
+  <message msgid="line24" msgstr="&amp;nbsp;论区......" />
+  <message msgid="line31" msgstr="&amp;nbsp;艾泰科技于2007年推" />
+  <message msgid="line32" msgstr="&amp;nbsp;出了知识库服务，任" />
+  <message msgid="line33" msgstr="&amp;nbsp;何一篇知识库文档都" />
+  <message msgid="line34" msgstr="&amp;nbsp;是由...." />
+  <message msgid="line41" msgstr="&amp;nbsp;链接到艾泰科技官方" />
+  <message msgid="line42" msgstr="&amp;nbsp;网站，可以由客户指" />
+  <message msgid="line43" msgstr="定工程师在特定时段" />
+  <message msgid="line44" msgstr="&amp;nbsp;主动联系......" />
+  <message msgid="more" msgstr="了解更多" />
+
+
+</po>

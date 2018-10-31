@@ -1,0 +1,34 @@
+opengt
+set com 115200n81
+set senddelay 0.05
+waitquiet 1 0.2
+send "ATZ^m"
+waitfor 10 "OK","ERR","ERROR"
+if % = -1 goto timeerror
+if % = 0 goto next1
+if % = 1 goto error
+if % = 2 goto error
+:next1
+send "AT+CFUN=1;+CGDCONT=1,\"IP\",\"Internet\"^m"
+waitfor 10 "OK","ERR","ERROR"
+if % = -1 goto timeerror
+if % = 0 goto next2
+if % = 1 goto error
+if % = 2 goto error
+:next2
+send "ATD*99#^m"
+waitfor 10 "CONNECT","ERR","ERROR"
+if % = -1 goto timeerror
+if % = 0 goto next3
+if % = 1 goto error
+if % = 2 goto error
+:next3
+print "CONNECTED\n"
+exit 0
+:error
+print "CONNECT ERROR\n"
+exit 1
+:timeerror
+print "CONNECT TIMEOUT\n"
+exit 1
+

@@ -1,0 +1,5 @@
+DeviceLoginControl=Device Login Control
+Port=Port
+SSHPortRange=The port number 1-65535
+SSHEn=Enable SSH
+HttpsEn=Enable https

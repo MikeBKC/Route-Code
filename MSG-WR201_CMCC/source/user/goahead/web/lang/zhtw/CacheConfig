@@ -1,0 +1,7 @@
+CacheServerEn=启用缓存服务
+CacheServerIp=缓存服务器的地址(域名)
+CacheServerPort=缓存服务器的端口
+CacheServerDomainLen=IP地址（域名长度）不得超过超过67位
+CacheServerPortNum=端口应为1到65535之间的数字
+CacheServerIpNotNone=缓存服务器的地址(域名)不能为0.0.0.0
+

@@ -1,0 +1,8 @@
+104:	newmss = dst_mtu(&rt->dst) - minlen;
+158:	if (opt->is_strictroute && rt->rt_dst != rt->rt_gateway)
+161:	if (unlikely(skb->len > dst_mtu(&rt->dst) && !skb_is_gso(skb) &&
+163:		IP_INC_STATS(dev_net(rt->dst.dev), IPSTATS_MIB_FRAGFAILS);
+165:			  htonl(dst_mtu(&rt->dst)));
+171:	if (skb_cow(skb, LL_RESERVED_SPACE(rt->dst.dev)+rt->dst.header_len))
+183:	if (rt->rt_flags&RTCF_DOREDIRECT && !opt->srr && !skb_sec_path(skb))
+207:		       rt->dst.dev, ip_forward_finish);

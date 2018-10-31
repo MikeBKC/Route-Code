@@ -1,0 +1,17 @@
+snmp_service=SNMP 服务
+snmp_enbale=启用 SNMP 服务
+snmp_RoComm=SNMP 社区名
+snmp_dev_name=设备名
+snmp_RoContact=联系人
+snmp_RoLocation=位置
+snmp_RsHost=允许以下主机管理
+snmp_host1=允许主机 1
+snmp_host2=允许主机 2
+snmp_host3=允许主机 3
+snmp_tips=注意：
+snmp_tip_cnt=SNMP 社区名必须和SNMP网络管理控制端的配置相匹配。
+snmp_route_err=由器内部错误。
+snmp_RoComm_len=社区名长度不能超过31个字符
+snmp_dev_name_len_len=设备名长度不能超过31个字符
+snmp_RoContact_RoLocation=联系人和位置长度不能超过31个字符
+snmp_host_no_zero=允许主机不能为0.0.0.0

@@ -1,0 +1,2 @@
+::respawn:/sbin/getty ttyS1 9600
+::sysinit:/etc_ro/init.d/rcS S boot

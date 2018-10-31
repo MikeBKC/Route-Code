@@ -1,0 +1,5 @@
+is_ipv6=ISATAP IPv6地址
+is_ipv4=ISATAP IPv4网关
+is_SerConfig=ISATAP 服务器配置
+is_enabled=启用
+

@@ -1,0 +1,22 @@
+#The word of "Default" must not be removed
+Default
+WebInit=1
+HostName=UTT
+Login=admin
+Password=admin
+Language=zhcn
+Platform=RT3052
+Wan1Status=1
+Wan1StatusW=1
+Wan1ConnMode=STATIC
+Wan1IP=200.200.202.81
+Wan1Nm=255.255.255.0
+Wan1Gw=200.200.202.254
+Wan1Dns1=200.200.200.251
+Wan1PoeOpMode=KeepAlive
+Wan1PoeMtu=1492
+Wan1PoeDlMode=Normal
+Wan1PoeAuth=Either
+Wan1Weight=1
+Wan1ChkCnt=0
+Wan1ChkInt=10

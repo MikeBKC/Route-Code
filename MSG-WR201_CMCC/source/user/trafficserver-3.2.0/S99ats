@@ -1,0 +1,17 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2010 OpenWrt.org
+
+START=99
+STOP=10
+
+
+start() {
+	mkdir -p /var/trafficserver
+	chmod 777 -R /var/trafficserver
+	mkdir -p /var/log/trafficserver
+	chmod 777 -R /var/log/trafficserver
+	mkdir -p /etc/snapshots
+	chmod 777 -R /etc
+}
+
+

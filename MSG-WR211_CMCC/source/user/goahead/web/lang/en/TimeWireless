@@ -1,0 +1,4 @@
+twl_open=Enable WiFi Auto On/Off
+twl_openTime=WiFi Turn On
+twl_workDay=Weekdays
+twl_weekend2=Weekend

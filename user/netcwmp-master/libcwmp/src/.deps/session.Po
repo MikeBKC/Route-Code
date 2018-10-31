@@ -1,0 +1,706 @@
+session.o session.o: session.c ../../libcwmp/include/cwmp/session.h \
+  ../../libcwmp/include/cwmp/cwmp.h ../../libxmlet/include/cwmp/xmlet.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/stdlib.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/features.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/uClibc_config.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/cdefs.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/waitflags.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/waitstatus.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/endian.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/endian.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/types.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/types.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/kernel_types.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/pthreadtypes.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/sched.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/time.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/select.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/select.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/sigset.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/time.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/sysmacros.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/alloca.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/stdio.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/uClibc_stdio.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/wchar.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/wchar.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/stdio_lim.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/malloc.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/assert.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/string.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/errno.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/errno.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/errno_values.h \
+  ../../libpool/include/cwmp/pool.h ../../libcwmp/include/cwmp/types.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/uClibc_clk_tck.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/timeb.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/ctype.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/uClibc_touplow.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/stdint.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/wordsize.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/socket.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/uio.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/uio.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/socket.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/limits.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/syslimits.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/limits.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/posix1_lim.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/local_lim.h \
+  ../../../../linux-2.6.36.x/include/linux/limits.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/posix2_lim.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/xopen_lim.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/sockaddr.h \
+  ../../../../linux-2.6.36.x/include/asm/socket.h \
+  ../../../../linux-2.6.36.x/include/asm/sockios.h \
+  ../../../../linux-2.6.36.x/include/asm/ioctl.h \
+  ../../../../linux-2.6.36.x/include/asm-generic/ioctl.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/netinet/in.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/in.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/byteswap.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/arpa/inet.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/syslog.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/syslog.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/unistd.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/posix_opt.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/environments.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/confname.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/getopt.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/ioctl.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/ioctls.h \
+  ../../../../linux-2.6.36.x/include/asm/ioctls.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/ioctl-types.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/ttydefaults.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/net/if.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/net/if_arp.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/pthread.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sched.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/signal.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/initspin.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/sigthread.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/stat.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/stat.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/fcntl.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/fcntl.h \
+  ../../libcwmp/include/cwmp/error.h ../../libcwmp/include/cwmp/util.h \
+  ../../libcwmp/include/cwmp/md5.h ../../libcwmp/include/cwmp/memory.h \
+  ../../libcwmp/include/cwmp/envment.h \
+  ../../libcwmp/include/cwmp/buffer.h ../../libcwmp/include/cwmp/event.h \
+  ../../libcwmp/include/cwmp/queue.h ../../../../lib/libconfig/mib/mib.h \
+  ../../../../linux-2.6.36.x/include/linux/autoconf.h \
+  ../../../../lib/libconfig/cli/typedef.h \
+  ../../../../uttShareHead/config/typedefShare.h \
+  ../../../../uttShareHead/config/uttMachine.h \
+  ../../../../uttShareHead/config/uttMachineAllMacro.h \
+  ../../../../lib/libconfig/mib/mibunion.h \
+  ../../../../uttShareHead/config/mibunionShare.h \
+  ../../../../uttShareHead/config/autoconf.h \
+  ../../../../lib/libconfig/mib/mibtype.h \
+  ../../../../uttShareHead/config/mibtypeShare.h \
+  ../../../../uttShareHead/config/uttMachine.h \
+  ../../../../lib/libconfig/mib/mibSystem.h \
+  ../../../../uttShareHead/config/mibSystemShare.h \
+  ../../../../lib/libconfig/mib/mibInterface.h \
+  ../../../../uttShareHead/config/mibInterfaceShare.h \
+  ../../../../uttShareHead/config/mibunionShare.h \
+  ../../../../uttShareHead/config/mibtypeShare.h \
+  ../../../../lib/libconfig/mib/mibUser.h \
+  ../../../../uttShareHead/config/mibUserShare.h \
+  ../../../../lib/libconfig/profacc/uttSem.h \
+  ../../../../uttShareHead/config/uttMachine.h \
+  ../../../../lib/libconfig/profacc/uttNfNetlink.h \
+  ../../../../lib/libconfig/profacc/ipsetApi.h \
+  ../../../../lib/libconfig/mib/mibIpGroup.h \
+  ../../../../uttShareHead/config/mibIpGroupShare.h \
+  ../../../../lib/libconfig/mib/mibTimeGrp.h \
+  ../../../../uttShareHead/config/mibTimeGrpShare.h \
+  ../../../../lib/libconfig/mib/mibDhcpServer.h \
+  ../../../../uttShareHead/config/mibDhcpServerShare.h \
+  ../../../../lib/libconfig/mib/mibPPTPServer.h \
+  ../../../../uttShareHead/config/mibPPTPServerShare.h \
+  ../../../../lib/libconfig/mib/mibPptpClient.h \
+  ../../../../uttShareHead/config/mibPptpClientShare.h \
+  ../../../../lib/libconfig/mib/mibRoute.h \
+  ../../../../uttShareHead/config/mibRouteShare.h \
+  ../../../../lib/libconfig/mib/mibDdns.h \
+  ../../../../uttShareHead/config/mibDdnsShare.h \
+  ../../../../lib/libconfig/mib/mibPppoeServer.h \
+  ../../../../uttShareHead/config/mibPppoeServerShare.h \
+  ../../../../lib/libconfig/mib/mibGroupBase.h \
+  ../../../../uttShareHead/config/mibGroupBaseShare.h \
+  ../../../../lib/libconfig/mib/mibpdb.h \
+  ../../../../uttShareHead/config/mibpdbShare.h \
+  ../../../../lib/libconfig/mib/mibnat.h \
+  ../../../../uttShareHead/config/mibnatShare.h \
+  ../../../../lib/libconfig/mib/mibAdminConf.h \
+  ../../../../uttShareHead/config/mibAdminConfShare.h \
+  ../../../../lib/libconfig/mib/mibDnsFilter.h \
+  ../../../../uttShareHead/config/mibDnsFilterShare.h \
+  ../../../../lib/libconfig/mib/mibWireless.h \
+  ../../../../uttShareHead/config/mibWirelessShare.h \
+  ../../../../lib/libconfig/mib/mibNtp.h \
+  ../../../../uttShareHead/config/mibNtpShare.h \
+  ../../../../lib/libconfig/mib/mibLang.h \
+  ../../../../uttShareHead/config/mibLangShare.h \
+  ../../../../lib/libconfig/mib/mibTaskSched.h \
+  ../../../../uttShareHead/config/mibTaskSchedShare.h \
+  ../../../../lib/libconfig/mib/mibfirewall.h \
+  ../../../../uttShareHead/config/mibfirewallShare.h \
+  ../../../../lib/libconfig/mib/mibNotice.h \
+  ../../../../uttShareHead/config/mibNoticeShare.h \
+  ../../../../lib/libconfig/mib/mibWebAuth.h \
+  ../../../../uttShareHead/config/mibWebAuthShare.h \
+  ../../../../lib/libconfig/mib/mibExceptQQ.h \
+  ../../../../uttShareHead/config/mibExceptQQShare.h \
+  ../../../../lib/libconfig/mib/mibExceptMSN.h \
+  ../../../../uttShareHead/config/mibExceptMSNShare.h \
+  ../../../../lib/libconfig/mib/mibExceptAli.h \
+  ../../../../uttShareHead/config/mibExceptAliShare.h \
+  ../../../../lib/libconfig/mib/mibLogManage.h \
+  ../../../../uttShareHead/config/mibLogManageShare.h \
+  ../../../../lib/libconfig/mib/mibipsec.h \
+  ../../../../uttShareHead/config/mibipsecShare.h \
+  ../../../../lib/libconfig/mib/mibSyslog.h \
+  ../../../../uttShareHead/config/mibSyslogShare.h \
+  ../../../../lib/libconfig/mib/mibPolicyRoute.h \
+  ../../../../uttShareHead/config/mibPolicyRouteShare.h \
+  ../../../../lib/libconfig/mib/mibParentsControl.h \
+  ../../../../uttShareHead/config/mibParentsControlShare.h \
+  ../../../../lib/libconfig/mib/mibDebug.h \
+  ../../../../lib/libconfig/mib/mibP2PLimit.h \
+  ../../../../uttShareHead/config/mibP2PLimitShare.h \
+  ../../../../lib/libconfig/mib/mibSysLogInfo.h \
+  ../../../../uttShareHead/config/mibSysLogInfoShare.h \
+  ../../../../lib/libconfig/mib/mibMacFilter.h \
+  ../../../../uttShareHead/config/mibMacFilterShare.h \
+  ../../../../lib/libconfig/mib/mibVpnControl.h \
+  ../../../../uttShareHead/config/mibVpnControlShare.h \
+  ../../../../lib/libconfig/mib/mibNetShareManage.h \
+  ../../../../uttShareHead/config/mibNetShareManageShare.h \
+  ../../../../lib/libconfig/mib/mibFtpServer.h \
+  ../../../../uttShareHead/config/mibFtpServerShare.h \
+  ../../../../lib/libconfig/mib/mibNetShareUser.h \
+  ../../../../uttShareHead/config/mibNetShareUserShare.h \
+  ../../../../uttShareHead/config/mibShare.h \
+  ../../../../uttShareHead/config/typedefShare.h \
+  ../../../../uttShareHead/config/mibSystemShare.h \
+  ../../../../uttShareHead/config/mibInterfaceShare.h \
+  ../../../../uttShareHead/config/mibUserShare.h \
+  ../../../../uttShareHead/config/mibIpGroupShare.h \
+  ../../../../uttShareHead/config/mibTimeGrpShare.h \
+  ../../../../uttShareHead/config/mibDhcpServerShare.h \
+  ../../../../uttShareHead/config/mibPPTPServerShare.h \
+  ../../../../uttShareHead/config/mibPptpClientShare.h \
+  ../../../../uttShareHead/config/mibRouteShare.h \
+  ../../../../uttShareHead/config/mibDdnsShare.h \
+  ../../../../uttShareHead/config/mibPppoeServerShare.h \
+  ../../../../uttShareHead/config/mibGroupBaseShare.h \
+  ../../../../uttShareHead/config/mibpdbShare.h \
+  ../../../../uttShareHead/config/mibnatShare.h \
+  ../../../../uttShareHead/config/mibAdminConfShare.h \
+  ../../../../uttShareHead/config/mibDnsFilterShare.h \
+  ../../../../uttShareHead/config/mibWirelessShare.h \
+  ../../../../uttShareHead/config/mibNtpShare.h \
+  ../../../../uttShareHead/config/mibLangShare.h \
+  ../../../../uttShareHead/config/mibTaskSchedShare.h \
+  ../../../../uttShareHead/config/mibfirewallShare.h \
+  ../../../../uttShareHead/config/mibNoticeShare.h \
+  ../../../../uttShareHead/config/mibCwmpShare.h \
+  ../../../../uttShareHead/config/mibWebAuthShare.h \
+  ../../../../uttShareHead/config/mibExceptQQShare.h \
+  ../../../../uttShareHead/config/mibExceptMSNShare.h \
+  ../../../../uttShareHead/config/mibExceptAliShare.h \
+  ../../../../uttShareHead/config/mibLogManageShare.h \
+  ../../../../uttShareHead/config/mibipsecShare.h \
+  ../../../../uttShareHead/config/mibSyslogShare.h \
+  ../../../../uttShareHead/config/mibPolicyRouteShare.h \
+  ../../../../uttShareHead/config/mibParentsControlShare.h \
+  ../../../../uttShareHead/config/mibP2PLimitShare.h \
+  ../../../../uttShareHead/config/mibSysLogInfoShare.h \
+  ../../../../uttShareHead/config/mibMacFilterShare.h \
+  ../../../../uttShareHead/config/mibVpnControlShare.h \
+  ../../../../uttShareHead/config/mibNetShareManageShare.h \
+  ../../../../uttShareHead/config/mibFtpServerShare.h \
+  ../../../../uttShareHead/config/mibNetShareUserShare.h \
+  ../../../../uttShareHead/config/uttMachine.h \
+  ../../libcwmp/include/cwmp/http.h ../../libcwmp/include/cwmp/cfg.h \
+  ../../libcwmp/include/cwmp/log.h ../../libcwmp/src/inc/cwmp_private.h \
+  ../../../../uttShareHead/config/mibShare.h
+
+../../libcwmp/include/cwmp/session.h:
+
+../../libcwmp/include/cwmp/cwmp.h:
+
+../../libxmlet/include/cwmp/xmlet.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/stdlib.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/features.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/uClibc_config.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/cdefs.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/waitflags.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/waitstatus.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/endian.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/endian.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/types.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/types.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/kernel_types.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/pthreadtypes.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/sched.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/time.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/select.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/select.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/sigset.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/time.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/sysmacros.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/alloca.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/stdio.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/uClibc_stdio.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/wchar.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/wchar.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/stdio_lim.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/malloc.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/assert.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/string.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/errno.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/errno.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/errno_values.h:
+
+../../libpool/include/cwmp/pool.h:
+
+../../libcwmp/include/cwmp/types.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/uClibc_clk_tck.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/timeb.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/ctype.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/uClibc_touplow.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/stdint.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/wordsize.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/socket.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/uio.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/uio.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/socket.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/limits.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/syslimits.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/limits.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/posix1_lim.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/local_lim.h:
+
+../../../../linux-2.6.36.x/include/linux/limits.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/posix2_lim.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/xopen_lim.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/sockaddr.h:
+
+../../../../linux-2.6.36.x/include/asm/socket.h:
+
+../../../../linux-2.6.36.x/include/asm/sockios.h:
+
+../../../../linux-2.6.36.x/include/asm/ioctl.h:
+
+../../../../linux-2.6.36.x/include/asm-generic/ioctl.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/netinet/in.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/in.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/byteswap.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/arpa/inet.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/syslog.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/syslog.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/unistd.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/posix_opt.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/environments.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/confname.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/getopt.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/ioctl.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/ioctls.h:
+
+../../../../linux-2.6.36.x/include/asm/ioctls.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/ioctl-types.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/ttydefaults.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/net/if.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/net/if_arp.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/pthread.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sched.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/signal.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/initspin.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/sigthread.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/sys/stat.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/stat.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/fcntl.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/../../../../mipsel-linux-uclibc/sys-include/bits/fcntl.h:
+
+../../libcwmp/include/cwmp/error.h:
+
+../../libcwmp/include/cwmp/util.h:
+
+../../libcwmp/include/cwmp/md5.h:
+
+../../libcwmp/include/cwmp/memory.h:
+
+../../libcwmp/include/cwmp/envment.h:
+
+../../libcwmp/include/cwmp/buffer.h:
+
+../../libcwmp/include/cwmp/event.h:
+
+../../libcwmp/include/cwmp/queue.h:
+
+../../../../lib/libconfig/mib/mib.h:
+
+../../../../linux-2.6.36.x/include/linux/autoconf.h:
+
+../../../../lib/libconfig/cli/typedef.h:
+
+../../../../uttShareHead/config/typedefShare.h:
+
+../../../../uttShareHead/config/uttMachine.h:
+
+../../../../uttShareHead/config/uttMachineAllMacro.h:
+
+../../../../lib/libconfig/mib/mibunion.h:
+
+../../../../uttShareHead/config/mibunionShare.h:
+
+../../../../uttShareHead/config/autoconf.h:
+
+../../../../lib/libconfig/mib/mibtype.h:
+
+../../../../uttShareHead/config/mibtypeShare.h:
+
+../../../../uttShareHead/config/uttMachine.h:
+
+../../../../lib/libconfig/mib/mibSystem.h:
+
+../../../../uttShareHead/config/mibSystemShare.h:
+
+../../../../lib/libconfig/mib/mibInterface.h:
+
+../../../../uttShareHead/config/mibInterfaceShare.h:
+
+../../../../uttShareHead/config/mibunionShare.h:
+
+../../../../uttShareHead/config/mibtypeShare.h:
+
+../../../../lib/libconfig/mib/mibUser.h:
+
+../../../../uttShareHead/config/mibUserShare.h:
+
+../../../../lib/libconfig/profacc/uttSem.h:
+
+../../../../uttShareHead/config/uttMachine.h:
+
+../../../../lib/libconfig/profacc/uttNfNetlink.h:
+
+../../../../lib/libconfig/profacc/ipsetApi.h:
+
+../../../../lib/libconfig/mib/mibIpGroup.h:
+
+../../../../uttShareHead/config/mibIpGroupShare.h:
+
+../../../../lib/libconfig/mib/mibTimeGrp.h:
+
+../../../../uttShareHead/config/mibTimeGrpShare.h:
+
+../../../../lib/libconfig/mib/mibDhcpServer.h:
+
+../../../../uttShareHead/config/mibDhcpServerShare.h:
+
+../../../../lib/libconfig/mib/mibPPTPServer.h:
+
+../../../../uttShareHead/config/mibPPTPServerShare.h:
+
+../../../../lib/libconfig/mib/mibPptpClient.h:
+
+../../../../uttShareHead/config/mibPptpClientShare.h:
+
+../../../../lib/libconfig/mib/mibRoute.h:
+
+../../../../uttShareHead/config/mibRouteShare.h:
+
+../../../../lib/libconfig/mib/mibDdns.h:
+
+../../../../uttShareHead/config/mibDdnsShare.h:
+
+../../../../lib/libconfig/mib/mibPppoeServer.h:
+
+../../../../uttShareHead/config/mibPppoeServerShare.h:
+
+../../../../lib/libconfig/mib/mibGroupBase.h:
+
+../../../../uttShareHead/config/mibGroupBaseShare.h:
+
+../../../../lib/libconfig/mib/mibpdb.h:
+
+../../../../uttShareHead/config/mibpdbShare.h:
+
+../../../../lib/libconfig/mib/mibnat.h:
+
+../../../../uttShareHead/config/mibnatShare.h:
+
+../../../../lib/libconfig/mib/mibAdminConf.h:
+
+../../../../uttShareHead/config/mibAdminConfShare.h:
+
+../../../../lib/libconfig/mib/mibDnsFilter.h:
+
+../../../../uttShareHead/config/mibDnsFilterShare.h:
+
+../../../../lib/libconfig/mib/mibWireless.h:
+
+../../../../uttShareHead/config/mibWirelessShare.h:
+
+../../../../lib/libconfig/mib/mibNtp.h:
+
+../../../../uttShareHead/config/mibNtpShare.h:
+
+../../../../lib/libconfig/mib/mibLang.h:
+
+../../../../uttShareHead/config/mibLangShare.h:
+
+../../../../lib/libconfig/mib/mibTaskSched.h:
+
+../../../../uttShareHead/config/mibTaskSchedShare.h:
+
+../../../../lib/libconfig/mib/mibfirewall.h:
+
+../../../../uttShareHead/config/mibfirewallShare.h:
+
+../../../../lib/libconfig/mib/mibNotice.h:
+
+../../../../uttShareHead/config/mibNoticeShare.h:
+
+../../../../lib/libconfig/mib/mibWebAuth.h:
+
+../../../../uttShareHead/config/mibWebAuthShare.h:
+
+../../../../lib/libconfig/mib/mibExceptQQ.h:
+
+../../../../uttShareHead/config/mibExceptQQShare.h:
+
+../../../../lib/libconfig/mib/mibExceptMSN.h:
+
+../../../../uttShareHead/config/mibExceptMSNShare.h:
+
+../../../../lib/libconfig/mib/mibExceptAli.h:
+
+../../../../uttShareHead/config/mibExceptAliShare.h:
+
+../../../../lib/libconfig/mib/mibLogManage.h:
+
+../../../../uttShareHead/config/mibLogManageShare.h:
+
+../../../../lib/libconfig/mib/mibipsec.h:
+
+../../../../uttShareHead/config/mibipsecShare.h:
+
+../../../../lib/libconfig/mib/mibSyslog.h:
+
+../../../../uttShareHead/config/mibSyslogShare.h:
+
+../../../../lib/libconfig/mib/mibPolicyRoute.h:
+
+../../../../uttShareHead/config/mibPolicyRouteShare.h:
+
+../../../../lib/libconfig/mib/mibParentsControl.h:
+
+../../../../uttShareHead/config/mibParentsControlShare.h:
+
+../../../../lib/libconfig/mib/mibDebug.h:
+
+../../../../lib/libconfig/mib/mibP2PLimit.h:
+
+../../../../uttShareHead/config/mibP2PLimitShare.h:
+
+../../../../lib/libconfig/mib/mibSysLogInfo.h:
+
+../../../../uttShareHead/config/mibSysLogInfoShare.h:
+
+../../../../lib/libconfig/mib/mibMacFilter.h:
+
+../../../../uttShareHead/config/mibMacFilterShare.h:
+
+../../../../lib/libconfig/mib/mibVpnControl.h:
+
+../../../../uttShareHead/config/mibVpnControlShare.h:
+
+../../../../lib/libconfig/mib/mibNetShareManage.h:
+
+../../../../uttShareHead/config/mibNetShareManageShare.h:
+
+../../../../lib/libconfig/mib/mibFtpServer.h:
+
+../../../../uttShareHead/config/mibFtpServerShare.h:
+
+../../../../lib/libconfig/mib/mibNetShareUser.h:
+
+../../../../uttShareHead/config/mibNetShareUserShare.h:
+
+../../../../uttShareHead/config/mibShare.h:
+
+../../../../uttShareHead/config/typedefShare.h:
+
+../../../../uttShareHead/config/mibSystemShare.h:
+
+../../../../uttShareHead/config/mibInterfaceShare.h:
+
+../../../../uttShareHead/config/mibUserShare.h:
+
+../../../../uttShareHead/config/mibIpGroupShare.h:
+
+../../../../uttShareHead/config/mibTimeGrpShare.h:
+
+../../../../uttShareHead/config/mibDhcpServerShare.h:
+
+../../../../uttShareHead/config/mibPPTPServerShare.h:
+
+../../../../uttShareHead/config/mibPptpClientShare.h:
+
+../../../../uttShareHead/config/mibRouteShare.h:
+
+../../../../uttShareHead/config/mibDdnsShare.h:
+
+../../../../uttShareHead/config/mibPppoeServerShare.h:
+
+../../../../uttShareHead/config/mibGroupBaseShare.h:
+
+../../../../uttShareHead/config/mibpdbShare.h:
+
+../../../../uttShareHead/config/mibnatShare.h:
+
+../../../../uttShareHead/config/mibAdminConfShare.h:
+
+../../../../uttShareHead/config/mibDnsFilterShare.h:
+
+../../../../uttShareHead/config/mibWirelessShare.h:
+
+../../../../uttShareHead/config/mibNtpShare.h:
+
+../../../../uttShareHead/config/mibLangShare.h:
+
+../../../../uttShareHead/config/mibTaskSchedShare.h:
+
+../../../../uttShareHead/config/mibfirewallShare.h:
+
+../../../../uttShareHead/config/mibNoticeShare.h:
+
+../../../../uttShareHead/config/mibCwmpShare.h:
+
+../../../../uttShareHead/config/mibWebAuthShare.h:
+
+../../../../uttShareHead/config/mibExceptQQShare.h:
+
+../../../../uttShareHead/config/mibExceptMSNShare.h:
+
+../../../../uttShareHead/config/mibExceptAliShare.h:
+
+../../../../uttShareHead/config/mibLogManageShare.h:
+
+../../../../uttShareHead/config/mibipsecShare.h:
+
+../../../../uttShareHead/config/mibSyslogShare.h:
+
+../../../../uttShareHead/config/mibPolicyRouteShare.h:
+
+../../../../uttShareHead/config/mibParentsControlShare.h:
+
+../../../../uttShareHead/config/mibP2PLimitShare.h:
+
+../../../../uttShareHead/config/mibSysLogInfoShare.h:
+
+../../../../uttShareHead/config/mibMacFilterShare.h:
+
+../../../../uttShareHead/config/mibVpnControlShare.h:
+
+../../../../uttShareHead/config/mibNetShareManageShare.h:
+
+../../../../uttShareHead/config/mibFtpServerShare.h:
+
+../../../../uttShareHead/config/mibNetShareUserShare.h:
+
+../../../../uttShareHead/config/uttMachine.h:
+
+../../libcwmp/include/cwmp/http.h:
+
+../../libcwmp/include/cwmp/cfg.h:
+
+../../libcwmp/include/cwmp/log.h:
+
+../../libcwmp/src/inc/cwmp_private.h:
+
+../../../../uttShareHead/config/mibShare.h:

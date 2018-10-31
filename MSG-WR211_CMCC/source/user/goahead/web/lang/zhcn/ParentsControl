@@ -1,0 +1,17 @@
+par_start=启用家长控制
+par_list=家长控制列表
+par_allowSite=允许访问网站
+par_innerMac=当前内网电脑的MAC地址
+par_parentsMac_1=家长电脑
+par_parentsMac_2=的MAC地址
+par_macerror= 此MAC已添加到家长电脑MAC中，请重新选择
+par_usererror=不能修改用户名
+par_childMac=小孩电脑的MAC地址
+par_allows=允许小孩访问的网站
+par_addDomainTip=输入通配符"*"来实现多个网站，例如在允许访问网站中输入<br> www.163.*  ，内网用户将能访问以  www.163.  开头的所有网页。
+par_siteList=网站列表
+par_enter=进入
+par_toSetTime=中设置生效时间
+par_maxParentsmac=无法再添加，最多能配置4个家长电脑MAC地址。
+par_samemac=存在相同的家长MAC地址
+

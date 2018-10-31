@@ -1,0 +1,8 @@
+UBAS=行为审计
+LogManage=日志管理
+SelectA=全选/全不选
+UseWebLog=启用网页日志
+UseQQLog=启用QQ上下线日志
+UseMSNLog=启用MSN上下线日志
+UseMailLog=启用邮件审计日志
+UseEimLog=启用行为禁止日志

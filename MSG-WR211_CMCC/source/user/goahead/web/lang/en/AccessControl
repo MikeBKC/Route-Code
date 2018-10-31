@@ -1,0 +1,10 @@
+title_AccessControl=Access Control
+AccessControl_open=Enable Access Control
+allowIP_MASK=IP Address Range
+start_IP=Start IP Address
+end_IP=End IP Address
+compare_IP=The End IP Address should be larger than the Start IP Address.
+forbid_message=You are doing that too much(wrong username or password more than 5 times), try again in 30 seconds.
+less_time=Remaining...
+try_again=Retry
+accessctrl_warn=Please configure IP/MAC Binding for your current PC before you enable Access Control.

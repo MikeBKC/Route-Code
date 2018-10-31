@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLISH_MODULE xmlns="http://clish.sourceforge.net/XMLSchema" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xsi:schemaLocation="http://clish.sourceforge.net/XMLSchema
+                     http://clish.sourceforge.net/XMLSchema/clish.xsd">
+	<!--=======================================================-->
+<VIEW name="enable-view"
+	prompt="${SYSTEM_NAME}# ">
+
+<!-- Inheritance -->
+
+	<NAMESPACE ref="ping-view"
+		help="true"
+		completion="true"/>
+
+<!-- Simple enable mode commands -->
+
+	<!--
+	<COMMAND name="disable"
+		help="Turn off privileged commands">
+		<ACTION builtin="clish_close"/>
+	</COMMAND>
+	-->
+
+	<COMMAND name="reboot"
+		help="Halt and perform a cold restart">
+		<ACTION>reboot</ACTION>
+	</COMMAND>
+
+	<COMMAND name="configure"
+		help="Enter configuration mode"/>
+
+	<COMMAND name="configure terminal"
+		help="Configure from the terminal"
+		view="configure-view">
+	</COMMAND>
+
+<!-- Show commands -->
+
+	<COMMAND name="show"
+		help="Show running system information"/>
+
+	<COMMAND name="show ip"
+		help="IP information"/>
+
+	<!--	
+	<COMMAND name="show diag"
+		help="Show diagnostic information for port adapters/modules">
+		<ACTION>lspci</ACTION>
+	</COMMAND>
+	-->
+
+	<COMMAND name="show running-config"
+		help="Current operating configuration">
+		<ACTION builtin="clish_showRunningConfig"/>
+	</COMMAND>
+
+	<!--
+	<COMMAND name="show startup-config"
+		help="Contents of startup configuration">
+		<ACTION>cat /etc/startup-config</ACTION>
+	</COMMAND>
+	-->
+
+	<COMMAND name="show version"
+		help="System hardware and software status">
+		<ACTION>uname -v</ACTION>
+	</COMMAND>
+
+<!-- Copy commands -->
+
+	<COMMAND name="copy"
+		help="Copy from one file to another"/>
+
+	<!--
+	<COMMAND name="copy running-config"
+		help="Copy from current system configuration"/>
+
+	<COMMAND name="copy running-config startup-config"
+		help="Copy to startup configuration">
+		<CONFIG operation="dump" file="/etc/startup-config"/>
+	</COMMAND>
+	-->
+
+	<COMMAND name="copy flash"
+		help="Copy from current system configuration"/>
+	    
+	<COMMAND name="copy flash tftp"
+		help="copy source config to remote">
+		<ACTION builtin="clish_copy_to_remote"/>
+	</COMMAND>
+
+	<COMMAND name="copy tftp"
+		help="Copy from remote configuration or software"/>
+	    
+	<COMMAND name="copy tftp flash"
+		help="copy source config file or software from remote">
+		<ACTION builtin="clish_copy_from_remote"/>
+	</COMMAND>
+<!-- 
+	<COMMAND name="dir"
+		help="show flash subsystem information"/>
+	    
+	<COMMAND name="dir flash"
+		help="show flash subsystem information">
+		<ACTION builtin="clish_show_flash"/>  
+	</COMMAND>
+-->
+
+<!-- Telnet commands 
+
+	<COMMAND name="telnet"
+		help="Open a telnet connection">
+		<PARAM name="host"
+			help="IP address or hostname of a remote system"
+			ptype="STRING">
+			<PARAM name="port"
+			    help="Port number"
+			    ptype="PORT"
+			    optional="true"
+			    order="true"/>
+		</PARAM>
+		<ACTION>
+		telnet ${host} ${port}
+		</ACTION>
+	</COMMAND>	
+-->
+
+<!-- Ping commands -->
+
+	<COMMAND name="ping"
+		help="Send echo messages">
+		<PARAM name="host"
+			help="Ping destination address or hostname"
+			ptype="STRING"/>
+		<ACTION>
+		ping -c 4 ${host}
+		</ACTION>
+	</COMMAND>	
+
+</VIEW>
+
+</CLISH_MODULE>

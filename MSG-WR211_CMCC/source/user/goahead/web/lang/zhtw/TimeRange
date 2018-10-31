@@ -1,0 +1,15 @@
+tim_timeList=時間段配置清單
+tim_name=時間段名
+tim_start=開始日期
+tim_end=結束日期
+tim_timeInfo=時間段配置資訊
+tim_date=時間段生效日期
+tim_rangeOne=時間單元一
+tim_rangeTwo=時間單元二
+tim_rangeThree=時間單元三
+tim_startTip=開始日期年份應為1989-2050
+tim_endTip=結束日期年份應為1989-2050
+tim_selOne=時間單元一：請選擇日期!
+tim_selTwo=時間單元二：請選擇日期!
+tim_selThree=時間單元三：請選擇日期!
+tim_today=今天

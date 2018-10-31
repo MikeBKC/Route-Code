@@ -1,0 +1,12 @@
+NoticeTitle=Notification Title
+NoticeLenErr=Notification content has to be at  most "+htmlLen+" characters long
+ImportPage=Imported Interface
+PreviewPage=Preview
+StartUsing=Enable Domain Block Notification
+AutoSkipTime=Redirection Time
+AutoSkipUrl=Redirect to URL
+ProPageWay=Webpage Type
+EditPage=Edit
+ImportPage=Import Page
+NoticeContent=Notification Content
+

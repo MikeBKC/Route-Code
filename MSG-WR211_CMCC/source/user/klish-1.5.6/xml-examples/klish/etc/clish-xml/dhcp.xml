@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLISH_MODULE xmlns="http://clish.sourceforge.net/XMLSchema" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xsi:schemaLocation="http://clish.sourceforge.net/XMLSchema
+                     http://clish.sourceforge.net/XMLSchema/clish.xsd">
+	<!--=======================================================-->
+
+<VIEW name="enable-view">
+
+<!-- Show nat information -->
+
+</VIEW>
+
+
+<VIEW name="configure-view">
+
+<!-- ip dhcp commands -->
+
+	<COMMAND name="ip dhcp"
+		help="Configure DHCP server and relay parameters"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+
+	<COMMAND name="ip dhcp pool"
+		help="Configure DHCP address pools"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+
+	<COMMAND name="ip dhcp pool defaultpool"
+		help="Configure Default DHCP address pools"
+		view="configure-dhcp-view"
+		ptype="SUBCOMMAND"
+		mode="subcommand"/>
+
+</VIEW>
+
+<VIEW name="configure-dhcp-view"
+	prompt="${SYSTEM_NAME}(dhcp-config)# "
+	depth="1">
+
+<!-- Inheritance -->
+
+	<NAMESPACE ref="configure-view"
+		help="false"
+		completion="true"/>
+
+	<COMMAND name="exit"
+		help="Exit from dhcp configuration mode"
+		lock="false">
+		<ACTION builtin="clish_nested_up"/>
+	</COMMAND>
+
+	<COMMAND name="included-address"
+		help="DHCP assigning certain addresses">
+		<PARAM name="startip"
+			help="The DHCP address pool start IP Address"
+			ptype="IP_ADDR">
+			<PARAM name="endip"
+				help="The DHCP address pool end IP Address"
+				ptype="IP_ADDR">
+				<PARAM name="mask"
+				help="IP subnet mask"
+				ptype="IP_ADDR"/>
+			</PARAM>	
+		</PARAM>	
+	<ACTION builtin="clish_included_address"/>
+	</COMMAND>	
+
+	<COMMAND name="dns-server"
+		help="DNS servers">
+		<PARAM name="firstserver"
+			help="Server's IP address(maximum of 2)"
+			ptype="IP_ADDR"/>
+			<PARAM name="secondserver"
+				help="Server's IP address(maximum of 2)"
+				ptype="IP_ADDR"
+				optional="true"
+				order="true"/>
+	<ACTION builtin="clish_dns_server"/>
+	</COMMAND>	
+
+	<COMMAND name="default-router"
+		help="Default routers">
+		<PARAM name="serverip"
+			help="Router's IP address"
+			ptype="IP_ADDR"/>
+	<ACTION builtin="clish_default_router"/>
+	</COMMAND>	
+
+	<COMMAND name="ip"
+		help="DHCP Pool config commands"/>
+
+	<COMMAND name="ip name-server"
+		help="Specify address of name server to use">
+		<PARAM name="firstname"
+			help="Domain server IP address (maximum of 2)"
+			ptype="IP_ADDR">
+			<PARAM name="secondip"
+				help="Domain server IP address (maximum of 2)"
+				ptype="IP_ADDR"
+				optional="true"
+				order="true"/>
+		</PARAM>		
+		<ACTION builtin="clish_name_server"/>
+	</COMMAND>
+
+</VIEW>
+
+</CLISH_MODULE>

@@ -1,0 +1,13 @@
+APL=AP日志
+LogManage=日志管理
+mailNotice=日志发送
+senderEmail=发送者邮箱
+senderEmailPasswd=发送者密码
+receiverEmail=接收者邮箱
+smtpServer=发送服务器
+email=邮箱
+format=格式
+emailTitle=邮件标题
+sendSpaceTime=发送时间间隔
+ApMailConfigNote=注意，推荐使用网易、新浪、QQ等邮箱，相关服务器详见帮助信息
+Tips=需填写发送服务器的登录账号

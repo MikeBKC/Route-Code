@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLISH_MODULE xmlns="http://clish.sourceforge.net/XMLSchema" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xsi:schemaLocation="http://clish.sourceforge.net/XMLSchema
+                     http://clish.sourceforge.net/XMLSchema/clish.xsd">
+	<!--=======================================================-->
+
+<VIEW name="enable-view">
+
+<!-- Show routing information -->
+
+	<COMMAND name="show ip route"
+		help="IP routing table"
+		lock="false"
+		interrupt="true">
+		<ACTION>ip route show</ACTION>
+	</COMMAND>
+
+</VIEW>
+
+
+<VIEW name="configure-view">
+
+<!-- Enable/Disable routing -->
+
+	<!--
+	<COMMAND name="ip routing"
+		help="Enable IP routing">
+		<CONFIG operation="unset" pattern="^no ip routing"/>
+		<ACTION>
+		echo "1" > /proc/sys/net/ipv4/ip_forward
+		</ACTION>
+	</COMMAND>
+
+	<COMMAND name="no ip routing"
+		help="Disable IP routing">
+		<CONFIG priority="0x1500"/>
+		<ACTION>
+		echo "0" > /proc/sys/net/ipv4/ip_forward
+		</ACTION>
+	</COMMAND>
+	-->
+
+<!-- Default gateway -->
+
+	<!--
+	<COMMAND name="ip default-gateway"
+		help="Specify default gateway (if not routing IP)">
+		<PARAM name="ip"
+			help="IP address of default gateway"
+			ptype="IP_ADDR"/>
+		<CONFIG priority="0x9000" splitter="false"/>
+		<ACTION>
+			ip route replace to default via ${ip}
+		</ACTION>
+	</COMMAND>
+
+	<COMMAND name="no ip default-gateway"
+		help="Specify default gateway (if not routing IP)">
+		<CONFIG operation="unset" pattern="^ip default-gateway"/>
+		<ACTION>
+			ip route delete to default
+		</ACTION>
+	</COMMAND>
+	-->
+
+<!-- Set/Unset static route -->
+
+	<COMMAND name="ip route"
+		help="Establish static routes">
+		<PARAM name="ip"
+			help="Destination prefix"
+			ptype="IP_ADDR"> 
+			<PARAM name="mask"
+				help="Destination prefix mask"
+				ptype="IP_ADDR">
+				<PARAM name="gateway"
+					help="Forwarding router's address"
+					ptype="IP_ADDR"/>
+			</PARAM>
+		</PARAM>
+		<ACTION builtin="clish_ip_route"/>
+	</COMMAND>
+
+	<COMMAND name="no ip route"
+		help="Establish static routes">
+		<PARAM name="ip"
+			help="Destination prefix"
+			ptype="IP_ADDR"> 
+			<PARAM name="mask"
+				help="Destination prefix mask"
+				ptype="IP_ADDR">
+				<PARAM name="gateway"
+					help="Forwarding router's address"
+					ptype="IP_ADDR"/>
+			</PARAM>
+		</PARAM>
+		<ACTION builtin="clish_no_ip_route"/>
+	</COMMAND>
+
+</VIEW>
+
+</CLISH_MODULE>

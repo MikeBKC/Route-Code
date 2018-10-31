@@ -1,0 +1,13 @@
+ipv6_prefix=IPv6前缀长度
+ipv6_addr=IPv6地址
+ipv6_gw=IPv6默认网关
+static_dns1=静态DNS 1
+static_dns2=静态DNS 2
+alert_one=IP地址与网关不在同一网段
+alert_two=DNS地址不能相同
+alert_thr=IP地址不能相同
+alert_for=LAN口地址和WAN口不能相同
+alert_fiv=WAN口地址与LAN口地址不可在同一网段
+ipv6_wan=IPv6WAN口配置
+interface=接口
+yu=与

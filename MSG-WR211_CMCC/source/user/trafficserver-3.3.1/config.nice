@@ -1,0 +1,39 @@
+#! /bin/sh
+#
+# Created by configure
+
+CC="i486-openwrt-linux-gnu-gcc"; export CC
+CXX="i486-openwrt-linux-gnu-g++"; export CXX
+CFLAGS="-O2 -pipe -march=i486 -funit-at-a-time -fhonour-copts "; export CFLAGS
+CXXFLAGS="-O2 -pipe -march=i486 -funit-at-a-time -fhonour-copts "; export CXXFLAGS
+CPPFLAGS="-I/home/brian/openwrt/backfire/staging_dir/target-i386_glibc-2.6.1/usr/include -I/home/brian/openwrt/backfire/staging_dir/target-i386_glibc-2.6.1/include -I/home/brian/openwrt/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/include "; export CPPFLAGS
+LDFLAGS="-L/home/brian/openwrt/backfire/staging_dir/target-i386_glibc-2.6.1/usr/lib -L/home/brian/openwrt/backfire/staging_dir/target-i386_glibc-2.6.1/lib -L/home/brian/openwrt/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib "; export LDFLAGS
+"./configure" \
+"--target=i486-openwrt-linux" \
+"--host=i486-openwrt-linux" \
+"--build=i686-redhat-linux" \
+"--program-prefix=" \
+"--program-suffix=" \
+"--prefix=/usr" \
+"--exec-prefix=/usr" \
+"--bindir=/usr/bin" \
+"--sbindir=/usr/sbin" \
+"--libexecdir=/usr/lib" \
+"--sysconfdir=/etc" \
+"--datadir=/usr/share" \
+"--localstatedir=/var" \
+"--mandir=/usr/man" \
+"--infodir=/usr/info" \
+"--disable-nls" \
+"--enable-reclaimable-freelist" \
+"build_alias=i686-redhat-linux" \
+"host_alias=i486-openwrt-linux" \
+"target_alias=i486-openwrt-linux" \
+"CC=i486-openwrt-linux-gnu-gcc" \
+"CFLAGS=-O2 -pipe -march=i486 -funit-at-a-time -fhonour-copts" \
+"LDFLAGS=-L/home/brian/openwrt/backfire/staging_dir/target-i386_glibc-2.6.1/usr/lib -L/home/brian/openwrt/backfire/staging_dir/target-i386_glibc-2.6.1/lib -L/home/brian/openwrt/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/lib" \
+"CPPFLAGS=-I/home/brian/openwrt/backfire/staging_dir/target-i386_glibc-2.6.1/usr/include -I/home/brian/openwrt/backfire/staging_dir/target-i386_glibc-2.6.1/include -I/home/brian/openwrt/backfire/staging_dir/toolchain-i386_gcc-4.4.3_glibc-2.6.1/include" \
+"CXX=i486-openwrt-linux-gnu-g++" \
+"CXXFLAGS=-O2 -pipe -march=i486 -funit-at-a-time -fhonour-copts" \
+"PKG_CONFIG=/home/brian/openwrt/backfire/staging_dir/host/bin/pkg-config" \
+"$@"

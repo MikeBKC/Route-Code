@@ -1,0 +1,10 @@
+grou_setBW=Rate Limiting Rule List
+grou_limUp=Max. Tx. Rate
+grou_limDown=Max. Rx. Rate
+grou_bandLimDown=Max. Rx. Rate
+grou_bandLimUp=Max. Tx. Rate
+grou_dow= 
+grou_addr=Range
+grou_setObj=Network Object
+confine_name=Rate Limiting Object
+mac_rate_limit=MAC rate limiting

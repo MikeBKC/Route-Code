@@ -1,0 +1,13 @@
+# Virtual IP Address Configuration
+#
+# The purpose of this file is to specify virtual IP addresses
+# for Traffic Server.
+#
+# UNIX
+#   Format:
+#     <virtual IP address> <interface> <sub-interface>
+#
+#   Example:
+#     209.1.33.10 hme0 10
+#     209.1.33.11 hme0 11
+#

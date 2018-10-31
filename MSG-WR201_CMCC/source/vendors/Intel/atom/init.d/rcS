@@ -1,0 +1,56 @@
+#!/bin/sh
+# Copyright (C) 2006 OpenWrt.org
+
+#run_scripts() {
+#	for i in /etc_ro/init.d/$1*; do
+#		[ -x $i ] && $i $2 2>&1
+#	done | $LOGGER
+#}
+#
+#LOGGER="cat"
+#[ -x /usr/bin/logger ] && LOGGER="logger -s -p 6 -t sysinit"
+#
+#if [ "$1" = "S" ]; then
+#	run_scripts "$1" "$2" &
+#else
+#	run_scripts "$1" "$2"
+#fi
+#/bin/sh /etc/rc.local
+
+
+mount -t sysfs sysfs /sys
+mount -t proc none /proc
+echo /sbin/mdev > /proc/sys/kernel/hotplug
+mdev -s
+mount -t devpts devpts /dev/pts
+mkdir /ff
+mount -t ext2 /dev/sda4 /ff
+if [ "$?" -ne 0 ]; then
+	mke2fs /dev/sda4
+	sleep 2
+	mount -t ext2 /dev/sda4 /ff
+fi
+
+mkdir /tmp/ddns
+mkdir /var/run -p
+mkdir /etc/ppp -p
+
+cat /etc_ro/motd
+touch /tmp/uttMsgforRoute
+touch /tmp/uttshmfornvram
+touch /tmp/uttPppoeSrvMsg
+touch /tmp/uttSemForSpeedweb
+touch /tmp/uttMsgforCwmp
+
+speedweb&
+nvram_daemon&
+date -s 010100002011
+sleep 3
+
+telnetd
+
+#for crond
+cron-init.sh
+
+#for syslogd
+mkdir -p /var/log

@@ -1,0 +1,6 @@
+ppc_list=PPPoE連接狀態資訊清單
+ppc_oltime=線上時間
+ppc_uprate=上傳速率(KB/s)
+ppc_downrate=下載速率(KB/s)
+
+

@@ -1,0 +1,5 @@
+DeviceLoginControl=设备登陆控制
+Port=端口
+SSHPortRange=端口应为1-65535之间的数字
+SSHEn=启用SSH
+HttpsEn=启用https

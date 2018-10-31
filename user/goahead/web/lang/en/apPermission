@@ -1,0 +1,17 @@
+allow=Allow
+forbid=Block
+APpermissions=AP Permission
+permissions=Permission
+serialNum=Serial Number
+name=Name
+dfaultPermissions=Default Permission
+power=Permission
+beginSN=Start SN
+endSN=End SN
+action=Permission
+list=List
+scan=Scan
+APAdmin=AP Management
+admin=Admin
+designation=Name
+method=Mode

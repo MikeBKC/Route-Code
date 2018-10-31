@@ -1,0 +1,13 @@
+VLANNo=VLAN组号
+VLANName=VLAN组名称
+VLANMember=VLAN成员
+VLANList=端口VLAN列表
+LeastMember=请至少选择一个成员!
+VLANGroup=VLAN组
+NoOneNotDel=组号为1的VLAN不能删除!
+PortVlan=端口VLAN
+PortVlanSet=端口VLAN设置
+PortMember=成员
+modify_error=非法修改：该VLAN组号不存在。
+vlan_config=设置VLAN
+add_error=非法添加:该VLAN组号已经存在。

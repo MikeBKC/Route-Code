@@ -1,0 +1,3 @@
+HardwareNAT=硬件NAT
+NATspeedup=開啟硬件NAT加速
+hw_nat_tip=使用限速功能时不建议开启。

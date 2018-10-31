@@ -1,0 +1,4 @@
+utt_defaultGW=Default Gateway
+utt_netConf=Network
+utt_checkIPTips1=The IP address and gateway address are not in the same subnet.
+utt_checkIPTips2=IP address can't be 0.0.0.0

@@ -1,0 +1,43 @@
+#
+#
+# * * * DO NOT EDIT, MADE BY Makefile.subdir for MODULE cli * * * ##
+#
+#
+MODULES += cli
+##
+#
+#
+FILES += a2n.c argcmd.c cliaaa.c clibbb.c cmd.c cmdlist.c cmdTask.c instmgr.c shell.c term.c   
+##
+#
+#
+OFILES += a2n.o argcmd.o cliaaa.o clibbb.o cmd.o cmdTask.o cmdlist.o instmgr.o shell.o term.o
+##
+#
+#
+src-cli = a2n.c argcmd.c cliaaa.c clibbb.c cmd.c cmdlist.c cmdTask.c instmgr.c shell.c term.c  
+##
+#
+#
+obj-cli = a2n.o argcmd.o cliaaa.o clibbb.o cmd.o cmdTask.o cmdlist.o instmgr.o shell.o term.o
+##
+#
+#
+lib-cli = a2n.o argcmd.o cliaaa.o clibbb.o cmd.o cmdTask.o cmdlist.o instmgr.o shell.o term.o
+##
+#
+#
+inc-cli = 
+##
+#
+#
+RMOFILES += a2n.o argcmd.o cliaaa.o clibbb.o cmd.o cmdTask.o cmdlist.o instmgr.o shell.o term.o
+##
+
+INC-DIR += -I$(inc-dir)/cli -I$(src-dir)/cli
+
+vpath %.c $(src-dir)/cli
+
+vpath %.s $(src-dir)/cli
+
+vpath %.S $(src-dir)/cli

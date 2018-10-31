@@ -1,0 +1,17 @@
+AliWhite=Ali Wangwang Whitelist
+AliWhiteList=Ali Wangwang Whitelist
+AliID=Ali Wangwang Account
+Describe=Description
+MaxConfErr=Maximum number of entries has been reached. Cannot add new entry.
+SureDel=Are you sure you want to delete all entries£¿
+SureDelAll=Are you sure you want to delete all entries?
+UseAliWhiteList=Enable Ali Wangwang Whitelist
+AliWhiteConf=Ali Wangwang account
+PleaseInputAliID=Please enter Ali Wangwang account.
+EXISTAliID=Ali Wangwang account already exists.
+MoreThan30AliID=Ali Wangwang account must be at most 25 characters long.
+DescribeLengthMax=Description must be at most 30 characters long.
+DescribeLength=Ali Wangwang account's length can't be less than 5 or more than 25.
+Selecte=Select All
+add_new=Add New Items
+delete_all=Delete All Items

@@ -1,0 +1,14 @@
+qqf_qqList=QQ Whitelist
+qqf_qqNum=QQ Number
+qqf_allow=Allow 400/800 Enterprise QQ
+qqf_start=Enable QQ Whitelist
+qqf_qqInfo=QQ account
+qqf_input=Please enter QQ number.
+qqf_numType=QQ number can contain only numbers.
+qqf_qqZero=QQ number cannot contain only zeros.
+qqf_qqLen=QQ number is too long.
+qqf_qqExist=QQ number already exists.
+qqf_remarkLen=Description must be at most 30 characters long.
+qqf_qqConf=QQ Whitelist Settings
+qqf_qq27error=QQ number can not be between 2700000000 and 2799999999
+

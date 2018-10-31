@@ -1,0 +1,1 @@
+cmd_usr/initramfs_data.cpio.lzma := /bin/sh /data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/linux-2.6.36NEW.x/scripts/gen_initramfs_list.sh -o usr/initramfs_data.cpio.lzma  -u 0  -g 0  ../romfs ../vendors/Ralink/MT7628/ramfs

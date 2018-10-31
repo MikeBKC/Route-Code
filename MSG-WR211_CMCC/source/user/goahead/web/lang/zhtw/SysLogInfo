@@ -1,0 +1,9 @@
+SysLogInfo=系统日志信息
+SureDelMsg=您确定要清除信息吗？
+LogEdit=日志管理配置
+DelLog=清除
+SelectA=全选/全不选
+UseNoticeLog=启用通告日志（记录通告日志信息）
+UseArpLog=启用ARP日志（记录ARP欺骗等信息）
+UseDhcpLog=启用DHCP日志（记录DHCP 服务器冲突检测，绑定错误等信息）
+UsePppoeLog=启用PPPoE日志（记录PPPoE拨号日志信息）

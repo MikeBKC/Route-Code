@@ -1,0 +1,8 @@
+# This file defines the set of CIDRs (network/mask-length) to which
+# we will communicate in the clear, or, if the other side initiates IPSEC,
+# using encryption.  This behaviour is also called "Opportunistic Responder".
+#
+# See @FINALDOCDIR@/policygroups.html for details.
+#
+# $Id: clear-or-private.in,v 1.1 2012/09/27 21:08:26 yu.dehai Exp $
+#

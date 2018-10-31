@@ -1,0 +1,7 @@
+ppc_list=PPPoE连接状态信息列表
+ppc_oltime=在线时间
+ppc_uprate=上传速率(KB/s)
+ppc_downrate=下载速率(KB/s)
+ppc_sessionid=会话ID
+ppc_hungupinfo=PPPoE用户连接信息
+HangupErrMes= 请先选择PPPoE用户信息记录，再挂断该链接！

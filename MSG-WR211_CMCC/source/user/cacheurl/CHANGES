@@ -1,0 +1,3 @@
+Changes with Apache Traffic Server cacheurl 1.0
+
+  *) This is a basic plugin for changing the cache key for a request

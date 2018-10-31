@@ -1,0 +1,22 @@
+WebAuthChangePW=WEB認證修改密碼
+AlertPPPoEAddr=您所在的使用者組沒有許可權訪問此頁面
+OldPW=舊密碼
+NewPW=新密碼
+SurePW=確認密碼
+Commit= 提 交 
+NameNULL=不能為空。
+NameLen=長度不能超過
+NameLenW=位。
+NameRule=應為除：% \' \\ \" 和空格之外的字元。
+NewPWLen=新密碼長度不能超過
+NewPWLenW=位。
+NewPWNULL=新密碼不能為空。
+InputPWTwiceDiff=兩次輸入的密碼不一致。
+NewPWSurePWDiff=新密碼和確認密碼不一致。
+NewPWRule=新密碼應為除% \' \\ \" 以及空格之外的字元。
+DayCantnotChange=今日您無法再進行修改密碼的操作，請明日修改！
+Tishi=提示：今天您已經無法再進行修改密碼的操作，請明日再修改！
+Tishi1=提示：今天您還可以進行
+Tishi2=次修改密碼的操作！
+
+

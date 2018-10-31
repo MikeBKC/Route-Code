@@ -1,0 +1,14 @@
+opengt
+set com 115200n81
+set senddelay 0.05
+waitquiet 1 0.2
+send "AT^m"
+waitfor 5 "OK","ERR","ERROR"
+if % = -1 goto timeerror
+if % = 0 goto next1
+if % = 1 goto error
+if % = 2 goto error
+:next1
+send "AT+CFUN=1^m"
+waitfor 10 "OK","ERR","ERROR"
+if % = -1 goto timeerror

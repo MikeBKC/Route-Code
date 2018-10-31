@@ -1,0 +1,9 @@
+lub/bintree/bintree_splay.lo lub/bintree/bintree_splay.o:  \
+ lub/bintree/bintree_splay.c lub/bintree/private.h ./lub/bintree.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h
+
+lub/bintree/private.h:
+
+./lub/bintree.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stddef.h:

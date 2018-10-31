@@ -1,0 +1,38 @@
+#!/bin/sh
+sleep 3
+mount -a
+#internet.sh
+mkdir -p /var/run
+mkdir /tmp/ddns
+mkdir /etc/ppp
+mkdir -p /tmp/urcp/images
+mkdir -p /tmp/urcp/ap_configs
+initdev.sh
+cat /etc_ro/motd
+touch /etc/utt-speedmsg
+touch /etc/utt-nvramshm
+touch /tmp/uttMsgforRoute
+touch /tmp/uttshmfornvram
+touch /tmp/uttPppoeSrvMsg
+touch /tmp/uttSemForSpeedweb
+touch /tmp/uttMsgforCwmp
+speedweb&
+nvram_daemon&
+turbo&
+date -s 010100002011
+sleep 3
+#goahead&
+#easyNetbios&
+
+#for telnet debugging
+telnetd
+elinkc &
+#alink
+alink 1>/dev/null 2>&1 &
+
+#for crond
+cron-init.sh
+
+#for syslogd
+mkdir -p /var/log 
+

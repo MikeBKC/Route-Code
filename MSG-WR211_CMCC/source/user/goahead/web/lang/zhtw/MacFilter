@@ -1,0 +1,13 @@
+mf_MacFilter=MAC地址过滤
+mf_Allow=允许 只允许列表中的MAC地址访问本网络
+mf_Forbid=禁止 只禁止列表中的MAC地址访问本网络
+mf_List=MAC地址过滤列表
+mf_Config=MAC地址过滤配置
+mf_helpOne=1、在本页面文本框中可实现一个或多个MAC地址的添加，并能使用粘贴、复制、删除等操作对文本框进行编辑；
+mf_helpTwo=2、添加MAC地址时，其输入格式为“MAC+用户名”，例如：0022aaAFCdb3 张三；
+mf_helpThree=3、注意在上述输入格式中MAC与用户名之间必须有一个或多个空格。
+mac_filtList=MAC過濾列表
+mac_openFilt=開啓MAC過濾
+mac_whiteList=白名單： 只允許列表中的MAC地址訪問本網絡
+mac_blackList=黑名單： 只禁止列表中的MAC地址訪問本網絡
+mac_setFilt=MAC過濾設置

@@ -1,0 +1,15 @@
+DeviceConf=Configuration Management
+SaveConfToHost=Backup Configuration to Local PC
+ImportConf=Import Configuration
+LMDBeforImpConf=Reset to Defaults before Importing
+SelConfFile=Select a Configuration File
+Import=Import
+LoadManufactureDef=Reset to Factory Defaults
+Recover=Reset
+Attention=Note
+LMDMessage=After performing the reset operation, you must restart the Device for the default settings to take effect. This operation will clear all custom settings, so you'd better backup the current configuration before resetting. 
+warning1=Please select a configuration file.
+warning2=Note: If the configuration file is incorrect, the current configuration will be cleared.
+warning3=Are you sure you want to reset the Device to the Default configuration?
+warning4=Please backup the current configuration first. Do you want to continue?
+RebootNow=Reset to default will take effect after reboot.

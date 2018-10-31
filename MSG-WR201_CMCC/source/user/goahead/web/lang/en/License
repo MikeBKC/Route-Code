@@ -1,0 +1,17 @@
+lic_license=Electronic Authorization
+lic_valid=The device License is vail for 
+lic_outdate= month(s). It has expired. Please re-import the license file, otherwise you can't access any other page.
+lic_notoutdate=month(s). It has unexpired. Remaining
+lic_forever=Permanent
+lic_licInfo=Authorized Registration Information
+lic_product=Model
+lic_serialnum=SN
+lic_userinfo=Authorized registration Customer Infor
+lic_ipaddr=Authorized registration IP address
+lic_macaddr=Authorized registration MAC address
+lic_loadlicense=Import License
+lic_select=License File
+lic_tips=TIPS
+lic_tipcontent=The initial License file provides 720 hours (30 days) full access after the first run of the Device. You can only access authorization page after the license expired. Please aquire the offical license file from your device provider.
+lic_assignfile=Please select a  license file.
+lic_load=Import

@@ -1,0 +1,20 @@
+
+if PERFORMANCE_OPTIMIZATION
+	config UTT_TIME_GRP
+	    bool "time group function"
+	    default n
+	    help 
+		start up time group function,you should edit "needChangeFile/linux-config".
+
+	config UTT_NF_DNS_FILTER
+	    bool "dns filter"
+	    default n
+	    help 
+		start up dns filter function,you should edit "needChangeFile/linux-config".
+
+	config UTT_NF_PPPOE_LIMIT
+	    bool "PPPoE limit switch macro in kernel"
+	    default n
+	    help 
+		start up PPPoE limit function,you should edit "needChangeFile/linux-config".
+endif

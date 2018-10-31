@@ -1,0 +1,16 @@
+WirelessMacFilter=Wireless MAC Address Filtering
+MACAddrFilterList=MAC Address Filtering List
+MACAddr=MAC Address
+SureDel=Are you sure you want to delete?
+SureDelAll=Are you sure you want to delete all entries?
+StartMacAddrFilter=Enable MAC Address Filtering
+FilterRule=Filter Mode
+AddrNew=Add
+DelAll=Delete All
+MacAddrFilterMsg=MAC address filtering
+Allow=Only allow MAC addresses listed below.
+Forbid=Only block MAC addresses listed below.
+Selecte=Select All
+MacFilterEdit=MAC Address Filtering Settings
+Eg=(E.g., 0022aa03a4b5)
+

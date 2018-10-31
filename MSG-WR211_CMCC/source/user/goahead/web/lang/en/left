@@ -1,0 +1,156 @@
+left_1=Left
+leftMenud0=Setup Wizard
+leftMenud1=Interface Status
+leftMenud2=Interface Traffic
+leftMenud3=Restart Device
+workMode=Work Mode
+
+leftTag1=Network
+leftTag17=IPv6
+leftTag2=Wireless
+leftTag15=Wireless 5G
+leftTag14=AP Controller
+leftTag3=Advanced
+leftTag16=Net Share
+leftTag4=Switch
+leftTag5=User Management
+leftTag6=App Control
+leftTag7=QoS
+leftTag8=Firewall
+leftTag9=VPN
+leftTag10=Linkage
+leftTag11=System
+leftTag12=Status
+leftTag13=Support
+
+leftMenud4=WAN
+fitApIfConf=LAN
+leftMenud5=Load Balancing
+leftMenud6=Number of WAN Interfaces
+leftMenud7=LAN
+leftMenud8=DHCP Server
+leftMenud9=DDNS
+leftMenud10=UPnP
+leftMenud11=Number of WAN
+leftMenud12=LAN
+
+workMode=System Mode
+wirePar=Wireless Settings
+chooseConf=Active Config
+leftMenud13=Basic
+leftMenud14=Security
+leftMenud15=MAC Filtering
+leftMenud16=Advanced
+leftMenud17=Multi-SSID
+leftMenud18=Client List
+
+apManage=AP Management
+apConfigTmp=AP Template
+apSoftManage=AP Firmware
+serverZone=WLANs
+wifiClient=Wireless Client List
+APCongfile=AP Configuration File
+loadBalance=AP Load Balance
+apLog=AP Log Information
+
+leftMenud19=NAT & DMZ
+leftMenud21=Static Route
+leftMenud22=Anti-NetSniper
+leftMenud23=Plug and Play 
+leftMenud24=Port Mirroring
+leftMenud25=Port Mirroring
+leftMenud65=Port VLAN
+
+leftMenud26=Port Settings
+leftMenud27=Port Mirroring
+leftMenud28=Port-Based VLAN
+leftMenud29=Link Aggregation
+leftMenud30=Link Aggregation
+
+leftMenud31=User Status
+leftMenud32=IP/MAC Binding
+leftMenud33=PPPoE Server
+leftMenud34=Web Authentication
+leftMenud35=User Group
+
+leftMenud36=Schedule
+leftMenud37=Application Control
+leftMenud38=QQ Whitelist
+leftMenud39=MSN Whitelist
+com_Aliwang=Ali Wangwang Whitelist
+leftMenud40=Notification
+leftMenud41=Application Audit
+leftMenud42=Policy Database
+leftMenud43=Address Group
+
+leftMenud44=Fixed Rate Limiting
+leftMenud45=Flexible Bandwidth
+leftMenud49=Session Limiting
+
+leftMenud46=Attack Prevention
+leftMenud47=Access Control
+leftMenud48=Domain Filtering
+com_adver=Advideo
+
+leftMenud50=PPTP
+leftMenud51=L2TP
+
+leftMenud52=Linkage Management
+leftMenud53=Linkage Configuration
+leftMenud54=Network Topology
+
+leftMenud55=Administrator
+leftMenud56=Language
+leftMenud57=Time
+leftMenud58=Configuration
+leftMenud59=Firmware Upgrade
+leftMenud60=Remote Management
+leftMenud61=Scheduled Task
+
+leftMenud62=Interface Status
+leftMenud63=Interface Traffic
+leftMenud64=System Information
+leftMenud72=Wireless Client List
+
+leftMenud66=IPSec
+leftMenud67=Port Rate
+leftMenud68=Syslog
+leftMenud69=Device Login Control
+
+leftMenud70=System Information
+leftMenud73=HardWare NAT
+leftMenud71=Electronic Authorization
+
+leftMenud74=Cloud Server
+leftMenud75=NetWork Mode
+leftMenud76=Bridge configuration
+leftMenud77=System Log
+leftMenud78=P2P Rate Limit
+leftMenud79=MAC Address Filtering
+leftMenud80=Parental Control
+leftMenud81=Easy Management
+leftMenud82=Cloud Service
+leftMenud83=Network 
+leftMenud84=NetSniper
+leftMenud85=Game Optimization
+leftMenud86=AliWW White List
+lanTagVlan=LAN TAG VLAN
+wanTagVlan=WAN TAG VLAN
+tagVlan=Tag VLAN
+leftMenud87=Game Optimization
+leftMenud88=Intranet NetSniper
+
+leftMenud89=Network Sharing Management
+leftMenud90=FTP Server
+leftMenud91=Shared Account
+apDrawing=AP·Ö²¼Í¼
+vlanConfig=VLAN Config
+leftMenud93=SNMP Service 
+leftMenud92=Service Group
+SysStatus=SysStatus
+WirelessStatis=WirelessStatis
+pingCheck=pingCheck
+leftMenud94=RADVD
+leftMenud95=DHCP
+leftMenud96=Tunnel
+leftMenud97=ISATAP

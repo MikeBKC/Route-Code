@@ -1,0 +1,10 @@
+  SNMP Versions Supported:    1 2c 3
+  Net-SNMP Version:           5.3.4
+  Building for:               linux
+  Network transport support:  Callback Unix TCP UDP
+  SNMPv3 Security Modules:    usm
+  Agent MIB code:             snmpv3mibs mibII/snmp_mib mibII/system_mib mibII/sysORTable mibII/vacm_vars mibII/vacm_conf utilities/execute
+  SNMP Perl modules:          disabled
+  Embedded perl support:      disabled
+  Authentication support:     MD5
+  Encryption support:         

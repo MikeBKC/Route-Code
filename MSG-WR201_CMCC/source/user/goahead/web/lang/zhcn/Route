@@ -1,0 +1,9 @@
+rou_routeList=路由配置信息列表
+rou_routeInfo=路由配置信息
+rou_routeConf=路由配置
+rou_routeName=路由名
+rou_destNet=目的网络
+rou_startTip=打勾表示启用该路由，只有启用该配置，该路由才能生效。
+rou_priTip=数值越小，优先级越高。
+rou_set=静态路由设置
+rou_noModify=不能修改

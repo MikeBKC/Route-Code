@@ -1,0 +1,13 @@
+OutPort=外部埠
+Remote=遠端系統管理
+SUHTTP=啟用Http
+SUHTTPMessage=路由器將允許外部通過WEB進行管理。通過管理時以“IP 地址：埠”的方式訪問。
+Connector=介面
+Attention=注意
+AttMessage=為了您的網路安全，一般情況不要打開遠端系統管理功能。
+RYear=年
+RMou=月
+RDay=日
+rou_open=開啓遠程管理
+rou_dealPort=遠程管理端口
+rou_warn=開啓遠程管理後路由器將允許主機"http://外網地址:端口"的方式登錄路由器並進行管理

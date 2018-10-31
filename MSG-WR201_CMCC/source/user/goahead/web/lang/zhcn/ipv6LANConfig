@@ -1,0 +1,7 @@
+ipv6lan_prefix=Lan口IPv6前缀长度
+ipv6_addr=IPv6地址
+alert_one=LAN口地址和WAN口不能相同
+alert_two=LAN口地址与WAN口地址不可在同一网段
+ipv6lan_config=IPv6LAN口配置
+ipv6_prefix=IPv6前缀长度
+LanAdvAuto=启用自发通告

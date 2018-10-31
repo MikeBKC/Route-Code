@@ -1,0 +1,16 @@
+title=tomax
+user=用户名
+userError=用户名中含有非法字符
+SAedit=共享账号配置
+account=账号
+name=用户名
+pw=密码
+surePw=确认密码
+access=存取权限
+readOnly=只读
+rw=读写
+FTP=FTP访问
+no=否
+yes=是
+attention=注意：
+attentionInfo=强烈建议修改初始的管理员密码，并谨慎保管用户名和密码；

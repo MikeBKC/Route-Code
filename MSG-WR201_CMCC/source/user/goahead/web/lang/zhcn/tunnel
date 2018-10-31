@@ -1,0 +1,5 @@
+local_ipv4=本地IPv4地址
+remote_ipv4=远程IPv4地址
+remote_ipv6=远程IPv6地址
+tunnelConfig=隧道配置
+tunnel_start=启用

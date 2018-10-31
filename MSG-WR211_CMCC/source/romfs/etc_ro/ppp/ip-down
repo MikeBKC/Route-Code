@@ -1,0 +1,86 @@
+#!/bin/sh
+
+. /sbin/global.sh
+getLanIfName
+#$0 = script;
+#$1 = ifname;
+#$2 = devnam;
+#$3 = strspeed;
+#$4 = strlocal;
+#$5 = strremote;
+#$6 = ipparam;
+#$7 = ourname;
+#$8 = peer_authname;
+#$9 = NULL;
+if [ "$2" == "$lan_if" ]; then
+#PPPOE上传下载删除规则
+pppoeid=`uttcli getpppoerate pppoeSrvAcc $8` 
+accnurate=`uttcli get pppoeSrvAcc $pppoeid pppoeuploadRate`  
+accndrate=`uttcli get pppoeSrvAcc $pppoeid pppoedownloadRate`
+    pppoeacclimit.sh 'D' $8 $5 $accnurate $accndrate
+    exit 0
+fi
+
+chnl_name=$2
+devname=`basename $2` 
+ttyUSB=`echo $devname |grep ^tty`
+if [ "${ttyUSB}" != "" ]; then
+    devname="ttyUSB0";
+fi
+
+# add by dhyu for xl2tp server
+if [ "$7" = "UttVPNserver" ]; then
+    l2tpConnDown.sh $1 $8
+#   vpn free session plus 1
+#    vpnHandle plus 
+    exit 0
+fi
+# end xl2tp server
+
+# add by dhyu for pptpd server
+if [ "$7" = "pptpd" ]; then
+    pptpConnDown.sh $1 $8
+    exit 0
+fi
+# end xl2tp server
+
+wanNo=`getWanNo $devname`
+#if [ $wanNo == "0" ];then
+if [ "$wanNo" == "" ];then
+    echo 0 >/var/run/${chnl_name}link.status
+    test=${devname:0:5}
+    if [ "$test" == "pptp_" ];then
+    iptables -t nat -D pptp_default_nat -o $1 -j MASQUERADE
+#   vpn free session plus 1
+    vpnHandle plus 
+    pptp_name=${devname#*pptp_}
+#    vpnserver=`nvram_get 2860 PptpClients |sed "s/;/\n/g" |grep "^${pptp_name}," |sed "s/^.*,//g"`
+#   获得服务器地址
+    vpnserver=`uttcli getbynm pptpClient $pptp_name serverHost`
+    ip route del $vpnserver
+    exit 0
+    fi
+#f  l2tp client down
+    if [ "$test" == "l2tp_" ];then
+    iptables -t nat -D pptp_default_nat -o $1 -j MASQUERADE
+#   vpn free session plus 1
+    vpnHandle plus 
+#    rm /var/run/$devname.ppp
+    l2tp_name=${devname#*l2tp_}
+#   获得服务器地址
+    vpnserver=`uttcli getbynm l2tpClient $l2tp_name serverHost`
+    ip route del $vpnserver
+    exit 0
+    fi
+fi
+
+#wanChkInt=`nvram_get 2860 Wan${wanNo}ChkInt`
+#线路组合检测IP
+#wanChkInt=`uttcli get interface ${wanNo} detectInterval`
+#if [ -z $wanChkInt ] || [ $wanChkInt == "0" ];then
+#if [ -z $wanChkInt ] || [ "$wanChkInt" == "0" ];then
+    #echo 0 >/var/run/Wan${wanNo}link.status
+    snd2speed down $wanNo
+#fi
+sleep 4
+>/var/run/$devname.ppp

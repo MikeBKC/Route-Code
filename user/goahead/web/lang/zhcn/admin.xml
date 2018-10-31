@@ -1,0 +1,90 @@
+<po>
+  <message msgid="xiangdao" msgstr="配置向导" />
+  <message msgid="shuoming" msgstr="用这个向导，您可以设置上网所需的基本网络参数。即使您对网络知识和这个产品不太熟悉，您也可以按照提示轻松地完成设置。如果您是一位专家，您也可以退出这个向导程序，直接到菜单项中选择您需要修改的设置项进行设置。&lt;br &gt;要继续，请单击“下一步”。&lt;br &gt;要退出配置向导，请单击“退出向导”。" />
+  <message msgid="nomore" msgstr="下次登录不再自动弹出向导" />
+  <message msgid="exit" msgstr="退出向导" />
+  <message msgid="next" msgstr="下一步" />
+
+  <message msgid="last" msgstr="上一步" />
+  <message msgid="reset" msgstr="重填" />
+  <message msgid="leave" msgstr="离开" />
+  <message msgid="next" msgstr="下一步" />
+  <message msgid="end" msgstr="完成" />
+
+<!-- Net  -->
+  <message msgid="Net xiangdao" msgstr="配置向导--网络参数" />
+  <message msgid="Net jieshao" msgstr="本页面配置设备的上网方式，请您根据自身情况进行选择。&lt;br &gt;" />
+
+  <message msgid="Net jieru" msgstr="接入方式" />
+  <message msgid="Net ipaddr" msgstr="IP地址" />
+  <message msgid="Net ziwang" msgstr="子网掩码" />
+  <message msgid="Net wangguan" msgstr="网关地址" />
+  <message msgid="Net zhuDNS" msgstr="主DNS服务器" />
+  <message msgid="Net beiDNS" msgstr="备DNS服务器" />
+
+  <message msgid="Net name" msgstr="用户名" />
+  <message msgid="Net password" msgstr="密码" />
+
+  <message msgid="Net static" msgstr="固定IP接入" />
+  <message msgid="Net dhcp" msgstr="动态IP接入" />
+  <message msgid="Net pppoe" msgstr="PPPoE接入" />
+
+<!-- Wlan  -->
+  <message msgid="Wlan xiangdao" msgstr="配置向导-无线参数" />
+  <message msgid="Wlan jieshao" msgstr="本页面用于设置设备的无线基本参数。&lt;br &gt;" />
+
+  <message msgid="Wlan ssid" msgstr="SSID" />
+  <message msgid="Wlan moshi" msgstr="无线模式" />
+  <message msgid="Wlan xindao" msgstr="信道" />
+  <message msgid="Wlan daikuan" msgstr="频道带宽" />
+
+  <message msgid="wrlessmode1" msgstr="仅11g" />
+  <message msgid="wrlessmode2" msgstr="仅11n" />
+  <message msgid="wrlessmode3" msgstr="11b/g/n混合" />
+
+  <message msgid="Wlan auto" msgstr="自动" />
+<!-- OpMode-->
+ <message msgid="OpMode xiangdao" msgstr="配置向导-接入方式" />
+<!-- Restart  -->
+  <message msgid="re start" msgstr="重启设备" />
+  <message msgid="Restart" msgstr="重新启动设备" />
+  <message msgid="resetbutton" msgstr="重启" />
+  <message msgid="reset ps" msgstr="&lt;strong &gt;注意：&lt;/strong &gt;修改配置后，您必须重启设备，以保证新配置生效。" />
+  <message msgid="warning1" msgstr="IP地址不能为0.0.0.0" />
+  <message msgid="warning2" msgstr="IP地址与网关地址不在同一网段上。" />
+<!--apcli sec-->
+<message msgid="wireless safe" msgstr="无线安全配置" />
+  <message msgid="safe mode" msgstr="安全机制" />
+  <message msgid="no safe mode" msgstr="无安全机制" />
+  <message msgid="certification mode" msgstr="认证类型" />
+  <message msgid="opensys" msgstr="开放系统" />
+  <message msgid="sharekey" msgstr="共享密钥" />
+  <message msgid="discription5" msgstr="自动表示设备会根据无线客户端的请求自动选择开放系统或共享密钥方式。" />
+  <message msgid="key format" msgstr="密钥格式" />
+  <message msgid="key choose" msgstr="密钥选择" />
+  <message msgid="16 hex" msgstr="16进制" />
+  <message msgid="ASCII code" msgstr="ASCII码" />
+  <message msgid="wep key" msgstr="WEP密钥" />
+  <message msgid="key mode" msgstr="密钥类型" />
+  <message msgid="key" msgstr="密钥" />
+  <message msgid="unable" msgstr="禁用" />
+  <message msgid="64 bit" msgstr="64位" />
+  <message msgid="128 bit" msgstr="128位" />
+  <message msgid="152 bit" msgstr="152位" />
+  <message msgid="WPA version" msgstr="WPA版本" />
+  <message msgid="encryption" msgstr="加密算法" />
+  <message msgid="Radius Service IP" msgstr="Radius服务器IP" />
+  <message msgid="Radius port" msgstr="Radius端口" />
+  <message msgid="radius password" msgstr="Radius密码" />
+  <message msgid="key update time" msgstr="密钥更新周期" />
+  <message msgid="range1" msgstr=" (取值范围：1-65535)" />
+  <message msgid="range2" msgstr="(取值范围：1-31个字符)" />
+  <message msgid="range3" msgstr="秒 (取值范围：60-86400；0表示不更新)" />
+  <message msgid="pre-shared key" msgstr="预共享密钥" />
+  <message msgid="range4" msgstr="(取值范围：8-63个字符)" />
+  
+  <message msgid="a2" msgstr="剩余时间为" />
+  <message msgid="a3" msgstr="秒!" />
+  <message msgid="a1" msgstr="工作模式切换中，请稍候..." />
+  <message msgid="cutWorkMode" msgstr="工作模式切换中..." />
+</po>

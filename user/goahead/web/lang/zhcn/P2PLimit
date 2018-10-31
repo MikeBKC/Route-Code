@@ -1,0 +1,6 @@
+P2P_LimitConf=P2P限速
+P2P_Limit=启用P2P限速
+P2P_LimitPolicy=限速策略
+P2P_inContent=独享(此范围每一IP地址使用此带宽)
+P2P_shContent=共享(此范围所有IP地址共享此带宽)
+P2P_except=例外地址组

@@ -1,0 +1,11 @@
+startDhcp=启动DHCP服务器
+show=打钩表示启用DHCP服务器功能，只有启用该功能，DHCP服务器相关配置才能生效。
+addrPool=地址池
+dhcpSvcSet=DHCP服务器设置
+staticDhcp=静态DHCP
+dhcpClient=DHCP客户端列表
+dnsSet=DNS代理
+dhcppool=DHCP地址池列表
+DHCP=DHCP服务器
+server=服务器
+_warning9=该操作将同时对默认服务区生效，是否确定？

@@ -1,0 +1,20 @@
+dns_delTip=Please select a domain name and try again.
+dns_domain=Domain Name
+dns_dnsFilter=Domain Filtering
+dns_dnsFilterConfig=Domain Filtering Settings
+dns_dnsFilterNotice=Domain Block Notification
+dns_start=Enable Domain Filtering
+dns_startTip=To make domain filtering settings take effect, select the check box to enable domain filtering.
+dns_effectWay=Filtering Mode
+dns_accept=Only Block Domain Names in Domain Name List
+dns_forbiden=Only Allow Domain Names in Domain Name List
+dns_netAction=Network Object
+dns_effectTime=Schedule
+dns_allTime=Always
+dns_dnsTip=You can use the wildcard "*" in a domain name to match multiple URLs. E.g., <br/>if you add www.163.*, it will match all URLs that start with www.163.
+dns_dnsList=Domain Name List
+dns_addTip=Maximum number of entries has been reached. 
+dns_existTip=Domain name already exists, please choose another one.
+dns_include= can only contain numbers, letters, hyphens (-), periods (.), and asterisks (*)
+dns_delete=Are you sure you want to delete all domain names?
+

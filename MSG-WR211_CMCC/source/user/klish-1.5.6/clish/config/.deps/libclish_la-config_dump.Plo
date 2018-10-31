@@ -1,0 +1,15 @@
+clish/config/libclish_la-config_dump.lo \
+  clish/config/libclish_la-config_dump.o: clish/config/config_dump.c \
+  ./lub/dump.h \
+  /opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h \
+  clish/config/private.h ./clish/config.h ./lub/types.h
+
+./lub/dump.h:
+
+/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/include/stdarg.h:
+
+clish/config/private.h:
+
+./clish/config.h:
+
+./lub/types.h:

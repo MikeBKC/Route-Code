@@ -1,0 +1,8 @@
+<public:component> 
+<public:attach event="onfocus" onevent="myblur()" />
+<script> 
+function myblur(){ 
+    this.blur();
+} 
+</script> 
+</public:component>

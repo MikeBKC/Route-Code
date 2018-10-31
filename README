@@ -1,0 +1,4 @@
+1   ABROAD
+ABROAD版本已合并到主干线，和主干线共享代码。
+ABROAD软件编译目录以_INT结尾。
+目前已经支持的海外版本有：nv518W-VPN_INT,nv518W-Plus_INT,nv518-Lite_INT,nv518_INT,nv841G_INT

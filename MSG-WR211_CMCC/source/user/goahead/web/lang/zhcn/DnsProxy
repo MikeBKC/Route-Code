@@ -1,0 +1,13 @@
+startDns=启动DNS代理
+show=打勾表示启用DNS代理，只有启用该功能，DNS代理才能生效。
+dns1=运营商DNS服务器1
+ISPDNSSvc1=运营商DNS服务器1
+dns2=运营商DNS服务器2
+ISPDNSSvc2=运营商服务器2
+dhcpSvcSet=DHCP服务器设置
+staticDhcp=静态DHCP
+dhcpClient=DHCP客户端列表
+dnsSet=DNS代理
+dhcppool=DHCP地址池列表
+DHCP=DHCP服务器
+server=服务器

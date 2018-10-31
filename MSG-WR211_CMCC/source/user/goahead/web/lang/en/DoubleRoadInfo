@@ -1,0 +1,14 @@
+bandWidthWeight=Bandwidth Weight
+bwidthWeightTip=(Range: 1-100)
+routeStatus=Status
+detectInterval=Detection Interval
+dInterTip=Sec (Range: 1-60; 0: Detection is disabled.)
+detectTimes=Retry Times
+dTimeTip=(Range: 3-1000)
+targetDetectIP=Detection Target IP
+checkDestIPAlert=The detection target IP address cannot be 0.0.0.0 when detection target is others
+destIP=Detection Target
+gatewayIP=Gateway IP Address
+otherIP=Other IP Address
+routeCombConf=Connection Detection Settings
+dri_routeList=Load Balancing List

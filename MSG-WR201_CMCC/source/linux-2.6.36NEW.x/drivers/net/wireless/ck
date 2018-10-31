@@ -1,0 +1,21 @@
+diff -r rt2860v2/common/rtmp_init.c /data3/chen.kun/Ralink_SDK/4100/RT288x_SDK/source/linux-2.6.36.x/drivers/net/wireless/rt2860v2/common/rtmp_init.c
+647d646
+< 	UINT32          serno;
+683d681
+< #if 0
+690,704d687
+< #else
+< #define SERIAL_NUM 0x2c
+< 	pAd->PermanentAddress[0] = 0x00;
+< 	pAd->PermanentAddress[1] = 0x22;
+< 	pAd->PermanentAddress[2] = 0xaa;
+< 	serno = *((int*)(0xbf000000 + SERIAL_NUM));
+< 	serno += ((serno & 0x3fff) << 3);
+< 	serno += 0x2711;
+< 	if((serno % 2) == 1)
+< 	    serno++;
+< 	pAd->PermanentAddress[3] = 0xFF & (serno >> 16);
+< 	pAd->PermanentAddress[4] = 0xFF & (serno >> 8);
+< 	pAd->PermanentAddress[5] = 0xFF & (serno);
+< 
+< #endif

@@ -1,0 +1,2845 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META NAME=Copyright CONTENT="Copyright (c) 2002-2008 Technologies Co.Ltd. All rights reserved .">
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<TITLE>Help</TITLE>
+<style type='text/css'> 
+A:link          { color: #5050ff; text-decoration: underline; }
+A:visited       { color: #5050ff; text-decoration: underline; }
+A:active        { color: #5050ff; text-decoration: underline; }
+.normalCell			{
+color: #000000;
+font-family: verdana,arial,sans-serif;
+text-align: left;
+font-size: 12px;
+}
+.normalURL			{
+color: #000000;
+font-family: verdana,arial,sans-serif;
+width:100;
+text-align: left;
+font-size: 12px;
+}
+.italicCell			{
+color: #FF0000;
+font-family: verdana,arial,sans-serif;
+text-align: left;
+font-size: 12px;
+}
+li { font-family: verdana,arial,sans-serif;
+font-size: 12px;
+}
+ol { font-family: verdana,arial,sans-serif;
+font-size: 12px;
+}
+ul { font-family: verdana,arial,sans-serif;
+font-size: 12px;
+}
+p { font-family: verdana,arial,sans-serif;
+font-size: 12px;
+font-weight:bold;
+color:#000;
+}
+td { font-family: verdana,arial,sans-serif;
+font-size: 14px;
+}
+body { font-family: verdana,arial,sans-serif;
+font-size: 11px;
+}
+h2 { color: #CC0000;
+font-family: verdana,arial,sans-serif;
+font-size: 20px;
+font-family: verdana,arial,sans-serif;
+font-weight: bold;
+}
+</style>
+<script>
+</script>
+</head>
+<script src="js/common.js" type="text/javascript"></script>
+<script src="js/config.js" type="text/javascript"></script>
+<script src="js/dyn_config.js" type="text/javascript"></script>
+<script language="javascript">
+showSecondTitle('Online Help');
+
+if (typeof(snmp)=='undefined')
+	var snmp=0;
+if (typeof(FwService)=='undefined')
+	var FwService=0;
+if (typeof(vlanConfig)=='undefined')
+	var vlanConfig=0;
+if (typeof(L2TPList)=='undefined')
+	var L2TPList=0;
+function init()
+{	
+	
+		moduleDisplay("NetPara",NetPara);   
+		moduleDisplay("AdvConf",AdvConf);   
+		moduleDisplay("UserMng",UserMng); 
+		moduleDisplay("UserGroup",UserGroup); 
+ 		moduleDisplay("FwService",FwService);
+		moduleDisplay("TimeRange",TimeRange); 
+		moduleDisplay("QQFilter",QQFilter); 
+		moduleDisplay("MSNFilter",MSNFilter); 
+		moduleDisplay("LogManage",NetAction); 
+		moduleDisplay("WlsConf",WlsConf);
+		
+		
+        moduleDisplay("FastConfig",FastConfig);
+		moduleDisplay("RunStatusBM",RunStatus);
+		moduleDisplay("InterfaceFlow",InterfaceFlow);
+		moduleDisplay("ReBoot",ReBoot);
+		moduleDisplay("WANConfig",WANConfig);
+		moduleDisplay("LANConfig",LANConfig);
+ 		moduleDisplay("vlanConfig",vlanConfig);
+		moduleDisplay("DhcpServer",DhcpServer);
+		moduleDisplay("DDNS",DDNS);
+		moduleDisplay("UPnP",UPnP);
+		moduleDisplay("NatStatic",NatStatic);
+		moduleDisplay("IPMac",IPMac);
+		moduleDisplay("Route",Route);
+		moduleDisplay("PPPoEGlobal",PPPoEGlobal);
+		moduleDisplay("AntiNetSnifer",AntiNetSnifer);
+		
+		//Wireless
+		moduleDisplay("WlanBase",WlanBase);
+		moduleDisplay("WlanSecurity",WlanSecurity);
+		moduleDisplay("WlanMacFilter",WlanMacFilter);
+		moduleDisplay("WlanAdvanced",WlanAdvanced);
+		moduleDisplay("WlanHostInfo",WlanHostInfo);
+		
+		//Switch
+		moduleDisplay("ports",ports);
+		moduleDisplay("mirror",mirror);
+		moduleDisplay("portvlan",port_vlan);
+		moduleDisplay("aggr",aggregation || aggregation_100M);
+		moduleDisplay("SwFunGl",SwFun);
+		
+		moduleDisplay("globalBase",GlobalBase);
+		moduleDisplay("PdbUpdata",PdbUpdata);
+		moduleDisplay("Group",Group);
+		moduleDisplay("SmartQos",SmartQos);
+		moduleDisplay("ConnectionLimit",ConnectionLimit);
+		// moduleDisplay("Notice",Notice);
+		
+		moduleDisplay("FwBase",FwBase);
+		moduleDisplay("FireWall",FireWall);
+		moduleDisplay("DnsFilter",DnsFilter);
+		moduleDisplay("FwGl",Fw);
+		
+		// moduleDisplay("ConnectionLimit",ConnectionLimit);
+		 /* VPN */
+		 moduleDisplay("VPN",VPN);
+		 moduleDisplay("PPTP",PPTPClientList);
+		// moduleDisplay("L2TPList",L2TPList);
+ 		moduleDisplay("L2TP",L2TPList);
+		 moduleDisplay("IPSec",IPSEC);
+		
+		//Linkage
+		 moduleDisplay("discover",discover);
+		 moduleDisplay("linkageGetConf",linkageConf);
+		 moduleDisplay("topoy",topoy);
+		 moduleDisplay("UrcpGl",Urcp);
+		 /* System */
+		 moduleDisplay("SysMng",SysMng);
+		 moduleDisplay("User",User);
+		 moduleDisplay("langChange",langChange);
+		 moduleDisplay("SysClock",SysClock);
+		 moduleDisplay("DeviceConfig",DeviceConfig);
+		 moduleDisplay("SoftwareUpdate",SoftwareUpdate);
+		 moduleDisplay("Remote",Remote);
+		 moduleDisplay("TaskScheduler",TaskScheduler);
+	
+		 /* Status */
+		 moduleDisplay("SysSts",SysSts);
+		 moduleDisplay("RunStatus", RunStatus);
+		// moduleDisplay("UserStats",UserStats);
+		// moduleDisplay("FluxStat",FluxStat);
+		 moduleDisplay("SysInfo",SysInfo);
+		// moduleDisplay("Remote",Remote);
+		// moduleDisplay("SaleService",SaleService); 
+		
+		if (platform == "nv3520G") {
+			moduleDisplay("ports100m", 0);
+			moduleDisplay("ports1000m", 1);
+			moduleDisplay("hwModelTr", 0);
+			moduleDisplay("PortDetails", 1);
+		}
+		if(platform == "1540")
+		{
+			moduleDisplay("ports100m", 1);
+			moduleDisplay("ports1000m", 0);
+		}
+		if ((platform == "nv510v2") || (platform == "nv540")|| (platform == "nv518")|| (platform == "nv518W-VPN")|| (platform == "nv518W-Lite")|| (platform == "nv518W-Plus") || (platform == "nv588") || (platform == "nv640E")){
+			moduleDisplay("ispTr", 0);
+		}
+        if (platform == "nv510v4") {
+			moduleDisplay("ispTr", 0);
+		}
+			moduleDisplay("WanPortNum", WANPort);
+        if ((platform == "nv510W") || (platform == "nv520W")||(platform =="U1000N") || (platform == "nv842W") || (platform == "nv518W") || (platform == "nv518W-VPN")|| (platform == "nv518W-Lite")|| (platform == "nv518W-Plus")|| (platform == "nv512W") || (platform == "nv842Wv3") || (platform == "nv520Wv3") || (platform == "nv515W")){
+			moduleDisplay("FastConfigWlan", 1);
+		} 
+		if (platform == "nv1800N") {
+			moduleDisplay("FastConfig1800", 1);
+			moduleDisplay("RunStatusBM1800", 1);
+			moduleDisplay("RunStatus1800", 1);
+			moduleDisplay("InterfaceFlow1800", 1);
+			moduleDisplay("WANConfig1800", 1);
+			moduleDisplay("DhcpConfig1800", 1);
+		} else {
+			moduleDisplay("FastConfigNormal", 1);
+			moduleDisplay("RunStatusBMNormal", 1);
+			moduleDisplay("RunStatusNormal", 1);
+			moduleDisplay("InterfaceFlowNormal", 1);
+			moduleDisplay("WANConfigNormal", 1);
+			moduleDisplay("DhcpConfigNormal", 1);
+		}
+	    moduleDisplay("PortMirror", PortMirror || PortMirror6530G);
+		moduleDisplay("PortMirror8367M", PortMirror8367M);
+		moduleDisplay("Notice", Notice);
+		moduleDisplay("snmpConf", snmpConf);
+		moduleDisplay("snmp", snmp);
+		moduleDisplay("DHCPPoolForAc", DHCPPoolForAc);
+}
+</script>
+<body  onLoad="init()">
+<center>
+<h2>Online Help</h2>
+</center>
+
+<hr>
+<p><b><font size="+1" color="#666666">About SVG Viewer</font></a></b><p>
+<p><b>To display some pages (like traffic chart and topology map) properly, you need to <a href="http://www.adobe.com/svg/viewer/install/" target="_blank">install SVG Viewer plug-in.</a></b></p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<TD width=120 valign=top class=italicCell>Still abnormal after installation</TD>
+<Td class=normalCell>Please allow your browser to run the SVG plug-in. If the page still cannot be displayed properly, please set the browser's security level to low. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>The SVG plug-in maybe conflict with some security software (like firewall). If this occurs, please set your security software to allow the SVG plug-in. If the page still cannot be displayed properly, please temporarily disable the security software.</td>
+</TR>
+</table>
+
+<hr>
+<p><b><font size="+1" color="#666666">Start</font></a></b><p>
+<div  id="FastConfig" style="display:">
+<p>Setup Wizard
+<div  id="FastConfigNormal" style="display:none">
+<Td class=normalCell>Via the Setup Wizard, you can configure the basic parameters to quickly connect the Device to the Internet. </td>
+<p>Please choose the access mode according to your requirement. 
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>DHCP</td>
+<Td class=normalCell>Directly click <Finish> to complete the Internet connection setup. The Device will automatically obtain an IP address from your ISP's DHCP server. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Static IP</td>
+<Td class=normalCell>Enter the IP address, subnet mask, gateway IP address, DNS server IP address(es) provided by your ISP, and then click <Finish> to complete the Internet connection setup.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>PPPoE</td>
+<Td class=normalCell>Enter the user name and password provided your ISP, and then click <Finish> to complete the Internet connection setup.</td>
+</TR>
+</table>
+</div>
+
+<div  id="FastConfig1800" style="display:none">
+<p>Via the Setup Wizard, you can configure the Device's management IP address (i.e., LAN interface IP address). Then you can access the Device using this IP address. 
+<p>Please choose the access mode according to your requirement. 
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Static IP</td>
+<Td class=normalCell>Enter the Device's management IP address, subnet mask, and gateway IP address.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>DHCP</td>
+<Td class=normalCell>Directly click <Finish> to complete setup. The Device will automatically obtain an IP address and other TCP/IP parameters from an internal DHCP server. </td>
+</TR>
+</table>
+</div>
+
+<div  id="FastConfigWlan" style="display:none">
+<p>Via the Setup Wizard, you can configure the Device to act as a wired gateway, 3G client and/or AP client to provide Internet access to internal users.
+<p>Choose Internet Access Mode
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>WAN1</td>
+<Td class=normalCell>Select the check box to configure a wired Internet connection on the WAN1 interface.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>3G</td>
+<Td class=normalCell>Select the check box to configure a 3G Internet connection. Here the Device acts as a 3G client.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>APClient</td>
+<Td class=normalCell>Select the check box to configure a wireless Internet connection. Here the Device acts as an AP client. </td>
+</TR>
+</table>
+<p>WAN1 Settings
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>DHCP</td>
+<Td class=normalCell>If your ISP automatically assigns an IP address to the Device via DHCP, select DHCP.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Static IP</td>
+<Td class=normalCell>If you are required to use a static IP address to connect to the Internet, select Static IP and enter the IP address, subnet mask, gateway IP address, DNS server IP address(es) provided by your ISP.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>PPPoE</td>
+<Td class=normalCell>If you have a PPPoE connection, select PPPoE and enter user name and password provided by your ISP.</td>
+</TR>
+</table>
+<p>3G Connection Settings
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>3G USB Modem</td>
+<Td class=normalCell>Select the model of your 3G USB modem.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>ISP</td>
+<Td class=normalCell>The service provider who provides 3G wireless Internet access service for you. The Device supports China Mobile, China Unicom and China Telecom.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Authentication Method</td>
+<Td class=normalCell>The authentication method used by your ISP. The Device provides SIM and Password authentication.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>PIN Code</td>
+<Td class=normalCell>The PIN (Personal Identification Number) code of your 3G SIM card. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>APN</td>
+<Td class=normalCell>The access point name provided by your ISP.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Dial Number</td>
+<Td class=normalCell>The dial number provided by your ISP.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>User Name, Password</td>
+<Td class=normalCell>The user name and password used for PPP authentication.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Note</td>
+<Td class=normalCell>We suggest that you configure only 3G USB Modem and ISP, and leave all other parameters at their default values. If necessary, please change them under the guidance of a professional.</td>
+</TR>
+</table>
+<p>APClient Connection Settings
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>AP SSID/MAC Address</td>
+<Td class=normalCell>The SSID and MAC address of the remote AP.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Security Mode</td>
+<Td class=normalCell>The options are None, WPA-PSK/WPA2-PSK, and WEP.</td>
+</TR>
+</table>
+<p>Wireless Parameters Settings
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>SSID</td>
+<Td class=normalCell>It is used to uniquely identify a wireless network. It is case sensitive. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Wireless Mode</td>
+<Td class=normalCell>The options are 11g Only, 11n Only and 11b/g/n Mixed.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Channel</td>
+<Td class=normalCell>Select the wireless channel for your wireless network.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Channel Width</td>
+<Td class=normalCell>Specify the range of frequencies for your wireless network.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Note</td>
+<Td class=normalCell>Do not forget to click &lt;Finish&gt; to save the changes you have made in the Setup Wizard, else these changes will be discarded.</td>
+</TR>
+</table>
+</div>
+
+</div>
+
+
+<div  id="RunStatusBM" style="display:">
+<hr>
+<p>Interface Status
+<table id="RunStatusBMNormal"  style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>It displays the current status information of each interface, including connection type, IP address, subnet mask, MAC address, duration, etc.  </td>
+</TR>
+</table>
+<table id="RunStatusBM1800"   style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>It displays the current status information of LAN interface, including connection type, IP address, subnet mask, MAC address, duration, etc. </td>
+</TR>
+</table>
+</div>
+
+
+<div  id="InterfaceFlow" style="display:">
+<hr>
+<p>Interface Traffic
+<p>
+<table id="InterfaceFlowNormal"  style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Interface Traffic</td>
+<Td class=normalCell>This page displays the real-time traffic chart for each interface. The options at the bottom of the chart allow you to apply different effects to the chart.</td>
+</TR>
+<tr id="PortDetails" style="display:none">
+<TD width=120 valign=top class=italicCell>Interface Details</td>
+<Td class=normalCell>This page displays detailed ingress/egress traffic statistics for each interface and each LAN port. </td>
+</TR>
+</table>
+<table id="InterfaceFlow1800"  style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Interface Traffic</td>
+<Td class=normalCell>This page displays the real-time wired and wireless traffic charts. The options at the bottom of the chart allow you to apply different effects to the chart.</td>
+</TR>
+</table>
+</div>
+
+<div  id="NetPara" style="display:">
+<hr>
+<p><b><font size="+1" color="#666666">Network</font></a></b><p>
+<div  id="WANConfig" style="display:">
+<div  id="WANConfigNormal" style="display:none">
+<p>WAN Settings
+<p>The Device supports three connection types: PPPoE, Static IP and DHCP.
+
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr id="ispTr" style="display:">
+<TD width=120 valign=top class=italicCell>ISP Policy</td>
+<Td class=normalCell>You can choose the ISP Policy (i.e., route policy database) for each Internet connection. Thus all traffic destined for an ISP’s servers will be forwarded through that ISP’s connection.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC Address</td>
+<Td class=normalCell>Some ISP's register the MAC address of your network device when your account is first opened, and they will only accept traffic from that MAC address. In this case, you need to assign the registered MAC address to the Device.</td>
+</TR>
+</table>
+<p>Static IP
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>IP Address</td>
+<Td class=normalCell>The public IP address provided by your ISP.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Primary/Secondary DNS Server</td>
+<Td class=normalCell>The DNS server IP addresses provided by your ISP.</td>
+</TR>
+</table>
+<p>PPPoE
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>User Name, Password</td>
+<Td class=normalCell>The user name and password provided by your ISP.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>PPP Authentication</td>
+<Td class=normalCell>Select the PPP authentication method. The options are NONE (no authentication is performed), PAP, CHAP and EITHER (the Device will automatically negotiate it with the remote device). </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Dial Type</td>
+<Td class=normalCell>The options are Always On, On Demand and Manual.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Always On</td>
+<Td class=normalCell>The Device will automatically dial out when it starts up or the connection is disconnected. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>On Demand</td>
+<Td class=normalCell>The Device will automatically dial out only when it listens for traffic destined for the Internet.</td>
+</TR>
+<TD width=120 valign=top class=italicCell>Manual</td>
+<Td class=normalCell>You need to dial manually by clicking <Connect> in <strong>Internet Connection List</strong>.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Dial Mode</td>
+<Td class=normalCell>If the PPPoE connection isn’t established successfully even using correct user name and password, you may try to use another mode.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Idle Timeout</td>
+<Td class=normalCell>The Device will automatically terminate the connection after it has been inactive for the specified period of time. 0 means that the Device will not terminate it.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MTU</td>
+<Td class=normalCell>When dialing, the Device will automatically negotiate MTU (maximum transmission unit) with the peer device. Please leave the default value of 1480 bytes, unless you have a special application.</td>
+</TR>
+</table>
+
+<hr>
+<p id="DoubleLine">Load Balancing</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Partial Load Balancing</td>
+<Td class=normalCell>Only when all the primary connections don’t work, the backup connections will start working. Once a primary connection is back to normal, it will automatically switch back to the primary connection.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Full Load Balancing</td>
+<Td class=normalCell>All the connections are primary connections. If a connection fails, the system will shield it immediately, and redirect traffic to other connections. Once the faulty connection is back to normal, it will start working again.</td>
+</TR>
+</table>
+<p>Connection Detection</p>
+<Td class=normalCell>The system provides connection detection to monitor connections in real-time. In case a connection fails, traffic is instantly redirected to other available connections to ensure continuation of services. </td>
+</div>
+<div id="WanPortNum" style="display:none">
+<p>Number of WAN Interfaces</p>
+<p>You can flexibly change the number of WAN interfaces . After performing the Save operation, you should restart the Device to make the change take effect.</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Note</td>
+<Td class=normalCell>Once restarted, the Device is restored to factory default settings.</td>
+</TR>
+</table>
+</div>
+<div  id="WANConfig1800" style="display:none">
+<p>LAN Settings</p>
+<p>Configure the Device's management IP address.</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Static IP</td>
+<Td class=normalCell>Enter the Device's management IP address, subnet mask, and gateway IP address.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>DHCP</td>
+<Td class=normalCell>The Device will automatically obtain an IP address and other TCP/IP parameters from an internal DHCP server. </td>
+</TR>
+</table>
+</div>
+</div>
+
+
+<div  id="LANConfig" style="display:">
+<hr>
+<p>LAN Settings
+<p>
+<Td class=normalCell>LAN Interface can be configured up to four IP Addresses.</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>IP Address</td>
+<Td class=normalCell>It specifies the IP addresses of LAN Interface. The first IP address default value is 192.168.1.1, and the other IP address default value is 0.0.0.0 .</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Subnet Mask</td>
+<Td class=normalCell>It specifies the subnet mask that defines the range of each subnet.Default is 255.255.255.0</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC Address</td>
+<Td class=normalCell>The MAC address of the LAN interface. In most cases, please leave the default value.</td>
+</TR>
+</table>
+</div>
+
+<div id="vlanConfig" style="display: block;">
+<hr>
+<p>VLAN接口配置</p>
+<p>VLAN接口列表</p>
+显示当前VLAN接口相关信息（包括：名称，状态，VLAN ID，虚接口IP地址，子网掩码等相关信息）
+<table cellspacing="0" cellpadding="4" border="0" width="100%">
+<tbody><tr>
+<td width="120" valign="top" class="italicCell">添加新条目</td>
+<td class="normalCell">点击“添加新条目”，进VLAN接口配置页面</td>
+</tr>
+</tbody></table>
+
+<p>VLAN接口配置</p>
+<table cellspacing="0" cellpadding="4" border="0" width="100%">
+<tbody>
+<tr>
+<td width="120" valign="top" class="italicCell">启用</td>
+<td class="normalCell">打钩表示启用相应的功能</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">名称</td>
+<td class="normalCell">设置相应的VLAN虚接口名称，这里默认以VIF开头，并与VLANID 保持一致</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">VLAN ID</td>
+<td class="normalCell">设置相应的VLAN ID</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">虚接口IP地址</td>
+<td class="normalCell">配置相应的虚接口IP地址</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">子网掩码</td>
+<td class="normalCell">设置相应IP地址的子网掩码</td>
+</tr>
+</tbody></table>
+</div>
+
+<div  id="DhcpServer" style="display:">
+<hr>
+<p>DHCP Server
+<p><a name="DhcpServers"></a></p>
+<p>DHCP Server Settings
+<table cellspacing=0 cellpadding=4 border=0 width=100% id="DhcpConfigNormal" style="display:none">
+<tr>
+<TD width=120 valign=top class=italicCell>Enable DHCP Server</td>
+<Td class=normalCell>Select the check box to enable DHCP server.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Start/End IP Address</td>
+<Td class=normalCell>Specify the first and last addresses in the DHCP address pool. They must be on the same subnet as the Device's LAN IP address.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Subnet Mask</td>
+<Td class=normalCell>Specify the subnet mask of the DHCP address pool.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Gateway IP Address</td>
+<Td class=normalCell>Specify the gateway IP address (typically your Device's LAN IP address) that will be assigned to DHCP clients.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Lease Time</td>
+<Td class=normalCell>Specify the length of time during which a DHCP client can use an assigned IP address.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Primary/Secondary DNS Server</td>
+<Td class=normalCell>Specify the DNS server IP addresses, which will be assigned to DHCP clients when DNS proxy is disabled on the Device.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable DNS Proxy</td>
+<Td class=normalCell>If you enable both DHCP server and DNS proxy, the Device will provide its own LAN IP address as the primary DNS server address.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>ISP DNS Server</td>
+<Td class=normalCell>Specify the IP addresses of other DNS servers.</td>
+</TR>
+</table>
+
+<table cellspacing=0 cellpadding=4 border=0 width=100% id="DhcpConfig1800" style="display:none">
+<tr>
+<TD width=120 valign=top class=italicCell>Enable DHCP Server</td>
+<Td class=normalCell>Select the check box to enable DHCP server.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Start/End IP Address</td>
+<Td class=normalCell>Specify the first and last addresses in the DHCP address pool. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Subnet Mask</td>
+<Td class=normalCell>Specify the subnet mask of the DHCP address pool.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Gateway IP Address</td>
+<Td class=normalCell>Specify the gateway IP address that will be assigned to DHCP clients. Typically it is the IP address of the default gateway on your network.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Lease Time</td>
+<Td class=normalCell>Specify the length of time during which a DHCP client can use an assigned IP address.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Primary/Secondary DNS Server</td>
+<Td class=normalCell>Specify the DNS server IP addresses that will be assigned to DHCP clients.</td>
+</TR>
+</table>
+
+<p><a name="StaticDHCP"></a></p>
+<p>Static DHCP</p>
+<Td class=normalCell>Static DHCP allows you to manually bind an IP address to a PC’s MAC address and thus that PC will always obtain the same IP address. </td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>User Name</td>
+<Td class=normalCell>Specify a unique user name for the DHCP client. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>IP Address</td>
+<Td class=normalCell>Specify the IP address that you want to reserve for the DHCP client. It must be in the DHCP address pool.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC Address</td>
+<Td class=normalCell>Specify the MAC address of the DHCP client.</td>
+</TR>
+</table>
+
+
+<p><a name="DhcpAutoBind"></a></p>
+<p>DHCP Auto Binding</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable DHCP Auto Binding</td>
+<Td class=normalCell> Enable DHCP auto binding, once a LAN host obtains an IP address from the Device that acts as a DHCP server, the Device will immediately bind this host’s IP and MAC address pair</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable DHCP Auto Deleting</td>
+<Td class=normalCell>Enable DHCP auto deleting, the Device will automatically delete a DHCP auto binding entry if the corresponding host releases the IP address initiatively or its lease expires.</td>
+</TR>
+</table>
+
+
+<p><a name="DHCPTable"></a></p>
+<p>DHCP Client List</p>
+<Td class=normalCell>It displays information about DHCP clients.</td>
+</div>
+
+<div  id="DHCPPoolForAc" style="display:">
+<hr>
+<p>DHCP服务器
+<p><a name="DHCPServerForAc"></a></p>
+<p>DHCP服务器设置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用DHCP服务器</td>
+<Td class=normalCell>勾选此项为允许，此项是用来禁用或启用AC默认的DHCP服务器功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>地址池</td>
+<Td class=normalCell>显示DHCP服务器默认的地址池default</td>
+</TR>
+</table>
+
+<p><a name="DHCPPoolForAc"></a></p>
+<p>DHCP地址池</p>
+<Td class=normalCell>显示已配置的DHCP地址池（非默认地址池要被服务区引用，才能生效）</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width="120" valign="top" class="italicCell">启用DHCP服务器</td>
+<td class="normalCell">勾选表示启用设备的DHCP服务器功能</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">名称</td>
+<td class="normalCell">设置DHCP服务器名称</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">VLAN接口</td>
+<td class="normalCell">选择在VLAN接口中配置的相应的VLAN接口名称</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>起始/结束IP地址</td>
+<Td class=normalCell>定义DHCP地址池的范围，跟设备LAN口IP地址在同一网段</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>子网掩码</td>
+<Td class=normalCell>DHCP地址池中IP地址的子网掩码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>网关地址</td>
+<Td class=normalCell>下发给DHCP客户端的网关地址，一般为设备LAN口IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>租用时间</td>
+<Td class=normalCell>内网计算机使用DHCP服务器分配的IP地址的时长</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>主、备DNS服务器</td>
+<Td class=normalCell>设置DNS服务器地址；在未启用DNS代理情况下，DHCP服务器将这些DNS服务器地址分配给DHCP客户端</td>
+</TR>
+</table>
+
+<p><a name="StaticDHCPForAc"></a></p>
+<p>静态DHCP</p>
+<Td class=normalCell>静态DHCP功能是将动态下发的IP地址与客户端的MAC进行绑定，即同一MAC地址的客户端每次获得的IP地址是同一个</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width="120" valign="top" class="italicCell">DHCP地址池列表</td>
+<td class="normalCell">DHCP地址池所绑定的MAC地址只允许在所绑定的DHCP地址池使用</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>用户名</td>
+<Td class=normalCell>定义一个DHCP客户端的用户名</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>IP地址</td>
+<Td class=normalCell>下发给指定客户端的IP地址，这个地址应在DHCP地址池范围内</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC地址</td>
+<Td class=normalCell>填写下发指定IP地址的客户端的MAC地址</td>
+</TR>
+</table>
+
+<p><a name="DNSProxyForAc"></a></p>
+<p>DNS代理</p>
+<Td class=normalCell>配置AC的DNS代理功能，勾选代表启用，启用此功能后AC会将LAN口IP地址分配给客户端作为主DNS服务器地址</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>运营商DNS服务器1、2</td>
+<Td class=normalCell>显示运营商DNS服务器的IP地址</td>
+</TR>
+</table>
+</div>
+
+
+
+<div  id="DDNS" style="display:">
+<hr>
+<p>DDNS Settings
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Service Provider</td>
+<Td class=normalCell>The Device supports two DDNS providers: iplink.com.cn and 3322.org. If your service provider is iplink.com.cn, please choose Synchronize with SNTP Server in <strong>System > Time</strong> page.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Registry Website</td>
+<Td class=normalCell>To configure and use DDNS service, please login to http://www.3322.org or http://www.com.cn/ddns to apply for a fully qualified domain name (FQDN) first.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Host Name</td>
+<Td class=normalCell>Enter the host name you registered with your DDNS provider.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>User Name</td>
+<Td class=normalCell>Enter the user name you use to login to 3322.org.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Key</td>
+<Td class=normalCell>Enter the password you use to login to 3322.org, or the key you got when you registered at iplink.com.cn.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Interface</td>
+<Td class=normalCell>Select the interface on which DDNS service is applied.</td>
+</TR>
+</table>
+</div>
+
+
+<div  id="UPnP" style="display:">
+<hr>
+<p>UPnP
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Internal IP</td>
+<Td class=normalCell>The IP address of the internal host.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Internal Port</td>
+<Td class=normalCell>The service port provided by the internal host.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Protocol</td>
+<Td class=normalCell>The transport protocol used by the service.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Remote IP</td>
+<Td class=normalCell>The IP address of the remote host.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>External Port</td>
+<Td class=normalCell>The external port of the UPnP port forwarding, which is opened for outside users to access.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Description</td>
+<Td class=normalCell>Short text for describing the UPnP software.</td>
+</TR>
+</table>
+</div>
+</div>
+
+<div  id="WlsConf" style="display:">
+<hr>
+<p><b><font size="+1" color="#666666">Wireless</font></a></b><p>
+<div  id="WlanBase" style="display:">
+<p>Basic Settings
+<p>You can enable or disable wireless function, configure SSID, wireless mode, etc.
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>AP Mode</td>
+<Td class=normalCell>In this mode, the Device can connect to other wireless network devices in AP Client mode, and at the same time it can provide connectivity for wireless clients.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>APClient Mode</td>
+<Td class=normalCell>In this mode, the Device can connect to a remote network device in AP mode, and at same time it can provide connectivity for wireless clients.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Repeater Mode</td>
+<Td class=normalCell>In this mode, the Device can connect to other wireless network devices in bridge mode, repeater mode or lazy mode, and at the same time it can provide connectivity for wireless clients.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Bridge Mode</td>
+<Td class=normalCell>In this mode, the Device can connect to other wireless network devices in repeater mode or lazy mode. However, wireless clients are unable to connect to the Device directly.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Lazy Mode</td>
+<Td class=normalCell>In this mode, the Device can connect to other wireless network devices in bridge mode or repeater mode, and at the same time it can provide connectivity for wireless clients.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>SSID</td>
+<Td class=normalCell>The SSID (Service Set Identification) is used to uniquely identify a wireless network. It is case sensitive. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Wireless Mode</td>
+<Td class=normalCell>The options are 11g Only, 11n Only and 11b/g/n Mixed.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>11g Only</td>
+<Td class=normalCell>It allows both 802.11g and 802.11n wireless clients to connect to the Device at 802.11g data rates with a maximum speed of 54Mbps.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>11n Only</td>
+<Td class=normalCell>It only allows 802.11n wireless clients to connect to the Device at 802.11n data rates with a maximum speed of 300Mbps.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>11b/g/n Mixed</td>
+<Td class=normalCell>It allows 802.11b, 802.11g and 802.11n wireless clients to connect to the Wireless Router at their respective data rates. The maximum speeds are 11Mbps, 54Mbps and 300Mbps respectively.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Channel</td>
+<Td class=normalCell>Select the wireless channel used between the Device and wireless clients. If there are multiple wireless network devices in your area, please make sure that their channels don’t interfere with each other.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Channel Width</td>
+<Td class=normalCell>Specify the range of frequencies for your wireless network. Note that this parameter can only act on 802.11n wireless clients. 802.11b and 802.11g wireless clients can only use 20MHz channel.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable SSID Broadcast</td>
+<Td class=normalCell>If you enable this feature, the Device will broadcast its SSID periodically. However, this feature also makes it easier for hackers to know your SSID and break into your WLAN. You'd better disable it to improve security of your WLAN. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>AP SSID</td>
+<Td class=normalCell>The SSID of the remote AP.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>AP MAC Address</td>
+<Td class=normalCell>The MAC address of the remote AP.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Security Mode</td>
+<Td class=normalCell>The options are None, WPA-PSK/WPA2-PSK, and WEP. When using WPA-PSK or WPA2-PSK, there are two choices for data encryption: TKIP or AES.</td>
+</TR>
+</table>
+</div>
+
+<div  id="WlanSecurity" style="display:">
+<hr>
+<p>Wireless Security Settings
+<p>WEP
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Authentication Type </td>
+<Td class=normalCell>The options are Auto, Open System and Shared Key.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Auto</td>
+<Td class=normalCell>The Device will automatically choose Open System or Shared Key authentication.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Open System</td>
+<Td class=normalCell>It allows any wireless client to associate with the Device whether that client has the correct WEP key or not. However, the client must have the correct keys to send or receive data from the Device.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Shared Key</td>
+<Td class=normalCell>It requires the wireless client  to have the correct WEP key to associate with the Device. A client with an incorrect WEP key will not be able to associate with the Device.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Key Format</td>
+<Td class=normalCell>You can enter WEP keys in either Hex format or ASCII format. Hex format (case insensitive) stands for any combination of hexadecimal digits (0-9, a-f, A-F). ASCII format (case sensitive) stands for any combination of ASCII characters. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>WEP Key</td>
+<Td class=normalCell>You should enter a key according to the Key Format and Key Type selected. For 64-bit encryption, enter 10 hex characters or 5 ASCII characters. For 128-bit encryption, enter 26 hex characters or 13 ASCII characters.</td>
+</TR>
+</table>
+
+<p>WPA/WPA2
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>WPA Mode</td>
+<Td class=normalCell>The options are Auto, WPA and WPA2. Auto: It allows both WPA and WPA2 clients to connect to the Device.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Encryption Method</td>
+<Td class=normalCell>Select the encryption method used for data encryption. The options are Auto, TKIP and AES.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Radius Server IP</td>
+<Td class=normalCell>Specify the IP address of the RADIUS server, which is used to authenticate wireless clients.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>RADIUS Server Port</td>
+<Td class=normalCell>Specify the UPD port number of the RADIUS server.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Shared Secret</td>
+<Td class=normalCell>Specify the shared secret key used for authentication between the Device and RADIUS server.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Key Renewal Interval</td>
+<Td class=normalCell>Specify how often the WPA group key changes. Range: 60~86400, or 0 (Auto-renewal is disabled). Default: 3600 seconds. </td>
+</TR>
+</table>
+<p>WPA-PSK/WPA2-PSK
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>WPA Mode</td>
+<Td class=normalCell>The options are Auto, WPA-PSK and WPA2-PSK.  Auto: It allows both WPA and WPA2 clients to connect to the Device.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Pre-shared Key</td>
+<Td class=normalCell>It serves as seed for generating encryption keys. Range: 8-63 characters long.</td>
+</TR>
+</table>
+</div>
+
+
+
+<div  id="WlanMacFilter" style="display:">
+<hr>
+<p>Wireless MAC Address Filtering
+<p>With this feature, you can either allow or block specific wireless clients from accessing your wireless network.
+</div>
+
+<div  id="WlanAdvanced" style="display:">
+<hr>
+<p>Advanced Wireless Settings
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>RTS Threshold</td>
+<Td class=normalCell>Specify the packet size above which an RTS/CTS handshake will be performed before sending the packet. Range: 1~2347; default: 2347 bytes.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Fragmentation Threshold</td>
+<Td class=normalCell>The packets larger than the specified size will be fragmented before transmission. Range: 256~2346; default: 2346 bytes.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Beacon Interval</td>
+<Td class=normalCell>Specify the time interval between beacons. The Device periodically broadcasts beacons at the specified interval to synchronize the wireless network. Range: 20~999; default: 100 milliseconds.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>DTIM Interval</td>
+<Td class=normalCell>It determines how often the beacon contains a Delivery Traffic Indication Message (DTIM). Range: 1~255; default: 1.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable Short Preamble</td>
+<Td class=normalCell>Select the check box to enable short preamble, which can improve network performance. Clear the check box to enable long preamble, which can ensure compatibilities with some old 802.11b devices that require the long preamble, but it will slightly reduce throughout at high data rate.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable WMM</td>
+<Td class=normalCell>To prioritize traffic for multimedia (video, audio, etc.) applications, enable WMM on the Device and wireless clients.</td>
+</TR>
+</table>
+</div>
+
+<div  id="WlanHostInfo" style="display:">
+<hr>
+<p>Wireless Client Status
+<p>In <strong>Wireless Client Status List</strong>, you can view the status of each wireless client connected to the Device.
+</div>
+</div>
+
+<div  id="AdvConf" style="display:">
+<hr>
+<p><b><font size="+1" color="#666666">Advanced</font></a></b><p>
+<div  id="NatStatic" style="display:">
+<p>NAT & DMZ
+<p><a name="NatStaticEdit"></a></p>
+<p>Port Forwarding</p>
+<Td class=normalCell>Port forwarding allows you to open certain ports on the Device. All incoming requests to a certain port will be forwarded to a specific internal server, so that outside users can access the server.</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Name</td>
+<Td class=normalCell>Specify a unique name for the port forwarding entry.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable</td>
+<Td class=normalCell>Select the check box to make the port forwarding entry take effect. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Protocol</td>
+<Td class=normalCell>Select the transport protocol used by the service. The options are TCP, UDP and TCP/UDP. If you are not sure, select TCP/UDP.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Start External Port</td>
+<Td class=normalCell>The lowest port number provided by the Device.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>IP Address</td>
+<Td class=normalCell>The IP address of the internal host that provides the service.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Start Internal Port</td>
+<Td class=normalCell>The lowest port number of the service provided by the internal host.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Port Count</td>
+<Td class=normalCell>Change it if the open service uses a range of consecutive ports. The maximum value is 20. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Bind to</td>
+<Td class=normalCell>Select the interface to which this port forwarding entry is bound. </td>
+</TR>
+</table>
+
+<p><a name="NatRuleEdit"></a></p>
+<p>NAT Rule
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>EasyIP</td>
+<Td class=normalCell>It indicates network address and port translation (NAPT). Multiple internal IP addresses are mapped to a single external IP address.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>One2One</td>
+<Td class=normalCell>It indicates static network address translation. One internal IP address is mapped to one external IP address.</td>
+</TR>
+</table>
+
+<p><a name="DMZ"></a></p>
+<p>DMZ</p>
+<Td class=normalCell>After you enable DMZ, the DMZ host will be exposed to Internet for unrestricted two-way communication.</td>
+</div>
+
+<div  id="Route" style="display:">
+<hr>
+<p>Static Route
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Route Name</td>
+<Td class=normalCell>Specify a unique name for the static route.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable</td>
+<Td class=normalCell>Select the check box to make the static route take effect. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Destination IP, Subnet Mask</td>
+<Td class=normalCell>Specify the destination network or destination host.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Gateway IP Address</td>
+<Td class=normalCell>Specify the IP address of the next-hop router.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Priority</td>
+<Td class=normalCell>The smaller the number, the higher the priority.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Interface</td>
+<Td class=normalCell>Specify the outbound interface through which packets are forwarded.</td>
+</TR>
+</table>
+</div>
+
+
+<div  id="AntiNetSnifer" style="display:">
+<hr>
+<p>Anti-NetSniper</p>
+<Td class=normalCell>Anti-NetSniper is used to crack shared Internet access detection which can be performed by your ISP. Don't enable this feature unless you encounter the "shared Internet access detection" issue.</td>
+</div>
+<div  id="PortMirror" style="display:none">
+<hr>
+<p>Port Mirroring</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>Enable Port Mirroring</td>
+<Td class=normalCell>Select the check box to enable port mirroring. By default, LAN port 1 is the mirroring port, other lan ports are the mirrored ports. 
+</td>
+</TR>
+</table>
+</div>
+<div  id="PortMirror8367M" style="display:none">
+<hr>
+<p>Port Mirroring
+<p>The traffic of other ports of the device is automatically copied to the monitor port.Real-time provides a detailed information on the transmission status of each port,So that network managers to take traffic monitoring, performance analysis and troubleshooting measures. 
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>Mirroring Port</td>
+<Td class=normalCell>Choose only one mirroring port that will mirror the traffic of the mirrored port.
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>Mirrored Port</td>
+<Td class=normalCell>Choose only one mirrored port.
+</td>
+</TR>
+
+<tr>
+<td width=120 valign=top class=italicCell>Note:</td>
+<Td class=normalCell>The mirroring port cannot be a mirrored port.
+</td>
+</TR>
+</table>
+</div>
+<div  id="port_vlan_rdd" style="display:">
+<hr>
+<p>Port VLAN</p>
+<Td class=normalCell>A VLAN (Virtual Local Area Network) is a group of devices that form a logical LAN segment, that is, a broadcast domain. The members on the same VLAN can communicate with each other. The traffic will not disturb among different VLANs, that is, any traffic (unicast, broadcast or multicast) within a VLAN doesn’t flow to another VLAN </td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>Note:</td>
+<Td class=normalCell>A port can belong to one or more Port VLANs.</td>
+</TR>
+</table>
+</div>
+
+<div  id="Syslog" style="display:">
+<hr>
+<p>SYSLOG Settings</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>Enable syslog</td>
+<Td class=normalCell>If you select the check box to enable syslog, the device can send its activity logs to an external syslog server.It helps the network administrator monitor, analyze and troubleshoot the Device and network.</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>Syslog Server IP Address (Domain Name)</td>
+<Td class=normalCell>It specifies the IP address or domain name of the syslog server to which the Device sends syslog messages.</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>Syslog Server Port</td>
+<Td class=normalCell> It specifies the port used by the syslog server to communicate with the Device. In most cases, please leave the default value of 514, which is a well-known port number.</td>
+</TR>
+<tr>
+<td width="120" valign="top" class="italicCell">syslog消息发送间隔</td>
+<td class="normalCell">设置消息发送的间隔，默认为0，表示不发送，该功能需要结合艾泰科技的Xport使用</td>
+</tr>
+<tr>
+<td width=120 valign=top class=italicCell>Syslog Message Facility</td>
+<Td class=normalCell>It specifies the facility level used for logging. The facilities are used to distinguish different classes of syslog messages. The available options are local0, local1 through local7.</td>
+</TR>
+</table>
+</div>
+
+<div id="snmp" style="display: none;">
+<hr>
+<p>SNMP配置</p>
+<table cellspacing="0" cellpadding="4" border="0" width="100%">
+<tbody><tr>
+<td width="120" valign="top" class="italicCell">启用SNMP服务</td>
+<td class="normalCell">启用SNMP服务：禁止或者允许SNMP服务。为安全起见，只允许SNMP 服务器读设备信息</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">SNMP社区名</td>
+<td class="normalCell">它必须和SNMP网络管理软件包配置匹配。默认的SNMP社区名“uTt22aA”，为安全起见，建议修改这个系统默认值，从而防止入侵者通过SNMP的访问请求获取设备上的网络配置信息</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">设备名</td>
+<td class="normalCell">设备的主机名</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">联系人</td>
+<td class="normalCell">设备的管理员联系方式</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">位置</td>
+<td class="normalCell">设备的物理位置信息</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">允许以下主机管理</td>
+<td class="normalCell">选中“只允许以下主机管理”后，可以设置1～3台主机，只有这三台主机可以通过SNMP管理设备<br />允许主机1，2，3：可通过SNMP管理设备的主机的IP地址</td>
+</tr>
+</tbody></table>
+注：艾泰路由器目前支持v2c版本的SNMP
+</div>
+
+<div id="snmpConf" style="display:">
+<hr>
+<p>SNMP</p> 
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr id="idplate">
+<TD  width=120 valign=top class=italicCell>Enable SNMP</TD>
+<Td class=normalCell><p>Select the check box to enable SNMP agent.</p>    </td>
+</TR>
+<tr id="idplate">
+<TD width=120 valign=top class=italicCell>SNMP Trap Host</TD>
+<Td class=normalCell><p>Set the IP address of the host that receives SNMP traps.</p>    </td>
+</TR>
+<tr id="idplate">
+<TD width=120 valign=top class=italicCell>SNMP Read Community Name</TD>
+<Td class=normalCell><p>The community name used for read-only access to the Switch.</p>    </td>
+</TR>
+<tr id="idplate">
+<TD  width=120 valign=top class=italicCell>SNMP Write Community Name</TD>
+<Td class=normalCell><p>The community name used for read-write access to the Switch.</p>    </td>
+</TR>
+<tr id="idplate">
+<TD width=120 valign=top class=italicCell>SNMP Trap Community Name</TD>
+<Td class=normalCell><p>The community name used when sending traps.</p>    </td>
+</TR>
+<tr id="idplate">
+<TD width=120 valign=top class=italicCell>Note</TD>
+<Td class=normalCell>SNMP feature can help you remotely monitor, configure, and troubleshoot the Switch. If you enable SNMP agent, you can use an SNMP manager to retrieve the Switch's configuration and status information, and modify its configuration. Besides, you can configure the Switch to send traps to the SNMP manager when particular events occur, such as system restart, link down, link up, etc.</td>
+</TR>
+</table>
+</div>
+
+</div>
+
+<div id="SwFunGl">
+<hr>
+<p><b><font size="+1" color="#666666">Switch</font></a></b><p>
+<div  id="ports">
+<p>Port Settings
+<!--7390 1000m Switch-->
+<table id="ports1000m" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Global Settings</td>
+<Td class=normalCell>It is used to configure all ports at a time. E.g., If you set Mode to 100M/Full here, all ports' Mode will be set to 100M/Full automatically.</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>Port Name</td>
+<Td class=normalCell>You can set a meaningful name for the port.</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>Link Status</td>
+<Td class=normalCell>It indicates the port link status. Green border: Port is operating at 100Mbps. Orange border: Port is operating at 1000Mbps. No border: Port is disabled, not connected, or experiencing a network error.</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>Mode</td>
+<Td class=normalCell>Select the port speed and duplex mode. The options are Auto, 10M/HDX, 10M/FDX, 100M/HDX, 100M/FDX, 1000M/FDX, and Disabled. </td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>Maximum Frame</td>
+<Td class=normalCell>The maximum frame size supported by the port.</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>Flow Control</td>
+<Td class=normalCell>Flow control is used to prevent packet loss on congested ports. Select the check box to enable flow control on the port.</td>
+</TR>
+</table>
+<!--1725 100m Switch-->
+<table id="ports100m" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Global Settings</td>
+<Td class=normalCell>It is used to configure all ports at a time. E.g., If you set Mode to 100M/Full here, all ports' Mode will be set to 100M/Full automatically.</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>Port Name</td>
+<Td class=normalCell>You can set a meaningful name for the port.</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>Link Status</td>
+<Td class=normalCell>It indicates the port link status. Green border: Port is operating at 100Mbps. No border: Port is disabled, not connected, or experiencing a network error.</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>Mode</td>
+<Td class=normalCell>Select the port speed and duplex mode. The options are Auto, 10M/HDX, 10M/FDX, 100M/HDX, 100M/FDX, and Disabled. </td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>Flow Control</td>
+<Td class=normalCell>Flow control is used to prevent packet loss on congested ports. Select the check box to enable flow control on the port.</td>
+</TR>
+</table>
+</div>
+
+<div  id="mirror">
+<hr>
+<p>Port Mirroring
+<p>It copies the traffic from the specified ports to another port where the traffic can be monitored with an external network analyzer. This feature can help you perform traffic monitoring, performance analysis and fault diagnosis.
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>Mirroring Port</td>
+<Td class=normalCell>You can choose only one mirroring port that will mirror the traffic of the mirrored port(s).
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>Mirrored Port</td>
+<Td class=normalCell> You can choose one or more mirrored ports.
+</td>
+</TR>
+
+<tr>
+<td width=120 valign=top class=italicCell>Note</td>
+<Td class=normalCell> 1. The mirroring port cannot be a mirrored port. 
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell> 2. The mirroring port cannot be a LAG member port, which is displayed in red color in <strong>Mirroring Port</strong> drop-down list.
+</td>
+</TR>
+</table>
+</div>
+
+<div id="portvlan">
+<hr>
+<p>Port-based VLAN
+<p>A VLAN (Virtual Local Area Network) is a group of devices that form a logical LAN segment, that is, a broadcast domain. This feature can help simplify network management, enhance network security, and improve network performance.
+<p>Port-based VLAN allows you to group the switch ports into multiple VLANs. Ports on the same VLAN can communicate with each other, but they can't communicate with ports on different VLANs.
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>Note</td>
+<Td class=normalCell>A port can belong to one or more VLANs. By default, all ports are members of VLAN 1 by default.
+</td>
+</TR>
+</table>
+</div>
+
+<div id="aggr">
+<hr>
+<p>Link Aggregation
+<p>It provides a means to combine multiple switch ports together to form a higher-bandwidth single logical link, known as a Link Aggregation Group (LAG), whose total bandwidth is approximately the sum of the individual switch ports.
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>Note</td>
+<Td class=normalCell>1. All ports in a LAG must have the same port settings (except Port Name), port speed and duplex mode, and must belong to the same VLAN.
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2. A LAG can’t contain the mirroring port.
+</td>
+</TR>
+</table>
+</div>
+</div>
+
+
+<div  id="UserMng" style="display:">
+<hr>
+<p><b><font color="#666666" size="+1">User Management</font></a></b><p>
+
+<div  id="UserStatus" style="display:">
+<p>User Status</p>
+<Td class=normalCell>In this page, you can monitor and analyze network traffic, online behaviors of internal users, and current status information of each user (including Rx/Tx rate, Rx/Tx total traffic, Internet behavior, online time, etc.).</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Current Network Traffic Analysis</td>
+<Td class=normalCell>It shows the percentage of network traffic made up by each application in your network.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Current Internet Behavior Analysis</td>
+<Td class=normalCell>It shows the percentage of users engaging in various online activities in your network.</td>
+</TR>
+</table>
+<Td class=normalCell><br>The first column in <strong>User Status List</strong> indicates whether a user's online activities affect work. There are three levels of status: Serious (Red), Slight (Yellow), and Normal (Green). For a user, if the percentage of network traffic made up by accessing shopping sites, social networking sites, using stock software, and playing online/web games is equal to or above 70%, his/her online activities seriously affect work. If the percentage is between 50% and 70% (below 70%), his/her online activities slightly affect work. Else, his/her online activities don't affect work.</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Auto Refresh Interval</td>
+<Td class=normalCell>Specify the interval at which <strong>User Status List</strong> will automatically refresh.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Stop Auto Refresh</td>
+<Td class=normalCell>Click it to stop <strong>User Status List</strong> from auto refreshing.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Start Auto Refresh</td>
+<Td class=normalCell>Click to make <strong>User Status List</strong> automatically refresh at the specified interval. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Remarks</td>
+<Td class=normalCell>Click the icon to modify description of the PPPoE user or Web authentication user. </td>
+</TR>
+</table>
+</div>
+
+<div  id="IPMac" style="display:">
+<hr>
+<p>IP/MAC Binding</p>
+<Td class=normalCell>This feature can protect the Device and your network against IP address theft, MAC address theft, IP spoofing attack, and MAC spoofing attack.</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Scan, Bind</td>
+<Td class=normalCell>Specify the subnet you want to scan first, next click <Scan> to learn IP/MAC addresses of active hosts in the specified subnet, lastly click <Bind> to bind those IP/MAC address pairs.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Allow Undefined LAN PCs</td>
+<Td class=normalCell>Select the check box to allow undefined internal hosts to connect to the Device.</td>
+</TR>
+</table>
+</div>
+
+<div  id="PPPoEGlobal" style="display:">
+<hr>
+<p><a name="PPPoEGlobalEdit"></a></p>
+<p>PPPoE Server
+<p>PPPoE Global Settings
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable PPPoE Server</td>
+<Td class=normalCell>Select the check box to enable PPPoE server.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Mandatory PPPoE Authentication</td>
+<Td class=normalCell>If you enable this feature, only the PPPoE dial-in users can access the Internet through the Device.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Exception Address Group</td>
+<Td class=normalCell>It specifies an address group that is exempt from the restriction of Mandatory PPPoE Authentication.The address group is configured in the<strong> User Management > User Group</strong> page.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Start IP Address</td>
+<Td class=normalCell>Specify the first address in the PPPoE IP address pool.  This IP address cannot be on the same subnet as LAN interface, WAN interface, or any defined IP address pool.</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>Primary/Secondary DNS Server</td>
+<Td class=normalCell>Specify the DNS server IP addresses that will be assigned to PPTP clients.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Allow Users to Change Password</td>
+<Td class=normalCell>Select the check box to allow users to change their passwords themselves. The administrator can go to <strong>Behavior Management > Notification > Daily Routine Notification</strong> page to configure a notification, which is intended to help users know how to change password.</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>To change the password, follow these steps: </td>
+<Td class=normalCell>1. After successfully connecting to the Device (using a correct user name and password), enter http://Device LAN IP address/poeUsers.asp (e.g., http://192.168.1.1/poeUsers.asp) in the browser's address bar to open <strong>PPPoE - Change Password</strong> page.</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2. Enter User Name, Old Password, New Password and Confirm New Password correctly, and then click <Submit>.</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>3. When the "Operation succeeded" message appears, the password has been changed successfully.</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>Note: A user can change the password up to 5 times per day.</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>PPP Authentication</td>
+<Td class=normalCell>Select the PPP authentication method. The options are PAP, CHAP and AUTO (the Device will automatically negotiate it with the remote device). </td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>Maximum Sessions</td>
+<Td class=normalCell>Maximum number of PPPoE sessions that can be established on the Device. </td>
+</TR>
+</table>
+
+
+<p><a name="PPPoEEdit"></a></p>
+<p>PPPoE Account Settings
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>User Name, Password</td>
+<Td class=normalCell>The user name and password of the PPPoE account.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC Binding</td>
+<Td class=normalCell> It specifies the type of PPPoE account and MAC address binding. The available options are None, Auto and Manual.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Auto</td>
+<Td class=normalCell>The Device will automatically bind the PPPoE account to the MAC address of the user who uses this account to establish a PPPoE session firstly. After that only this user can use the account.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Manual</td>
+<Td class=normalCell>Configure up to four MAC addresses that are bound to the account. Then only the users with one of these MAC addresses can use the account.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Max Sessions</td>
+<Td class=normalCell>It specifies the maximum number of PPPoE sessions that can be created on the Device. The maximum value of Max. Sessions depends on the specific product model.</td>
+</TR>
+<tr>
+<TD width="120" valign="top" class="italicCell">Static IP Address</TD>
+<Td class="normalCell">Assign a static IP address to the PPPoE account. It must belong to PPPoE address pool.</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>Add to Account Group</td>
+<Td class=normalCell> It specifies an account group of the PPPoE account. The account group is configured in the <strong>User Management > User Group</strong> page.</td>
+</TR>
+<tr>
+<TD width="120" valign="top" class="italicCell">Accounting Mode</TD>
+<Td class="normalCell">Select the check box to enable the accounting feature.</Td>
+</tr>
+<tr>
+<TD width="120" valign="top" class="italicCell">Account Effective/ Expiration Date</TD>
+<Td class="normalCell">The effective date range of the PPPoE account.</Td>
+</tr>
+<tr>
+<TD width="120" valign="top" class="italicCell">Export Accounts</TD>
+<Td class="normalCell">Click to export all PPPoE accounts in <strong>PPPoE Account List</strong> to a text file, including user names and passwords.</Td>
+</tr>
+<tr>
+<TD width="120" valign="top" class="italicCell">Import Accounts</TD>
+<Td class="normalCell">Click to import multiple PPPoE accounts. Enter one account per line in this format: User name <Space> Password. There must be one or more spaces between User Name and Password.</Td>
+</tr>
+</tr>
+</table>
+
+
+<p><a name="PPPoEConSta"></a></p>
+<p>PPPoE User Status</p>
+<Td class=normalCell><strong>PPPoE User Status List</strong> displays the status information of PPPoE dial-in users, including user name, IP address, MAC address, Rx/Tx rate, online time, etc.</td>
+</div>
+
+
+<p><a name="webAuth"></a></p>
+<hr>
+<p>Web Authentication</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Web Authentication</td>
+<Td class=normalCell>If you enable this feature, those non-PPPoE dial-in users cannot access the Internet through the Device unless they pass the Web authentication.</td>
+</TR>
+<!--<tr>
+<TD width=120 valign=top class=italicCell>例外地址组</td>
+<Td class=normalCell>该地址组的用户可以不通过WEB认证与外网通信，地址组需要在<strong>用户管理->用户组配置</strong>页面进行配置</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>添加图片</td>
+<Td class=normalCell>该图片将会作为背景图片在用户登陆WEB认证界面及成功认证界面显示,图片格式为:"*.png","*.gif","*.bmp","*.jpg","*.jpeg"</td>
+</TR>-->
+<tr>
+<TD width=120 valign=top class=italicCell>Allow Users to Change Password</td>
+<Td class=normalCell>Select the check box to allow users to change their passwords themselves. The administrator can go to <strong>Behavior Management > Notification > Daily Routine Notification</strong> page to configure a notification, which is intended to help users know how to change password.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>To change the password, follow these steps: </td>
+<Td class=normalCell>1. After successful authentication (using a correct user name and password), enter http://Device LAN IP address/waUsers.asp (e.g., http://192.168.1.1/waUsers.asp) in the browser's address bar to open <strong>Web Authentication - Change Password</strong> page.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2. Enter User Name, Old Password, New Password and Confirm New Password correctly, and then click <Submit>.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>3. When the "Operation succeeded" message appears, the password has been changed successfully.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>Note: A user can change the password up to 5 times per day.</td>
+</TR>
+<!--<tr>
+<TD width=120 valign=top class=italicCell>窗口标题及提示文字</td>
+<Td class=normalCell>该文字信息将在用户登陆WEB认证界面及成功认证界面显示</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>预览</td>
+<Td class=normalCell>点击预览会看到设置的背景图片及提示信息在WEB认证登陆界面的显示状态</td>
+</TR>-->
+</table>
+
+<div  id="UserGroup" style="display:">
+<hr>
+<p>User Group</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>User Group</td>
+<Td class=normalCell>You can group users that have similar needs. There are two types of groups: Address Group and Account Group.</td>
+</TR>
+</table>
+</div>
+
+<div id="BehaviorGl">
+<hr>
+<p><b><font size="+1" color="#666666">Behavior Control</font></a></b>
+
+<div  id="TimeRange" style="display:">
+<p>Schedule</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Schedule</td>
+<Td class=normalCell>Schedules can be applied to various time-related features. A schedule consists of a start date, an end date, and optional time periods (up to three). </td>
+</TR>
+</table>
+</div>
+
+<div  id="globalBase" style="display:">
+<hr>
+<p>Internet Behavior Management</p>
+
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr><Td class=normalCell>It allows you to control and manage the Internet behaviors of internal users, such as instant messaging, P2P file sharing, online gaming, web browsing, etc.</td> </TR>
+<tr><Td class=normalCell>In <strong>Behavior Management List</strong>, you can view the Internet behavior management policies you have configured. Select <strong>Enable</strong> check box to make the policy take effect.</td></TR>
+</table>
+
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Group Settings</td>
+<Td class=normalCell>Specify a unique group name for the policy, and network object to which the policy applies.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Schedule Settings</td>
+<Td class=normalCell>Specify a schedule to restrict when the behavior management policy is in effect.</td>
+</TR>
+</table>
+
+
+<p><a name="Game"></a></p>
+
+<p>Game Sites
+ <table>
+ <tr>
+ <td width=120 valign=top class=italicCell></td>
+ <td class=normalURL   align=left valign=top>games.sina.com.cn www.sgamer.com  www.17173.com games.tom.com </td>
+ <td width=30></td>
+  <td class=normalURL   align=left valign=top>www.chinagames.net www.ourgame.com  game.qq.com </td>
+   <td width=30></td>
+   <td class=normalURL   align=left valign=top>www.game.com.cn  www.ali213.com games.sohu.com</td>
+    <td width=30></td>
+     <td class=normalURL   align=left valign=top>nie.163.com www.pcpop.com  www.yx99.com </td>
+    <td width=30></td>
+     <td class=normalURL   align=left valign=top>www.wanyouxi.com   www.yx007.cn game.21cn.com</td>
+    <td width=30></td>
+</tr> 
+</table>
+
+<p><a name="QQGame"></a></p>
+
+<p>QQGame
+ <table>
+ <tr>
+ <td width=120 valign=top class=italicCell></td>
+ <td class=normalURL   align=left valign=top>QQ Game Hall </td>
+ <td width=20></td>
+  <td class=normalURL   align=left valign=top>Dungeon and Fighter </td>
+   <td width=20></td>
+   <td class=normalURL   align=left valign=top>League of Legends</td>
+    <td width=20></td>
+     <td class=normalURL   align=left valign=top>QQ Speed </td>
+    <td width=20></td>
+     <td class=normalURL   align=left valign=top>QQ Dancer</td>
+    <td width=20></td>
+         <td class=normalURL   align=left valign=top>Continent of the Ninth</td>
+</tr>
+</table>
+
+<p><a name="Stock"></a></p>
+
+<p>Stock Sites
+ <table>
+ <tr>
+ <td width=120 valign=top class=italicCell></td>
+ <td class=normalURL   align=left valign=top>finance.sina.com.cn www.sse.com.cn  www.szse.cn www.cnstock.com  www.cs.com.cn www.f10.com.cn  www.gtja.com </td>
+ <td width=30></td>
+  <td class=normalURL   align=left valign=top>www.sw108.com  www.htsec.com www.guosen.com  www.gf.com.cn www.newone.com.cn www.htsc.com.cn  </td>
+   <td width=30></td>
+   <td class=normalURL  align=left valign=top>www.cs.ecitic.com www.dfzq.com.cn  www.cjis.cn www.lhzq.com  www.95579.com  www.bigsun.com.cn </td>
+    <td width=30></td>
+     <td class=normalURL  align=left valign=top>stock.eastmoney.com  www.stock2000.net www.qlzq.com.cn  stock.cnfol.com  www.stock01.com   www.gsstock.com  </td>
+    <td width=30></td>
+     <td class=normalURL   align=left valign=top>www.chinastock.com.cn  www.cc168.com.cn www.ebscn.com  www.bocionline.com   www.skyone.com.cn www.xyzq.com.cn </td>
+    <td width=30></td>
+</tr> 
+</table>
+
+<p><a name="Social"></a></p>
+
+<p>SNSs
+ <table>
+ <tr>
+ <td width=120 valign=top class=italicCell></td>
+ <td class=normalURL   align=left valign=top> www.renren.com www.kaixin001.com www.51.com</td>
+ <td width=30></td>
+  <td class=normalURL   align=left valign=top> www.xiaonei.com www.hainei.com xiaoyou.qq.com</td>
+   <td width=30></td>
+   <td class=normalURL  align=left valign=top> www.5gme.com www.luobohua.com www.weibo.com</td>
+    <td width=30></td>
+     <td class=normalURL  align=left valign=top>t.sina.com.cn t.qq.com t.sohu.com </td>
+    <td width=30></td>
+     <td class=normalURL   align=left valign=top>t.163.com fanfou.com </td>
+    <td width=30></td>
+</tr> 
+</table>
+
+
+<p><a name="Shop"></a></p>
+
+<p>Shopping Sites
+
+ <table>
+ <tr>
+ <td width=120 valign=top class=italicCell></td>
+ <td class=normalURL   align=left valign=top>www.taobao.com www.tmall.com www.amazon.cn www.dangdang.com </td>
+ <td width=30></td>
+  <td class=normalURL   align=left valign=top>www.360buy.com www.vancl.com www.newegg.com.cn</td>
+   <td width=30></td>
+   <td class=normalURL  align=left valign=top>www.yihaodian.com www.paipai.com www.icson.com</td>
+    <td width=30></td>
+     <td class=normalURL  align=left valign=top>www.lashou.com www.meituan.com www.nuomi.com</td>
+    <td width=30></td>
+     <td class=normalURL   align=left valign=top>www.55tuan.com www.gaopeng.com www.jumei.com</td>
+    <td width=30></td>
+</tr> 
+</table>
+
+
+<p><a name="File"></a></p>
+<p>Filter File Types
+ <table>
+ <tr>
+ <td width=120 valign=top class=italicCell></td>
+ <td class=normalURL   align=left valign=top>.exe</td>
+  <td width=10></td>
+   <td class=normalURL   align=left valign=top>.dl</td>
+  <td width=10></td>
+   <td class=normalURL   align=left valign=top>.vbs</td>
+  <td width=10></td>
+   <td class=normalURL   align=left valign=top>.bat</td>
+  <td width=10></td>
+    <td class=normalURL   align=left valign=top>.sys</td>
+  <td width=10></td>
+ 
+</tr> 
+</table>
+</div>
+
+<div  id="QQFilter" style="display:">
+<hr>
+<p>QQ Whitelist</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Allow 400/800 Enterprise QQ</td>
+<Td class=normalCell>If you enable this feature, 400/800 enterprise QQ numbers will be exempt from the Internet behavior management restrictions. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>QQ Whitelist</td>
+<Td class=normalCell>The QQ numbers in <strong>QQ Whitelist</strong> are exempt from the Internet behavior management restrictions.</td>
+</TR>
+</table>
+</div>
+
+<div  id="MSNFilter" style="display:">
+<hr>
+<p>MSN Whitelist</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>MSN Whitelist</td>
+<Td class=normalCell>The MSN accounts in <strong>MSN Whitelist</strong> are exempt from the Internet behavior management restrictions.</td>
+</TR>
+</table>
+</div>
+
+<div  id="Notice" style="display:none">
+<hr>
+<p><a name="NormalNotice"></a></p>
+<p>Notification
+<p>Daily Routine Notification
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable</td>
+<Td class=normalCell>Select the check box to enable daily routine notification feature.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>IP Address Range</td>
+<Td class=normalCell>Specify the range of IP addresses to which the notification will be sent.</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>Notification Title/Content</td>
+<Td class=normalCell>Specify the title and content of the notification.</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>Effective Date Range</td>
+<Td class=normalCell>Specify the effective date range of the notification.</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>Recurring Time Range</td>
+<Td class=normalCell>Specify the days and times during which the notification will be sent.</td>
+</tr>
+</table>
+
+<p><a name="PPPoENotice"></a></p>
+<p>Account Expiration Notification
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable</td>
+<Td class=normalCell>Select the check box to enable account expiration notification feature.</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>Notify “X” Days before Expiration Date</td>
+<Td class=normalCell>Specify the number of days before the account expiration date so that the notification will be sent to the users from that day onwards. Each time a PPPoE user connects to the Device, the notification appears the first time the user opens a web page. </td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>Notification Title/Content</td>
+<Td class=normalCell>Specify the title and content of the notification.</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell></td>
+</tr>
+</table>
+</div>
+</div>
+
+<div  id="LogManage" style="display:">
+<hr>
+<p>Behavior Audit
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable Web Log</td>
+<Td class=normalCell>After you enable Web log, you can view the records of website visits in <strong>Behavior Audit</strong> page. E.g., "2012-07-09 09:36:41 srcip=200.200.202.127;url=www.paipai.com" means that the local user with IP address 200.200.202.127 accessed www.paipai.com on July 09, 2012 at 09:36:41.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable QQ Online/Offline Log</td>
+<Td class=normalCell>After you enable QQ online/offline log, you can view QQ online and offline activities of internal users in <strong>Behavior Audit</strong> page.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable MSN Online/Offline Log</td>
+<Td class=normalCell>After you enable MSN online/offline log, you can view MSN online and offline activities of internal users in <strong>Behavior Audit</strong> page.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable Email Audit Log</td>
+<Td class=normalCell>After you enable email audit log, you can view emails sending and receiving activities of internal users in <strong>Behavior Audit</strong> page.</td>
+</TR>
+<tr>
+<td width="120" valign="top" class="italicCell">启用行为禁止日志</td>
+<td class="normalCell">启用行为禁止日志后，能够在<strong>行为审计</strong>页面记录用户是否应用了行为管理中禁止的功能</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">论坛日志</td>
+<td class="normalCell">启用论坛日志后，设备将用户使用过的论坛日志发送到Xport中，目前支持的论坛有：天涯论坛，篱笆论坛，猫扑论坛，宽带山论坛</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">微博日志</td>
+<td class="normalCell">启用微博日之后，设备会将用户使用过的相关新浪微博日志的信息记录发送到Xport中</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">Nat日志</td>
+<td class="normalCell">启用NAT日志后，设备将用户产生的上网会话记录发送到Xport上</td>
+</tr>
+</table>
+注：论坛日志、微博日志、Nat日志需配合艾泰Xport使用。启用上述日志审计会占用一定量的带宽，请确保设备外网带宽充足
+</div>
+
+<div  id="PdbUpdata" style="display:">
+<hr>
+<p>Policy Database
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Update</td>
+<Td class=normalCell>Click to download the latest policy database and apply it automatically.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Update All</td>
+<Td class=normalCell>Click to download all the latest policy databases and apply them automatically.</td>
+</TR>
+</table>
+</div>
+
+</div>
+
+<div id="QosGl">
+<hr>
+<p><b><font size="+1" color="#666666">QoS</font></a></b>
+
+<div  id="Group" style="display:">
+<p>Fixed Rate Limiting
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Group Name, Start/End IP Address</td>
+<Td class=normalCell>Specify group name, and the range of IP addresses to which the fixed rate limiting rule applies.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Rate Limiting Mode - Each</td>
+<Td class=normalCell>The specified Max. Tx/Rx rate is assigned to each IP address that matches the rule.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Rate Limiting Mode - Share</td>
+<Td class=normalCell>The specified Max. Tx/Rx rate is shared by all IP addresses that match the rule.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Max. Tx/Rx Rate</td>
+<Td class=normalCell>Specify the maximum upload rate and download rate.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Schedule Settings</td>
+<Td class=normalCell>Apply a schedule to the fixed rate limiting rule to specify when it is in effect.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Move To</td>
+<Td class=normalCell>The fixed rate limiting rules are matched in the order in which they are listed. You can use the "Move To" button to reorder the rules.</td>
+</TR>
+</table>
+</div>
+
+<div  id="SmartQos" style="display:">
+<hr>
+<p>Flexible Bandwidth
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Note</td>
+<Td class=normalCell>If you enable both fixed rate limiting and flexible bandwidth feature, the lower rate limits will take effect.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Uplink/Downlink Bandwidth</td>
+<Td class=normalCell>Specify the uplink and downlink bandwidth provided by your ISP.</td>
+</TR>
+</table>
+</div>
+
+<div  id="ConnectionLimit" style="display:">
+<hr>
+<p>Connection Limiting
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>You can limit the maximum number of connections per host. The default values of Max. Connections, TCP/UDP/ICMP Connections are 2500, 2200, 800 and 100 respectively.</td>
+</TR>
+</table>
+</div>
+
+</div>
+
+
+<div id="FwGl">
+<hr>
+<p><b><font size="+1" color="#666666">Firewall</font></a></b>
+
+<div id="FwBase">
+<p><a name="FwBaseHl"></a></p>
+<p>Attack Prevention</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable DDoS Prevention</TD>
+<Td class=normalCell>If you enable this feature, it will effectively protect the Device against popular DoS/DDoS attacks.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable Blaster Prevention</TD>
+<Td class=normalCell>If you enable this feature, it will effectively protect the Device against Blaster Worm attacks.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable UDP FLOOD Defense</TD>
+<Td class=normalCell>Enable UDP flood defense, it will effectively protect the Device against UDP flood attack.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable ICMP FLOOD Defense</TD>
+<Td class=normalCell>Enable ICMP flood defense, it will effectively protect the Device against ICMP flood attack.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable SYN FLOOD Defense</TD>
+<Td class=normalCell>Enable SYN flood defense, it will effectively protect the Device against SYN flood attack.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable ARP Spoof Defense</TD>
+<Td class=normalCell>Enable ARP spoof defense, the Devise periodically broadcasts gratutious APR packets.These gratuitous ARP packets are used to inform the LAN hosts the correct MAC address of the Device’s LAN interface, so the LAN hosts can effectively defense ARP spoofing attack.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable Device Access Restriction</TD>
+<Td class=normalCell>If you enable this feature, only the hosts in the specified address range can access the Device.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Block WAN Ping</TD>
+<Td class=normalCell>If you enable this feature, the Device will not respond to ping requests from the Internet.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable Port-scan Defense</TD>
+<Td class=normalCell>Enable Port-scan defense, it will effectively protect the Device against port scanning attack.</td>
+</TR>
+</table>
+</div>
+
+<div id="FireWall">
+<hr>
+<p><a name="FireWallHl"></a></p>
+<p>Access Control</p>
+<Td class=normalCell>The access control rules are matched in the order in which they are listed in <strong>Access Control Rule List</strong>. When receiving a packet initiated from LAN, the Device will search the list to find out if there is a rule that matches the packet. The first rule that matches the packet is applied, and the specified Action (Allow or Deny) is taken. After a match is found, no further rules will be checked.</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Rule Name, Source IP Address</TD>
+<Td class=normalCell>Specify a unique name for the access control rule, and source IP addresses to which the rule applies. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Action - Deny</TD>
+<Td class=normalCell>The Device will drop the packets that match the rule. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Action - Allow</TD>
+<Td class=normalCell>The Device will forward the packets that match the rule.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>IP Filtering</TD>
+<Td class=normalCell>It allows you to filter IP packets based on packet header information, including source/destination IP address, protocol, source/destination port. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>URL Filtering</TD>
+<Td class=normalCell>It allows you to filter URLs based on keyword in the URL.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Note</TD>
+<Td class=normalCell>1. The URL keyword is case insensitive. Do not include the “http://” or “https://” prefixes in your URL keyword.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></TD>
+<Td class=normalCell>2. It allows you to filter any web pages whose URL contains the specified keyword. You can enter part of a URL (like “yahoo”) to match all URLs that contain that string, or you can enter the full URL (like “sports.yahoo.com”) to match all URLs that start with it.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Keyword Filtering</TD>
+<Td class=normalCell>It allows you to block users from submitting information to the web page based on keyword. It only supports the Deny action.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Schedule Settings</TD>
+<Td class=normalCell>Apply a schedule to the access control rule to specify when it is in effect.</td>
+</TR>
+</table>
+</div>
+<div id="DnsFilter">
+<hr>
+<p><a name="DnsFilterHl"></a></p>
+<p>Domain Filtering</p>
+<Td class=normalCell>You can only allow certain users to access specific websites, or only block certain users from accessing specific websites. Besides, you can apply a schedule to domain filtering to specify when it is in effect.</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Note</TD>
+<Td class=normalCell>1. The domain name is case insensitive. Do not include the “http://” or “https://” prefixes in your domain name.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></TD>
+<Td class=normalCell>2. You can use the wildcard "*" in a domain name to match multiple URLs. E.g., if you add www.163.*, it will match all URLs that start with www.163.</td>
+</TR>
+</table>
+</div>
+</div>
+
+
+<div id="VPN" style="display:">
+<hr>
+<p><b><font size="+1" color="#666666">VPN</font></a></b>
+<p>
+<div  id="PPTP" style="display:">
+<p>PPTP
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>The Device can act as a PPTP/L2TP client or server, or both. </Td>
+</tr></table>
+<p>PPTP Client
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable NAT</td>
+<Td class=normalCell>It allows you to enable or disable NAT on the PPTP client. In this case, it can only allow unidirectional access from the PPTP client side LAN to the server side LAN</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Tunnel Name</td>
+<Td class=normalCell>Specify a unique name for the PPTP tunnel.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>User Name, Password</td>
+<Td class=normalCell>Enter the user name and password of the PPTP client.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>PPP Authentication</td>
+<Td class=normalCell>The options are NONE (no authentication is performed), PAP, CHAP and EITHER (the Device will automatically negotiate it with the remote device). The PPP authentication mode must match on both ends of the tunnel.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Remote LAN IP Address and Subnet Mask</td>
+<Td class=normalCell>Specify the IP address and subnet mask of the remote network.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Server IP Address/Hostname</td>
+<Td class=normalCell>The public IP address or domain name of the remote PPTP server.</td>
+</TR>
+</table>
+<p>PPTP Server
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Tunnel Name</td>
+<Td class=normalCell>Specify a unique name for the PPTP tunnel</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>Tunnel Type</td>
+<Td class=normalCell>The options are LAN-to-LAN and Mobile User.</Td>
+</tr><tr>
+<TD width=120 valign=top class=italicCell>LAN-to-LAN</td>
+<Td class=normalCell>It allows two LAN sites to securely connect over the Internet. In this case, either a  VPN gateway or compatible VPN appliance can act as a PPTP client. </Td>
+</tr><tr>
+<TD width=120 valign=top class=italicCell>Mobile User</td>
+<Td class=normalCell>It allows remote individual users to securely connect over the Internet. In this case, a laptop or desktop computer will act as a PPTP client.</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>User Name, Password</td>
+<Td class=normalCell>Specify the user name and password for the PPTP client.</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>Remote LAN IP Address and Subnet Mask</td>
+<Td class=normalCell>Specify the IP address and subnet mask of the remote network.</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>PPP Authentication</td>
+<Td class=normalCell>Select the PPP authentication method. The options are NONE, PAP, CHAP and EITHER. </Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>IP Pool Start Address, Number of Addresses</td>
+<Td class=normalCell>Define an IP address pool for remote PPTP clients. During PPTP tunnel establishment phase, the PPTP server will assign an IP address to the virtual interface of the client.</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>Server IP Address</td>
+<Td class=normalCell>Specify the PPTP server's virtual interface IP address. It must be outside of the PPTP address pool.</Td>
+</tr>
+</table>
+</div>
+
+<div id="L2TP" style="display: none;">
+<p>L2TP
+<table cellspacing="0" cellpadding="4" border="0" width="100%">
+<tbody><tr>
+<td class="normalCell">通过L2TP协议建立VPN隧道</td>
+</tr></tbody></table>
+</p><p>L2TP客户端
+<table cellspacing="0" cellpadding="4" border="0" width="100%">
+<tbody>
+<tr>
+<td width="120" valign="top" class="italicCell">隧道名称</td>
+<td class="normalCell">定义此条隧道的名称</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">用户名、密码</td>
+<td class="normalCell">填写客户端拨号的用户名、密码</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">密码验证方式</td>
+<td class="normalCell">设置建立L2TP VPN的密码验证方式，选项有EITHER、NONE、PAP、CHAP，EITHER（自动和对端设备协商密码验证方式）；其要与服务端设置的密码验证方式一致</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">远端内网网络地址、子网掩码</td>
+<td class="normalCell">隧道对端的内网地址及子网掩码</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">隧道服务器地址（名）</td>
+<td class="normalCell">L2TP服务器的公网IP地址或域名</td>
+</tr>
+</tbody></table>
+</p><p>L2TP服务器
+<table cellspacing="0" cellpadding="4" border="0" width="100%">
+<tbody><tr>
+<td width="120" valign="top" class="italicCell">隧道名称</td>
+<td class="normalCell">定义此条隧道的名称</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">用户类型</td>
+<td class="normalCell">选项包括：LAN到LAN、移动用户</td>
+</tr><tr>
+<td width="120" valign="top" class="italicCell">LAN到LAN</td>
+<td class="normalCell">拨入的L2TP用户是一个网段的用户，往往是通过一个路由器拨入，实现L2TP隧道两端内网的通信</td>
+</tr><tr>
+<td width="120" valign="top" class="italicCell">移动用户</td>
+<td class="normalCell">拨入的VPN用户是个人用户，往往由单个计算机拨入，实现L2TP隧道远端计算机与本地内网的通信</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">用户名、密码</td>
+<td class="normalCell">设置客户端拨号的用户名及密码</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">远端内网网络地址、子网掩码</td>
+<td class="normalCell">隧道对端内网地址及子网掩码</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">密码验证方式</td>
+<td class="normalCell">设置建立L2TP VPN的密码验证方式，选项有EITHER、PAP、NONE、CHAP，EITHER（自动和对端设备协商密码验证方式）</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">地址池起始地址、地址池地址数</td>
+<td class="normalCell">设置L2TP服务端的地址池，L2TP隧道建立成功后服务器会分配一个地址给客户段作为客户端的虚接口IP地址</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">服务端IP地址</td>
+<td class="normalCell">隧道服务端的虚接口IP地址，该地址不包含在地址池中</td>
+</tr>
+</tbody></table>
+</p></div>
+
+<div  id="IPSec" style="display:">
+<p>IPSec
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>Establish IPSec VPN</Td>
+</tr></table>
+<p>IPSec
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Originate-Only</td>
+<Td class=normalCell>(Dynamic-to-Static IPSec VPN) In this case, the local  VPN gateway can only act as an initiator, and both IPSec endpoints should use aggressive mode for phase 1 IKE negotiation.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Answer-Only</td>
+<Td class=normalCell>(Static-to-Dynamic IPSec VPN) In this case, the local  VPN gateway can only act as a responder, and both IPSec endpoints should use aggressive mode for phase 1 IKE negotiation.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Gateway IP/Domain Name (Remote)</td>
+<Td class=normalCell> It specifies the IP address or domain name of the device at the other end of the IPSec tunnel. Note: If you enter a domain name, you should configure at least one DNS server on the  VPN gateway. Then the  VPN gateway will periodically resolve the domain name, and renegotiate the IPSec tunnel if the remote IPSec device’s IP address changes</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Subnet IP and Subnet Mask (Remote)</td>
+<Td class=normalCell>They specify the remote subnet or host that can be accessed from the local side of the IPSec tunnel. If you want to define a subnet, please enter any IP address belonging to that subnet in the Subnet IP text box and its mask in the Subnet Mask text box; if you want to define a host, please enter the IP address of that host in the Subnet IP text box and 255.255.255.255 in the Subnet Mask text box.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Bind to (Local)</td>
+<Td class=normalCell>It specifies an interface to which the IPSec tunnel is bound. The IPSec module will check any inbound and outbound packets through this interface to decide if the packets require IPSec processing.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Subnet IP and Subnet Mask (Local)</td>
+<Td class=normalCell>They specify the local subnet or host that can be accessed from the remote side of the IPSec tunnel. If you want to define a subnet, please enter any IP address belonging to that subnet in the Subnet IP text box and its mask in the Subnet Mask text box; if you want to define a host, please enter the IP address of that host in the Subnet IP text box and 255.255.255.255 in the Subnet Mask text box.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Preshared Key</td>
+<Td class=normalCell>It specifies a preshared key for IKE negotiation. It should be no more than 128 characters long.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>P2 Encrypt/Auth Algorithms 1</td>
+<Td class=normalCell>It refers to the preferred phase 2 proposal that specifies a set of security protocols and algorithms for phase 2 negotiation.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Exchange Mode</td>
+<Td class=normalCell>If the Connection Type is Bidirectional, you should choose Main mode; else, you should choose Aggressive mode.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Time Lifetime (Phase 1)</td>
+<Td class=normalCell>It refers to IKE SA lifetime, which specifies the number of seconds (at least 600 seconds) an IKE SA will exist before expiring.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Time Lifetime (Phase 2)</td>
+<Td class=normalCell> It refers to IPSec SA time lifetime, which specifies the number of seconds (at least 600 seconds) an IPSec SA will exist before expiring. </td>
+</TR>
+<!--
+<tr>
+<TD width=120 valign=top class=italicCell>最大流量</td>
+<Td class=normalCell>每次 IPSec 会话允许通过的最大流量，超过后， SA 将重新协商</td>
+</TR>
+<tr>-->
+<TD width=120 valign=top class=italicCell>Anti-replay</td>
+<Td class=normalCell>It allows you to enable or disable anti-replay. If you select this check box to enable anti-replay, the  VPN gateway can detect and reject replayed packets (that is, old or duplicate packets) to protect itself against replay attacks.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>DPD</td>
+<Td class=normalCell>It is used to enable or disable DPD. If you select this check box to enable DPD, the  VPN gateway will periodically send DPD heartbeat messages at the specified time interval (set by the Heartbeat Interval) to the remote IPSec device to verify its availability.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Heartbeat Interval</td>
+<Td class=normalCell>It specifies a time interval (in seconds) at which the  VPN gateway will periodically send DPD heartbeat messages to the remote IPSec device to verify its availability.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>NAT Traval</td>
+<Td class=normalCell>It is used to enable or disable NAT-traversal, which allows two IPSec devices establish an IPSec tunnel traverse one or more NAT devices.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Port</td>
+<Td class=normalCell>It specifies the number of UPD port for NAT traversal. The default value is 4500. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Keepalive Frequency</td>
+<Td class=normalCell>It specifies a time interval (in seconds) at which the  VPN gateway will periodically send keepalive packets to the NAT device to keep the NAT mapping active, so that the NAT mapping doesn’t change until the IKE SA and IPSec SAs expire. This parameter will only take effect when NAT-traversal is enabled.</td>
+</TR>
+</table>
+</div>
+</div>
+
+<div id="UrcpGl">
+<hr>
+<p><b><font size="+1" color="#666666">Linkage</font></a></b>
+<div  id="discover">
+<p>Linkage Management
+<p>You can click &lt;Discover Switch&gt; to view other switches discovered by the Device. To manage a switch remotely, please enter its password, and then click  &lt;Admin&gt.
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>IP</td>
+<Td class=normalCell>If a remote switch is connected to the Device's LAN interface, you can directly click the remote switch's IP address to login. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Password</td>
+<Td class=normalCell>The login password of the remote switch.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Global Password</td>
+<Td class=normalCell>Enter the login password for all the remote switches at a time.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Admin</td>
+<Td class=normalCell>Click &lt;Admin&gt. to open the remote switch management page to manage the switch, including Port Settings, Port-based VLAN, Link Aggregation, Port Mirroring, System Settings, Restart, Reset Defaults, Retrieve Config and Distribute Config, and view System Information.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Batch Operate</td>
+<Td class=normalCell>Select the remote switches you want to configure uniformly, enter passwords, and click &lt;Batch Operate&gt to open the batch management page to configure them, including Change Password, Security Binding, Restart, Reset Defaults, Retrieve Config and Distribute Config.</td>
+</TR>
+</table>
+</div>
+<div  id="portsUrcp">
+<p>Port Settings
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Global Settings</TD>
+<Td class=normalCell>It is used to configure all ports at a time. E.g., If you set Mode to 1000M/Full here, all ports' Mode will be set to 1000M/Full automatically.</td>
+</TR><tr>
+<TD width=120 valign=top class=italicCell>Port Name</TD>
+<Td class=normalCell>You can set a meaningful name for the port.</td>
+</TR>
+
+<tr>
+<TD width=120 valign=top class=italicCell>Link Status</td>
+<Td class=normalCell>It indicates the port link status. Green border: Port is operating at 100Mbps. Orange border: Port is operating at 1000Mbps. No border: Port is disabled, not connected, or experiencing a network error.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Mode</td>
+<Td class=normalCell>Select the port speed and duplex mode. The options are Auto, 10M/HDX, 10M/FDX, 100M/HDX, 100M/FDX, 1000M/FDX, and Disabled. </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Maximum Frame</td>
+<Td class=normalCell>The maximum frame size supported by the port.</td>
+</TR>
+<tr>
+<tr>
+<TD width=120 valign=top class=italicCell>Flow Control</td>
+<Td class=normalCell>Flow control is used to prevent packet loss on congested ports. Select the check box to enable flow control on the port.</td>
+</TR>
+<TD width=120 valign=top class=italicCell>Port Protection</td>
+<Td class=normalCell>If you select the check box to enable port protection on a port, the port will no longer learn any new MAC address, and only forward the packets whose desination MAC addresses have been added to the MAC/Port Binding List. Else, the port will learn MAC address and forward the packets as usual. </td>
+</TR>
+
+<tr>
+<TD width=120 valign=top class=italicCell>Note</td>
+<Td class=normalCell>If no MAC address is added to <strong>MAC/Port Binding List</strong>, enabling port protection on all ports will make all internal hosts unable to communicate with the Switch.</td>
+</TR>
+    <tr>
+<TD width=120 valign=top class=italicCell>Disable Learning</td>
+<Td class=normalCell>If you select the check box to disable MAC address learning on a port, all packets received on that port will be flooded to all other ports.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Note</td>
+<Td class=normalCell>This feature will seriously degrade the network performance, please use caution.td>
+</TR>
+</table>
+</div>
+
+<div  id="portvlanUrcp">
+<p>Port-based VLAN
+<p>A VLAN (Virtual Local Area Network) is a group of devices that form a logical LAN segment, that is, a broadcast domain. This feature can help simplify network management, enhance network security, and improve network performance.
+<p>Port-based VLAN allows you to group the switch ports into multiple VLANs. Ports on the same VLAN can communicate with each other, but they can't communicate with ports on different VLANs.
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>Note</td>
+<Td class=normalCell>A port can belong to one or more VLANs. By default, all ports are members of VLAN 1.
+</td>
+</TR>
+</table>
+</div>
+
+<div  id="aggrUrcp">
+<p>Link Aggregation
+<p>It provides a means to combine multiple switch ports together to form a higher-bandwidth single logical link, known as a Link Aggregation Group (LAG), whose total bandwidth is approximately the sum of the individual switch ports.
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>Note</td>
+<Td class=normalCell>1. All ports in a LAG must have the same port settings (except Port Name), port speed and duplex mode.</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2. All ports in a LAG must belong to the same VLAN, and must have the same Tag VLAN port settings if you enable tag-based VLAN on the switch. </td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>3. A LAG can’t contain the mirroring port.</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>4. All ports in a LAG must have the same rate limit settings.</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>5. If LACP or RSTP is enabled on a port, the port cannot be added to a LAG.</td>
+</TR>
+</table>
+</div>
+
+<div  id="mirrorUrcp">
+<p>Port Mirroring
+<p>It copies the traffic from the specified ports to another port where the traffic can be monitored with an external network analyzer. This feature can help you perform traffic monitoring, performance analysis and fault diagnosis.
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>Mirroring Port</td>
+<Td class=normalCell>You can choose only one mirroring port that will mirror the traffic of the mirrored port(s).
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>Mirrored Port</td>
+<Td class=normalCell>You can choose one or more mirrored ports.
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>Note</td>
+<Td class=normalCell>1. The mirroring port cannot be a mirrored port. 
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell> 2. The mirroring port cannot be a LAG member port, which is displayed in red color in <strong>Mirroring Port</strong> drop-down list.
+</td>
+</TR>
+</table>
+</div>
+
+<div  id="sysInfoUrcp">
+<p>System Information
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>CPU Usage</TD>
+<Td class=normalCell>The current CPU usage.</td>
+</TR><tr>
+<TD width=120 valign=top class=italicCell>Memory Usage</TD>
+<Td class=normalCell>The current memory usage</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>USB Disk Usage</td>
+<Td class=normalCell>The current USB disk usage. It is displayed only when a USB Disk is plugged in.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Note</td>
+<Td class=normalCell>The CPU, Memory and USB Disk Usage are displayed as a status bar and percentage value. The color of the status bar indicates the usage percentage for each resource.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>1. Blank: Percentage is below 1%.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2. Green: Percentage is between 1% and 50% (below 50%).</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>3. Orange: Percentage is between 50% and 70% (below 70%).</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>4. Red: Percentage is equal to or above 70%.</td>
+</TR>
+</table>
+</div>
+
+<div id="sysUrcp">
+<p>System Settings 
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable DHCP Relay Agent</TD>
+<Td 
+class=normalCell>If you enable DHCP relay agent, the switch will insert option 82 (relay agent information) before forwarding a DHCP message to a DHCP server. The server can use this information to assign IP addresses. The option 82 consists of the 2-digit port number and MAC address. E.g., if the switch's MAC address is 0022aa0022aa, and a DHCP message is received on Port 3, then the value of option 82 is 030022aa0022aa.</td>
+</TR>
+<tr>
+<TD width=120 valign="top" class="italicCell" >Enable DHCP Client</TD>
+<Td class=normalCell>If you enable DHCP client, the switch will automatically obtain an IP address and other TCP/IP parameters from an internal DHCP server.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class="italicCell">IP Address, Subnet Mask</TD>
+<Td class=normalCell>The IP address you use to access and manage the Switch. To facilitate management, please assign the Switch an IP address within your LAN subnet in most cases.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class="italicCell">Default Gateway</TD>
+<Td class=normalCell>The IP address of the default gateway on your network.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class="italicCell">CPU VLAN ID</TD>
+<Td class=normalCell>The default CPU VLAN ID is 1. If you enable tag-based VLAN on the switch, please make sure that the computer you use to manage the switch is connected to a port whose PVID is identical to the CPU VLAN ID. Otherwise you cannot access the switch from that computer.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC Address Aging Time</TD>
+<Td class=normalCell> The aging time for dynamic MAC addresses. Default: 300 seconds.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>System Name</TD>
+<Td class=normalCell>You can set a meaningful name for the switch.</td>
+</TR>
+<tr>
+<TD width=120 valign="top" class="italicCell">Password</TD>
+<Td class=normalCell>The login password of the switch.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Note</TD>
+<Td class=normalCell>If you change the password, please remember your new password and keep it safe. If you forgot it, you must reset the switch to factory default settings via Reset button, and then use the default password to login to the switch.</td></TR>
+<tr>
+<TD width=120 valign=top class=italicCell>ARP Spoofing Prevention</TD>
+<Td class=normalCell>To effectively prevent ARP spoofing, select the check box to enable ARP spoofing prevention, and configure IP/MAC bindings in <strong>Security > IP/MAC Binding</strong> page. </td>
+</TR>
+</table>
+</div>
+
+<div  id="linkageGetConfUrcp">
+<p>Linkage Configuration
+<p>You can view the configuration files of the remote switches, which are retrieved through the Retrieve Config operation, and stored in the Device's memory. Restarting the Device will clear <strong>Configuration File List</strong>.
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Download</td>
+<Td class=normalCell>Click &lt;Download&gt to download the configuration file to your local PC.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Modify</td>
+<Td class=normalCell>Click the Modify icon to modify the name of the configuration file.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Delete</td>
+<Td class=normalCell>Click the Delete icon to delete the configuration file.</td>
+</TR>
+</table>
+</div>
+
+<div id="linkageSendConf">
+<p>Distribute Configuration
+<p>You can distribute configuration stored in the Device to one or more remote switches.
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>Local Configuration File</td>
+<td class=normalCell>It refers to the current configuration file of the local Switch.
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>Linkage Configuration File</td>
+<td class=normalCell>It refers to the configuration file of a remote switch, which is retrieved through Retrieve Config operation. Please select a configuration file you want to distribute in <strong>Configuration File List</strong>.
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>Partially Override</td>
+<td class=normalCell>You can manually select one or more configuration items to distribute, such as System Settings (only "Enable DHCP Relay Agent", "Enable DHCP Client" and "MAC Address Aging Time" will be distributed), VLAN, Link Aggregation, etc. 
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>Fully Override</td>
+<td class=normalCell>The selected configuration file will fully override the existing configuration of the remote switch(es), except IP address information.
+</td>
+</TR>
+</table>
+</div>
+
+</div>
+
+<div  id="linkageGetConf">
+<hr>
+<p>Linkage Configuration
+<p>You can view the configuration files of the remote switches, which are retrieved through the Retrieve Config operation, and stored in the Device's memory. Restarting the Device will clear <strong>Configuration File List</strong>.
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Download</td>
+<Td class=normalCell>Click &lt;Download&gt to download the configuration file to your local PC.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Modify</td>
+<Td class=normalCell>Click the Modify icon to modify the name of the configuration file.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Delete</td>
+<Td class=normalCell>Click the Delete icon to delete the configuration file.</td>
+</TR>
+</table>
+</div>
+
+<div  id="topoy">
+<hr>
+<p>Network Topology
+<p>You can click &lt;Discover Topology&gt; to discover switches which support topology discovery protocol, and display their network topology.  
+<p>The root node is the Device you are currently logged into.
+<p>To manage a switch remotely, please click the switch icon, and then enter password.
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>Parent Node Port</td>
+<td class=normalCell>The uplink device's port to which this device is connected.
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>This Node Port</td>
+<td class=normalCell>This switch's port to which the uplink device is connected.
+</td>
+</TR>
+
+<tr>
+<td width=120 valign=top class=italicCell>Parent Node Aggregation</td>
+<td class=normalCell>If a LAG exists between this device and the uplink device, it will display the LAG member ports on the uplink device.
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>This Node Aggregation</td>
+<td class=normalCell>If a LAG exists between this device and the uplink device, it will display the LAG member ports on this device.
+</td>
+</TR>
+
+<tr>
+<td width=120 valign=top class=italicCell>Security Alert</td>
+<td class=normalCell>It indicates that alert events have occurred in the device, such as ARP attack, too high memory usage, etc. You can view the detailed information in its Security Log.
+</td>
+</TR>
+</table>
+</div>
+</div>
+
+<div id="SysMng" style="display:">
+<hr>
+<p><b><font size="+1" color="#666666">System</font></a></b><p>
+
+<div  id="User" style="display:">
+<p>Administrator
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>You can add, view, modify and delete the administrator accounts.</td>
+</TR>
+</table>
+</div>
+
+<div  id="langChange" style="display:">
+<hr>
+<p>Language
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>You can choose the Web interface language.</td>
+</TR>
+</table>
+</div>
+
+<div  id="SysClock" style="display:">
+<hr>
+<p>Time
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Current System Time</td>
+<Td class=normalCell>The Device’s current date and time.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Time Zone</td>
+<Td class=normalCell>To ensure SNTP works properly, please select the correct time zone.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Set Time Manually</td>
+<Td class=normalCell>Set the date and time for the Device manually.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Synchronize with SNTP Server</td>
+<Td class=normalCell>The Device will automatically synchronize the system clock from an Internet SNTP server you specify.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Server IP Address</td>
+<Td class=normalCell> The Device provides two predefined SNTP servers: 192.43.244.18 and 129.6.15.28. In most cases, please leave the default values. For more information about SNTP, please refer to http://www.ntp.org.</td>
+</TR>
+</table>
+</div>
+
+<div  id="DeviceConfig" style="display:">
+<hr>
+<p>Configuration
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Backup Configuration to Local PC</td>
+<Td class=normalCell>Click &lt;Save&gt; to export and save the Device’s current configuration to an .xml file on your local computer.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Reset to Factory Defaults before Importing</td>
+<Td class=normalCell>If you select the check box, it will reset the Device to factory default settings before importing configuration.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Select Configuration File</td>
+<Td class=normalCell>Click &lt;Browse&gt; to choose an appropriate configuration file.</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>Reset to Factory Defaults</td>
+<Td class=normalCell>After performing the reset operation, you must restart the Device for the default settings to take effect. </td>
+</TR>
+</table>
+</div>
+
+<div  id="SoftwareUpdate" style="display:">
+<hr>
+<p>Firmware Upgrade
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>The firmware upgrade file must match the current hardware version. Do not power off the Device during upgrading.</td>
+</TR>
+<tr>
+<Td class=normalCell>Click &lt;Browse&gt; to choose the firmware file you want to upgrade, and then click &lt;Upgrade&gt; to renew firmware. After the upgrade is complete, the Device will automatically restart for the new firmware to take effect.</td>
+</TR>
+</table>
+</div>
+
+<div  id="Remote" style="display:">
+<hr>
+<p>Remote Management
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Enable HTTP</td>
+<Td class=normalCell>Select the check box to enable remote web management.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Management Port</td>
+<Td class=normalCell>Default port is 8081.</td>
+</TR>
+</table>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>To access the Device remotely, please enter http://WAN IP address: port (e.g., http://200.200.210.20:8081) in your browser's address bar. 
+</Td></tr></table>
+</div>
+
+<div  id="TaskScheduler" style="display:">
+<hr>
+<p>Scheduled Task
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>With scheduled tasks, the Device can periodically start each task at the time you specify.
+</Td></tr></table>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Task Name</td>
+<Td class=normalCell>Specify a unique name for the task.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Repeat</td>
+<Td class=normalCell>Specify how often the Device will perform the task. The options are Weekly, Daily, Hourly, Minutely.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Start Time</td>
+<Td class=normalCell>Specify the time at which the Device will start the task. Its settings depend on the value of <strong>Repeat</strong>.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Task Content</td>
+<Td class=normalCell>Select the content of the task.</td>
+</TR>
+</table>
+</div>
+</div>
+
+<div id="SysSts" style="display:" >
+<hr>
+<p><b><font size="+1" color="#666666">Status</font></a></b>
+<p>
+<div  id="RunStatus" style="display:">
+<p>
+<p>Interface Status
+<table id="RunStatusNormal"  style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>It displays the current status information of each interface, including connection type, IP address, subnet mask, MAC address, duration, etc.  </td>
+</TR>
+</table>
+<table id="RunStatus1800"  style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>It displays the current status information of LAN interface, including connection type, IP address, subnet mask, MAC address, duration, etc.</td>
+</TR>
+</table>
+</div>
+
+<div  id="SysInfo" style="display:">
+<p>
+<hr>
+<p>System Information
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>Curent System Time</td>
+<Td class=normalCell>The Device’s current date and time.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>System Up Time</td>
+<Td class=normalCell>The elapsed time since the Device was last started.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>CPU</td>
+<Td class=normalCell>The current CPU usage.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Memory</td>
+<Td class=normalCell>The current memory usage.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Note</td>
+<Td class=normalCell>The CPU and Memory are displayed as a status bar and percentage value. The color of the status bar indicates the usage percentage for each resource.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>1. Blank: Percentage is below 1%.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2. Green: Percentage is between 1% and 50% (below 50%).</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>3. Orange: Percentage is between 50% and 70% (below 70%).</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>4. Red: Percentage is equal to or above 70%.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>SN</td>
+<Td class=normalCell>The serial number of the Device.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Model</td>
+<Td class=normalCell>The product model of the Device.</td>
+</TR>
+<tr id="hwModelTr" style="display:">
+<TD width=120 valign=top class=italicCell>Hardware</td>
+<Td class=normalCell>The hardware version of the Device.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Software</td>
+<Td class=normalCell>The software version of the Device.</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>System Log</td>
+<Td class=normalCell>It allows you to view system logs.</td>
+</TR>
+</table>
+</div>
+</div>
+
+</body>
+</html>

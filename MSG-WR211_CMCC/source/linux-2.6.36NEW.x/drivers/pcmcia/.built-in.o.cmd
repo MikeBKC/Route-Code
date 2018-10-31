@@ -1,0 +1,1 @@
+cmd_drivers/pcmcia/built-in.o :=  /opt/buildroot-gcc463/usr/bin/mipsel-linux-ld  -m elf32ltsmip   -r -o drivers/pcmcia/built-in.o drivers/pcmcia/pcmcia_core.o drivers/pcmcia/pcmcia.o drivers/pcmcia/pcmcia_rsrc.o 

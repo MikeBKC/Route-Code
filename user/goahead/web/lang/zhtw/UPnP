@@ -1,0 +1,9 @@
+upn_start=啟用UPnP
+upn_upnpList=UPnP NAT映射列表
+upn_xuhao=序號
+upn_innerIP=內部位址
+upn_innerPort=內部埠
+upn_exterIP=對端地址
+upn_exterPort=對端埠
+upnp_list=UPnP列表
+upnp_open=開啓UPnP

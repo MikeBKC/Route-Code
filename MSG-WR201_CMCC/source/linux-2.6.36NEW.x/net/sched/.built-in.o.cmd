@@ -1,0 +1,1 @@
+cmd_net/sched/built-in.o :=  /opt/buildroot-gcc463/usr/bin/mipsel-linux-ld  -m elf32ltsmip   -r -o net/sched/built-in.o net/sched/sch_generic.o net/sched/sch_mq.o net/sched/utt_qos_misc.o net/sched/sch_api.o net/sched/sch_blackhole.o net/sched/cls_api.o net/sched/sch_fifo.o net/sched/cls_fw.o net/sched/cls_basic.o 

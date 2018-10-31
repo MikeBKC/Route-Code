@@ -1,0 +1,6 @@
+P2P_LimitConf=P2P Rate-Limiting
+P2P_Limit=Enable P2P Rate-Limiting
+P2P_LimitPolicy=Rate-Limiting Policy
+P2P_inContent=Exclusive(Within this range, each IP address are used at this bandwidth)
+P2P_shContent=Share(Share the bandwidth of all IP addresses in this range)
+P2P_except=Exception IP Group

@@ -1,0 +1,6 @@
+combinationMode=Mode
+combinationContent1=Partial Load Balancing
+combinationContent2=Full Load Balancing
+Mroute=Primary
+Sroute=Backup
+

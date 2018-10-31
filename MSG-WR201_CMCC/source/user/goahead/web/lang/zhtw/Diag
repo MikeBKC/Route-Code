@@ -1,0 +1,6 @@
+diag_testing=诊断检测
+diag_warn1=地址不合法，请重新输入!
+diag_warn2=检测地址不能为空!
+diag_IPHost=IP地址/主机名
+diag_result=诊断结果
+diag_ping=ping诊断

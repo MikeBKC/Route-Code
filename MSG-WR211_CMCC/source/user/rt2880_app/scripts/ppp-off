@@ -1,0 +1,25 @@
+#!/bin/sh
+
+#if [ -r /var/run/$DEVICE.pid ]; then
+#    kill -INT `cat /var/run/$DEVICE.pid`
+#    sleep 1
+#fi
+
+index3g=`uttif gibn ttyUSB0`
+PPP_PID_F=/var/run/ppp-wan$1.pid
+#when connect error, process is run
+if [ -n $PPP_PID_F ] && [ -r $PPP_PID_F ]; then
+    kill -INT `cat $PPP_PID_F` > null 2>&1
+    sleep 1
+    kill -9 `cat $PPP_PID_F` > null 2>&1
+    rm -f $PPP_PID_F
+else
+    if [ "$1" = "$index3g" ]; then
+        PPP_PID=`ps |grep "pppd file /etc/3g"|sed "s/^ *//g"|sed "s/ .*$//g"`
+    else
+        PPP_PID=`ps |grep "pppd file /etc/options_wan${1}.pppoe"|sed "s/^ *//g"|sed "s/ .*$//g"`
+    fi
+    kill -INT $PPP_PID > null 2>&1
+    sleep 1
+    kill -9 $PPP_PID > null 2>&1
+fi

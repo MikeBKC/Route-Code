@@ -1,0 +1,11 @@
+ppg_ipAlert=PPPoE起始IP地址與LAN口IP地址段衝突！
+ppg_maxNum=最大會話數
+ppg_start=啟用PPPoE伺服器
+ppg_startTip=打勾表示啟用PPPoE伺服器功能，只有啟用該功能，PPPoE伺服器相關配置才能生效。
+ppg_pppoeSet=強制PPPoE認證
+ppg_except=例外地址組
+ppg_dnsTip=DNS可以在開始功能表的運行狀態中查看。
+ppg_pwdMod=允許使用者修改撥號密碼
+ppg_session=系統最大會話數
+ppg_ipTip=起始位址不能為0.0.0.0
+

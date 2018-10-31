@@ -1,0 +1,5 @@
+workMode=Device Mode
+bypassMode=Bypass Mode
+gwMode=Gateway Mode
+acGateWayAddr=Gateway Ip Address
+acDnsSer=DNS Server

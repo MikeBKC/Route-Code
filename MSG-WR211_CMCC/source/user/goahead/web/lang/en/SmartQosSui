@@ -1,0 +1,17 @@
+sma_noNullUp=Upload bandwidth cannot be empty
+sma_noNullDown=Download bandwidth cannot be empty
+sma_upBand=Tx.Bandwidth
+sma_downBand=Rx.Bandwidth
+GB_jl=Blade and Soul
+GB_tksj=WOT
+GB_cs=CS
+GB_lzg=Dragon Nest
+GB_yxsg=Heroes Of Kingdoms
+GB_xw=QQ Dancer
+GB_wmsj=perfect world
+GB_lscs=Hearthstone
+GB_fc=QQ Speed
+sma_open=Enable Flexible Bandwidth
+sma_deepSpeed=Game Settings
+sma_type=Game
+sma_warn=Tx/Rx Bandwidth:The bandwidth of wan and you can get it from your ISP.

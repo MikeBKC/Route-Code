@@ -1,0 +1,9 @@
+BadUserName=User name contain invalid characters
+Administrantor=Administrator Settings
+Passwd=Password
+Confirmpasswd=Confirm Password
+Attention=Note
+FAttentionMesLine1=To ensure security, it is strongly recommended that you change the default administrator password and keep it safe.
+FAttentionMesLine2=The user name can only contain letters, numbers and underscores (_); and it must be at most 31 characters long.
+NPass=New Password
+ConfirmNewpasswd=Confirm New Password

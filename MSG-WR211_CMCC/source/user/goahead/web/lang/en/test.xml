@@ -1,0 +1,6 @@
+<po>
+  <message msgid="button1" msgstr="SUBMIT" />
+  <message msgid="button2" msgstr="CANCEL" />
+ <message msgid="langselect" msgstr="language Change" />
+  <message msgid="lang select" msgstr="language Change" />
+</po>

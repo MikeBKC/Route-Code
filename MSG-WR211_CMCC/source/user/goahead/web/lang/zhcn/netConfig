@@ -1,0 +1,4 @@
+utt_defaultGW=默认网关
+utt_netConf=网络配置
+utt_checkIPTips1=IP地址与网关地址不在同一网段上。
+utt_checkIPTips2=IP地址不能为0.0.0.0

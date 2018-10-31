@@ -1,0 +1,8 @@
+DDNS_status=DDNS状态信息
+DDNS_statusList=DDNS状态信息列表
+profile=接口名称
+update_status=更新状态
+host=主机名
+ip_addr=IP地址
+updata_time=更新时间
+DDNS_setting=DDNS配置

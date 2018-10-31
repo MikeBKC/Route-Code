@@ -1,0 +1,84 @@
+<po>
+  <message msgid="selecte" msgstr="全选 / 全不选" />
+  <message msgid="add" msgstr="添加新条目" />
+  <message msgid="delall" msgstr="删除所有条目" />
+  <message msgid="del" msgstr="删除" />
+  
+  <message msgid="control list" msgstr="访问控制策略列表" />
+  <message msgid="ttl1" msgstr="策略名" />
+  <message msgid="ttl2" msgstr="状态" />
+  <message msgid="ttl3" msgstr="地址组" />
+  <message msgid="ttl4" msgstr="优先级" />
+  <message msgid="ttl5" msgstr="动作" />
+  <message msgid="ttl6" msgstr="生效时间段" />
+  <message msgid="ttl7" msgstr="过滤类型" />
+  <message msgid="ttl8" msgstr="过滤内容" />
+  <message msgid="ttl9" msgstr="协议" />
+  <message msgid="ttl10" msgstr="目的起始端口" />
+  <message msgid="ttl11" msgstr="目的结束端口" />
+  <message msgid="ttl12" msgstr="目的起始地址" />
+  <message msgid="ttl13" msgstr="目的结束地址" />
+  <message msgid="ttl14" msgstr="源起始端口" />
+  <message msgid="ttl15" msgstr="源结束端口" />
+
+  <message msgid="save" msgstr="保存" />
+  <message msgid="reset" msgstr="重填" />
+
+  <message msgid="NAT static" msgstr="NAT静态映射" />
+  <message msgid="NAT rule" msgstr="NAT规则" />
+  <message msgid="DMZ" msgstr="DMZ" />
+
+  <message msgid="start DMZ" msgstr="启动DMZ功能" />
+  <message msgid="discription" msgstr="启用DMZ功能后，DMZ主机将完全暴露给 Internet ，实现双向通讯。" />
+  <message msgid="DMZ ip" msgstr="DMZ主机IP地址" />
+
+  <message msgid="IPMAC" msgstr="IP/MAC绑定" />
+  <message msgid="attention1" msgstr="允许非IP/MAC绑定用户连接到设备" />
+  
+  <message msgid="route" msgstr="路由配置" />
+
+  <message msgid="globalbase" msgstr="全局管理" />
+  <message msgid="max download" msgstr="最大下载速率" />
+  <message msgid="max upload" msgstr="最大上传速率" />
+  <message msgid="no limited" msgstr="不限速" />
+  <message msgid="customize" msgstr="自定义" />
+  <message msgid="unable QQ" msgstr="禁止QQ" />
+  <message msgid="unable MSN" msgstr="禁止MSN" />
+  <message msgid="unable BT" msgstr="禁止BT" />
+  <message msgid="unable search" msgstr="禁止迅雷搜索" />
+  <message msgid="update tactic" msgstr="更新策略" />
+
+  <message msgid="valid time" msgstr="&lt;b &gt;生效时间设置&lt;/b &gt;" />
+  <message msgid="data" msgstr="日期" />
+  <message msgid="everyday" msgstr="每天" />
+  <message msgid="time" msgstr="时间" />
+  <message msgid="allday" msgstr="全天" />
+  <message msgid="from" msgstr="从" />
+  <message msgid="to" msgstr="到" />
+
+  <message msgid="group" msgstr="组管理" />
+
+  <message msgid="firewall" msgstr="访问控制策略" />
+  <message msgid="firewall-edit" msgstr="访问控制策略配置" />
+
+  <message msgid="dnsfilter" msgstr="域名过滤" />
+  <message msgid="domain" msgstr="域名名称" />
+  <message msgid="add2" msgstr="添加" />
+  <message msgid="domain list" msgstr="域名列表" />
+  <message msgid="delete" msgstr="删除" />
+  <message msgid="delete all" msgstr="全部删除" />
+  <message msgid="start dns" msgstr="启用域名过滤" />
+  <message msgid="attention2" msgstr="打勾表示启用域名过滤功能，只有启用域名过滤，配置的域名过滤才生效。" />
+  <message msgid="warning1" msgstr="没有空闲实例可增加！" />
+  <message msgid="warning2" msgstr="域名名称已经存在，请重新输入！" />
+  <message msgid="warning3" msgstr="不能为空。" />
+  <message msgid="warning4" msgstr="不能全为0" />
+  <message msgid="warning5" msgstr="长度不能超过" />
+  <message msgid="warning6" msgstr="位。" />
+  <message msgid="warning7" msgstr="只能由数字、字母、-、.和*组成" />
+  <message msgid="warning8" msgstr="您真的要删除所有域名？" />
+  <message msgid="warning9" msgstr="配置已经达到最大条数,不能添加新配置" />
+  <message msgid="warning10" msgstr="确定删除？" />
+  <message msgid="warning11" msgstr="确定删除所有的条目？" />
+
+</po>

@@ -1,0 +1,11 @@
+NoticeTitle=通告标题
+NoticeLenErr=通告内容长度不能超过"+htmlLen+"位！
+ImportPage=导入的界面
+PreviewPage=预览页面
+StartUsing=启用域名過濾通告
+AutoSkipTime=自动跳转时间
+AutoSkipUrl=自动跳转URL
+ProPageWay=提供页面方式
+EditPage=编辑页面
+ImportPage=导入页面
+NoticeContent=通告内容

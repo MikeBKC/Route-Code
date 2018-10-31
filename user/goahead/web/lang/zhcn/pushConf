@@ -1,0 +1,16 @@
+configList=配置文件列表
+sureConfig=选择此配置
+confName=配置文件名
+size=大小
+
+APRemoteMG=远程AP管理
+continueTips=下发完毕需重启远程设备才能生效。确定继续？
+chooseFile=请在列表中选择一个条目！
+lawfull=操作成功！
+failTips=操作失败！
+sureout=确定下发
+lawless=非法操作！
+
+UnitOutConf=远程AP管理-下发配置
+go=前往
+errorApTypes=选择的下发配置类型不匹配，请选择正确的配置。

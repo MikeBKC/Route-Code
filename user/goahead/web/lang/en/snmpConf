@@ -1,0 +1,11 @@
+snmp_trap_host=SNMP Trap Host
+snmp_read_name=SNMP Read Community Name
+snmp_write_name=SNMP Write Community Name
+snmp_trap_name=SNMP Trap Community Name
+snmp_config=SNMP Config
+snmp=SNMP
+snmp_enable=Enable SNMP
+
+
+
+

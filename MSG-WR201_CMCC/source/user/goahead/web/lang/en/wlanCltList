@@ -1,0 +1,11 @@
+sequenceNo=ID
+users=User Name
+ipAddr=IP Address
+macAddr=MAC Address
+typeOfAuth=Authentication Mode
+linkedFitAp=AP Name
+wlanMode=Wireless Mode
+ssid=SSID
+wlanCltList=Wireless Client List
+APClt=Wireless Client
+wlanClt=Wireless Client

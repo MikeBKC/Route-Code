@@ -1,0 +1,4109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META NAME=Copyright CONTENT="Copyright (c) 2002-2008 ToMAX Technologies Co.Ltd. All rights reserved .">
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<TITLE>帮助</TITLE>
+<style type='text/css'> 
+A:link          { color: #5050ff; text-decoration: underline; }
+A:visited       { color: #5050ff; text-decoration: underline; }
+A:active        { color: #5050ff; text-decoration: underline; }
+.normalCell			{
+color: #000000;
+font-family: verdana,arial,sans-serif;
+text-align: left;
+font-size: 12px;
+}
+.normalURL			{
+color: #000000;
+font-family: verdana,arial,sans-serif;
+width:100;
+text-align: left;
+font-size: 12px;
+}
+.italicCell			{
+color: #FF0000;
+font-family: verdana,arial,sans-serif;
+text-align: left;
+font-size: 12px;
+}
+li { font-family: verdana,arial,sans-serif;
+font-size: 12px;
+}
+ol { font-family: verdana,arial,sans-serif;
+font-size: 12px;
+}
+ul { font-family: verdana,arial,sans-serif;
+font-size: 12px;
+}
+p { font-family: verdana,arial,sans-serif;
+font-size: 12px;
+font-weight:bold;
+color:#000;
+}
+td { font-family: verdana,arial,sans-serif;
+font-size: 14px;
+}
+body { font-family: verdana,arial,sans-serif;
+font-size: 11px;
+}
+h2 { color: #CC0000;
+font-family: verdana,arial,sans-serif;
+font-size: 20px;
+font-family: verdana,arial,sans-serif;
+font-weight: bold;
+}
+</style>
+<script>
+</script>
+</head>
+<script src="js/common.js" type="text/javascript"></script>
+<script src="js/config.js" type="text/javascript"></script>
+<script src="js/dyn_config.js" type="text/javascript"></script>
+<script language="javascript">
+showSecondTitle('在线帮助');
+
+if (typeof(CacheConfig)=='undefined')
+	var CacheConfig=0;
+if (typeof(NetMode)=='undefined')
+	var NetMode=0;
+if (typeof(Cache)=='undefined')
+	var Cache=0;
+if (typeof(NetSniper)=='undefined')
+	var NetSniper=0;
+if (typeof(advideo)=='undefined')
+	var advideo=0;
+if (typeof(snmp)=='undefined')
+	var snmp=0;
+if (typeof(FwService)=='undefined')
+	var FwService=0;
+if (typeof(vlanConfig)=='undefined')
+	var vlanConfig=0;
+if (typeof(L2TPList)=='undefined')
+	var L2TPList=0;
+
+function init()
+{
+
+		moduleDisplay("NetPara",NetPara);
+		moduleDisplay("AdvConf",AdvConf);
+		moduleDisplay("UserMng",UserMng);
+		moduleDisplay("UserGroup",UserGroup);
+		moduleDisplay("FwService",FwService);
+		moduleDisplay("TimeRange",TimeRange);
+		moduleDisplay("QQFilter",QQFilter);
+		moduleDisplay("MSNFilter",MSNFilter);
+		moduleDisplay("AliFilter",AliFilter);
+		moduleDisplay("LogManage",NetAction);
+		moduleDisplay("WlsConf",WlsConf);
+		
+		
+		moduleDisplay("FastConfig",FastConfig);
+		moduleDisplay("EasyTask",EasyTask);
+		moduleDisplay("RunStatusBM",RunStatus);
+		moduleDisplay("InterfaceFlow",InterfaceFlow);
+		moduleDisplay("ReBoot",ReBoot);
+		moduleDisplay("WANConfig",WANConfig);
+		moduleDisplay("LANConfig",LANConfig);
+		moduleDisplay("vlanConfig",vlanConfig);
+		moduleDisplay("DhcpServer",DhcpServer);
+		moduleDisplay("DDNS",DDNS);
+		moduleDisplay("UPnP",UPnP);
+		moduleDisplay("NatStatic",NatStatic);
+		moduleDisplay("IPMac",IPMac);
+		moduleDisplay("Route",Route);
+		moduleDisplay("PolicyRoute",PolicyRoute);
+		moduleDisplay("PPPoEGlobal",PPPoEGlobal);
+		moduleDisplay("WebAuthGlobal",WebAuth);
+		moduleDisplay("AntiNetSnifer",AntiNetSnifer);
+		moduleDisplay("NetSniper",NetSniper);
+		moduleDisplay("Hotel",Hotel);
+
+		//AC
+		moduleDisplay("acMode", acMode);
+		moduleDisplay("DHCPPoolForAc", DHCPPoolForAc);
+		moduleDisplay("ApManage", ApManage);
+		moduleDisplay("apManage", apManage);
+		moduleDisplay("apBasicConf", apBasicConf);
+		moduleDisplay("serviceZone", serviceZone);
+		moduleDisplay("pushConf", pushConf);
+		moduleDisplay("pushTmp", pushTmp);
+		moduleDisplay("pushSoft", pushSoft);
+		moduleDisplay("editSz", editSz);
+		moduleDisplay("apTmpMng", apTmpMng);
+		moduleDisplay("apTmp", apTmp);
+		moduleDisplay("apSoftMng", apSoftMng);
+		moduleDisplay("getApConf", getApConf);
+		moduleDisplay("apLoadBalanceList", apLoadBalanceList);
+		moduleDisplay("apLB", apLB);
+		moduleDisplay("apLogManage", apLogManage);
+		moduleDisplay("Distribution", pushSoft);//分布
+		moduleDisplay("DistributionList", pushSoft);
+		moduleDisplay("WlanClt", pushSoft);//客户端统计
+		moduleDisplay("WlanCltList", pushSoft);
+		moduleDisplay("WlanCltCount", pushSoft);
+
+		//云缓存功能
+		moduleDisplay("Cache",Cache);
+		//网络模式
+		moduleDisplay("netMode",NetMode);
+
+		//桥配置
+		moduleDisplay("netconfig",1);
+
+		//无线功能
+		moduleDisplay("WlanBase",WlanBase);
+		if (typeof(remove_apclient)=='undefined')
+			var remove_apclient = 0;
+		if (remove_apclient == 1)
+			moduleDisplay("apclient_mode", 0);
+		moduleDisplay("WlanSecurity",WlanSecurity);
+		moduleDisplay("WlanMacFilter",pushSoft);
+		moduleDisplay("WlanAdvanced",WlanAdvanced);
+		moduleDisplay("WlanHostInfo",WlanHostInfo);
+		
+		//交换功能
+		moduleDisplay("ports",ports);
+		moduleDisplay("mirror",mirror);
+		moduleDisplay("portvlan",PortVlanRdd);
+//		moduleDisplay("aggr",aggregation || aggregation_100M);
+//		moduleDisplay("SwFunGl",SwFun);
+		
+		moduleDisplay("QosGl",BM);
+		moduleDisplay("globalBase",GlobalBase);
+		moduleDisplay("PdbUpdata",PdbUpdata);
+		moduleDisplay("Group",Group);
+		moduleDisplay("SmartQos",SmartQos);
+		moduleDisplay("P2PLimit",P2PLimit);
+		moduleDisplay("ConnectionLimit",ConnectionLimit);
+		
+		moduleDisplay("FwBase",FwBase);
+		moduleDisplay("FireWall",FireWall);
+//		moduleDisplay("ParentsControl",ParentsControl);
+		moduleDisplay("MacFilter",MacFilter);
+		moduleDisplay("DnsFilter",DnsFilter);
+		moduleDisplay("FwGl",Fw);
+		moduleDisplay("advideo",advideo);
+		
+		// moduleDisplay("ConnectionLimit",ConnectionLimit);
+		 /* VPN配置 */
+		moduleDisplay("VPN",VPN);
+		moduleDisplay("PPTP",PPTPClientList);
+		// moduleDisplay("L2TPList",L2TPList);
+		moduleDisplay("L2TP",L2TPList);
+		moduleDisplay("IPSec",IPSEC);
+		
+		//联动
+		 moduleDisplay("discover",discover);
+//		 moduleDisplay("linkageGetConf",linkageConf);
+		 moduleDisplay("topoy",topoy);
+//		 moduleDisplay("UrcpGl",Urcp);
+		 /* 系统管理 */
+		 moduleDisplay("SysMng",SysMng);
+		 moduleDisplay("User",User);
+		 moduleDisplay("langChange",langChange);
+		 moduleDisplay("SysClock",SysClock);
+		 moduleDisplay("DeviceConfig",DeviceConfig);
+		 moduleDisplay("SoftwareUpdate",SoftwareUpdate);
+		 moduleDisplay("Remote",Remote);
+		 moduleDisplay("TaskScheduler",TaskScheduler);
+		 moduleDisplay("PingCheck",PingCheck);
+	
+		 /* 系统状态 */
+		 moduleDisplay("SysSts",SysSts);
+		 moduleDisplay("RunStatus", RunStatus);
+		// moduleDisplay("UserStats",UserStats);
+		// moduleDisplay("FluxStat",FluxStat);
+		 moduleDisplay("SysInfo",SysInfo);
+		// moduleDisplay("Remote",Remote);
+		// moduleDisplay("SaleService",SaleService); 
+		
+		if (platform == "nv3520G") {
+			moduleDisplay("ports100m", 0);
+			moduleDisplay("ports1000m", 1);
+			moduleDisplay("hwModelTr", 0);
+			moduleDisplay("PortDetails", 1);
+		}
+		if(platform == "1540")
+		{
+			moduleDisplay("ports100m", 1);
+			moduleDisplay("ports1000m", 0);
+		}
+		if ((platform == "nv510v2") || (platform == "nv540")|| (platform == "nv518")|| (platform == "nv518W-VPN")|| (platform == "nv518W-Lite")|| (platform == "nv518W-Plus") || (platform == "nv588") || (platform == "nv640E")){
+			moduleDisplay("ispTr", 0);
+		}
+		moduleDisplay("WanPortNum", WANPort);
+        if ((platform == "nv510W") || (platform == "nv520W")||(platform =="U1000N") || (platform == "nv842W") || (platform == "nv518W") || (platform == "nv518W-VPN")|| (platform == "nv518W-Lite")|| (platform == "nv518W-Plus")|| (platform == "nv512W") || (platform == "nv520Wv3") || (platform == "nv842Wv3") || (platform == "nv515W")){
+			moduleDisplay("FastConfigWlan", 1);
+		} 
+		if (platform == "nv1800N") {
+			moduleDisplay("FastConfig1800", 1);
+			moduleDisplay("RunStatusBM1800", 1);
+			moduleDisplay("RunStatus1800", 1);
+			moduleDisplay("InterfaceFlow1800", 1);
+			moduleDisplay("WANConfig1800", 1);
+			moduleDisplay("DhcpConfig1800", 1);
+		} else {
+			moduleDisplay("FastConfigNormal", 1);
+			moduleDisplay("RunStatusBMNormal", 1);
+			moduleDisplay("RunStatusNormal", 1);
+			moduleDisplay("InterfaceFlowNormal", 1);
+			moduleDisplay("WANConfigNormal", 1);
+			moduleDisplay("DhcpConfigNormal", 1);
+		}
+		moduleDisplay("PortMirror", PortMirror );
+		moduleDisplay("PortMirror8367M", PortMirror8367M);
+		moduleDisplay("port_vlan_rdd", port_vlan_rdd);
+		moduleDisplay("Notice", Notice);
+		moduleDisplay("Syslog", Syslog);
+		moduleDisplay("snmpConf", snmpConf);
+		moduleDisplay("snmp", snmp);
+		moduleDisplay("SysLogInfo", SysLogInfo);
+		moduleDisplay("SysLogInfo_DHCP", DhcpServer);
+		moduleDisplay("SysLogInfo_Notice", Notice);
+		moduleDisplay("SysLogInfo_PPPOE", 1);
+		moduleDisplay("DeviceLoginControl", DeviceLoginControl);
+		moduleDisplay("WEBAUTH_ADVANCE", WEBAUTH_ADVANCE);
+}
+</script>
+<body  onLoad="init()">
+<center>
+<h2>在线帮助</h2>
+</center>
+
+<hr>
+<p><b><font size="+1" color="#666666">SvgViewer相关</font></a></b><p>
+<p><b>设备中的部分页面（如流量图与拓扑图）正常显示需<a href="http://www.adobe.com/svg/viewer/install/" target="_blank">安装插件svgviewer</a></b></p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<TD width=120 valign=top class=italicCell>安装后页面仍异常</TD>
+<Td class=normalCell>浏览器关于该插件的任何询问应设置为允许。若该页面仍无法正常显示，请将浏览器安全级别设置为低</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>该插件可能与部分安全软件冲突（如部分防火墙类软件）。若安全软件有任何关于此插件的询问，应设置为允许。若该页面仍无法正常显示，请暂时关闭相应的安全软件</td>
+</TR>
+</table>
+
+<div  id="FastConfig" style="display:">
+<p>配置向导
+<div  id="FastConfigNormal" style="display:none">
+<Td class=normalCell>通过配置向导，可配置WAN1口，完成设备最基本的配置，从而使内网用户可以通过设备上网</td>
+<p>请用户根据实际情况选择相应的接入方式
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>动态IP </td>
+<Td class=normalCell>直接点击<完成>，通过运营商DHCP服务器分配的IP地址实现上网 </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>固定IP</td>
+<Td class=normalCell>填写运营商提供的IP地址、子网掩码、网关地址、DNS服务器地址，再点击<完成>实现上网</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>PPPoE接入</td>
+<Td class=normalCell>输入运营商提供的用户名和密码，点击<完成>实现上网</td>
+</TR>
+</table>
+</div>
+
+<div  id="FastConfig1800" style="display:none">
+<p>通过配置向导，可配置设备的管理IP地址（即LAN口IP地址），从而您可以通过该IP地址管理设备
+<p>请您根据实际情况选择设备的接入方式
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>固定IP接入</td>
+<Td class=normalCell>填写设备的管理IP地址、子网掩码、网关地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>动态IP接入</td>
+<Td class=normalCell>直接点击<完成>，设备将从内网DHCP服务器处获取IP地址等信息</td>
+</TR>
+</table>
+</div>
+
+<div  id="FastConfigWlan" style="display:none">
+<p>通过配置向导，可配置设备作为有线网关、3G客户端、无线客户端为内网用户提供接入
+<p>设备接入方式选择
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>WAN1口配置</td>
+<Td class=normalCell>勾选表示设备通过WAN1口为内网用户提供有线接入</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>3G客户端配置</td>
+<Td class=normalCell>勾选表示设备通过3G客户端为内网用户提供接入</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>无线客户端配置</td>
+<Td class=normalCell>勾选表示设备通过无线客户端为内网用户提供无线接入</td>
+</TR>
+</table>
+<p>WAN1口配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>动态IP接入</td>
+<Td class=normalCell>设备将通过获取运营商DHCP服务器分配的IP地址，为内网用户提供实接入</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>固定IP接入</td>
+<Td class=normalCell>填写运营商提供的IP地址、子网掩码、网关地址、DNS服务器地址，通过固定IP地址为内网用户提供接入</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>PPPoE接入</td>
+<Td class=normalCell>填写运营商提供的用户名、密码，通过拨号为内网用户提供接入</td>
+</TR>
+</table>
+<p>3G客户端配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>3G卡类型</td>
+<Td class=normalCell>选择您插入的3G卡类型</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>运营商</td>
+<Td class=normalCell>提供网络远程接入的服务商，包括中国移动、中国联通、中国电信</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>认证方法</td>
+<Td class=normalCell>采用3G方式接入网络时和运营商端采用的认证，提供SIM认证和密码认证</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>PIN码</td>
+<Td class=normalCell>3G上网卡的个人身份识别码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>接入点名</td>
+<Td class=normalCell>运营商用来提供接入的接入点的名称</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>拨号</td>
+<Td class=normalCell>用来连接运营商基站时发出的拨号指令的内容之一</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>用户名、密码</td>
+<Td class=normalCell>PPP认证的用户名、密码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>建议用户只配置3G卡类型、运营商两个选项，其余参数保持默认；若需改变，请在专业人士指导下完成</td>
+</TR>
+</table>
+<p>无线客户端配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>AP的SSID、MAC地址</td>
+<Td class=normalCell>为本设备提供无线接入的AP的 SSID和MAC地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>安全模式</td>
+<Td class=normalCell>选项有无安全机制、WPA-PSK/WPA2-PSK、WEP</td>
+</TR>
+</table>
+<p>无线参数配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>SSID</td>
+<Td class=normalCell>用于唯一地标识一个无线网络的字符串，区分大小写</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>无线模式</td>
+<Td class=normalCell>提供仅11g，仅11n和11b/g/n混合三个无线模式选项</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>信道</td>
+<Td class=normalCell>选择无线网络工作的频率段</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>频道带宽</td>
+<Td class=normalCell>设置无线数据传输时所占用的频道带宽</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>配置向导所做的操作，只有点击&lt;完成&gt;后，配置才会生效</td>
+</TR>
+</table>
+</div>
+
+</div>
+
+
+<div  id="EasyTask" style="display:">
+<hr>
+<p>易管理
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>无线生效时间设置</td>
+<Td class=normalCell>设置无线生效的时间段</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用弹性带宽</td>
+<Td class=normalCell>勾选表示启用弹性带宽</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>WAN1口上行带宽、下行带宽</td>
+<Td class=normalCell>设置从ISP申请的WAN1口的上、下行带宽</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用易管理</td>
+<Td class=normalCell>勾选表示启用易管理功能</td>
+</TR>
+</table>
+</div>
+
+
+<div  id="RunStatusBM" style="display:">
+<hr>
+<p>运行状态
+<table id="RunStatusBMNormal"  style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>通过此页面可以查看设备各接口的相关信息，如：接口的接入方式、IP地址、MAC地址、子网掩码、连接时间等信息</td>
+</TR>
+</table>
+<table id="RunStatusBM1800"   style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>通过此页面可以查看设备LAN口的相关信息：如：LAN口的接入方式、IP地址、MAC地址、子网掩码、连接时间等信息</td>
+</TR>
+</table>
+</div>
+
+
+<div  id="InterfaceFlow" style="display:">
+<hr>
+<p>端口流量
+<p>
+<table id="InterfaceFlowNormal"  style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>端口流量</td>
+<Td class=normalCell>通过此页面可以查看各端口实时的流量图。可通过图右下方的选项选择不同的显示效果</td>
+</TR>
+<tr id="PortDetails" style="display:none">
+<TD width=120 valign=top class=italicCell>端口详情</td>
+<Td class=normalCell>通过此页面可以查看相应端口详细的统计信息，如接收包数、发送包数</td>
+</TR>
+</table>
+<table id="InterfaceFlow1800"  style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>端口流量</td>
+<Td class=normalCell>通过此页面可以查看设备实时的有线、无线流量图。可通过图右下方选项选择不同的显示效果</td>
+</TR>
+</table>
+</div>
+
+<div  id="NetPara" style="display:">
+<hr>
+<p><b><font size="+1" color="#666666">网络参数</font></a></b><p>
+
+<div  id="acMode" style="display:">
+<p>AC系统模式
+<p>
+<Td class=normalCell>AC的系统模式分为两种，分别是旁路模式和网关模式</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>网关模式</td>
+<Td class=normalCell>AC作为网关接入外网，提供上网及无线的行为管理。在网关模式下，AC不仅提供无线控制器功能，且提供路由器功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>旁路模式</td>
+<Td class=normalCell>AC在不改变用户网络结构的情况下工作。AC仅对AP进行管理，AP上层网关为其他设备。在旁路模式下，无线客户流量不经过AC。在网关地址和DNS服务器中填写上层设备的相关地址</td>
+</TR>
+</table>
+</div>
+
+<div  id="WANConfig" style="display:">
+<div  id="WANConfigNormal" style="display:none">
+<hr>
+<p>WAN口配置
+<p>设备支持动态IP、固定IP、PPPoE接入三种接入方式
+
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr id="ispTr" style="display:">
+<TD width=120 valign=top class=italicCell>运营商策略</td>
+<Td class=normalCell>选择提供该IP地址的相应运营商，以实现电信流量走电信线路、联通流量走联通线路、移动流量走移动线路</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC地址</td>
+<Td class=normalCell>一般无需修改。但在某些情况下，运营商将设备的MAC做了绑定，这样造成新的网络设备无法连接成功，此时需要将设备的 MAC 地址修改为原网络设备的 MAC 地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>接口模式</td>
+<Td class=normalCell>设置接口的双工模式及速率，Auto表示与对端通信设备自动协商接口模式</td>
+</TR>
+</table>
+<p>固定IP
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>IP地址</td>
+<Td class=normalCell>申请固定IP接入业务时，由运营商提供</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>主、备DNS服务器地址</td>
+<Td class=normalCell>运营商提供的DNS服务器IP地址</td>
+</TR>
+</table>
+<p>PPPoE接入
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>用户名、密码</td>
+<Td class=normalCell>申请PPPoE接入业务时，由运营商提供</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>密码验证方式</td>
+<Td class=normalCell>运营商验证用户名、密码的方式。选项有：NONE(不进行验证)、PAP、CHAP、EITHER(自动和对端设备协商密码验证方式)</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>拨号类型</td>
+<Td class=normalCell>选项有自动拨号、按需拨号、手动拨号</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>自动拨号</td>
+<Td class=normalCell>当开启设备或者上一次拨号断线后设备自动拨号</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>按需拨号</td>
+<Td class=normalCell>内网有访问 Internet 流量时设备自动进行拨号连接</td>
+</TR>
+<TD width=120 valign=top class=italicCell>手动拨号</td>
+<Td class=normalCell>手工进行拨号和挂断，选择相应线路后点击列表右下方的<拨号>、<挂断></td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>拨号模式</td>
+<Td class=normalCell>在使用正确的用户名和密码前提下，如果拨号不成功，可尝试使用其它拨号模式</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>空闲时间</td>
+<Td class=normalCell>在没有访问 Internet 流量后自动断线前等待的时长， 0 代表不自动断线</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MTU</td>
+<Td class=normalCell>最大传输单元，缺省值为1480字节，PPPoE拨号时设备将自动与对方设备协商，除非特别应用，请不要修改</td>
+</TR>
+</table>
+
+<hr>
+<p id="DoubleLine">线路组合</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>部分线路负载均衡，其余备份</td>
+<Td class=normalCell>只有当所有主线路都不能正常工作时，所有的数据流量切换到备份线路；当备份线路工作时，如果有一条主线路恢复正常，所有流量立即切换回主线路</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>所有线路负载均衡</td>
+<Td class=normalCell>所有线路都为主线路，实现数据流量均衡负载和带宽叠加。若某线路故障，则立即屏蔽，原经过该线路的数据将分配到其他线路上。一旦故障线路恢复正常则又启用该线路</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>身份绑定</td>
+<Td class=normalCell>如果配置了多线路，要使QQ、网银等能正常使用，请开启设备的身份绑定功能</td>
+</TR>
+</table>
+<p>线路检测</p>
+<Td class=normalCell>线路检测能实时地检测线路的状态，以保证通信数据在某线路故障时能及时切换到正常线路</td>
+</div>
+<div id="WanPortNum" style="display:none">
+<p>WAN口数量配置</p>
+<p>动态配置设备的WAN口数量，点击保存后，应手动重启设备配置才会生效</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>注</td>
+<Td class=normalCell>重启后的设备会恢复到出厂时的配置</td>
+</TR>
+</table>
+</div>
+<div  id="WANConfig1800" style="display:none">
+<p>LAN口配置</p>
+<p>配置设备的管理IP地址</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>固定IP接入</td>
+<Td class=normalCell>填写设备的管理IP地址、子网掩码、网关地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>动态IP接入</td>
+<Td class=normalCell>设备将从内网DHCP服务器处获取IP地址等信息</td>
+</TR>
+</table>
+</div>
+</div>
+
+
+<div  id="LANConfig" style="display:">
+<hr>
+<p>LAN口配置
+<p>
+<Td class=normalCell>设备LAN口支持配置4个IP地址</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>IP地址</td>
+<Td class=normalCell>设置LAN口的IP地址，第一个IP地址默认为192.168.1.1，其他的三个IP地址默认为0.0.0.0</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>子网掩码</td>
+<Td class=normalCell>设置相应IP地址的子网掩码，默认都为255.255.255.0</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC地址</td>
+<Td class=normalCell>LAN口MAC地址，一般不需要修改</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>接口模式</td>
+<Td class=normalCell>设置接口的双工模式及速率，Auto表示与对端通信设备自动协商接口模式</td>
+</TR>
+</table>
+</div>
+
+<div id="vlanConfig" style="display: none;">
+<hr>
+<p>VLAN接口配置</p>
+<p>VLAN接口列表</p>
+显示当前VLAN接口相关信息（包括：名称，状态，VLAN ID，虚接口IP地址，子网掩码等相关信息）
+<table cellspacing="0" cellpadding="4" border="0" width="100%">
+<tbody><tr>
+<td width="120" valign="top" class="italicCell">添加新条目</td>
+<td class="normalCell">点击“添加新条目”，进VLAN接口配置页面</td>
+</tr>
+</tbody></table>
+
+<p>VLAN接口配置</p>
+<table cellspacing="0" cellpadding="4" border="0" width="100%">
+<tbody>
+<tr>
+<td width="120" valign="top" class="italicCell">启用</td>
+<td class="normalCell">打钩表示启用相应的功能</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">名称</td>
+<td class="normalCell">设置相应的VLAN虚接口名称，这里默认以VIF开头，并与VLANID 保持一致</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">VLAN ID</td>
+<td class="normalCell">设置相应的VLAN ID</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">虚接口IP地址</td>
+<td class="normalCell">配置相应的虚接口IP地址</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">子网掩码</td>
+<td class="normalCell">设置相应IP地址的子网掩码</td>
+</tr>
+</tbody></table>
+</div>
+
+<div  id="DhcpServer" style="display:">
+<hr>
+<p>DHCP服务器
+<p><a name="DhcpServers"></a></p>
+<p>DHCP服务设置
+<table cellspacing=0 cellpadding=4 border=0 width=100% id="DhcpConfigNormal" style="display:none">
+<tr>
+<TD width=120 valign=top class=italicCell>启用DHCP服务器</td>
+<Td class=normalCell>勾选表示启用设备的DHCP服务器功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>起始/结束IP地址</td>
+<Td class=normalCell>定义DHCP地址池的范围，跟设备LAN口IP地址在同一网段</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>子网掩码</td>
+<Td class=normalCell>DHCP地址池中IP地址的子网掩码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>网关地址</td>
+<Td class=normalCell>下发给DHCP客户端的网关地址，一般为设备LAN口IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>租用时间</td>
+<Td class=normalCell>内网计算机使用DHCP服务器分配的IP地址的时长</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>主、备DNS服务器</td>
+<Td class=normalCell>设置DNS服务器地址；在未启用DNS代理情况下，DHCP服务器将这些DNS服务器地址分配给DHCP客户端</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用DNS代理</td>
+<Td class=normalCell>启用DNS代理后，设备会将它的LAN口IP地址分配给客户端作为DNS服务器地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>运营商DNS服务器</td>
+<Td class=normalCell>设置其他DNS服务器地址</td>
+</TR>
+</table>
+
+<table cellspacing=0 cellpadding=4 border=0 width=100% id="DhcpConfig1800" style="display:none">
+<tr>
+<TD width=120 valign=top class=italicCell>启用DHCP服务器</td>
+<Td class=normalCell>勾选表示启用设备的DHCP服务器功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>起始/结束IP地址</td>
+<Td class=normalCell>定义DHCP地址池的范围</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>子网掩码</td>
+<Td class=normalCell>DHCP地址池中IP地址的子网掩码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>网关地址</td>
+<Td class=normalCell>下发给DHCP客户端的网关地址，一般为设备上联网关的LAN 口IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>租用时间</td>
+<Td class=normalCell>内网计算机获得DHCP服务器分配的IP地址的租用时长</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>主、备DNS服务器</td>
+<Td class=normalCell>设备做为DHCP服务器下发给客户端主机的DNS服务器地址</td>
+</TR>
+</table>
+
+<p><a name="StaticDHCP"></a></p>
+<p>静态DHCP</p>
+<Td class=normalCell>静态DHCP功能是将动态下发的IP地址与客户端的MAC进行绑定，即同一MAC地址的客户端每次获得的IP地址是同一个</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>用户名</td>
+<Td class=normalCell>定义一个DHCP客户端的用户名</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>IP地址</td>
+<Td class=normalCell>下发给指定客户端的IP地址，这个地址应在DHCP地址池范围内</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC地址</td>
+<Td class=normalCell>填写下发指定IP地址的客户端的MAC地址</td>
+</TR>
+</table>
+
+
+<p><a name="DhcpAutoBind"></a></p>
+<p>DHCP自动绑定</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用DHCP自动绑定</td>
+<Td class=normalCell>当启用DHCP自动绑定时，设备会对内网进行扫描，将动态获取IP地址的内网用户的IP/MAC进行绑定，并且设备后续每分配一个IP地址，就会将该IP地址与客户端的MAC地址进行绑定；启用该功能，能有效防御内网的ARP欺骗；如不启用，则不进行自动绑定操作</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用DHCP自动删除</td>
+<Td class=normalCell>当启用DHCP自动删除时，表示在租期到期之后，设备会将之前自动绑定的IP/MAC删除，如不启用，则表示不进行删除操作</td>
+</TR>
+</table>
+
+
+<p><a name="DHCPTable"></a></p>
+<p>DHCP客户端列表</p>
+<Td class=normalCell>在此列表中可以查看DHCP地址池的使用情况及DHCP客户端的相关信息</td>
+</div>
+
+<div  id="DHCPPoolForAc" style="display:">
+<hr>
+<p>DHCP服务器
+<p><a name="DHCPServerForAc"></a></p>
+<p>DHCP服务器设置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用DHCP服务器</td>
+<Td class=normalCell>勾选此项为允许，此项是用来禁用或启用AC默认的DHCP服务器功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>地址池</td>
+<Td class=normalCell>显示DHCP服务器默认的地址池default</td>
+</TR>
+</table>
+
+<p><a name="DHCPPoolForAc"></a></p>
+<p>DHCP地址池</p>
+<Td class=normalCell>显示已配置的DHCP地址池（非默认地址池要被服务区引用，才能生效）</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width="120" valign="top" class="italicCell">启用DHCP服务器</td>
+<td class="normalCell">勾选表示启用设备的DHCP服务器功能</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">名称</td>
+<td class="normalCell">设置DHCP服务器名称</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">VLAN接口</td>
+<td class="normalCell">选择在VLAN接口中配置的相应的VLAN接口名称</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>起始/结束IP地址</td>
+<Td class=normalCell>定义DHCP地址池的范围，跟设备LAN口IP地址在同一网段</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>子网掩码</td>
+<Td class=normalCell>DHCP地址池中IP地址的子网掩码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>网关地址</td>
+<Td class=normalCell>下发给DHCP客户端的网关地址，一般为设备LAN口IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>租用时间</td>
+<Td class=normalCell>内网计算机使用DHCP服务器分配的IP地址的时长</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>主、备DNS服务器</td>
+<Td class=normalCell>设置DNS服务器地址；在未启用DNS代理情况下，DHCP服务器将这些DNS服务器地址分配给DHCP客户端</td>
+</TR>
+</table>
+
+<p><a name="StaticDHCPForAc"></a></p>
+<p>静态DHCP</p>
+<Td class=normalCell>静态DHCP功能是将动态下发的IP地址与客户端的MAC进行绑定，即同一MAC地址的客户端每次获得的IP地址是同一个</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width="120" valign="top" class="italicCell">DHCP地址池列表</td>
+<td class="normalCell">DHCP地址池所绑定的MAC地址只允许在所绑定的DHCP地址池使用</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>用户名</td>
+<Td class=normalCell>定义一个DHCP客户端的用户名</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>IP地址</td>
+<Td class=normalCell>下发给指定客户端的IP地址，这个地址应在DHCP地址池范围内</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC地址</td>
+<Td class=normalCell>填写下发指定IP地址的客户端的MAC地址</td>
+</TR>
+</table>
+
+<p><a name="DNSProxyForAc"></a></p>
+<p>DNS代理</p>
+<Td class=normalCell>配置AC的DNS代理功能，勾选代表启用，启用此功能后AC会将LAN口IP地址分配给客户端作为主DNS服务器地址</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>运营商DNS服务器1、2</td>
+<Td class=normalCell>显示运营商DNS服务器的IP地址</td>
+</TR>
+</table>
+</div>
+
+
+
+
+<div  id="DDNS" style="display:">
+<hr>
+<p>DDNS配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>服务商</td>
+<Td class=normalCell>设备提供的服务商有：3322.org和花生壳，请选择相应的服务商</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>注册域名</td>
+<Td class=normalCell>点击域名，在配置DDNS服务之前需到相关网站上申请二级域名及用户名和口令</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>主机名</td>
+<Td class=normalCell>填写已申请的主机名，花生壳可不填写，输入用户名和密码后会自动获取</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>用户名</td>
+<Td class=normalCell>注册3322.org或花生壳时使用的用户名</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>密钥</td>
+<Td class=normalCell>注册3322.org或花生壳时使用的密码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>接口</td>
+<Td class=normalCell>选择DDNS服务绑定的接口</td>
+</TR>
+</table>
+</div>
+
+
+<div  id="UPnP" style="display:">
+<hr>
+<p>UPnP
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>内部地址</td>
+<Td class=normalCell>内网主机的IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>内部端口</td>
+<Td class=normalCell>内网主机提供的服务端口</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>协议</td>
+<Td class=normalCell>该UPnP NAT 静态映射使用的协议</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>对端地址</td>
+<Td class=normalCell>对端主机的IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>对端端口</td>
+<Td class=normalCell>内部端口经 NAT 转换后的端口，即设备提供给 Internet 的服务端口</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>描述</td>
+<Td class=normalCell>用来描述相关 UPnP软件的信息</td>
+</TR>
+</table>
+</div>
+</div>
+
+<div  id="ApManage" style="display:">
+<hr>
+<p><b><font size="+1" color="#666666">AP集中管理</font></a></b><p>
+<div  id="apManage" style="display:">
+<p>AP列表</p>
+<Td class=normalCell>显示当前网络中所有AP的相关信息（操作按钮、链接等）。（包括AP名称、AP型号、序列号、IP、MAC、无线模式、信道等）</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>VID</td>
+<Td class=normalCell>显示当前AP所在的VLAN ID</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>状态</td>
+<Td class=normalCell>显示当前AP的状态，“在线”，“离线”</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>无线模式</td>
+<Td class=normalCell>显示当前AP设备的无线接入模式，支持的模式有：11g，11n，11b/g/n混合</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>信道</td>
+<Td class=normalCell>显示当前AP无线信号所属信道</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>客户端数</td>
+<Td class=normalCell>显示当前AP连接的无线客户端的数量，该数字有链接作用，点击客户端下的数字进入AP集中管理—>无线客户端页面查看无线客户端的相关信息</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>下载、上传速率</td>
+<Td class=normalCell>显示当前AP的下载速率和上传速率</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>SSID</td>
+<Td class=normalCell>显示当前AP的SSID。注：SSID即Service Set Identifier的缩写，意思是：服务集标识。SSID技术可以将一个无线局域网分为几个需要不同身份验证的子网络，每一个子网络都需要独立的身份验证，只有通过身份验证的用户才可以进入相应的子网络，防止未被授权的用户进入本网络</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>服务区</td>
+<Td class=normalCell>显示当前AP所在的服务区。注：一个AP最多属于四个服务区</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>密码</td>
+<Td class=normalCell>如要远程管理当前AP，请在此输入登录密码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>管理</td>
+<Td class=normalCell>点击“管理”，可进入相应的页面远程配置当前AP的相关参数</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>定位</td>
+<Td class=normalCell>点击“定位”，可进入AP分布图，可在图上查找AP相关位置</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>型号</td>
+<Td class=normalCell>选择您需要筛选的AP型号</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>全局密码设置</td>
+<Td class=normalCell>输入选中AP的登录密码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>批量操作</td>
+<Td class=normalCell>选择多个AP后，点击该按钮，能对这些AP进行如下远程操作：统一修改登录密码、重启、恢复出厂值等</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>清除离线AP</td>
+<Td class=normalCell>清除AP列表中选中的离线AP</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>清除全部离线AP</td>
+<Td class=normalCell>清除AP列表中所有的离线AP</td>
+</TR>
+</table>
+</div>
+
+
+<div  id="apBasicConf" style="display:">
+<p>AP基本设置</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>工作模式</td>
+<Td class=normalCell>选择该AP的工作模式是“瘦AP”或“胖AP”</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>设备名</td>
+<Td class=normalCell>设置当前AP的设备名</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用DHCP客户端</td>
+<Td class=normalCell>点击“启用DHCP客户端”，当前AP自动获取IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>IP地址</td>
+<Td class=normalCell>设置当前AP的登录IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>子网掩码</td>
+<Td class=normalCell>设置当前AP的子网掩码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>网关</td>
+<Td class=normalCell>设置当前AP的网关地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>用户名</td>
+<Td class=normalCell>设置当前AP的登录用户名</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>修改密码</td>
+<Td class=normalCell>点击“修改密码”，修改当前AP的登录密码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>新密码</td>
+<Td class=normalCell>设置新的登录密码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>新密码确认</td>
+<Td class=normalCell>确认新设置的密码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用漫游阈值</td>
+<Td class=normalCell>当前环境若支持漫游，可开启漫游阈值</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>漫游阈值</td>
+<Td class=normalCell>设置无线客户端进行漫游的阈值, 默认值为-88dbm（当无线客户端测得的信号强度小于漫游阈值，该无线客户端可漫游到信号强度最好的AP）</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>信道</td>
+<Td class=normalCell>设置当前AP的信道</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>生效配置</td>
+<Td class=normalCell>1、本地配置：当AP选择本地配置生效时，配置信息存在本地</td>
+</td>
+</TR>
+</tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2、无线集中控制器下发的配置： 当AP选择无线集中控制器下发的配置生效时，配置信息存在AC</td>
+</TR>
+</table>
+</div>
+
+<div  id="pushConf" style="display:">
+<p>下发配置</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>选择此配置</td>
+<Td class=normalCell>点选此项，选择需要下发给当前AP的配置文件</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>确认下发</td>
+<Td class=normalCell>点击“确定下发”，将选中的配置文件下发给当前AP</td>
+</TR>
+</table>
+</div>
+
+<div  id="pushTmp" style="display:">
+<p>下发模板</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>模板选择</td>
+<Td class=normalCell>点选此项，选择需要下发给当前AP的配置模板</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>确认下发</td>
+<Td class=normalCell>点击“确定下发”，将选中的配置模板下发给当前AP</td>
+</TR>
+</table>
+</div>
+
+<div  id="pushSoft" style="display:">
+<p>下发软件</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>软件选择</td>
+<Td class=normalCell>点选此项，选择需要下发给当前AP的软件</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>确认下发</td>
+<Td class=normalCell>点击“确定下发”，将选中的软件下发给当前AP</td>
+</TR>
+</table>
+</div>
+
+<div  id="Distribution" style="display:">
+<hr>
+<p>AP分布图</p>
+<Td class=normalCell>该功能主要是在AC上导入格式为.jpg的建筑平面图纸，可在图纸上显示AP分布图</td>
+</div>
+
+<div  id="DistributionList" style="display:">
+<p>分布图</p>
+<Td class=normalCell>显示导入图纸，AP分布信息等</td>
+<Td class=normalCell>注：可在平面图上添加AP，可以拖动AP，可以删掉添加的AP，可以缩放图片。编辑完成后保存图片，刷新页面可以显示上次保存后的分布图。当AP存在异常状态时，要以图形化的方式区别与正常状态的AP。支持的异常状态包括：离线</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>显示图纸</td>
+<Td class=normalCell>选择导入的图纸，并可在AP分布图上显示该图纸</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>显示信息</td>
+<Td class=normalCell>可选择概要、详细。概要：只显示AP的IP,MAC和序列号，详细：显示AP的详细信息</td>
+</TR>	
+<tr>
+<TD width=120 valign=top class=italicCell>AP列表</td>
+<Td class=normalCell>点击该列表可在左侧列表框中显示所有在线AP</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=italicCell>双击建筑图纸上的AP，可对AP进行相应操作，管理、查看信息、删除AP等</td>
+</TR>
+</table>
+<p>导入图纸</p>
+<Td class=normalCell>显示导入图纸的大小，名称等信息</td>
+<Td class=normalCell>注：每次可以导入一张建筑平面图，可以连续导入多张建筑平面，如不同楼层或者不同区域的建筑图。支持的图片的格式为JPG格式</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>图纸名称</td>
+<Td class=normalCell>输入图纸名称，重命名图纸</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>请选择图纸</td>
+<Td class=normalCell>选择需要导入的图纸，点击导入图纸，图纸导入成功</td>
+</TR>
+</table>
+</div>
+
+<div  id="serviceZone" style="display:">
+<hr>
+<p>服务区列表</p>
+<Td class=normalCell>显示各个服务区的相关信息。（包括服务区名称、服务区状态、SSID、SSID广播、VLAN ID等）</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>添加新条目</td>
+<Td class=normalCell>点击“添加新条目”，进入服务区配置界面</td>
+</TR>
+</table>
+</div>
+
+<div  id="editSz" style="display:">
+<p>服务区配置</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>服务区名称</td>
+<Td class=normalCell>设置当前服务区的名称</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>SSID</td>
+<Td class=normalCell>设置当前服务区的SSID</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用SSID广播</td>
+<Td class=normalCell>选择是否启用SSID广播，启用表示从服务区获取该配置的AP将向无线网络广播自己的SSID</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>服务区管理IP地址</td>
+<Td class=normalCell>设置当前服务区的管理IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>VLAN ID</td>
+<Td class=normalCell>设置当前服务区的VLAN ID；默认服务区default不可设置VLAN ID</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>加密方式</td>
+<Td class=normalCell>设置当前服务区的加密方式，包括：WEP、WPA/WPA2、WPA-PSK/WPA2-PSK</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>WPA版本</td>
+<Td class=normalCell>设置当前服务区的加密方式的WPA版本</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>加密算法</td>
+<Td class=normalCell>设置当前服务区的加密算法</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>预共享密钥</td>
+<Td class=normalCell>设置当前服务区的预共享密钥，即AP共享给无线客户端的密钥</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>密钥更新周期</td>
+<Td class=normalCell>设置预共享密钥的定时更新周期，取值范围为60~86400，单位为秒。缺省值为0，值为0时表示不更新</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>自动下发</td>
+<Td class=normalCell>选择是否启用自动下发，启用表示在AP未进行配置之前可以自动为该AP下发服务区</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>AP管理VLAN范围</td>
+<Td class=normalCell>设置当前AP可以管理的VLAN范围，取值范围0-4094，连续VLAN范围可以使用“-”，不连续可以使用“，” </td>
+</TR>
+<!--
+<tr>
+<TD width=120 valign=top class=italicCell>启用DHCP服务器</td>
+<Td class=normalCell>选择是否在当前服务区启用DHCP服务器功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>地址池</td>
+<Td class=normalCell>选择当前服务区的生效的地址池</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>网关IP地址</td>
+<Td class=normalCell>显示当前服务区的网关IP地址，与地址池的网关IP地址一致</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>网关IP掩码</td>
+<Td class=normalCell>显示当前服务区网关IP的掩码，与地址池的网关IP掩码一致</td>
+</TR>
+-->
+</table>
+</div>
+
+<div  id="apTmpMng" style="display:">
+<hr>
+<p>AP配置模板</p>
+<TD width=120 valign=top class=italicCell>显示AP各配置模板相关信息。（包括模板名称、AP型号、硬件版本等）</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>添加新条目</td>
+<Td class=normalCell>点击“添加新条目”，进入设置模板界面，设置新的配置模板</td>
+</TR>
+</table>
+</div>
+
+<div  id="apTmp" style="display:">
+<p>编辑模板</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>模板名称</td>
+<Td class=normalCell>设置配置模板的名称</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>适用型号</td>
+<Td class=normalCell>选择配置模板所适用的AP的型号</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>硬件版本</td>
+<Td class=normalCell>选择配置模板所适用的硬件的版本</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>无线模式</td>
+<Td class=normalCell>选择无线设备的模式，提供仅11g，仅11n和11b/g/n混合三个选项</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>无线速率</td>
+<Td class=normalCell>选择AP所使用的无线速率</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Beacon间隔</td>
+<Td class=normalCell>定期发送数据帧进行检测，默认为100毫秒，也可以手动进行配置</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>频道带宽</td>
+<Td class=normalCell>选择无线数据传输时所占用的频道带宽，可选项为：20M、40M、自动。注意，对于以802.11b或者802.11g标准的无线站点来说，只能使用20M的频道带宽</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>信道</td>
+<Td class=normalCell>选择无线网络工作的频率段，可以选择的范围从1到11，另外提供自动选项，表示设备可以自动选择最优频率段。如果存在多个无线设备时，要注意各个设备的频段设置不能相互影响</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>无线传输功率</td>
+<Td class=normalCell>选择无线的传输功率</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>客户端隔离</td>
+<Td class=normalCell>选择是否启用客户端隔离，启用表示当前AP下的有线客户端和无线客户端之间以及无线客户端之间，均不能互访</td>
+</TR>
+</table>
+</div>
+
+<div  id="apSoftMng" style="display:">
+<hr>
+<p>AP软件列表</p>
+<TD width=120 valign=top class=italicCell>显示系统中AP各软件相关信息。（包括软件名称、软件版本、适用型号、硬件版本、软件大小、自动下发等）</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>自动下发</td>
+<Td class=normalCell>勾选表示可将该软件自动下发给该AP</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>添加新条目</td>
+<Td class=normalCell>点击“添加新条目”，进入上传软件界面，设置新的软件</td>
+</TR>
+</table>
+<div  id="apSoftUp" style="display:">
+<p>上传软件</p>
+<TD width=120 valign=top class=italicCell>将本地PC上保存的AP软件上传至AC上</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+</table>
+</div>
+</div>
+
+<div  id="getApConf" style="display:">
+<hr>
+<p>AP配置文件</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>配置文件列表</td>
+<Td class=normalCell>显示通过远程操作系统保存的各AP配置文件的相关信息。（包括配置文件名、AP类型、软件版本、硬件大小等）</td>
+</TR>
+</table>
+</div>
+
+<div  id="apLoadBalanceList" style="display:">
+<hr>
+<p>AP负载均衡列表</p>
+<TD width=120 valign=top class=italicCell>显示各个启用负载均衡的AP的相关信息。（包括负载均衡组名、状态、AP数量等）</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>添加新条目</td>
+<Td class=normalCell>点击“添加新条目”，进入配置界面，新增负载均衡组</td>
+</TR>
+</table>
+</div>
+<div  id="apLB" style="display:">
+<p>AP负载均衡</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<TD width=120 valign=top class=italicCell>开启负载均衡</td>
+<Td class=normalCell>启用该负载均衡组</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>可供选择AP列表</td>
+<Td class=normalCell>显示当前在线AP的基本信息（序列号+MAC地址+AP名称）</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>负载均衡列表</td>
+<Td class=normalCell>显示已加入负载均衡组的AP的基本信息。（一个负载均衡组内至少包含2个AP，最多可包含10个AP；红色字体显示的AP表明已离线）</td>
+</TR>
+</table>
+</div>
+
+<div  id="WlanClt" style="display:">
+<hr>
+<p>无线客户端</p>
+</div>
+
+<div id="WlanCltList" style="display:">
+<p>无线客户端列表</p>
+<TD width=120 valign=top class=italicCell>通过查看无线客户端列表，您可以清楚的知道当前无线客户端的相关信息（包括用户，IP地址，MAC地址，所连AP,无线模式）</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>过滤</td>
+<Td class=normalCell>打钩可表示过滤该MAC，在过滤之前该MAC所在的服务区必须首先在MAC地址过滤配置中将该服务区加入相应的地址组中</td>
+</TR>
+</table>
+</div>
+
+<div id="WlanCltCount" style="display:">
+<p>无线客户端统计</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>AP客户端数统计</td>
+<Td class=normalCell>以柱状图形式显示当前在线的无线客户端在不同AP上的分布情况</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>SSID客户端数统计</td>
+<Td class=normalCell>以柱状图形式显示当前在线的无线客户端在不同SSID上的分布情况</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>历史客户端数统计</td>
+<Td class=normalCell>在折线图上显示过去24小时时间内的在线无线客户端总数的变化情况</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>历史流量统计</td>
+<Td class=normalCell>在特定的时间内以折线图的形式统计AP的历史流量，可以选择以天为单位，也可以选择以小时为单位，也可选择两个AP进行比较。可点击导出数据，将流量统计数据导出</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>在线用户</td>
+<Td class=normalCell>显示当前在线用户的信息</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell> 黑名单</td>
+<Td class=normalCell>显示当前加入黑名单的用户，加入黑白单后，将该MAC地址下发给该SSID的所有AP，该用户无法接入该SSID下的所有AP</td>
+</TR>
+</table>
+</div>
+<div  id="apLogManage" style="display:">
+<hr>
+<p>AP日志管理</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用AP上下线日志</td>
+<Td class=normalCell>启用此项，系统会记录AP上下线的日志</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用AP客户端上下线日志</td>
+<Td class=normalCell>启用此项，系统会记录AP客户端上下线的日志</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用AP客户端数量告警日志</td>
+<Td class=normalCell>启用此项，当AP所连客户端数超过设定的值时，系统会记录AP客户端数量告警日志。（系统设定的值为20）</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>日志发送</td>
+<Td class=normalCell>设置管理员邮箱，AC定时将AP上下线日志信息发送到该邮箱，通知管理员</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>几个常用邮箱服务器地址</td>
+<Td class=normalCell>1、QQ邮箱：smtp.exmail.qq.com</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2、网易126、163邮箱：smtp.126.com或者smtp.163.com</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>3、新浪邮箱：smtp.sina.com</td>
+</TR>
+</table>
+</div>
+</div>
+
+
+<div  id="WlsConf" style="display:">
+<hr>
+<p><b><font size="+1" color="#666666">无线配置</font></a></b><p>
+<div  id="WlanBase" style="display:">
+<p>基本配置
+<p>通过无线基本配置您可以开启设备的无线功能，并设置设备的无线模式等
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>AP Mode</td>
+<Td class=normalCell>纯AP模式，此模式下，对端设备为AP Client 模式的无线设备、客户端主机</td>
+</TR>
+<tr id="apclient_mode" style="display:">
+<TD width=120 valign=top class=italicCell>AP Client Mode</td>
+<Td class=normalCell>AP客户端模式，此模式下，安全模式和信道都要和对端保持一致，否则不能实现连通</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Repeater Mode</td>
+<Td class=normalCell>中继模式，此模式下，设备可与处于Bridge Mode、Repeater Mode以及Lazy Mode工作模式的网络设备交换数据</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Bridge Mode</td>
+<Td class=normalCell>桥接模式，可通过设备连接两个或者多个有线网络，此模式下设备不会再发送无线信号给其它客户端接收，可与处于Repeater Mode、Lazy Mode模式的网络设备交换数据</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Lazy Mode</td>
+<Td class=normalCell>此模式下，设备可与处于Repeater Mode、Bridge Mode模式的网络设备交换数据</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>SSID</td>
+<Td class=normalCell>（Service Set Identification，服务集标识）用于唯一地标识一个无线网络的字符串，区分大小写</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>无线模式</td>
+<Td class=normalCell>提供仅11g，仅11n和11b/g/n混合三个无线模式选项</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>仅11g</td>
+<Td class=normalCell>纯802.11g模式，本模式下，最大速率54M bps；兼容IEEE 802.11g标准的无线站点可以接入设备</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>仅11n</td>
+<Td class=normalCell>纯802.11n模式，本模式下，最大速率为150M bps；只有符合IEEE 802.11n标准的无线站点可以接入设备</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>11b/g/n混合</td>
+<Td class=normalCell>符合IEEE 802.11b、802.11g或者802.11n标准的无线站点将各自按照自己的模式接入，最大速率分别为11M bps、54M bps和150M bps</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>信道</td>
+<Td class=normalCell>选择无线网络工作的频率段，如果存在多个无线设备时，要注意各个设备的频段设置不能相互影响</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>频带带宽</td>
+<Td class=normalCell>设置无线数据传输时所占用的频道带宽；802.11b或者802.11g标准的无线站点只能使用20M的频道带宽；而使用802.11n接入的无线站点将根据接入对端设备协商的结果选择使用20M或40M的频道带宽</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用SSID广播</td>
+<Td class=normalCell>启用后，设备将向无线网络广播自己的SSID；开启此功能存在安全风险（非法站点很容易获得SSID信息），一般建议禁用此功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>AP的SSID</td>
+<Td class=normalCell>为本设备提供无线接入的AP的SSID</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>AP的MAC地址</td>
+<Td class=normalCell>为本设备提供无线接入的AP的MAC地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>安全模式</td>
+<Td class=normalCell>选项有无安全机制、WPA-PSK/WPA2-PSK、WEP、TKIP、AES；选择相应的加密算法表示在数据交换过程中采用该加密算法保护通信数据</td>
+</TR>
+</table>
+</div>
+
+<div  id="WlanSecurity" style="display:">
+<hr>
+<p>无线安全配置
+<p>WEP
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>认证类型</td>
+<Td class=normalCell>提供自动、开放系统、共享密钥3个选项</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>自动</td>
+<Td class=normalCell>自动表示设备会根据无线客户端的请求自动选择开放系统或共享密钥方式</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>开放系统</td>
+<Td class=normalCell>无线客户端主机在不提供认证密钥的前提下，通过认证并关联到设备；但若要进行数据传输，必须提供正确的密钥</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>共享密钥</td>
+<Td class=normalCell>无线客户端主机必须提供正确的密钥才能通过认证，否则无法关联到设备，从而无法进行数据传输</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>密钥格式</td>
+<Td class=normalCell>提供16进制、ASCII码两种格式，采用16进制时，密钥字符可以为0~9，A、B、C、D、E、F（不区分大小写）；采用ASCII码时，密钥字符可以是所有的ASCII码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>WEP密钥</td>
+<Td class=normalCell>用于设置密钥值，密钥的长度受密钥类型的影响，选择64位密钥类型时，输入16进制字符10个或者ASCII码字符5个，选择128位密钥类型时，输入16进制字符26个或者ASCII码字符13个</td>
+</TR>
+</table>
+
+<p>WPA/WPA2
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>WPA版本</td>
+<Td class=normalCell>提供WPA、WPA2、自动3个选项，自动表示设备会根据无线客户端的请求自动选择WPA或者WPA2安全模式</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>加密算法</td>
+<Td class=normalCell>选择对无线数据进行加密的安全算法，选项有自动、TKIP、AES</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Radius服务器IP</td>
+<Td class=normalCell>用来对无线主机进行身份认证的Radius服务器的IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Radius端口</td>
+<Td class=normalCell>Radius服务器对无线主机进行身份认证时使用的服务端口号</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Radius密码</td>
+<Td class=normalCell>该项用来设置访问Radius服务的密码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>密钥更新周期</td>
+<Td class=normalCell>用于指定密钥的定时更新周期。取值范围为60~86400，单位为秒。缺省值为3600，值为0时表示不更新</td>
+</TR>
+</table>
+<p>WPA-PSK/WPA2-PSK
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>WPA版本</td>
+<Td class=normalCell>提供WPA-PSK、WPA2-PSK、自动3个选项，自动表示设备会根据无线客户端的请求自动选择WPA-PSK或者WPA2-PSK安全模式</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>预共享密钥</td>
+<Td class=normalCell>预先设置的初始化密钥，取值为8~63个字符</td>
+</TR>
+<tr><td>&nbsp;</td><td></td></tr>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>TKIP/WEP加密方式无法达到11n模式速率</td>
+</TR>
+</table>
+</div>
+
+
+
+<div  id="WlanMacFilter" style="display:">
+<hr>
+<p>无线MAC地址过滤
+<p>通过配置设备的无线MAC地址过滤功能，设备能有效允许或禁止内网主机对无线网络的访问
+</div>
+
+<div  id="WlanAdvanced" style="display:">
+<hr>
+<p>无线高级配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>RST阀值</td>
+<Td class=normalCell>当数据包超过这个阈值时，就会启动RTS机制；取值范围为1~2347字节，默认值为2347</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>分段阀值</td>
+<Td class=normalCell>数据帧超过此值时，将自动被分段成多个数据帧，然后再进行传送；取值范围为256~2346字节，默认值为2346字节</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Beacon间隔</td>
+<Td class=normalCell>信标帧的发送间隔，设备通过定期广播Beacon（信标）帧进行无线网络连接的同步；取值范围为20~999毫秒，默认值为100毫秒</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>DTIM间隔</td>
+<Td class=normalCell>本参数用于指定交付指示信息（DTIM，Delivery Traffic Indication Message）的发送间隔；取值范围为1～255，默认值为1</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用短前导</td>
+<Td class=normalCell>启用短前导，短前导能使开销减少到最小，因而使网络数据吞吐量最大化；禁用短前导则表示使用长前导类型，该类型将能够提供更多可行连接和更大范围的连接</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用WMM</td>
+<Td class=normalCell>启用WMM（无线客户端也需启用），多媒体数据（如音频、视频）将被优先发送</td>
+</TR>
+</table>
+</div>
+
+<div  id="WlanHostInfo" style="display:">
+<hr>
+<p>无线主机状态
+<p>通过查看无线主机状态信息列表，您可以清楚的知道内网上网主机的相关信息
+</div>
+</div>
+
+<div  id="AdvConf" style="display:">
+<hr>
+<p><b><font size="+1" color="#666666">高级配置</font></a></b><p>
+<div id="netMode" style="display:">
+<p>网络模式</p>
+<td class=normalCell>分为网关模式和桥模式</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>网关模式</td>
+<td class=normalCell>该模式为系统默认模式，能实现各种网关功能</td>
+</tr>
+<tr>
+<td width=120 valign=top class=italicCell>桥模式</td>
+<td class=normalCell>该模式下，设备作为"低层路由器"通常用于联接数量不多的、同一类型的网段，其安装和卸载均不影响原始网络结构</td>
+</tr>
+</table>
+</div>
+
+<div id="netconfig" style="display:">
+<hr>
+<p>网络配置</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>IP地址</td>
+<td class=normalCell>设置LAN口的IP地址，默认为192.168.1.252</td>
+</tr>
+<tr>
+<td width=120 valign=top class=italicCell>子网掩码</td>
+<td class=normalCell>设置相应IP地址的子网掩码，默认都为255.255.255.0</td>
+</tr>
+
+<tr>
+<td width=120 valign=top class=italicCell>默认网关</td>
+<td class=normalCell>设置相应网关地址，默认为192.168.1.1</td>
+</tr>
+<tr>
+<td width=120 valign=top class=italicCell>主/备DNS服务器</td>
+<td class=normalCell>运营商提供DNS服务器地址，主DNS默认为192.168.1.1</td>
+</tr>
+</table>
+</div>
+
+
+
+<div  id="NatStatic" style="display:">
+<hr>
+<p>NAT和DMZ配置
+<p><a name="NatStaticEdit"></a></p>
+<p>NAT静态映射</p>
+<Td class=normalCell>通过定义一个服务端口，所有对设备该端口的服务请求将被重新定位给指定的内网服务器，从而外网的计算机就可实现对内网服务器的访问</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>静态映射名</td>
+<Td class=normalCell>定义该条静态映射的名称</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用该配置</td>
+<Td class=normalCell>勾选表示启用该条静态映射</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>协议</td>
+<Td class=normalCell>选择协议类型，可供选择的有：TCP、UDP和TCP/UDP；当用户无法确认该协议时可选择TCP/UDP</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>外部起始端口</td>
+<Td class=normalCell>由设备提供的起始端口</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>IP地址</td>
+<Td class=normalCell>内网服务器的IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>内部起始端口</td>
+<Td class=normalCell>内网服务器所开服务的起始端口</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>端口数量</td>
+<Td class=normalCell>从内部起始端口开始的一段连续的端口，最大设置为500</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>NAT绑定</td>
+<Td class=normalCell>选择该条NAT静态映射绑定的WAN口</td>
+</TR>
+</table>
+
+<p><a name="NatRuleEdit"></a></p>
+<p>NAT规则
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>EasyIP</td>
+<Td class=normalCell>网络地址端口转换，多个内部IP地址映射到同一个IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>One2One</td>
+<Td class=normalCell>静态地址转换，内部IP地址与外部IP地址进行一对一的映射</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>Passthrough</td>
+<Td class=normalCell>对指定的IP地址不做NAT，使用其实际地址连接到Internet </td>
+</TR>
+</table>
+
+<p><a name="DMZ"></a></p>
+<p>DMZ</p>
+<Td class=normalCell>启用DMZ功能并设置DMZ 主机后，DMZ主机将完全暴露给 Internet ，实现双向通讯</td>
+</div>
+
+<div  id="Route" style="display:">
+<hr>
+<p>路由配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>路由名</td>
+<Td class=normalCell>自定义路由的名称</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用该配置</td>
+<Td class=normalCell>勾选表示该条路由生效</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>目的网络、子网掩码</td>
+<Td class=normalCell>设置目的网络</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>网关地址</td>
+<Td class=normalCell>下一跳路由器入口的IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>优先级</td>
+<Td class=normalCell>定义该条路由的优先级，值越小越优先</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>接口</td>
+<Td class=normalCell>指定数据包转发的接口</td>
+</TR>
+</table>
+</div>
+
+<div  id="PolicyRoute" style="display:">
+<hr>
+<p>策略路由
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用</td>
+<Td class=normalCell>勾选表示启用策略路由功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>策略路由名</td>
+<Td class=normalCell>自定义对该策略的名称</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>接口</td>
+<Td class=normalCell>设置策略路由绑定的物理接口，满足策略路由条件的数据包将从绑定接口转发出去</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>源地址</td>
+<Td class=normalCell>走此策略路由的数据包的源IP地址，可按以下两种方式配置</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>网段：走此策略路由的起始IP地址和结束IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>用户组：走此策略的用户组，点击“用户组”可引用源地址为用户组来进行策略引用。进入<strong>用户管理->用户组配置->添加新条目</strong>来设置策略路由生效的源地址段</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>目的地址</td>
+<Td class=normalCell>走此策略路由的数据包中的目的地址，配置方式同源地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>服务：走此策略路由的数据包中的服务，可按以下方式配置</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>端口：范围1~65535，对应的协议有TCP和UDP，当选择的协议为ICMP时不用配置端口范围</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>生效时间设置</td>
+<Td class=normalCell>选择策略路由生效的时间段，默认是日期是“每天”。时间为“全天”，可进入<strong>高级设置->策略路由</strong>配置页面编辑策略路由生效时间</td>
+</TR>
+</table>
+</div>
+
+<div  id="NetSniper" style="display:">
+<hr>
+<p>内网网络尖兵</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>启用网络尖兵</td>
+<Td class=normalCell>启用网络尖兵功能，将检测内网中是否存在多机器共享上网，如果识别到某一IP地址为共享上网，该IP下的主机在一段时间内会收到管理员通告</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>例外地址组</td>
+<Td class=normalCell>例外地址组中的IP将不被检测</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>管制时间</td>
+<Td class=normalCell>某一IP地址被识别为共享上网后，在管制时间内会一直收到通告</td>
+</TR>
+</table>
+</div>
+
+
+<div  id="AntiNetSnifer" style="display:">
+<hr>
+<p>网络尖兵防御</p>
+<Td class=normalCell>网络尖兵防御功能是破解运营商设置的共享检测；请确认内网遇到共享检测问题，否则不要轻易启用该功能</td>
+</div>
+
+<div  id="Hotel" style="display:">
+<hr>
+<p>即插即用</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用即插即用</td>
+<Td class=normalCell>为酒店用户配置即插即用功能；在设备上启用即插即用功能后，内网用户无需更改任何配置（如IP地址、网关地址、DNS服务器地址），就可以通过本设备上网</td>
+</TR>
+</table>
+</div>
+<div  id="PortMirror" style="display:none">
+<hr>
+<p>端口镜像</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>启用端口镜像</td>
+<Td class=normalCell>勾选表示启用端口镜像功能，默认LAN1口为监控端口，其他LAN口为被监控端口
+</td>
+</TR>
+</table>
+</div>
+<div  id="PortMirror8367M" style="display:none">
+<hr>
+<p>端口镜像
+<p>将设备其他端口的流量自动复制到监控端口，实时提供各端口的传输状况的详细资料，以便网络管理人员进行流量监控、性能分析和故障诊断 
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>监控端口</td>
+<Td class=normalCell>对被监控端口流量进行监控的端口，监控端口只能有一个
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>被监控端口</td>
+<Td class=normalCell> 只能选择一个被监控端口
+</td>
+</TR>
+
+<tr>
+<td width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>被监控端口不能与监控端口是同一个端口
+</td>
+</TR>
+</table>
+</div>
+
+
+<div  id="port_vlan_rdd" style="display:">
+<hr>
+<p>端口Vlan</p>
+<Td class=normalCell>端口VLAN是通过将设备上的LAN口分成若干个组，每个组构成一个虚拟网。同一个VLAN中的成员共享广播，可相互通信；不同VLAN之间实现物理隔离，一个VLAN内部的单播、广播和多播包都不会转发到其他VLAN中</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>同一个端口能属于多个不同的VLAN</td>
+</TR>
+</table>
+</div>
+
+
+
+<div  id="Syslog" style="display:">
+<hr>
+<p>Syslog配置</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>启用syslog服务</td>
+<Td class=normalCell>启用syslog服务功能后，该功能会将设备运行的大量信息发送给syslog服务器，这便于管理员分析系统的状况、监视系统的活动</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>syslog服务器的地址(域名)</td>
+<Td class=normalCell>设置syslog服务器的地址，可以是IP地址或域名</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>syslog服务器的端口</td>
+<Td class=normalCell>设置syslog服务器所开放的服务端口，默认为514</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>syslog消息类型</td>
+<Td class=normalCell>设置发送syslog的消息类型，默认为Local0</td>
+</TR>
+<tr>
+<td width="120" valign="top" class="italicCell">syslog消息发送间隔</td>
+<td class="normalCell">设置消息发送的间隔，默认为0，表示不发送</td>
+</tr>
+</table>
+</div>
+
+<div id="snmp" style="display: none;">
+<hr>
+<p>SNMP配置</p>
+<table cellspacing="0" cellpadding="4" border="0" width="100%">
+<tbody><tr>
+<td width="120" valign="top" class="italicCell">启用SNMP服务</td>
+<td class="normalCell">启用SNMP服务：禁止或者允许SNMP服务。为安全起见，只允许SNMP 服务器读设备信息</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">SNMP社区名</td>
+<td class="normalCell">它必须和SNMP网络管理软件包配置匹配。默认的SNMP社区名“uTt22aA”，为安全起见，建议修改这个系统默认值，从而防止入侵者通过SNMP的访问请求获取设备上的网络配置信息</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">设备名</td>
+<td class="normalCell">设备的主机名</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">联系人</td>
+<td class="normalCell">设备的管理员联系方式</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">位置</td>
+<td class="normalCell">设备的物理位置信息</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">允许以下主机管理</td>
+<td class="normalCell">选中“只允许以下主机管理”后，可以设置1～3台主机，只有这三台主机可以通过SNMP管理设备<br />允许主机1，2，3：可通过SNMP管理设备的主机的IP地址</td>
+</tr>
+</tbody></table>
+注：ToMAX路由器目前支持v2c版本的SNMP
+</div>
+
+<div id="snmpConf" style="display:none">
+<hr>
+<p>SNMP</p> 
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr id="idplate">
+<TD  width=120 valign=top class=italicCell>Enable SNMP</TD>
+<Td class=normalCell><p>Select the check box to enable SNMP agent.</p>    </td>
+</TR>
+<tr id="idplate">
+<TD width=120 valign=top class=italicCell>SNMP Trap Host</TD>
+<Td class=normalCell><p>Set the IP address of the host that receives SNMP traps.</p>    </td>
+</TR>
+<tr id="idplate">
+<TD width=120 valign=top class=italicCell>SNMP Read Community Name</TD>
+<Td class=normalCell><p>The community name used for read-only access to the Switch.</p>    </td>
+</TR>
+<tr id="idplate">
+<TD  width=120 valign=top class=italicCell>SNMP Write Community Name</TD>
+<Td class=normalCell><p>The community name used for read-write access to the Switch.</p>    </td>
+</TR>
+<tr id="idplate">
+<TD width=120 valign=top class=italicCell>SNMP Trap Community Name</TD>
+<Td class=normalCell><p>The community name used when sending traps.</p>    </td>
+</TR>
+<tr id="idplate">
+<TD width=120 valign=top class=italicCell>Note</TD>
+<Td class=normalCell>SNMP feature can help you remotely monitor, configure, and troubleshoot the Switch. If you enable SNMP agent, you can use an SNMP manager to retrieve the Switch's configuration and status information, and modify its configuration. Besides, you can configure the Switch to send traps to the SNMP manager when particular events occur, such as system restart, link down, link up, etc.</td>
+</TR>
+</table>
+</div>
+
+<div  id="NetShare" style="display:">
+<hr>
+<p><b><font size="+1" color="#666666">网络共享</font></a></b><p>
+<div  id="NetShareManage" style="display:">
+<p>网络共享管理
+<p>通过网络共享管理功能您可以在局域内共享外置存储设备上的卷
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用存储设备：</td>
+<Td class=normalCell>显示网络共享管理功能是否启用</td>
+</TR>
+<TD width=120 valign=top class=italicCell>使用密码访问：</td>
+<Td class=normalCell>选中后，局域网中用户必须通过用户名与密码来访问外置存储设备共享卷。如果您没有设置访问密码，请在启用前在"共享账户"页面进行设置</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>卷：</td>
+<Td class=normalCell>外置存储设备卷的卷名</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>总容量：</td>
+<Td class=normalCell>该卷的大小</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>已使用：</td>
+<Td class=normalCell>该卷已使用的大小</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>剩余：</td>
+<Td class=normalCell>该卷剩余的大小</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>使用量：</td>
+<Td class=normalCell>该卷已使用大小占总容量的百分比</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>共享控制：</td>
+<Td class=normalCell>选择是否共享该卷，点击“开启”，则该卷被共享</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>查看：</td>
+<Td class=normalCell>如果当前卷已启用共享，点击“打开存储设备”，或在IE浏览器中输入“\\路由器LAN口IP地址\共享卷名”（如：\\192.168.1.1\volume0），可以查看卷中内容</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>弹出设备</td>
+<Td class=normalCell>点击该按钮安全移除外置存储设备</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>扫描</td>
+<Td class=normalCell>点击此按钮重新检测外置存储设备共享卷信息</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>1、在拔出外置存储设备前，请点击“弹出设备”按钮，等列表显示为空时再拔出，否则容造成外置存储设备的损坏与数据的丢失
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2、若在路由器运行过程中插入外置存储设备，建议将路由器重启。
+</td>
+</TR>
+</table>
+</div>
+
+<div  id="FtpServer" style="display:">
+<hr>
+<p>FTP服务器
+<p>您可以通过该功能建立您自己的FTP服务器
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用FTP服务器：</td>
+<Td class=normalCell>选择是否开启FTP服务器功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>允许WAN口访问：</td>
+<Td class=normalCell>选择是否允许从WAN口访问FTP服务器</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>FTP端口：</td>
+<Td class=normalCell>FTP服务所使用的端口。建议使用默认值21</td>
+</TR>
+<div  id="FtpServer_edit" style="display:">
+<tr>
+<TD width=120 valign=top class=italicCell>名称：</td>
+<Td class=normalCell>FTP服务器上共享文件夹显示的名称</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>文件夹：</td>
+<Td class=normalCell>选择该选项后，点击保存，会共享整个外置存储设备分区上内容</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>文件夹位置：</td>
+<Td class=normalCell>该文件夹的物理完整路径</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>选择文件夹：</td>
+<Td class=normalCell>选择外置存储设备分区上某个文件夹进行共享</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>注意:</td>
+<Td class=normalCell>1、FTP服务器最多创建有10个共享文件夹。
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2、只有具有FTP访问权限的账户才能访问FTP服务器。如果您需要修改您的访问权限或账户，请在“共享账户”页进行配置。
+</td>
+</TR>
+</table>
+</div>
+
+<div  id="ShareAcc" style="display:">
+<hr>
+<p>共享账户
+<p>在启用外置存储设备共享功能之前，请先配置共享账户的用户名和密码
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>账户：</td>
+<Td class=normalCell>新账户的用户名</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>密码：</td>
+<Td class=normalCell>新账号的密码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>存取权限：</td>
+<Td class=normalCell>设置该账户在“网络共享管理”功能中的权限</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>FTP访问：</td>
+<Td class=normalCell>设置该账户在“FTP服务器”功能中的权限</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>注意:</td>
+<Td class=normalCell>1、网络共享功能默认两个账户为“admin”和“guest”，该账户不可以删除
+</td>
+</TR>
+</table>
+</div>
+</div>
+
+</div>
+<div id="Cache" style="display:">
+<hr>
+<p>云服务</p>
+<td class=normalCell>云服务是存储设备和服务器所构成的集合体，它主要用于为用户提供云空间存储服务</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>开启云服务</td>
+<td class=normalCell>勾选此项表示开启云服务功能</td>
+</tr>
+<tr>
+<td width=120 valign=top class=italicCell>自动刷新间隔</td>
+<td class=normalCell>用户自主选择自动刷新时间</td>
+</tr>
+<tr>
+<td width=120 valign=top class=italicCell>云容量</td>
+<td class=normalCell>设置云空间容量的大小，系统默认为400GB</td>
+</tr>
+<tr>
+<td width=120 valign=top class=italicCell>WEB视频</td>
+<td class=normalCell>勾选相应的选项后，云空间会保存设备下载的相应WEB视频</td>
+</tr>
+<tr>
+<td width=120 valign=top class=italicCell>网页</td>
+<td class=normalCell>勾选此项，云空间会保存设备下载的网页信息</td>
+</tr>
+</table>
+</div>
+<div id="SwFunGl">
+<hr>
+<p><b><font size="+1" color="#666666">交换功能</font></a></b><p>
+<div  id="ports">
+<p>端口管理
+<!--7390 1000m交换-->
+<table id="ports1000m" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>全局设置</td>
+<Td class=normalCell>用于统一设置所有端口的设置模式、允许最大帧等；例如选择设置模式为100M（全双工），则所有端口的设置模式都为100M（全双工）</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>端口名称</td>
+<Td class=normalCell>为方便管理而给交换机各端口设置的具有知意性的一串字符</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>连接状态</td>
+<Td class=normalCell>显示端口的连接状态，背景为绿色边框的表示100M链路，背景为红色边框的表示1000M链路，背景为无的表示链路Down或禁用</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>模式</td>
+<Td class=normalCell>设置端口的工作模式，选项有自动协商、10M（半双工）、10M（全双工）、100M（半双工）、100M（全双工）、1000M（全双工）以及禁止</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>允许最大帧</td>
+<Td class=normalCell>交换机端口允许通过的最大帧</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>流控</td>
+<Td class=normalCell>流控用于防止在端口阻塞的情况下丢帧，勾选表示开启相关端口的流控</td>
+</TR>
+</table>
+<!--1725 100m交换-->
+<table id="ports100m" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>全局设置</td>
+<Td class=normalCell>用于统一设置所有端口的设置模式、允许最大帧等；例如选择设置模式为100M（全双工），则所有端口的设置模式都为100M（全双工）</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>端口名称</td>
+<Td class=normalCell>为方便管理而给交换机各端口设置的具有知意性的一串字符</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>连接状态</td>
+<Td class=normalCell>显示端口的连接状态，背景为绿色边框的表示100M链路，背景为无的表示链路Down或禁用</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>模式</td>
+<Td class=normalCell>设置端口的工作模式，选项有自动协商、10M（半双工）、10M（全双工）、100M（半双工）、100M（全双工）以及禁止</td>
+</TR>
+<tr>
+<TD valign=top class=italicCell>流控</td>
+<Td class=normalCell>流控用于防止在端口阻塞的情况下丢帧，勾选表示开启相关端口的流控</td>
+</TR>
+</table>
+</div>
+
+<div  id="mirror">
+<hr>
+<p>端口镜像
+<p>将交换机其他端口的流量自动复制到监控端口，实时提供各端口的传输状况的详细资料，以便网络管理人员进行流量监控、性能分析和故障诊断
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>监控端口</td>
+<Td class=normalCell>对被监控端口流量进行监控的端口，监控端口只能有一个
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>被监控端口</td>
+<Td class=normalCell> 可选择一个或多个端口
+</td>
+</TR>
+
+<tr>
+<td width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell> 1、若开启端口镜像功能则被监控端口不能与监控端口是同一个端口
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell> 2、如果某端口已经属于某个汇聚组，则此端口不能再设置为监控端口（监控端口下拉框中的红色字体的端口表示该端口属于汇聚组中）
+</td>
+</TR>
+</table>
+</div>
+
+<div id="portvlan">
+<hr>
+<p>端口VLAN
+<p>VLAN（虚拟局域网）可以将网络逻辑地分割成多个不同的广播域，从而有助于控制流量、简化网络管理、加强网络安全性
+<p>端口VLAN是将不同的端口划分到一个VLAN组内，属于同一个VLAN的端口之间可以相互通信，不同VLAN的端口之间不能通信
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>一个端口可以属于多个VLAN，默认情况下所有端口都属于一个VLAN，VLAN组号为1
+</td>
+</TR>
+</table>
+</div>
+
+<div id="aggr">
+<hr>
+<p>端口汇聚
+<p>把2个或多个交换端口聚合在一起形成一个高带宽的数据传输通道。聚合在一起的所有端口看作一个逻辑端口，工作起来像一条通道一样，该逻辑端口带宽为汇聚组内所有端口带宽的叠加
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>1、同一汇聚组内的端口的端口参数必须一致，端口速率、双工模式必须相同，且必须属于同一个VLAN
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2、汇聚组内不能含有监控端口
+</td>
+</TR>
+</table>
+</div>
+</div>
+
+
+<div  id="UserMng" style="display:">
+<hr>
+<p><b><font color="#666666" size="+1">用户管理</font></a></b><p>
+
+<div  id="UserStatus" style="display:">
+<p>用户统计</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>自动刷新间隔</td>
+<Td class=normalCell>设置用户状态信息列表自动刷新的间隔</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>停止自动刷新</td>
+<Td class=normalCell>点击该按钮列表会停止自动刷新</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>开启自动刷新</td>
+<Td class=normalCell>点击该按钮列表会根据自动刷新间隔来刷新列表</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>备注</td>
+<Td class=normalCell>点击该图标可修改该PPPoE拨号用户或WEB认证用户的描述信息</td>
+</TR>
+</table>
+</div>
+
+<div  id="IPMac" style="display:">
+<hr>
+<p>IP/MAC绑定</p>
+<Td class=normalCell>通过IP/MAC绑定来设置对内网合法用户、非法用户及身份未知的用户进行上网管理</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>扫描、绑定</td>
+<Td class=normalCell>通过点击<扫描>、<绑定>可实现对某一网段在线主机的IP/MAC进行绑定</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>允许非IP/MAC绑定用户连接到设备</td>
+<Td class=normalCell>勾选复选框表示允许非IP/MAC绑定用户连接到设备</td>
+</TR>
+</table>
+</div>
+
+<div  id="PPPoEGlobal" style="display:">
+<hr>
+<p><a name="PPPoEGlobalEdit"></a></p>
+<p>PPPoE服务器
+<p>PPPoE全局配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用PPPoE服务器</td>
+<Td class=normalCell>勾选表示启用设备的PPPoE服务器功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>强制PPPoE认证</td>
+<Td class=normalCell>启用强制PPPoE认证表示只允许PPPoE认证通过的用户访问因特网</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>例外地址组</td>
+<Td class=normalCell>在设备开启强制PPPoE认证后，该地址组的用户可以不通过拨号认证与外网通信，地址组需要在<strong>用户管理->用户组配置</strong>页面进行配置</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>起始IP地址</td>
+<Td class=normalCell>设置PPPoE服务器地址池的起始IP地址，该地址不能与LAN口、WAN口及设备定义的其他地址池在同一网段</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>主、备DNS服务器</td>
+<Td class=normalCell>填写DNS服务器的IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>允许用户修改拨号密码</td>
+<Td class=normalCell>勾选表述允许用户自助修改拨号密码，管理员可以通过在<strong>行为管理->电子通告</strong>页面配置<strong>日常事务通告</strong>通知用户如何修改拨号密码。</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>用户修改拨号密码步骤</td>
+<Td class=normalCell>1、用户使用账号、密码拨号成功后，登陆自助服务页面，地址：http://192.168.1.1/poeUsers.asp（该地址为用户所在网段的网关）；</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2、输入用户名、旧密码、新密码、确认密码，点击“提交”；</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>3、页面显示“操作成功”，表示密码修改成。</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>提示：用户每天只能自助修改5次密码。</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>密码验证方式</td>
+<Td class=normalCell>服务器验证用户名、密码的方式。选项有：PAP、CHAP、AUTO(自动和对端设备协商密码验证方式)</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>系统最大会话数</td>
+<Td class=normalCell>系统支持建立PPPoE会话的最大数量</td>
+</TR>
+</table>
+
+
+<p><a name="PPPoEEdit"></a></p>
+<p>PPPoE账号配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>用户名、密码</td>
+<Td class=normalCell>为拨入用户设置PPPoE账号、密码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC绑定</td>
+<Td class=normalCell>选择是否将该用户名与相应的MAC地址进行绑定，如果绑定，则绑定后只有相应MAC地址的主机才可以使用该账号上网</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>自动绑定</td>
+<Td class=normalCell>当该用户拨号成功后，设备会将该用户名与拨号用户的MAC地址进行自动绑定</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>手工绑定</td>
+<Td class=normalCell>在MAC地址栏手动输入MAC地址进行绑定</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>账号最大会话数</td>
+<Td class=normalCell>设置同时使用该账号进行PPPoE接入的用户数</td>
+</TR>
+<tr>
+<TD width="120" valign="top" class="italicCell">固定IP地址</TD>
+<Td class="normalCell">为拨入用户分配固定IP地址，该地址必须在地址池范围内</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>添加到账号组</td>
+<Td class=normalCell>将该用户名添加到相应的账号组中，账号组需在<strong>用户管理->用户组配置</strong>页面进行配置</td>
+</TR>
+<tr>
+<TD width="120" valign="top" class="italicCell">计费模式</TD>
+<Td class="normalCell">勾选表示启用PPPoE Server计费功能</Td>
+</tr>
+<tr>
+<TD width="120" valign="top" class="italicCell">账号开通、停用日期</TD>
+<Td class="normalCell">设置拨入用户使用该账号的时间段</Td>
+</tr>
+<tr>
+<TD width="120" valign="top" class="italicCell">上传速率限制</TD>
+<Td class="normalCell">限制PPPOE账户最大上传速率(0表示不限制)</Td>
+</tr>
+<tr>
+<TD width="120" valign="top" class="italicCell">下载速率限制</TD>
+<Td class="normalCell">限制PPPOE账户最大下载速率(0表示不限制)</Td>
+</tr>
+<tr>
+<TD width="120" valign="top" class="italicCell">提示</TD>
+<Td class="normalCell">若PPPoE账号配置了上传、下载速率，则该账号不再匹配精细化限速</Td>
+</tr>
+<tr>
+<TD width="120" valign="top" class="italicCell">导出账号</TD>
+<Td class="normalCell">点击该按钮可导出列表中所有的PPPoE账号的相关信息，其内容包括账号的用户名、密码，导出格式为.txt</Td>
+</tr>
+<tr>
+<TD width="120" valign="top" class="italicCell">导入账号</TD>
+<Td class="normalCell">点击该按钮可批量导入PPPoE账号，格式为：用户名 密码；其中用户名密码之间有一个或多个空格</Td>
+</tr>
+</tr>
+</table>
+
+
+<p><a name="PPPoEConSta"></a></p>
+<p>PPPoE用户连接状态</p>
+<Td class=normalCell>通过PPPoE连接状态信息列表可以查看拨号用户的相关信息，包括分配的IP地址、用户的MAC地址、在线时间、上传下载速率等</td>
+</div>
+
+
+<div  id="WebAuthGlobal" style="display:">
+<p><a name="webAuthGlobalEdit"></a></p>
+<hr>
+<p>WEB认证</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>WEB认证</td>
+<Td class=normalCell>用于验证内网非PPPoE用户，启用该功能后，内网非PPPoE用户需经过WEB认证才能访问因特网</td>
+</TR>
+<tr>
+<td width="120" valign="top" class="italicCell">启用实名认证</td>
+<td class="normalCell">打钩表示启用，启用后请管理员前往ToMAX官网下载身份证认证客户端，并安装特定型号的身份证阅读器</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>例外地址组</td>
+<Td class=normalCell>该地址组的用户可以不通过WEB认证与外网通信，地址组需要在<strong>用户管理->用户组配置</strong>页面进行配置</td>
+</TR>
+<tr> 
+<TD width=120 valign=top class=italicCell>过期时间</td>
+<Td class=normalCell>可设置WEB认证过期时间，单位为分钟，表示在设定的时间内若用户无流量，则便是用户认证过期</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>允许用户修改认证密码</td>
+<Td class=normalCell>勾选表示允许用户自助修改认证密码，管理员可以通过在<strong>行为管理->电子通告</strong>页面配置<strong>日常事务通告</strong>通知用户如何修改认证密码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>用户修改认证密码步骤</td>
+<Td class=normalCell>1、用户使用账号、密码认证成功后，登陆自助服务页面：http://192.168.1.1/waUsers.asp（该地址为用户所在网段的网关）；</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2、输入用户名、旧密码、新密码、确认密码，点击“提交”；</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>3、页面显示操作成功，表示密码修改成功。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>提示：用户每天只能自助修改5次密码。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>窗口标题及提示文字</td>
+<Td class=normalCell>该文字信息将在用户登陆WEB认证界面及成功认证界面显示</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>预览</td>
+<Td class=normalCell>点击预览会看到设置的背景图片及提示信息在WEB认证登陆界面的显示状态</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>网络图片链接</td>
+<Td class=normalCell>可以由用户自行填入网络图片的链接，使网络图片做为WEB认证弹出窗口的背景。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>计费模式</td>
+<Td class=normalCell>勾选表示开启计费模式，当开启计费模式时，认证成功的页面会显示有效时间和剩余时间。</td>
+</TR>
+</table>
+
+
+<table  id="WEBAUTH_ADVANCE" cellspacing=0 cellpadding=4 border=0 width=100% style="display:none">
+<tr>
+<TD width=120 valign=top class=italicCell>简易配置</td>
+<Td class=normalCell>使用默认的认证页面。用户只可以针对窗口标题、窗口信息、联系方式做修改。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>高级配置</td>
+<Td class=normalCell>用户可以根据自己的需求，下载当前认证页面的源代码进行修改。修改之后上传到设备当中作为认证页面使用。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>使用默认'认证页面'</td>
+<Td class=normalCell>点击该按钮，将用户页面清除，改用默认的“认证页面”。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>下载当前'认证页面'</td>
+<Td class=normalCell>点击该按钮，下载当前正在使用的“认证页面”源代码。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>自定义图片上传</td>
+<Td class=normalCell>可以由用户自行上传本地图片做为WEB认证弹出窗口的背景图片。</td>
+</TR>
+</table>
+
+<p><a name="WebAuthServerEdit"></a></p>
+<p>WEB认证账号配置</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>用户名/密码</td>
+<Td class=normalCell>为WEB认证用户设置的账号、密码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>账号最大会话数</td>
+<Td class=normalCell>设置同时使用该账号进行WEB认证接入的用户数</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>计费模式</td>
+<Td class=normalCell>勾选表示启用计费模式</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>账号开通/过期日期</td>
+<Td class=normalCell>设置WEB认证用户使用该账号的时间段</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>总时间</td>
+<Td class=normalCell>限制WEB认证用户能够使用该账号的总时间，0表示不限制</td>
+</TR>
+
+<tr>
+<TD width=120 valign=top class=italicCell>描述</td>
+<Td class=normalCell>用户自定义描述信息</td>
+</TR>
+</table>
+</div>
+
+<div  id="UserGroup" style="display:">
+<hr>
+<p>用户组配置</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>用户组</td>
+<Td class=normalCell>将内网用户进行分类，方便管理；组类型分为地址组和账号组</td>
+</TR>
+</table>
+</div>
+
+<div id="FwService" style="display: block;">
+<hr>
+<p>服务组配置</p>
+<table cellspacing="0" cellpadding="4" border="0" width="100%">
+<tbody><tr>
+<td width="120" valign="top" class="italicCell">服务组</td>
+<td class="normalCell">可分别创建基于普通服务、URL、关键字和DNS的服务组，方便用户在防火墙配置中引用，也可以使用已有的服务组</td>
+</tr>
+</tbody></table>
+</div>
+
+<div id="BehaviorGl">
+<hr>
+<p><b><font size="+1" color="#666666">行为管理</font></a></b>
+
+<div  id="TimeRange" style="display:">
+<p>时间段配置</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>时间段</td>
+<Td class=normalCell>定义相关功能的生效时间，一个时间段能够定义三个时间单元。</td>
+</TR>
+</table>
+</div>
+
+<div  id="globalBase" style="display:">
+<hr>
+<p>上网行为管理</p>
+
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr><Td class=normalCell>通过配置上网行为管理，管理内网用户的上网行为，包括IM禁止、P2P禁止、游戏禁止、网站过滤等</td> </TR>
+<tr><Td class=normalCell>通过行为管理列表，您可以查看所配置的上网行为管理策略；勾选“启用”复选框表示该策略生效</td></TR>
+</table>
+
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>组配置</td>
+
+</table>
+
+<div  id="UserGroup" style="display:">
+<hr>
+<p>用户组配置</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>用户组</td>
+<Td class=normalCell>将内网用户进行分类，方便管理；组类型分为地址组和账号组</td>
+</TR>
+</table>
+</div>
+
+<div id="BehaviorGl">
+<hr>
+<p><b><font size="+1" color="#666666">行为管理</font></a></b>
+
+<div  id="TimeRange" style="display:">
+<p>时间段配置</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>时间段</td>
+<Td class=normalCell>定义相关功能的生效时间，一个时间段能够定义三个时间单元。</td>
+</TR>
+</table>
+</div>
+
+<div  id="globalBase" style="display:">
+<hr>
+<p>上网行为管理</p>
+
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr><Td class=normalCell>通过配置上网行为管理，管理内网用户的上网行为，包括IM禁止、P2P禁止、游戏禁止、网站过滤等</td> </TR>
+<tr><Td class=normalCell>通过行为管理列表，您可以查看所配置的上网行为管理策略；勾选“启用”复选框表示该策略生效</td></TR>
+</table>
+
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>组配置</td>
+<Td class=normalCell>定义该上网行为管理实例的名称及生效对象</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>生效时间设置</td>
+<Td class=normalCell>设置该行为管理的生效时间</td>
+</TR>
+</table>
+
+
+<p><a name="Game"></a></p>
+
+<p>游戏网站
+ <table>
+ <tr>
+ <td width=120 valign=top class=italicCell></td>
+ <td class=normalURL   align=left valign=top>games.sina.com.cn www.sgamer.com  www.17173.com games.tom.com </td>
+ <td width=30></td>
+  <td class=normalURL   align=left valign=top>www.chinagames.net www.ourgame.com  game.qq.com </td>
+   <td width=30></td>
+   <td class=normalURL   align=left valign=top>www.game.com.cn  www.ali213.com games.sohu.com</td>
+    <td width=30></td>
+     <td class=normalURL   align=left valign=top>nie.163.com www.pcpop.com  www.yx99.com </td>
+    <td width=30></td>
+     <td class=normalURL   align=left valign=top>www.wanyouxi.com   www.yx007.cn game.21cn.com</td>
+    <td width=30></td>
+</tr> 
+</table>
+
+<p><a name="QQGame"></a></p>
+
+<p>QQGame
+ <table>
+ <tr>
+ <td width=120 valign=top class=italicCell></td>
+ <td class=normalURL   align=left valign=top>QQ大厅 </td>
+ <td width=20></td>
+  <td class=normalURL   align=left valign=top>地下城与勇士 </td>
+   <td width=20></td>
+   <td class=normalURL   align=left valign=top>英雄联盟</td>
+    <td width=20></td>
+     <td class=normalURL   align=left valign=top>QQ飞车 </td>
+    <td width=20></td>
+     <td class=normalURL   align=left valign=top>QQ炫舞</td>
+    <td width=20></td>
+         <td class=normalURL   align=left valign=top>第九大陆</td>
+</tr>
+</table>
+
+<p><a name="Stock"></a></p>
+
+<p>证券网站
+ <table>
+ <tr>
+ <td width=120 valign=top class=italicCell></td>
+ <td class=normalURL   align=left valign=top>finance.sina.com.cn www.sse.com.cn  www.szse.cn www.cnstock.com  www.cs.com.cn www.f10.com.cn  www.gtja.com </td>
+ <td width=30></td>
+  <td class=normalURL   align=left valign=top>www.sw108.com  www.htsec.com www.guosen.com  www.gf.com.cn www.newone.com.cn www.htsc.com.cn  </td>
+   <td width=30></td>
+   <td class=normalURL  align=left valign=top>www.cs.ecitic.com www.dfzq.com.cn  www.cjis.cn www.lhzq.com  www.95579.com  www.bigsun.com.cn </td>
+    <td width=30></td>
+     <td class=normalURL  align=left valign=top>stock.eastmoney.com  www.stock2000.net www.qlzq.com.cn  stock.cnfol.com  www.stock01.com   www.gsstock.com  </td>
+    <td width=30></td>
+     <td class=normalURL   align=left valign=top>www.chinastock.com.cn  www.cc168.com.cn www.ebscn.com  www.bocionline.com   www.skyone.com.cn www.xyzq.com.cn </td>
+    <td width=30></td>
+</tr> 
+</table>
+
+<p><a name="StockSW"></a></p>
+<p>证券软件
+<table>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+ <td class=normalURL   align=left valign=top>大智慧 </td>
+ <td width=20></td>
+  <td class=normalURL   align=left valign=top>同花顺 </td>
+   <td width=20></td>
+   <td class=normalURL   align=left valign=top>钱龙 </td>
+    <td width=20></td>
+     <td class=normalURL   align=left valign=top>指南针 </td>
+    <td width=20></td>
+     <td class=normalURL   align=left valign=top>操盘手</td>
+</tr>
+</table>
+
+
+
+<p><a name="File"></a></p>
+<p>过滤文件类型
+ <table>
+ <tr>
+ <td width=120 valign=top class=italicCell></td>
+ <td class=normalURL   align=left valign=top>.exe</td>
+  <td width=10></td>
+   <td class=normalURL   align=left valign=top>.dl</td>
+  <td width=10></td>
+   <td class=normalURL   align=left valign=top>.vbs</td>
+  <td width=10></td>
+   <td class=normalURL   align=left valign=top>.bat</td>
+  <td width=10></td>
+    <td class=normalURL   align=left valign=top>.sys</td>
+  <td width=10></td>
+ 
+</tr> 
+</table>
+</div>
+
+<div  id="QQFilter" style="display:">
+<hr>
+<p>QQ白名单</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>允许400/800企业QQ</td>
+<Td class=normalCell>如果在上网行为管理页面禁止QQ后，可以通过勾选该项来放通企业QQ</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>QQ白名单</td>
+<Td class=normalCell>如果在上网行为管理页面禁止QQ后，可以在QQ白名单中定义允许登录的QQ用户</td>
+</TR>
+</table>
+</div>
+
+<div  id="MSNFilter" style="display:">
+<hr>
+<p>MSN白名单</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>MSN白名单</td>
+<Td class=normalCell>如果在上网行为管理页面禁止MSN后，可以在MSN白名单中定义允许登录的MSN用户</td>
+</TR>
+</table>
+</div>
+<div  id="AliFilter" style="display:">
+<hr>
+<p>阿里旺旺白名单</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>阿里旺旺白名单</td>
+<Td class=normalCell>如果在上网行为管理页面禁止阿里旺旺后，可以在阿里旺旺白名单中定义允许登录的阿里旺旺用户</td>
+</TR>
+</table>
+</div>
+
+
+<div  id="Notice" style="display:none">
+<hr>
+<p><a name="NormalNotice"></a></p>
+<p>电子通告
+<p>日常事务通告
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用</td>
+<Td class=normalCell>勾选表示启用日常事务通告功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>通告网段</td>
+<Td class=normalCell>设置该日常事务通告的地址范围</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>通告标题、内容</td>
+<Td class=normalCell>设置日常事务通告的标题及内容</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>生效日期设置</td>
+<Td class=normalCell>设置该日常事务通告生效的日期</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>生效频率</td>
+<Td class=normalCell>设置该日常事务通告的频率</td>
+</tr>
+</table>
+
+<p><a name="PPPoENotice"></a></p>
+<p>账号到期通告
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用</td>
+<Td class=normalCell>勾选表示启用账号到期通告功能</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>提前发送到期通告天数</td>
+<Td class=normalCell>设置设备发送到期通告的有效天数，当该参数设置为5时，表示从账号到期前5天开始，当用户拨号成功，第一次打开网页时会收到设备发送的到期通告</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>通告标题、内容</td>
+<Td class=normalCell>设置账号到期通告的标题及内容</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell></td>
+</tr>
+</table>
+</div>
+</div>
+
+<div  id="LogManage" style="display:">
+<hr>
+<p>上网行为审计
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用网页日志</td>
+<Td class=normalCell>启用网页日志后，能够在<strong>行为审计</strong>页面查看内网用户访问网页的记录；如：“2012-07-09 09:36:41 srcip=200.200.202.127;url=www.paipai.com”表示2012年7月9日9时36分内网IP地址为200.200.202.127的用户访问了www.paipai.com。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用QQ上下线日志</td>
+<Td class=normalCell>启用QQ上下线日志后，能够在<strong>行为审计</strong>页面查看内网用户QQ的上下线记录</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用MSN上下线日志</td>
+<Td class=normalCell>启用MSN上下线日志后，能够在<strong>行为审计</strong>页面查看内网用户MSN的上下线记录</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用邮件审计日志</td>
+<Td class=normalCell>启用邮件审计日志后，能够在<strong>行为审计</strong>页面查看内网用户收发邮件的记录</td>
+</TR>
+<tr>
+<td width="120" valign="top" class="italicCell">启用行为禁止日志</td>
+<td class="normalCell">启用行为禁止日志后，能够在<strong>行为审计</strong>页面记录用户是否应用了行为管理中禁止的功能</td>
+</tr>
+</table>
+</div>
+
+<div  id="PdbUpdata" style="display:">
+<hr>
+<p>策略库
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>更新</td>
+<Td class=normalCell>下载并自动更新对应的策略库</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>更新全部条目</td>
+<Td class=normalCell>下载并自动更新列表中全部的策略库</td>
+</TR>
+</table>
+</div>
+
+</div>
+
+<div id="QosGl">
+<hr>
+<p><b><font size="+1" color="#666666">带宽管理</font></a></b>
+
+<div  id="Group" style="display:">
+<p>精细化限速
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>组名、起始、结束IP地址</td>
+<Td class=normalCell>定义组名及该精细化限速生效的地址段</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>限速策略——独享</td>
+<Td class=normalCell>符合此限速规则的每个IP地址独自占用所设置的速率</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>限速策略——共享</td>
+<Td class=normalCell>符合此限速规则的所有IP地址共同分享所设置的速率</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>上传、下载速率限制</td>
+<Td class=normalCell>分别设置最大上传、下载的速率限制</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>生效时间设置</td>
+<Td class=normalCell>设置该精细化限速生效的时间</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>移动到</td>
+<Td class=normalCell>设备匹配精细化限速的原则是从上至下，用户可通过“移动到”按钮调整精细化限速实例的顺序</td>
+</TR>
+</table>
+</div>
+
+<div  id="SmartQos" style="display:">
+<hr>
+<p>弹性带宽
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>弹性带宽功能与精细化限速功能不能同时启用；同时启用后，速率限制中带宽值小的优先生效</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>WAN口上、下行带宽</td>
+<Td class=normalCell>填写向运营商申请的带宽</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>游戏加速</td>
+<Td class=normalCell>开启弹性带宽后，被选择中游戏会加速</td>
+</TR>
+</table>
+</div>
+
+<div  id="P2PLimit" style="display:">
+<hr>
+<p>P2P限速</p>
+<p>用于限制P2P软件上传和下载的速率</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用P2P限速</td>
+<Td class=normalCell>勾选表示启用P2P限速</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>限速策略</td>
+<Td class=normalCell>有两种限速策略可供选择:</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>1.每台内网主机的P2P流量使用此设定速率</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2.所有内网主机的P2P流量共享此设定速率</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>上传/下载速率限制</td>
+<Td class=normalCell>设置上传/下载的最大速率</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>例外地址组</td>
+<Td class=normalCell>设置不在P2P限速范围内的地址组</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>生效时间设置</td>
+<Td class=normalCell>设置P2P限速生效的时间</td>
+</TR>
+</table>
+</div>
+
+<div  id="ConnectionLimit" style="display:">
+<hr>
+<p>连接限制
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>允许内网每台主机的最大连接；默认总连接数为1500、TCP连接数为1000、UDP连接数为800、ICMP连接数为100</td>
+</TR>
+</table>
+</div>
+
+</div>
+
+
+<div id="FwGl">
+<hr>
+<p><b><font size="+1" color="#666666">防火墙</font></a></b>
+
+<div id="FwBase">
+<p><a name="FwBaseHl"></a></p>
+<p>安全配置</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用DDoS攻击防御</TD>
+<Td class=normalCell>设备将有效防御内网常见的DDoS攻击</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用IP欺骗防御</TD>
+<Td class=normalCell>启用后能有效防御内网的IP欺骗</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用UDP FLOOD防御</TD>
+<Td class=normalCell>启用后，设备能有效防御UDP洪水攻击</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用ICMP FLOOD防御</TD>
+<Td class=normalCell>启用后，设备能有效防御ICMP洪水攻击</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用SYN FLOOD防御</TD>
+<Td class=normalCell>启用后，设备能有效防御SYN洪水攻击</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用ARP欺骗防御</TD>
+<Td class=normalCell>启用该功能后，设备LAN口会每隔一定的时间（默认为100毫秒）发送ARP广播包，该功能能有效防御ARP欺骗</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用设备访问控制</TD>
+<Td class=normalCell>启用设备访问控制后，只有后续设置的IP地址能访问设备</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用端口扫描防御</TD>
+<Td class=normalCell>启用后，设备能有效防御端口扫描</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>拒绝外部ping</TD>
+<Td class=normalCell>禁止设备响应外部ping</td>
+</TR>
+</table>
+</div>
+
+<div id="FireWall">
+<hr>
+<p><a name="FireWallHl"></a></p>
+<p>访问控制策略</p>
+<Td class=normalCell>用户定义的访问控制策略将按列表中的顺序从上至下进行匹配；当设备收到一个数据包后，将从列表的顶端开始向下匹配策略，如果第一条策略匹配成功——转发或者丢弃数据包，则不再匹配后续的策略；如果第一条策略不匹配则继续向下匹配直到最后</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>策略名、源地址</TD>
+<Td class=normalCell>定义该访问控制策略的名称及匹配的内网地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>动作——禁止</TD>
+<Td class=normalCell>如果数据包匹配该条策略则丢弃该数据包，关键字过滤动作只能为禁止</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>动作——允许</TD>
+<Td class=normalCell>如果数据包匹配该条策略则转发该数据包</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>IP过滤</TD>
+<Td class=normalCell>设置要过滤的源端口、目的IP地址、目的端口；目的端口可通过选择协议、常用服务来定义</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>URL过滤</TD>
+<Td class=normalCell>设置要过滤的URL地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</TD>
+<Td class=normalCell>1、URL地址中，英文字符不区分大小写。输入URL时请不要包含http://</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></TD>
+<Td class=normalCell>2、URL过滤是根据URL的关键字进行过滤的，当访问的网页的URL中含有与“过滤内容”完全匹配的字段时，就认为是匹配该策略的。输入一个完整的域名，则以该域名开头的所有网页都被匹配。输入域名的子字符串，则URL中包含该子字符串的所有网页都被匹配，从而实现对某个站点的所有网页的过滤</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>关键字过滤</TD>
+<Td class=normalCell>设置要过滤的关键字，其动作只能为禁止</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>DNS过滤</TD>
+<Td class=normalCell>设置要过滤的域名名称；注：DNS过滤是通过53端口实现过滤，URL过滤是通过80端口实现过滤</td>
+</TR>
+<tr>
+<td width="120" valign="top" class="italicCell">服务类型</td>
+<td class="normalCell">自定义、服务组</td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>生效时间设置</TD>
+<Td class=normalCell>设置该策略生效的时间</td>
+</TR>
+</table>
+</div>
+
+<div id="ParentsControl" style="display:none">
+<hr>
+<p><a name="ParentsControlHl"></a></p>
+<p>家长控制</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用家长控制</TD>
+<Td class=normalCell>勾选表示启用家长控制功能。启用后功能生效，除家长MAC和小孩MAC外的电脑都不能上网。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>当前内网电脑的MAC地址</TD>
+<Td class=normalCell>当前连接路由器电脑的MAC地址。如果有多台电脑连接时，可点击下拉箭头进行查看。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>设为家长电脑</TD>
+<Td class=normalCell>将当前的MAC地址设置为家长电脑，最多可以设置四台家长电脑。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>家长电脑1的MAC地址</TD>
+<Td class=normalCell>第一个设为家长电脑的MAC地址。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>家长电脑2的MAC地址</TD>
+<Td class=normalCell>第二个设为家长电脑的MAC地址。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>家长电脑3的MAC地址</TD>
+<Td class=normalCell>第三个设为家长电脑的MAC地址。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>家长电脑4的MAC地址</TD>
+<Td class=normalCell>第四个设为家长电脑的MAC地址。</td>
+</TR>
+</table>
+<p>家长控制列表</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>用户名</TD>
+<Td class=normalCell>设置家长控制的用户名。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>小孩电脑的MAC地址</TD>
+<Td class=normalCell>填入需要控制电脑的MAC地址。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>允许小孩访问的网站</TD>
+<Td class=normalCell>填入小孩可以访问的网站，点击添加。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</TD>
+<Td class=normalCell>输入通配符“*”可以实现多个网站，例如在允许访问网站中输入www.163.*，内网用户就可以访问所有以www.163开头的所有网页。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>生效时间段</TD>
+<Td class=normalCell>设置家长控制的生效时间。进入<strong>行为管理—>时间段配置</strong>中设置生效时间。
+</td>
+</TR>
+</table>
+</div>
+
+
+<div id="MacFilter" style="display:none">
+<hr>
+<p><a name="MacFilterHl"></a></p>
+<p>MAC地址过滤</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用MAC地址过滤</TD>
+<Td class=normalCell>勾选表示启用MAC地址过滤功能。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>过滤规则</TD>
+<Td class=normalCell>用户可根据自己的需求进行选择“允许  只允许列表中的MAC地址访问本网络”或“禁止  只禁止列表中的MAC地址访问本网络”。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>用户名</TD>
+<Td class=normalCell>显示配置MAC地址过滤的用户名。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC地址</TD>
+<Td class=normalCell>显示配置的MAC地址过滤的MAC地址。</td>
+</TR>
+</table>
+<p>MAC地址过滤设置</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>用户名</TD>
+<Td class=normalCell>配置MAC地址过滤的用户名。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC地址</TD>
+<Td class=normalCell>配置要进行过滤的MAC地址。用户也可以在<strong>防火墙—>MAC地址过滤—>MAC地址过滤配置</strong>页面进行批量配置。</td>
+</TR>
+</table>
+</div>
+
+
+<div id="DnsFilter">
+<hr>
+<p><a name="DnsFilterHl"></a></p>
+<p>域名过滤</p>
+<Td class=normalCell>通过配置过滤功能，能够只禁止指定用户在指定时间访问域名列表中的域名，或只允许指定用户在指定时间访问域名列表中的域名</td>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</TD>
+<Td class=normalCell>1、域名名称中英文字符不区分大小写；输入域名名称时请不要包含http://</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></TD>
+<Td class=normalCell>2、域名过滤可通过通配符“*”来实现对多个域名的过滤，例如在域名名称中输入 www.163.* ，内网用户将不能访问以 www.163. 开头的所有网页</td>
+</TR>
+</table>
+
+<p><a name="DnsFilterNotice"></a></p>
+<p>域名过滤通告</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用域名过滤通告</TD>
+<Td class=normalCell>打勾表示启用，启用域名过滤通告功能后，当内网用户访问被禁止的域名时，设备将会发送通告给此用户，并且到设置的时间后，将跳转到指定的网址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>通知标题</TD>
+<Td class=normalCell>设备推送的通告信息的标题</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>自动跳转时间</TD>
+<Td class=normalCell>设置访问域名列表所列域名的自动跳转时间；为空时表示不跳转，为0时表示立即跳转</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>自动跳转URL</TD>
+<Td class=normalCell>设置访问域名列表所列域名时自动跳转到的域名地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>通知内容</TD>
+<Td class=normalCell>设备推送的通告信息的内容</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>预览页面</TD>
+<Td class=normalCell>预览所配置的通告内容</td>
+</TR>
+</table>
+
+</div>
+</div>
+
+
+<div id="VPN" style="display:">
+<hr>
+<p><b><font size="+1" color="#666666">VPN配置</font></a></b>
+<p>
+<div  id="PPTP" style="display:">
+<p>PPTP
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>通过PPTP协议建立VPN隧道</Td>
+</tr></table>
+<p>PPTP客户端
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用NAT</td>
+<Td class=normalCell>客户端启用NAT后，能实现本地网络到隧道对端网络的单向访问</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>隧道名称</td>
+<Td class=normalCell>定义此条隧道的名称</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>用户名、密码</td>
+<Td class=normalCell>填写客户端拨号的用户名、密码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>密码验证方式</td>
+<Td class=normalCell>设置建立PPTP VPN的密码验证方式，选项有MS-CHAPV2、PAP、CHAP、THRIN（自动和对端设备协商密码验证方式）；其要与服务端设置的密码验证方式一致</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>加密方式</td>
+<Td class=normalCell>设置数据加密的方式，选项有MPPE加密、不加密。注：采用MPPE加密方式必须选择MS-CHAPV2密码验证方式</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>远端内网网络地址、子网掩码</td>
+<Td class=normalCell>隧道对端的内网地址及子网掩码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>隧道服务器地址（名）</td>
+<Td class=normalCell>PPTP服务器的公网IP地址或域名</td>
+</TR>
+</table>
+<p>PPTP服务器
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>隧道名称</td>
+<Td class=normalCell>定义此条隧道的名称</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>用户类型</td>
+<Td class=normalCell>选项包括：LAN到LAN、移动用户</Td>
+</tr><tr>
+<TD width=120 valign=top class=italicCell>LAN到LAN</td>
+<Td class=normalCell>拨入的PPTP用户是一个网段的用户，往往是通过一个路由器拨入，实现PPTP隧道两端内网的通信</Td>
+</tr><tr>
+<TD width=120 valign=top class=italicCell>移动用户</td>
+<Td class=normalCell>拨入的VPN用户是个人用户，往往由单个计算机拨入，实现PPTP隧道远端计算机与本地内网的通信</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>用户名、密码</td>
+<Td class=normalCell>设置客户端拨号的用户名及密码</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>固定IP地址</td>
+<Td class=normalCell>设置PPTP服务器分配给客户端的IP地址，该地址必须属于PPTP服务器地址池中</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>远端内网网络地址、子网掩码</td>
+<Td class=normalCell>隧道对端内网地址及子网掩码</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>密码验证方式</td>
+<Td class=normalCell>设置建立PPTP VPN的密码验证方式，选项有MS-CHAPV2、PAP、CHAP、THRIN（自动和对端设备协商密码验证方式）</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>地址池起始地址、地址池地址数</td>
+<Td class=normalCell>设置PPTP服务端的地址池，PPTP隧道建立成功后服务器会分配一个地址给客户段作为客户端的虚接口IP地址</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>服务端IP地址</td>
+<Td class=normalCell>隧道服务端的虚接口IP地址，该地址不包含在地址池中</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>加密方式</td>
+<Td class=normalCell>设置数据加密的方式，选项有MPPE加密、不加密。注：采用MPPE加密方式必须选择MS-CHAPV2密码验证方式</Td>
+</tr>
+<tr>
+<TD width=120 valign=top class=italicCell>硬件特征码</td>
+<Td class=normalCell>账号类型为“移动用户”时可配置硬件特征码。配ToMAX的PPTP客户端，用于限定账号在指定机器上使用，增强安全</Td>
+</tr>
+</table>
+</div>
+
+<div id="L2TP" style="display: none;">
+<p>L2TP
+<table cellspacing="0" cellpadding="4" border="0" width="100%">
+<tbody><tr>
+<td class="normalCell">通过L2TP协议建立VPN隧道</td>
+</tr></tbody></table>
+</p><p>L2TP客户端
+<table cellspacing="0" cellpadding="4" border="0" width="100%">
+<tbody>
+<tr>
+<td width="120" valign="top" class="italicCell">隧道名称</td>
+<td class="normalCell">定义此条隧道的名称</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">用户名、密码</td>
+<td class="normalCell">填写客户端拨号的用户名、密码</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">密码验证方式</td>
+<td class="normalCell">设置建立L2TP VPN的密码验证方式，选项有EITHER、NONE、PAP、CHAP，EITHER（自动和对端设备协商密码验证方式）；其要与服务端设置的密码验证方式一致</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">远端内网网络地址、子网掩码</td>
+<td class="normalCell">隧道对端的内网地址及子网掩码</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">隧道服务器地址（名）</td>
+<td class="normalCell">L2TP服务器的公网IP地址或域名</td>
+</tr>
+</tbody></table>
+</p><p>L2TP服务器
+<table cellspacing="0" cellpadding="4" border="0" width="100%">
+<tbody><tr>
+<td width="120" valign="top" class="italicCell">隧道名称</td>
+<td class="normalCell">定义此条隧道的名称</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">用户类型</td>
+<td class="normalCell">选项包括：LAN到LAN、移动用户</td>
+</tr><tr>
+<td width="120" valign="top" class="italicCell">LAN到LAN</td>
+<td class="normalCell">拨入的L2TP用户是一个网段的用户，往往是通过一个路由器拨入，实现L2TP隧道两端内网的通信</td>
+</tr><tr>
+<td width="120" valign="top" class="italicCell">移动用户</td>
+<td class="normalCell">拨入的VPN用户是个人用户，往往由单个计算机拨入，实现L2TP隧道远端计算机与本地内网的通信</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">用户名、密码</td>
+<td class="normalCell">设置客户端拨号的用户名及密码</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">远端内网网络地址、子网掩码</td>
+<td class="normalCell">隧道对端内网地址及子网掩码</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">密码验证方式</td>
+<td class="normalCell">设置建立L2TP VPN的密码验证方式，选项有EITHER、PAP、NONE、CHAP，EITHER（自动和对端设备协商密码验证方式）</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">地址池起始地址、地址池地址数</td>
+<td class="normalCell">设置L2TP服务端的地址池，L2TP隧道建立成功后服务器会分配一个地址给客户段作为客户端的虚接口IP地址</td>
+</tr>
+<tr>
+<td width="120" valign="top" class="italicCell">服务端IP地址</td>
+<td class="normalCell">隧道服务端的虚接口IP地址，该地址不包含在地址池中</td>
+</tr>
+</tbody></table>
+</p></div>
+
+<div  id="IPSec" style="display:">
+<p>IPSec
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>通过IPSec建立VPN隧道</Td>
+</tr></table>
+<p>IPSec
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>动态连接到网关</td>
+<Td class=normalCell>在这种情况下，在建立IPSec隧道时本设备只能作为发起方，且IPSec隧道两端都应该选择野蛮模式进行第一阶段的IKE协商</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>对方动态连接到本地</td>
+<Td class=normalCell>在这种情况下，在建立IPSec隧道时本设备只能作为响应方，且IPSec隧道两端都应该选择野蛮模式进行第一阶段的IKE协商</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>远端网关地址（域名）</td>
+<Td class=normalCell>IPSec 隧道远端网关的地址（或域名）。设置为域名时，需要在设备上设置 DNS 服务器，此时设备会定期解析该域名，若 IP 地址变化，设备将重新协商 IPSec 隧道</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>远端内网地址 内网掩码</td>
+<Td class=normalCell>隧道远端受保护的内网的任一IP地址和子网掩码。若远端是移动单机用户，则这两个参数分别设置为该客户端的IP地址和255.255.255.255</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>本地绑定</td>
+<Td class=normalCell>选择绑定的本地接口。将IPSec配置绑定到指定接口上，那么所有经过该接口的数据包将被IPSec检查，以确定是否对该数据包进行加密和解密操作</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>本地内网地址 内网掩码</td>
+<Td class=normalCell>本地受保护的内网的任一IP地址和子网掩码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>预共享密钥</td>
+<Td class=normalCell>协商所用的预共享密钥，最长为 128 字符</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>加密认证算法 1</td>
+<Td class=normalCell>可供第二阶段协商使用的首选加密和认证算法</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>协商模式</td>
+<Td class=normalCell>“网关到网关”时选择“主模式”，其他两种方式时选“野蛮模式</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>生存时间（第一阶段）</td>
+<Td class=normalCell>IKE SA 的生存时间，至少 600 秒，当剩余时间为 540 秒时，将重新协商 IKE SA </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>生存时间（第二阶段）</td>
+<Td class=normalCell>IPSec SA 的生存时间，至少 600 秒，当剩余时间为 540 秒时，将重新协商 IPSec SA</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>抗重播</td>
+<Td class=normalCell>启用后，设备将支持抗重播功能，从而可以拒绝接收过的数据包或数据包拷贝，以保护自己不被攻击</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>DPD</td>
+<Td class=normalCell>启用或取消 DPD 功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>心跳</td>
+<Td class=normalCell>配置后，设备每隔单位时间（“心跳”）向对端发送探测消息，来确定对端是否还存活</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>NAT 穿透</td>
+<Td class=normalCell>启用或取消 NAT 穿透功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>端口</td>
+<Td class=normalCell>用来穿透 NAT 的 UDP 封包的端口号，缺省值 4500 </td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>维持</td>
+<Td class=normalCell>启用 NAT 穿透功能后，设备将每隔单位时间（“维持”）向 NAT 设备发送一个数据包以维持 NAT 映射，这样就不需要更改 NAT 映射，直到第一阶段和第二阶段的 SA 过期</td>
+</TR>
+</table>
+</div>
+</div>
+
+<div id="UrcpGl">
+<hr>
+<p><b><font size="+1" color="#666666">联动管理</font></a></b>
+<div  id="discover">
+<p>联动管理
+<p>在本页面点击&lt;联动发现&gt;可查看内网中其他交换机的相关信息，输入相应的密码可以对其进行远程管理
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>IP</td>
+<Td class=normalCell>点击相应的IP地址能够直接登录设置（前提是本机的LAN口的IP地址与远程设备在同一网段）</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>密码</td>
+<Td class=normalCell>远程设备登录密码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>全局密码设置</td>
+<Td class=normalCell>远程设备密码相同的情况下，可以统一输入</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>管理</td>
+<Td class=normalCell>点击&lt;管理&gt;可对相应的远程设备进行远程管理，包括：端口管理、端口VLAN、端口汇聚、端口镜像、系统设置、重启设备、恢复出厂配置、获取配置、下发配置及查看其设备系统信息</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>批量操作</td>
+<Td class=normalCell>勾选要进行批量管理的远程设备，并输入密码，点击&lt;批量操作&gt;后可对设备进行批量管理，包括：修改远程设备的登录密码、安全绑定、重启设备、恢复出厂配置、获取配置、下发配置</td>
+</TR>
+</table>
+
+<div  id="portsUrcp">
+<p>端口管理
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>全局设置</TD>
+<Td class=normalCell>用于统一设置所有端口的设置模式、允许最大帧以及端口保护等功能，例如，选择设置模式为1000（全双工），则所有端口的设置模式都自动设置为1000（全双工）</td>
+</TR><tr>
+<TD width=120 valign=top class=italicCell>端口名称</TD>
+<Td class=normalCell>为管理运行维护方便而给交换机设置的具有知意性的一串字符</td>
+</TR>
+
+<tr>
+<TD width=120 valign=top class=italicCell>连接状态</td>
+<Td class=normalCell>显示端口的连接状态，背景为绿色框的表示100M链路，背景为橘黄色框的表示1000M链路，背景为无的表示链路DOWN或禁用</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>模式</td>
+<Td class=normalCell>设置端口的工作模式，选项有自动协商、10（半双工）、10（全双工）、100（半双工）、100（全双工）、1000（全双工）以及禁止</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>允许最大帧</td>
+<Td class=normalCell>交换机端口允许通过的最大帧</td>
+</TR>
+<tr>
+<tr>
+<TD width=120 valign=top class=italicCell>流控</td>
+<Td class=normalCell>流控用于防止在端口阻塞的情况下丢帧，勾选表示开启相关端口的流控</td>
+</TR>
+<TD width=120 valign=top class=italicCell>端口保护</td>
+<Td class=normalCell>启用/禁用端口保护功能，启用端口保护功能后，端口不再学习新的MAC地址，并且只转发静态绑定的MAC地址；禁用端口保护后，则重新开始学习新的MAC地址</td>
+</TR>
+
+<tr>
+<TD width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>在没有设置静态MAC地址的情况下，启用所有端口的端口保护，将导致所有用户都无法通过该交换机连接网络</td>
+</TR>
+    <tr>
+<TD width=120 valign=top class=italicCell>泛洪</td>
+<Td class=normalCell>启用该功能即是关闭了端口的MAC地址学习功能，端口收到数据帧后直接向其他端口转发</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>该功能会严重影响网络的性能，请慎用！</td>
+</TR>
+</table>
+</div>
+
+<div  id="portvlanUrcp">
+<p>端口VLAN
+<p>VLAN（虚拟局域网）可以将网络逻辑地分割成多个不同的广播域，从而有助于控制流量、简化网络管理、加强网络安全性
+<p>端口VLAN是将不同的端口划分到一个VLAN组内，属于同一个VLAN的端口之间可以相互通信，不同VLAN的端口之间不能通信
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>一个端口可以属于多个VLAN，默认情况下所有端口都属于一个VLAN，VLAN组号为1
+</td>
+</TR>
+</table>
+</div>
+
+<div  id="aggrUrcp">
+<p>端口汇聚
+<p>把2个或多个交换端口聚合在一起，形成一个高带宽的数据传输通道。聚合在一起的所有端口看作一个逻辑端口，工作起来像一条通道一样，该逻辑端口带宽为汇聚组内所有端口带宽的叠加
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>1、同一汇聚组内的端口的端口参数必须一致，端口速率、双工模式必须相同，且必须完全属于某一VLAN</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2、若设备设置了TAG VLAN，则同一汇聚组内的端口必须具有相同的TAG VLAN端口设置</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>3、汇聚组内不能含有监控端口</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>4、同一汇聚组内的端口的速率限制必须相同</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell>5、已开启LACP或RSTP的端口，无法设置汇聚</td>
+</TR>
+</table>
+</div>
+
+<div  id="mirrorUrcp">
+<p>端口镜像
+<p>将交换机其他端口的流量自动复制到监控端口，实时提供各端口的传输状况的详细资料，以便网络管理人员进行流量监控、性能分析和故障诊断
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>监控端口</td>
+<Td class=normalCell>对被监控端口流量进行监控的端口，监控端口只能有一个
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>被监控端口</td>
+<Td class=normalCell> 可选择一个或多个端口
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell> 1、若开启端口镜像功能则被监控端口不能与监控端口是同一个端口
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell></td>
+<Td class=normalCell> 2、如果某端口已经属于某个汇聚组，则此端口不能再设置为监控端口（监控端口下拉框中的红色字体的端口表示该端口属于汇聚组中）
+</td>
+</TR>
+</table>
+</div>
+
+<div  id="sysInfoUrcp">
+<p>系统信息
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>CPU占用</TD>
+<Td class=normalCell>当前CPU资源使用率</td>
+</TR><tr>
+<TD width=120 valign=top class=italicCell>内存使用</TD>
+<Td class=normalCell>当前内存资源使用率</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>U盘使用</td>
+<Td class=normalCell>当前U盘资源使用率（只有外插U盘的时候才会显示该条目）</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>CPU、内存、U盘这三个参数的值都通过进度条和数值（百分比）两种方式显示，数值的取值范围为0%~100%；根据数值的大小，进度条可能会显示为空、绿色、黄色或者红色：</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>1、当数值<1%时，进度条为空</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2、当 1%<=数值<50 %时，进度条为绿色</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>3、当 50%<=数值<70%时，进度条为黄色</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>4、当数值>=70%时，进度条为红色</td>
+</TR>
+</table>
+</div>
+
+<div id="sysUrcp">
+<p>系统设置 
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用DHCP中继</TD>
+<Td 
+class=normalCell>启用DHCP中继后，会将经过交换机的DHCP报文插入中继信息，以方便支持DHCP中继的服务器根据插入的信息来分配特定的IP地址，插入信息的格式为2位的端口号加MAC地址，
+                     例如收到DHCP包的交换机端口号为端口3，交换机的MAC地址为0022aa0022aa，那么中继的信息则为030022aa0022aa </td>
+</TR>
+<tr>
+<TD width=120 valign="top" class="italicCell" >启用DHCP客户端</TD>
+<Td class=normalCell>设置交换机是否作为DHCP客户端，启用此功能后，交换机将从网络中已经存在的DHCP Server处获得IP地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class="italicCell">IP地址、子网掩码</TD>
+<Td class=normalCell>用于设定我们管理交换机时使用的IP地址。为了方便对交换机进行管理，交换机的管理IP地址一般设为与局域网同网段</td>
+</TR>
+<tr>
+<TD width=120 valign=top class="italicCell">网关</TD>
+<Td class=normalCell>局域网的网关地址</td>
+</TR>
+<tr>
+<TD width=120 valign=top class="italicCell">CPU VLAN ID</TD>
+<Td class=normalCell>设置该设备的CPU VLAN ID，默认为1。若设备开启了VLAN功能，且工作在TAG VLAN模式，则只有在，VLAN ID等于此处CPU VLAN  ID 的TAG VLAN所包含的端口上，连接的用户可管理该设备，其他不可管理</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>MAC地址老化时间</TD>
+<Td class=normalCell> 系统自动擦除已有MAC地址的时间，默认300秒</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>设备名</TD>
+<Td class=normalCell>为管理运行维护方便而给交换机设置的具有知意性的一串字符</td>
+</TR>
+<tr>
+<TD width=120 valign="top" class="italicCell">密码</TD>
+<Td class=normalCell>设置登录交换机管理界面时输入的密码</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</TD>
+<Td class=normalCell>更改密码后，请妥善保管新密码，一旦忘记密码，则只有通过Reset按钮，将配置恢复为出厂值，才能进入交换机的管理界面</td></TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用ARP欺骗防御</TD>
+<Td class=normalCell>启用/禁用ARP欺骗防御功能，启用此功能后，再进入安全设置—ARP欺骗防御页面，设置IP/MAC绑定，就可以有效防止ARP欺骗</td>
+</TR>
+</table>
+</div>
+
+<div  id="linkageGetConfUrcp">
+<p>联动配置
+<p>该页面可以查看存储在设备内存中配置文件的相关信息。这些配置文件是通过联动管理功能中的配置获取功能获取到的，它将远程设备的配置文件存储在本设备的内存中（设备重启配置文件列表将清空）
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>下载</td>
+<Td class=normalCell>点击&lt;下载&gt;将配置文件下载到本地PC上</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>编辑</td>
+<Td class=normalCell>点击编辑图标，可修改配置文件的名称</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>删除</td>
+<Td class=normalCell>点击删除图标，可将配置文件从设备内存中清除</td>
+</TR>
+</table>
+</div>
+
+<div id="linkageSendConf">
+<p>下发配置
+<p>在本页面可以将本机上存在的配置下发给其他设备
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>本机配置文件</td>
+<td class=normalCell>指要下发到远程交换机上的配置文件为本机配置文件
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>联动配置文件</td>
+<td class=normalCell>指要下发到远程交换机上的配置文件是通过联动获取的配置文件，从配置文件列表中选择要下发得联动配置文件
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>手动选择配置项</td>
+<td class=normalCell>指可以选择性的去下发相应的配置文件，如：系统配置（只下发“启动DHCP中继”、“启动DHCP客户端”、“MAC地址老化时间”）、VLAN配置、汇聚配置等
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>完全覆盖</td>
+<td class=normalCell>指本机/联动配置文件将完全覆盖远程交换机的配置（IP地址信息将不会下发）
+</td>
+</TR>
+</table>
+</div>
+
+</div>
+
+<div  id="linkageGetConf">
+<hr>
+<p>联动配置
+<p>该页面可以查看存储在设备内存中配置文件的相关信息。这些配置文件是通过联动管理功能中的配置获取功能获取到的，它将远程设备的配置文件存储在本设备的内存中（设备重启配置文件列表将清空）
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>下载</td>
+<Td class=normalCell>点击&lt;下载&gt;将配置文件下载到本地PC上</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>编辑</td>
+<Td class=normalCell>点击编辑图标，可修改配置文件的名称</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>删除</td>
+<Td class=normalCell>点击删除图标，可将配置文件从设备内存中清除</td>
+</TR>
+</table>
+</div>
+
+<div  id="topoy">
+<hr>
+<p>网络拓扑
+<p>点击&lt;拓扑发现&gt;，设备能发现同一广播域中支持拓扑发现功能的其他设备，且能显示其网络拓扑结构
+<p>根节点即为当前登录的设备
+<p>点击拓扑图中设备，在输入登录密码后能够对其进行远程管理
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<td width=120 valign=top class=italicCell>父节点端口</td>
+<td class=normalCell>为上联交换机上与该交换机的连接端口号
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>本节点端口</td>
+<td class=normalCell>为该交换机上与上联交换机连接端口号
+</td>
+</TR>
+
+<tr>
+<td width=120 valign=top class=italicCell>父节点汇聚</td>
+<td class=normalCell>如果该交换机与上联交换机做了汇聚，则显示上联交换机汇聚组成员端口号
+</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>本节点汇聚</td>
+<td class=normalCell>若此设备设置了汇聚，则显示本节点到父节点对应的汇聚组成员端口
+</td>
+</TR>
+
+<tr>
+<td width=120 valign=top class=italicCell>安全警报</td>
+<td class=normalCell>表明该交换机发生了告警事件，如：ARP攻击、内存使用过高等，可通过该交换机的“安全日志”查看具体事件信息
+</td>
+</TR>
+</table>
+</div>
+</div>
+
+<div id="SysMng" style="display:">
+<hr>
+<p><b><font size="+1" color="#666666">系统管理</font></a></b><p>
+
+<div  id="User" style="display:">
+<p>管理员配置
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>可修改管理员登录的用户名、密码或创建新的管理员</td>
+</TR>
+</table>
+</div>
+
+<div  id="langChange" style="display:">
+<hr>
+<p>语言选择
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>选择设备WEB管理界面显示的语言，目前只支持中文简体</td>
+</TR>
+</table>
+</div>
+
+<div  id="SysClock" style="display:">
+<hr>
+<p>时钟管理
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>当前系统时间</td>
+<Td class=normalCell>显示设备当前系统的时间</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>时区选择</td>
+<Td class=normalCell>只有选择了正确的时区，网络时间同步功能才能正常工作</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>手工设置时间</td>
+<Td class=normalCell>手工输入当前的日期和时间</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>网络时钟同步</td>
+<Td class=normalCell>设置正确的ntp服务器后，当设备连接到Internet之后，就会自动和所设置ntp服务器同步时间</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>服务器IP地址</td>
+<Td class=normalCell> 系统预设两个ntp服务器192.43.244.18、129.6.15.28，一般情况下不需要修改。若想解更多ntp知识及服务器，可访问http://www.ntp.org</td>
+</TR>
+</table>
+</div>
+
+<div  id="DeviceConfig" style="display:">
+<hr>
+<p>配置管理
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>保存当前配置到本地</td>
+<Td class=normalCell>将系统当前运行的配置备份到管理计算机中（.xml格式）</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>导入前恢复出厂配置</td>
+<Td class=normalCell>勾选后，在导入配置之前设备将恢复出厂配置</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>选择配置文件</td>
+<Td class=normalCell>点击&lt;浏览&gt;选择管理计算机上的配置文件</td>
+</TR>
+<tr>
+<td width=120 valign=top class=italicCell>恢复设备出厂配置</td>
+<Td class=normalCell>点击&lt;恢复&gt;后应重启设备，才会将设备恢复到出厂配置</td>
+</TR>
+</table>
+</div>
+
+<div  id="SoftwareUpdate" style="display:">
+<hr>
+<p>软件升级
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>升级前请确认升级的软件与当前硬件版本一致；升级过程中不能关闭电源</td>
+</TR>
+<tr>
+<Td class=normalCell>点击&lt;浏览&gt;，在管理计算机上选择要升级的软件，再点击&lt;升级&gt;；升级成功后设备将自动重启</td>
+</TR>
+</table>
+</div>
+
+<div  id="Remote" style="display:">
+<hr>
+<p>远程管理
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用Http</td>
+<Td class=normalCell>勾选表示启用WEB远程管理功能</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>外部端口</td>
+<Td class=normalCell>默认的端口号为8081</td>
+</TR>
+</table>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>启用远程管理后，如果WAN1口的IP地址为200.200.210.20，那么远程计算机登录设备的方式是在浏览器的地址栏中输入http://200.200.210.20:8081
+</Td></tr></table>
+</div>
+
+<div  id="TaskScheduler" style="display:">
+<hr>
+<p>计划任务
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>通过配置计划任务，管理员可以预定义设备在规定的时间里完成规定的动作
+</Td></tr></table>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>任务名</td>
+<Td class=normalCell>定义任务名</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启动类型</td>
+<Td class=normalCell>选择时间周期，可选项有：每星期、每天、每小时、每分钟</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>运行时间</td>
+<Td class=normalCell>执行这个计划任务的具体时间，它的设置根据启动类型不同而不同</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>任务内容</td>
+<Td class=normalCell>选择相应的任务内容</td>
+</TR>
+</table>
+</div>
+<div  id="PingCheck" style="display:">
+<hr>
+<p>ping诊断
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>IP地址/主机名</td>
+<Td class=normalCell>输入要诊断的IP地址或者主机名，可对其进行诊断，点击ping诊便可在下面的方框中显示ping诊断的结果</td>
+</TR>
+</table>
+</div>
+
+<div  id="DeviceLoginControl" style="display:">
+<hr>
+<p>设备登录控制</p>
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>启用https</td>
+<Td class=normalCell>允许用户通过HTTPS协议登录设备</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用SSH</td>
+<Td class=normalCell>允许用户通过SSH协议登录设备，默认的端口为22。注：只支持SSH2登陆</td>
+</TR>
+</table>
+</div>
+
+</div>
+
+<div id="SysSts" style="display:" >
+<hr>
+<p><b><font size="+1" color="#666666">系统状态</font></a></b>
+<p>
+<div  id="RunStatus" style="display:">
+<p>
+<p>运行状态
+<table id="RunStatusNormal"  style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>通过此页面可以查看设备各接口的相关信息，如：接口的接入方式、IP地址、MAC地址、子网掩码、连接时间等信息</td>
+</TR>
+</table>
+<table id="RunStatus1800"  style="display:none" cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<Td class=normalCell>通过此页面可以查看设备LAN口的相关信息：如：LAN口的接入方式、IP地址、MAC地址、子网掩码、连接时间等信息</td>
+</TR>
+</table>
+</div>
+
+<div  id="SysInfo" style="display:">
+<p>
+<hr>
+<p>系统信息
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>系统当前时间</td>
+<Td class=normalCell>设备当前的日期和时间</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>系统运行时间</td>
+<Td class=normalCell>设备本次启动至查看时刻的时间</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>CPU占用</td>
+<Td class=normalCell>当前CPU使用的百分比</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>内存使用</td>
+<Td class=normalCell>当前内存使用百分比</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>注意</td>
+<Td class=normalCell>CPU、内存这两个参数的值都通过进度条和数值（百分比）两种方式显示，数值的取值范围为0%~100%；根据数值的大小进度条可能会显示为空、绿色、黄色或者红色</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>1、当数值&lt;1%时，进度条为空</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>2、当 1%&le;数值&lt;50 %时，进度条为绿色</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>3、当 50%&le;数值&lt;70%时，进度条为黄色</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell></td>
+<Td class=normalCell>4、当数值&ge;70%时，进度条为红色</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>序列号</td>
+<Td class=normalCell>设备的序列号</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>产品型号</td>
+<Td class=normalCell>设备的产品型号</td>
+</TR>
+<tr id="hwModelTr" style="display:">
+<TD width=120 valign=top class=italicCell>硬件版本</td>
+<Td class=normalCell>设备的硬件版本</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>软件版本</td>
+<Td class=normalCell>设备当前软件的版本</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>历史记录</td>
+<Td class=normalCell>在该处可以查看系统记录的相关信息</td>
+</TR>
+</table>
+</div>
+
+<div  id="SysLogInfo" style="display:">
+<p>
+<hr>
+<p>系统日志
+<table cellspacing=0 cellpadding=4 border=0 width=100%>
+<tr>
+<TD width=120 valign=top class=italicCell>系统日志信息</td>
+<Td class=normalCell>记录系统的日志信息。</td>
+</TR>
+<tr id="SysLogInfo_DHCP" style="display:">
+<TD width=120 valign=top class=italicCell>启用DHCP日志</td>
+<Td class=normalCell>记录DHCP服务器冲突检测，绑定错误信息等。</td>
+</TR>
+<tr id="SysLogInfo_Notice" style="display:">
+<TD width=120 valign=top class=italicCell>启用通告日志</td>
+<Td class=normalCell>记录通告信息。</td>
+</TR>
+<tr>
+<TD width=120 valign=top class=italicCell>启用ARP日志</td>
+<Td class=normalCell>记录ARP欺骗信息。</td>
+</TR>
+<tr id="SysLogInfo_PPPOE" style="display:">
+<TD width=120 valign=top class=italicCell>启用PPP0E日志</td>
+<Td class=normalCell>记录PPPOE拨号日志信息。</td>
+</TR>
+</table>
+</div>
+
+
+</div>
+
+</body>
+</html>

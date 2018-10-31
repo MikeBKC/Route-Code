@@ -1,0 +1,8 @@
+upn_start=Enable UPnP
+upn_upnpList=UPnP Port Forwarding List
+upn_xuhao=ID
+upn_innerIP=Internal IP
+upn_innerPort=Internal Port
+upn_exterIP=Remote IP
+upn_exterPort=External Port
+upnp_list=UPnP List

@@ -1,0 +1,10 @@
+ipv6RouteConfig=IPv6路由配置
+rou_routeName=路由名
+rou_destNet=目的网络
+rou_destNetPre=目的网络前缀
+ipv6_RouteList=IPv6路由配置信息列表
+rou_gw=网关地址
+rou_destNetPreLen=目的网络前缀长度
+rou_routeInfo=路由配置信息
+rou_startTip=打勾表示启用该路由，只有启用该配置，该路由才能生效。
+rou_priTip=数值越小，优先级越高。

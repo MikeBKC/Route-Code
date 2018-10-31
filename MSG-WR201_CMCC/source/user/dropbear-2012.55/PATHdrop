@@ -1,0 +1,5 @@
+user/dropbear-2012.55/debian/dropbear.init:13:PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+user/dropbear-2012.55/config.log:31:PATH: /usr/local/bin
+user/dropbear-2012.55/config.log:32:PATH: /bin
+user/dropbear-2012.55/config.log:33:PATH: /usr/bin
+user/dropbear-2012.55/options.h:295:#define DEFAULT_PATH "/usr/bin:/bin"

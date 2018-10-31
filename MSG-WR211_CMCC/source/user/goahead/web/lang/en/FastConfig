@@ -1,0 +1,6 @@
+quitGuide=Exit Wizard
+guideContent1=The Setup Wizard will guide you to configure the basic parameters to quickly connect the Device to the Internet. Even unfamiliar with our product, you still can follow the instructions to complete the setup easily. If you are an expert user, you may exit the Wizard and directly select the menu item that you want to configure.
+guideContent2=To continue, please click "Next".
+guideContent3=To exit Setup Wizard, please click "Exit Wizard".
+fas_guideConfig=Setup Wizard
+fas_nomore=Do Not Automatically Launch Setup Wizard Again

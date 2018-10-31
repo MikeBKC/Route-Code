@@ -1,0 +1,7 @@
+hotel=plug-and-play
+hotelStart=Enable plug-and-play
+hotelContent1=Once Easy Surfing is enabled, the LAN hosts basic TCP/IP parameters (including IP address, subnet mask, gateway IP address, and DNS server IP address) should be set to any value. The Device will automatically enable proxy ARP, enable DNS proxy, and disable IP spoofing defense and allow those non-IP/MAC binding users to access the Device and Internet.
+hotelContent2=The users with the same IP address cannot access the Internet at the same time.
+hotelContent3=A LAN user's IP address cannot be the same with the Device's LAN/WAN interface IP address, gateway IP address, and primary/secondary DNS server IP address; otherwise, the user cannot access the Device and Internet.
+hotel_warn1=Network there may be other routers, if use the router to the Internet, please do not unlock the function of this equipment is easy to get to the Internet
+hotel_waitCheck=The Device is detecting the current network, please wait

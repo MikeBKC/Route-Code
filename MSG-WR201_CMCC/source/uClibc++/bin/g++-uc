@@ -1,0 +1,24 @@
+#!/bin/bash
+
+WRAPPER_INCLUDEDIR="${WRAPPER_INCLUDEDIR:=-I/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/romfs/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/linux-2.6.36NEW.x/include/}"
+WRAPPER_LIBDIR="${WRAPPER_LIBDIR:=-L/data3/wu.xiaoyu/BR_SOHO_189_GIT/MSG-WR201_CMCC/source/romfs/lib/}"
+
+WRAPPER_OPTIONS=""
+WRAPPER_LIBS=" -L/opt/buildroot-gcc342/bin/../lib/gcc/mipsel-linux-uclibc/3.4.2/ -lsupc++ -lc -lgcc"
+
+WRAPPER_INCLIB="Y"
+while [ -n "$1" ]
+do
+	WRAPPER_OPTIONS="$WRAPPER_OPTIONS $1"
+	if [ "$1" = "-c" -o "$1" = "-E" -o "$1" = "-S" ]
+	then
+		WRAPPER_INCLIB="N"
+	fi
+	shift
+done
+if [ "$WRAPPER_INCLIB" == "Y" ]
+then
+	WRAPPER_OPTIONS="$WRAPPER_OPTIONS -nodefaultlibs $WRAPPER_LIBDIR -llibstdc++ $WRAPPER_LIBS"
+fi
+
+exec "/opt/buildroot-gcc342/bin"/mipsel-linux-uclibc-g++ -fno-builtin -nostdinc++   -fno-exceptions -fno-rtti $WRAPPER_INCLUDEDIR $WRAPPER_OPTIONS

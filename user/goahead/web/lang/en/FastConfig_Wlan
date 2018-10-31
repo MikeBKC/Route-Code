@@ -1,0 +1,16 @@
+Attention=Note:
+WirelessAtt=If you have chosen the APClient access mode, please wait patiently after you click &#34Finish&#34.  The Device is connecting to the remote AP during this time.
+G3Att=If you have chosen the 3G access mode, please wait patiently after you click &#34Finish&#34. The Device is dialing during this time (about a minute, depending on the model of your 3G USB modem). If it fails to dial, please try to pull out and insert the 3G USB modem again or restart the Device.
+ShowMsg=Here you can configure the basic wireless parameters.
+WirelessMode=Wireless Mode
+Only11g=11g Only
+Only11n=11n Only
+mixgnb=11b/g/n Mixed
+Chain=Channel
+Automatic=Auto
+ChainnelBandW=Channel Width
+Speed=Rate
+ReWrite=Cancel
+LeavePage=Exit
+Finsh=Finish
+Wlanxiangdao=Setup Wizard - Wlan

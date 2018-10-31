@@ -1,0 +1,144 @@
+<po>
+  <message msgid="save" msgstr="保存" />
+  <message msgid="reset" msgstr="重填" />
+  <message msgid="update" msgstr="刷新" />
+  <message msgid="" msgstr="" />
+  <message msgid="" msgstr="" />
+
+<!--  WANConfig  -->
+  <message msgid="WANConfig" msgstr="WAN口配置" />
+  <message msgid="method" msgstr="接入方式" />
+  <message msgid="static" msgstr="固定IP接入" />
+  <message msgid="dhcp" msgstr="动态IP接入" />
+  <message msgid="pppoe" msgstr="PPPoE接入" />
+  <message msgid="ipaddr" msgstr="IP地址" />
+  <message msgid="subnet" msgstr="子网掩码" />
+  <message msgid="gateway" msgstr="网关地址" />
+  <message msgid="zhuDNS" msgstr="主DNS服务器" />
+  <message msgid="beiDNS" msgstr="备DNS服务器" />
+
+  <message msgid="name" msgstr="用户名" />
+  <message msgid="password" msgstr="密码" />
+  <message msgid="password2" msgstr="确认密码" />
+  <message msgid="pdmethod" msgstr="密码验证方式" />
+  <message msgid="phonemode" msgstr="拨号类型" />
+  <message msgid="auto" msgstr="自动拨号" />
+  <message msgid="demand" msgstr="按需拨号" />
+  <message msgid="menual" msgstr="手动拨号" />
+  <message msgid="freetime" msgstr="空闲时间" />
+  <message msgid="miao" msgstr="秒" />
+  <message msgid="wave" msgstr="字节 (取值范围：1-1492)" />
+  <message msgid="MACcopy" msgstr="MAC地址克隆" />
+  <message msgid="double road list" msgstr="线路组合状态信息列表" />
+
+
+<!--  LANConfig  -->
+  <message msgid="LANConfig" msgstr="LAN口配置" />
+  <message msgid="MACaddr" msgstr="MAC地址" />
+  <message msgid="zhuyi" msgstr="&lt;strong &gt;注意：&lt;/strong &gt;修改IP地址后，您必须使用新的IP地址才能登录设备。" />
+
+
+ <!-- DDNS  -->
+  <message msgid="DDNS" msgstr="DDNS配置" />
+  <message msgid="ddnsstart" msgstr="启用DDNS服务" />
+  <message msgid="shuoming" msgstr="打勾表示启用DDNS功能，只有启用该功能，DDNS配置才能生效。" />
+  <message msgid="services" msgstr="服务商" />
+  <message msgid="dnsyuming" msgstr="注册域名" />
+  <message msgid="pcnum" msgstr="主机名" />
+  <message msgid="passtb1" msgstr="口令" />
+  <message msgid="ddns zhuangtai" msgstr="DDNS状态" />
+  <message msgid="ddns update" msgstr="更新状态" />
+  <message msgid="updatetime" msgstr="更新时间" />
+  <message msgid="update state" msgstr="更新状态" />
+  <message msgid="passtb" msgstr="密码" />
+  <message msgid="key" msgstr="密钥" />
+  <message msgid="none" msgstr="无" />
+
+<!--DHCP -->
+  <message msgid="DHCP" msgstr="DHCP服务器" />
+  <message msgid="DHCPset" msgstr="DHCP服务设置" />
+  <message msgid="staticDHCP" msgstr="静态DHCP" />
+  <message msgid="DHCPClient" msgstr="DHCP客户端列表" />
+  <message msgid="remain time" msgstr="剩余租期" />
+  <message msgid="DHCPPool" msgstr="DHCP地址池" />
+  <message msgid="DHCPSvcSet" msgstr="DHCP服务器设置" />
+  <message msgid="DNSset" msgstr="DNS代理" />
+  <message msgid="maxConfigTips" msgstr="配置已经达到最大条数,不能添加新配置" />
+  <message msgid="staticDHCPMsg" msgstr="静态DHCP信息" />
+  <message msgid="help" msgstr="帮助" />
+  <message msgid="addrPool" msgstr="地址池" />
+  
+  <message msgid="poolName" msgstr="地址池名称" />
+  <message msgid="openDnsTips" msgstr="打勾表示启用DNS代理，只有启用该功能，DNS代理才能生效。" />
+  <message msgid="ISPDNSSvc1" msgstr="运营商DNS服务器1" />
+  <message msgid="ISPDNSSvc2" msgstr="运营商DNS服务器2" />
+  <message msgid="" msgstr="" />
+  
+  <message msgid="staticDHCPTips" msgstr="静态DHCP：即DHCP手工绑定，通过计算机的MAC地址与某个IP地址绑定，从而为局域网中指定的MAC地址固定分配预设的IP地址。" />
+
+<!--  DhcpServer  -->
+  <message msgid="dhcpset" msgstr="启用DHCP服务器" />
+  <message msgid="dhcp shuoming" msgstr="打勾表示启用DHCP服务器功能，只有启用该功能，DHCP服务器相关配置才能生效。" />
+  <message msgid="startip" msgstr="起始IP地址" />
+  <message msgid="usetime" msgstr="租用时间" />
+  <message msgid="endip" msgstr="结束IP地址" />
+  <message msgid="dnsset" msgstr="启用DNS代理" />
+  <message msgid="dns shuoming" msgstr="打勾表示启用DNS代理，只有启用该功能，DNS代理相关配置才能生效。" />
+
+
+<!--  DhcpFix  -->
+  <message msgid="selecte" msgstr="全选/全不选" />
+  <message msgid="add" msgstr="添加新条目" />
+  <message msgid="delall" msgstr="删除所有条目" />
+  <message msgid="del" msgstr="删除" />
+  <message msgid="static DHCP list" msgstr="静态DHCP列表" />
+  <message msgid="static DHCP" msgstr="静态DHCP配置" />
+  <message msgid="DHCP list" msgstr="DHCP客户端列表" />
+   <message msgid="returnback" msgstr="返回" />
+  
+
+
+<!--  ipmac_edit  -->
+	<message msgid="ipmac-edit" msgstr="IP/MAC绑定配置" />
+	<message msgid="warning1" msgstr="主机名要以 .iplink.com.cn 结尾！" />
+	<message msgid="warning2" msgstr="主机名要以 .3322.org 结尾！" />
+	<message msgid="warning3" msgstr="确定删除？" />
+	<message msgid="warning4" msgstr="确定删除所有的条目？" />
+	<message msgid="warning5" msgstr="起始地址不能为0.0.0.0" />
+	<message msgid="warning6" msgstr="结束地址不能为0.0.0.0" />
+	<message msgid="warning7" msgstr="起始地址不能大于结束地址。" />
+	<message msgid="warning8" msgstr="不能删除默认条目！" />
+	<message msgid="warning9" msgstr="该操作将同时对默认服务区用户生效，是否确定？" />
+	<message msgid="warning10" msgstr="" />
+	<message msgid="warning11" msgstr="" />
+	<message msgid="warning12" msgstr="" />
+	<message msgid="warning13" msgstr="" />
+
+
+	<!--PPPoE-->
+  <message msgid="PPPoEGlobal" msgstr="PPPoE全局配置" />
+  <message msgid="PPPoEServer" msgstr="PPPoE账号配置" />
+  <message msgid="PPPoEConSta" msgstr="PPPoE用户连接状态" />
+  <message msgid="PPPoE Server list" msgstr="PPPoE账号信息列表" />
+  <message msgid="PPPoE ConSta list" msgstr=" PPPoE连接状态信息列表" />
+
+
+<!--PPPoEServer-->
+  <message msgid="PPPoE" msgstr="PPPoE服务器" />
+  <message msgid="pppoeset" msgstr="启用PPPoE服务器" />
+  <message msgid="pppoe shuoming" msgstr="打勾表示启用PPPoE服务器功能，只对默认服务区中的有线客户端生效。" />
+  <message msgid="zongcount" msgstr="总地址数" />
+   <message msgid="pwdMethod" msgstr="密码验证方式" />
+   <message msgid="maxSession" msgstr="系统最大会话数" />
+   <message msgid="PPPoEwarning" msgstr="PPPoE已经达到最大个数,不能添加新的PPPoE账号" />
+
+<!-- PPPoEConSta-->
+  <message msgid="conSta" msgstr="连接状态" />
+  <message msgid="oltime" msgstr="在线时间" />
+  <message msgid="uprate" msgstr="上传速率(KB/s)" />
+  <message msgid="downrate" msgstr="下载速率(KB/s)" />
+
+<!-- VPN-->
+  <message msgid="PPTPClient" msgstr="PPTP客户端" />
+
+</po>

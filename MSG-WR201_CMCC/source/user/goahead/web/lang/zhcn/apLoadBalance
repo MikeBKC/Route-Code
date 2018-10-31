@@ -1,0 +1,11 @@
+load_balance=负载均衡
+load_balance_list=负载均衡列表
+load_balance_g_n=负载均衡组名
+number=数量
+use_incSame=本组内已经包含相同的内容
+add_require=请选择需要添加的信息
+max_allow_num=负载均衡列表中允许加入2-10 个AP
+start_load_balance=开启负载均衡
+left_show=可供选择AP列表
+enable=开启
+disable=关闭

@@ -1,0 +1,1 @@
+./configure  CC=/opt/buildroot-gcc342/bin/mipsel-linux-uclibc-gcc AR=/opt/buildroot-gcc342/bin/mipsel-linux-uclibc-ar LD=/opt/buildroot-gcc342/bin/mipsel-linux-uclibc-ld CXX=/opt/buildroot-gcc342/bin/mipsel-linux-uclibc-g++ STRIP=/opt/buildroot-gcc342/bin/mipsel-linux-uclibc-strip RANLIB=/opt/buildroot-gcc342/bin/mipsel-linux-uclibc-ranlib --build=i686-linux --host=mipsel-linux

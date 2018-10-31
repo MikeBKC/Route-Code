@@ -1,0 +1,15 @@
+DeviceConf=配置管理
+SaveConfToHost=保存当前配置到本地
+ImportConf=导入配置
+LMDBeforImpConf=导入前恢复出厂设置
+SelConfFile=请选择配置文件
+Import=导入
+LoadManufactureDef=恢复设备出厂
+Recover=恢复
+Attention=注意
+LMDMessage=恢复出厂设置后，所有的配置都删除，建议先备份当前配置。执行本操作后，需重启才能生效。
+warning1=请指定配置文件
+warning2=注意：如果配置文件不正确，将导致现有配置被清空
+warning3=恢复出厂配置？
+warning4=建议先保存现有配置。您确定要继续吗？
+RebootNow=恢复出厂需要重启才能生效!

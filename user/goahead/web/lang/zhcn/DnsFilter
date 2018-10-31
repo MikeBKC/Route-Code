@@ -1,0 +1,20 @@
+dns_delTip=您的选择有误，请选择正确的域名！
+dns_domain=域名名称
+dns_dnsFilter=域名过滤
+dns_dnsFilterConfig=域名过滤配置
+dns_dnsFilterNotice=域名过滤通告
+dns_start=启用域名过滤
+dns_startTip=打勾表示启用域名过滤功能，只有启用域名过滤，配置的域名过滤才生效。
+dns_effectWay=策略生效方式
+dns_accept=只禁止域名列表中的域名，其余允许
+dns_forbiden=只允许域名列表中的域名，其余禁止
+dns_netAction=选择管理对象
+dns_effectTime=生效时段
+dns_allTime=所有时段
+dns_dnsTip=域名名称中输入通配符“*”来实现对多个域名的过滤，例如在域名名称中输入 www.163.*  ，<br/>内网用户将不能访问以  www.163.  开头的所有网页。
+dns_dnsList=域名列表
+dns_addTip=没有空闲实例可增加！
+dns_existTip=域名名称已经存在，请重新输入！
+dns_include=只能由数字、字母、-、.和*组成
+dns_delete=您真的要删除所有域名？
+

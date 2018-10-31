@@ -1,0 +1,5 @@
+auth_input=需要認證上網！請輸入您的用戶名和密碼！
+auth_tip=提示：請允許本網站的彈出框通知，否則您可能無法正常上網！
+auth_success=認證成功！
+auth_fail=認證失敗！
+auth_enter=登 錄

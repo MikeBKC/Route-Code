@@ -1,0 +1,7 @@
+SelectOpMode=Choose Internet Access Mode:
+WAN1Conf=WAN1
+WAN2Conf=WAN2
+G3ClientConf=3G
+WireLessClientConf=APClient
+LeavePage=Exit
+SecondTitle=Setup Wizard - Internet Access Mode

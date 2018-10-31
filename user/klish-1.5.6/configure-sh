@@ -1,0 +1,1 @@
+./configure CC=/opt/buildroot-gcc342/bin/mipsel-linux-uclibc-gcc CXX=/opt/buildroot-gcc342/bin/mipsel-linux-uclibc-g++ --build=i686-linux --host=mipsel-linux  --enable-shared

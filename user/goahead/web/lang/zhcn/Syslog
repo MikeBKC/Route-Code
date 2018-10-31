@@ -1,0 +1,8 @@
+Syslog_en=启用syslog服务
+Syslog_ServerIp=syslog 服务器的地址(域名)
+Syslog_ServerPort=syslog 服务器的端口
+Syslog_MesType=syslog 消息类型
+Syslog_Domain_Len=IP地址（域名长度）不得超过超过67位
+Syslog_Port_Num=端口应为1到65535之间的数字
+ServerIpNotNone=syslog 服务器的地址(域名)不能为0.0.0.0
+Syslog_InterVal=syslog 消息发送间隔

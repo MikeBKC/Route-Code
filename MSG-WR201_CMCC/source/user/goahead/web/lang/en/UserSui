@@ -1,0 +1,16 @@
+UserMesList=Administrator List
+UserMaxMes=Maximum number of administrator accounts has been reached. Cannot add new account.
+MakeSureDel=Are you sure you want to delete?
+MakeSureDelAll=Are you sure you want to delete all entries?
+AddNew=Add
+DelAll=Delete All
+UserMes=administrator account
+SecondTitle=Administrator
+Select=Select All
+usr_nowBit=Current Traffic
+usr_totalBit=Total Bandwidth
+usr_username=Username
+usr_onlineTime=Online<br>Time
+usr_down=Rx.
+usr_up=Tx.
+usr_noNew=no information

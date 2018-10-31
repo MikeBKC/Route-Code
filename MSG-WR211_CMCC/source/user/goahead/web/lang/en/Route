@@ -1,0 +1,9 @@
+rou_routeList=Static Route List
+rou_routeInfo=static route
+rou_routeConf=Static Route
+rou_routeName=Route Name
+rou_destNet=Destination IP
+rou_startTip=Select the check box to make the static route take effect. 
+rou_priTip=The smaller the number, the higher the priority.
+rou_set=Static Route Settings
+rou_noModify=Do not modify

@@ -1,0 +1,11 @@
+msg_logout=已註銷！
+msg_helpOne=您的認證已經成功！
+msg_helpTwo=您可以点击<安全下线>,安全及时的完成下线动作！
+msg_helpThree=若此页面被意外关闭了，您可以访问页面
+msg_helpFour=进行您想要的操作！
+msg_modifyPasswd=修改密码
+msg_disConnect=安全下线
+msg_leftTime=剩余时间：
+msg_effectData=有效日期：
+msg_unlimited=不限时间
+msg_forEver=永久
